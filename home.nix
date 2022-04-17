@@ -32,13 +32,13 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.neovim.enable = true;
+#   programs.neovim.enable = true;
   programs.htop.enable = true;
 
   imports = [
 	./git.nix
 	./fish.nix
-	#./nvim.nix
+	./nvim.nix
 	#./tmux.nix
   ];
 }
