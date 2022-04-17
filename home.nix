@@ -16,15 +16,29 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
+  home.packages = [
+    pkgs.ripgrep
+    pkgs.bat
+    pkgs.fd
+    pkgs.exa
+    pkgs.fzf
+    pkgs.icdiff
+    pkgs.coreutils
+    pkgs.jq
+    #pkgs.avrdude
+    #pkgs.qmk
+  ];
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.fish = { 
-	enable = true;
-  };
+
   programs.neovim.enable = true;
   programs.htop.enable = true;
 
-  #packages = with pkgs; [
-    #ripgrep
-  #];
+  imports = [
+	./git.nix
+	./fish.nix
+	#./nvim.nix
+	#./tmux.nix
+  ];
 }
