@@ -36,9 +36,9 @@
 		gl = "git log";
 		gb = "git branch -a";
 		gco = "git co";
-	 	gcob = "git cob";
+		gcob = "git cob";
 		grv = "git remote -v";
-	 	ga = "git add";
+		ga = "git add";
 		gap = "git add -p";
 		gd = "git diff -a";
 		gdw = "git difftool -y --extcmd icdiff -w | less";

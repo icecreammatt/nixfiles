@@ -18,6 +18,7 @@
     programs.neovim = {
         enable = true;
         plugins = with pkgs.vimPlugins; [
+            nerdtree
             vim-nix
             auto-pairs
             fugitive
@@ -26,6 +27,8 @@
             surround
             base16-vim
             vim-easymotion
+            coc-tsserver
+            neoterm
         ];
 
         extraConfig = ''
@@ -47,6 +50,41 @@
             noremap <c-s> :w<CR>
             imap <c-s> <Esc>:w<CR>a
             imap <c-s> <Esc><c-s>
+
+            map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+
+            map <leader>b :NERDTreeToggle<CR>
+            map <leader>f :NERDTreeFind<CR>
+
+            map <leader>n :set number!<CR>
+            map <leader>e :s/&/\r&/g<CR>
+
+            let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$', 'node_modules$', 'build$', '\.git', '\.svn']
+
+            "{ NERDTree Settings
+              autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+              autocmd StdinReadPre * let s:std_in=1
+              autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+            "}
+
+            set listchars=tab:│\ ,nbsp:·
+            set list " View whitespace
+
+            nnoremap <c-p> :FZF<CR>
+
+
+            map <leader>l <Plug>(easymotion-lineforward)
+            map <leader>j <Plug>(easymotion-j)
+            map <leader>k <Plug>(easymotion-k)
+            map <leader>h <Plug>(easymotion-linebackward)
+
+            "{ Easymotion
+            let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+            map / <Plug>(easymotion-sn)
+            omap / <Plug>(easymotion-tn)
+            map n <Plug>(easymotion-next)
+            map N <Plug>(easymotion-prev)
+            "}
 
             let base16colorspace=256  " Access colors present in 256 colorspace
             set nocompatible            " disable compatibility to old-time vi
@@ -119,8 +157,6 @@
             au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
                 \| exe "normal! g'\"" | endif
             endif
-
-
 
         '';
     };
