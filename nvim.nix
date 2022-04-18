@@ -27,8 +27,9 @@
             surround
             base16-vim
             vim-easymotion
-            coc-tsserver
+            #coc-tsserver
             neoterm
+            commentary
         ];
 
         extraConfig = ''

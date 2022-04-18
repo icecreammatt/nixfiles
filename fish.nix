@@ -52,6 +52,7 @@
 		cat="bat -p";
 		ehosts="sudo vi /etc/hosts";
 		memory = "ps -A u | sort -k 4 -r | head";
+
 		tm="tmux -2 new -s '(basename '(pwd)')'";
 		tma="tmux -2 attach -d -t";
 		tmk="tmux kill-session -t";
@@ -59,6 +60,7 @@
 		tmn="tmux new-session -t base";
 		tmr="tmux rename-session -t";
 		tmux="tmux -2";
+
 		vi = "nvim";
 		vim = "nvim";
 		vimrc = "vim ~/nixfiles/nvim.nix";
