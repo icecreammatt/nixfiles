@@ -18,6 +18,7 @@
     programs.neovim = {
         enable = true;
         plugins = with pkgs.vimPlugins; [
+            vim-nix
             auto-pairs
             fugitive
             fzf-vim
