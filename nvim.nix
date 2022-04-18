@@ -1,5 +1,5 @@
 { config, pkgs, lib, vimUtils, ... }:
-
+ 
 # let
 #   # installs a vim plugin from git with a given tag / branch
 #   pluginGit = ref: repo: vimUtils.buildVimPluginFrom2Nix {
@@ -28,6 +28,26 @@
         ];
 
         extraConfig = ''
+
+            let mapleader = ","
+
+            noremap H ^
+            noremap L $
+
+            nnoremap <space> <C-d>
+            nnoremap <leader><space> <C-u>
+
+            " Allows tab to indent and switch between tabs
+            vnoremap <Tab> >gv
+            vnoremap <S-Tab> <gv
+            nnoremap <S-TAB> :bprev<CR>
+            nnoremap <TAB> :bnext<CR>
+
+            noremap <c-s> :w<CR>
+            imap <c-s> <Esc>:w<CR>a
+            imap <c-s> <Esc><c-s>
+
+            let base16colorspace=256  " Access colors present in 256 colorspace
             set nocompatible            " disable compatibility to old-time vi
             set showmatch               " show matching 
             set ignorecase              " case insensitive 
