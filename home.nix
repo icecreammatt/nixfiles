@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "matt";
-  home.homeDirectory = "/Users/matt";
+  home.username = (builtins.fromJSON(builtins.readFile ./config.json)).username;
+  home.homeDirectory = (builtins.fromJSON(builtins.readFile ./config.json)).homedir;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
