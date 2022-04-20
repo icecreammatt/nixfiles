@@ -159,6 +159,27 @@
                 \| exe "normal! g'\"" | endif
             endif
 
+            function! TmuxMove(direction)
+                    let wnr = winnr()
+                    silent! execute 'wincmd ' . a:direction
+                    " If the winnr is still the same after we moved, it is the last pane
+                    if wnr == winnr()
+                            call system('tmux select-pane -' . tr(a:direction, 'phjkl', 'lLDUR'))
+                    end
+            endfunction
+
+            nnoremap <silent> <C-Left> :call TmuxMove('h')<cr>
+            nnoremap <silent> <C-Down> :call TmuxMove('j')<cr>
+            nnoremap <silent> <C-Up> :call TmuxMove('k')<cr>
+            nnoremap <silent> <C-Right> :call TmuxMove('l')<cr>
+
+            nnoremap <silent> <C-h> :call TmuxMove('h')<cr>
+            nnoremap <silent> <C-j> :call TmuxMove('j')<cr>
+            nnoremap <silent> <C-k> :call TmuxMove('k')<cr>
+            nnoremap <silent> <C-l> :call TmuxMove('l')<cr>
+
+
+
         '';
     };
 }

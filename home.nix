@@ -39,6 +39,6 @@
 	./git.nix
 	./fish.nix
 	./nvim.nix
-	#./tmux.nix
+	./tmux.nix
   ];
 }
