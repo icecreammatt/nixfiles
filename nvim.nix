@@ -20,7 +20,7 @@
         plugins = with pkgs.vimPlugins; [
             nerdtree
             vim-nix
-            auto-pairs
+            # auto-pairs
             fugitive
             fzf-vim
             fzfWrapper
