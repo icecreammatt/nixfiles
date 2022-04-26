@@ -49,6 +49,7 @@
 		l = "exa -lh";
 		ll = "exa -lah";
 		ls = "exa";
+        la = "exa -la";
 		cat="bat -p";
 		ehosts="sudo vi /etc/hosts";
 		memory = "ps -A u | sort -k 4 -r | head";
@@ -64,10 +65,10 @@
 		vi = "nvim";
 		vim = "nvim";
 		vimrc = "vim ~/nixfiles/nvim.nix";
-		code = "open -a 'Visual Studio Code.app' $argv";
 		sm = "merge";
 		merge = "open -n -a \"Sublime Merge\" .";
-		c = "code .";
+        bane = "bane2";
+        c = "code .";
 	};
 	shellAbbrs = {
 		o = "open . &";
