@@ -12,6 +12,10 @@
 	      sha256 = "sha256-eSNUqvKXTxcuvICxo8BmVWL1ESXQuU7VhOl7aONrhwM=";
 	    };
 	}];
+    shellInit = ''
+      fish_add_path $HOME/.npm-global/bin
+      export EDITOR=nvim
+    '';
 	shellAliases = {
 		amend="git commit --amend --no-edit";
 		df = "df -h";
