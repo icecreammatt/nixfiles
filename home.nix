@@ -25,6 +25,7 @@
     pkgs.icdiff
     pkgs.coreutils
     pkgs.jq
+    pkgs.tig
     #pkgs.avrdude
     #pkgs.qmk
   ];
