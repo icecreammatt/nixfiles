@@ -26,6 +26,7 @@
     pkgs.coreutils
     pkgs.jq
     pkgs.tig
+    pkgs.gron
     #pkgs.avrdude
     #pkgs.qmk
   ];
