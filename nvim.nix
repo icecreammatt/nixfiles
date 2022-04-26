@@ -1,4 +1,6 @@
 { config, pkgs, lib, vimUtils, ... }:
+
+# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/Ligatures/Thin/complete ttf
  
 # let
 #   # installs a vim plugin from git with a given tag / branch
@@ -18,23 +20,26 @@
     programs.neovim = {
         enable = true;
         plugins = with pkgs.vimPlugins; [
+            gitgutter
+            vim-fugitive
+            vim-devicons
             nerdtree
             vim-nix
-            # auto-pairs
             fugitive
             fzf-vim
             fzfWrapper
             surround
-            base16-vim
             vim-easymotion
-            #coc-tsserver
             neoterm
             commentary
+            #base16-vim
+            #coc-tsserver
         ];
 
         extraConfig = ''
 
             let mapleader = ","
+
 
             noremap H ^
             noremap L $
@@ -63,13 +68,15 @@
             let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$', 'node_modules$', 'build$', '\.git', '\.svn']
 
             "{ NERDTree Settings
-              autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-              autocmd StdinReadPre * let s:std_in=1
-              autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+              " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+              " autocmd StdinReadPre * let s:std_in=1
+              " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
             "}
 
             set listchars=tab:│\ ,nbsp:·
             set list " View whitespace
+            set laststatus=3
+            highlight WinSeparator guibg=None
 
             nnoremap <c-p> :FZF<CR>
 
@@ -99,15 +106,16 @@
             set expandtab               " converts tabs to white space
             set shiftwidth=4            " width for autoindents
             set autoindent              " indent a new line the same amount as the line just typed
-            set number                  " add line numbers
+            " set number                  " add line numbers
             set wildmode=longest,list   " get bash-like tab completions
             " set cc=80                  " set an 80 column border for good coding style
             filetype plugin indent on   "allow auto-indenting depending on file type
             syntax on                   " syntax highlighting
-            set mouse=a                 " enable mouse click
+            " set mouse=a                 " enable mouse click
             set clipboard=unnamedplus   " using system clipboard
             filetype plugin on
             set cursorline              " highlight current cursorline
+            hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=NONE
             set ttyfast                 " Speed up scrolling in Vim
             " set spell                 " enable spell check (may need to download language package)
             " set noswapfile            " disable creating swap file
