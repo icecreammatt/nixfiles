@@ -102,6 +102,7 @@
             # set -g @plugin 'git@bitbucket.com/user/plugin'
             set -g @plugin 'tmux-plugins/tmux-resurrect'
             set -g @plugin 'tmux-plugins/tmux-continuum'
+            TMUX_FZF_LAUNCH_KEY="C-f"
 
             # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
             # run '~/.tmux/plugins/tpm/tpm'
