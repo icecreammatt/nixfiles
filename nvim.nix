@@ -115,7 +115,7 @@
             set clipboard=unnamedplus   " using system clipboard
             filetype plugin on
             set cursorline              " highlight current cursorline
-            hi CursorLine cterm=NONE ctermbg=DarkGrey ctermfg=NONE
+            hi CursorLine cterm=NONE ctermbg=Black ctermfg=NONE
             hi SignColumn cterm=NONE ctermbg=NONE ctermfg=NONE
             set ttyfast                 " Speed up scrolling in Vim
             " set spell                 " enable spell check (may need to download language package)
