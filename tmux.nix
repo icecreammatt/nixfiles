@@ -10,11 +10,11 @@
             bind-key 'C-o' send-prefix
 
             # force a reload of the config file
-            unbind r
+            # unbind r
             # bind r source-file ~/.tmux.conf
 
             # force a reload of the theme config file
-            unbind t
+            # unbind t
             # bind t source-file ~/.tmux.theme
             # bind t source-file ~/dotfiles/configs/tomorrow.tmux.theme
 
