@@ -18,6 +18,7 @@
       export EDITOR=nvim
     '';
     shellAliases = {
+        flushdns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
         amend="git commit --amend --no-edit";
         df = "df -h";
         diff = "diff -u";
