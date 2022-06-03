@@ -28,7 +28,6 @@
         gp = "git pull --rebase";
         gprom = "git pull --rebase origin/main || git pull --rebase origin/master";
         grom = "git rebase origin/main || git rebase origin/master";
-
         gpom = "git push -u origin main || git push -u origin master";
         grc = "git rebase --continue";
         gcm = "git checkout main || git checkout master || git checkout trunk";
@@ -47,9 +46,9 @@
         ga = "git add";
         gap = "git add -p";
         gd = "git diff -a";
-        gdw = "git difftool -y --extcmd icdiff -w | less";
-        gdc = "git difftool -y --extcmd icdiff --cached | less";
-        gdcw = "git difftool -y --extcmd icdiff --cached -w | less";
+        gdw = "git difftool -y --extcmd icdiff -w | less -R";
+        gdc = "git difftool -y --extcmd icdiff --cached | less -R";
+        gdcw = "git difftool -y --extcmd icdiff --cached -w | less -R";
         ealias = "vi ~/nixfiles/fish.nix";
         hmbs = "home-manager build && home-manager switch";
         l = "exa -lh";
