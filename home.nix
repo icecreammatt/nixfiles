@@ -27,6 +27,7 @@
     pkgs.jq
     pkgs.tig
     pkgs.gron
+    pkgs.gh
     #pkgs.avrdude
     #pkgs.qmk
   ];
