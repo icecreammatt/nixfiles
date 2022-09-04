@@ -51,6 +51,7 @@
         gdw = "git difftool -y --extcmd icdiff -w | less -R";
         gdc = "git difftool -y --extcmd icdiff --cached | less -R";
         gdcw = "git difftool -y --extcmd icdiff --cached -w | less -R";
+        ghb = "gh browse";
         ealias = "vi ~/nixfiles/fish.nix";
         hmbs = "home-manager build && home-manager switch";
         l = "exa -lh";
