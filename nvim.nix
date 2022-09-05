@@ -155,11 +155,11 @@
             nnoremap <C-l> <C-w>l
 
             " Press i to enter insert mode, and ii to exit insert mode.
-            :inoremap ii <Esc>
-            :inoremap jk <Esc>
-            :inoremap kj <Esc>
-            :vnoremap jk <Esc>
-            :vnoremap kj <Esc>
+            " :inoremap ii <Esc>
+            " :inoremap jk <Esc>
+            " :inoremap kj <Esc>
+            " :vnoremap jk <Esc>
+            " :vnoremap kj <Esc>
 
 
             " open file in a text by placing text and gf
