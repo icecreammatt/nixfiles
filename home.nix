@@ -22,12 +22,12 @@
     pkgs.fd
     pkgs.exa
     pkgs.fzf
-    pkgs.icdiff
     pkgs.coreutils
     pkgs.jq
     pkgs.tig
     pkgs.gron
     pkgs.gh
+    pkgs.delta
     #pkgs.avrdude
     #pkgs.qmk
   ];

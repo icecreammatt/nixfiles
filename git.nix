@@ -22,7 +22,18 @@ programs.git = {
 			excludesfile = "/Users/matt/.gitignore_global";
 			autocrlf = "input";
 			trustctime = false;
-		};
+            pager = "delta";
+        };
+        interactive = {
+            diffFilter = "delta --color-only";
+        };
+        delta = {
+            navigate = true;    # use n and N to move between diff sections
+            light = false;      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+            syntax-theme = "Dracula";
+            side-by-side = "true";
+            line-numbers = "true";
+        };
 		color = { ui = true; };
 	};
 };

@@ -51,9 +51,9 @@
         ga = "git add";
         gap = "git add -p";
         gd = "git diff -a";
-        gdw = "git difftool -y --extcmd icdiff -w | less -R";
-        gdc = "git difftool -y --extcmd icdiff --cached | less -R";
-        gdcw = "git difftool -y --extcmd icdiff --cached -w | less -R";
+        gdw = "git diff -w ";
+        gdc = "git diff --cached";
+        gdcw = "git diff --cached -w";
         ghb = "gh browse";
         ealias = "vi ~/nixfiles/fish.nix";
         hmbs = "home-manager build && home-manager switch";
