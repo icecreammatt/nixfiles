@@ -28,8 +28,8 @@
     pkgs.tig
     pkgs.gron
     pkgs.gh
-    #pkgs.avrdude
-    #pkgs.qmk
+    pkgs.avrdude
+    pkgs.qmk
   ];
 
   # Let Home Manager install and manage itself.
