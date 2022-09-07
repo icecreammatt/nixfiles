@@ -19,6 +19,7 @@
       export EDITOR=nvim
     '';
     shellAliases = {
+        nixfiles = "cd ~/nixfiles";
         flushdns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
         amend="git commit --amend --no-edit";
         df = "df -h";
