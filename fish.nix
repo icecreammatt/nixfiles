@@ -13,6 +13,7 @@
         };
     }];
     shellInit = ''
+      fish_add_path $HOME/.nix-profile/bin
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/bin
       fish_add_path /opt/homebrew/bin
