@@ -43,6 +43,7 @@
     pkgs.gifsicle
     pkgs.gist
     pkgs.s3cmd
+    pkgs.reattach-to-user-namespace
     #pkgs.avrdude
     #pkgs.qmk
   ];
