@@ -15,29 +15,12 @@
             set -g prefix 'C-o'
             bind-key 'C-o' send-prefix
 
-            # force a reload of the config file
-            # unbind r
-            # bind r source-file ~/.tmux.conf
-
-            # force a reload of the theme config file
-            # unbind t
-            # bind t source-file ~/.tmux.theme
-            # bind t source-file ~/dotfiles/configs/tomorrow.tmux.theme
-
-
             # set aggressive resizing for mixed display sizes and shared sessions
             setw -gq aggressive-resize
 
             # start window numbering at 1 for easier switching
             set -g base-index 1
 
-            # unicode
-            # setw -gq utf8 on
-            # set -gq status-utf8 on
-
-            # status bar config
-            # set -g status-left "#h:[#S]"
-            # set -g status-left "[#S]"
             set -g status-left ""
             set -g status-left-length 50
             set -g status-right-length 50
@@ -55,13 +38,6 @@
             bind v split-window -h -c "#{pane_current_path}"
             bind s split-window -c "#{pane_current_path}"
             bind c new-window -c "#{pane_current_path}"
-
-            # reload config
-            # bind r source-file ~/.tmux.conf \; display-message "tmux configuration file"
-
-            # tmux theme
-            # source-file ~/dotfiles/configs/tomorrow.tmux.theme
-
 
             is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
                 | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'" 
