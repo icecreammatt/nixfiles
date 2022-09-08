@@ -61,7 +61,7 @@
         ll = "exa -lah";
         ls = "exa";
         la = "exa -la";
-        cat="bat -p";
+        cat="bat -p --theme Dracula";
         ehosts="sudo vi /etc/hosts";
         memory = "ps -A u | sort -k 4 -r | head";
 
