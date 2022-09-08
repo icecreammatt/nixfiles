@@ -28,6 +28,21 @@
     pkgs.gron
     pkgs.gh
     pkgs.delta
+    pkgs.wget
+    pkgs.tree
+    pkgs.curl
+    pkgs.bash
+    pkgs.rsync
+    pkgs.tig
+    pkgs.git
+    pkgs.ffmpeg
+    pkgs.coreutils
+    pkgs.mkcert
+    pkgs.git-standup
+    pkgs.imagemagick
+    pkgs.gifsicle
+    pkgs.gist
+    pkgs.s3cmd
     #pkgs.avrdude
     #pkgs.qmk
   ];
