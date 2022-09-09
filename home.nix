@@ -48,6 +48,7 @@
     pkgs.navi
     pkgs.gitui
     pkgs.tldr
+    pkgs.viu
     #pkgs.avrdude
     #pkgs.qmk
   ];
