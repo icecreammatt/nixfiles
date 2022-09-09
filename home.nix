@@ -44,6 +44,9 @@
     pkgs.gist
     pkgs.s3cmd
     pkgs.reattach-to-user-namespace
+    pkgs.nnn
+    pkgs.gitui
+    pkgs.navi
     #pkgs.avrdude
     #pkgs.qmk
   ];
