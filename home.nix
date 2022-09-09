@@ -45,8 +45,8 @@
     pkgs.s3cmd
     pkgs.reattach-to-user-namespace
     pkgs.nnn
-    pkgs.gitui
     pkgs.navi
+    pkgs.gitui
     #pkgs.avrdude
     #pkgs.qmk
   ];
@@ -62,5 +62,6 @@
 	./fish.nix
 	./nvim.nix
 	./tmux.nix
+	./gitui.nix
   ];
 }
