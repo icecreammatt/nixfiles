@@ -19,6 +19,12 @@
       export EDITOR=nvim
     '';
     shellAliases = {
+        "cd.." = "cd ..";
+        "..." = "../..";
+        "...." = "../../..";
+        "....." = "../../../..";
+        "......" = "../../../../..";
+        "......." = "../../../../../..";
         nixfiles = "cd ~/nixfiles";
         flushdns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
         amend="git commit --amend --no-edit";
@@ -56,6 +62,8 @@
         ghb = "gh browse";
         ealias = "vi ~/nixfiles/fish.nix";
         hmbs = "home-manager build && home-manager switch";
+        hmb = "home-manager build";
+        hms = "home-manager switch";
         l = "exa -lh";
         ll = "exa -lah";
         ls = "exa";
