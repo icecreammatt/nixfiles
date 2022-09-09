@@ -33,6 +33,7 @@
         du = "du -h";
         dus = "du -sh";
         g = "git status -s";
+        gui = "gitui";
         gau = "git add -u";
         gp = "git pull --rebase";
         gprom = "git pull --rebase origin/main || git pull --rebase origin/master";
