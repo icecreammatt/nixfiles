@@ -37,9 +37,7 @@
         ];
 
         extraConfig = ''
-
             let mapleader = ","
-
 
             noremap H ^
             noremap L $
