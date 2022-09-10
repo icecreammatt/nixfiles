@@ -18,6 +18,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
   home.packages = [
     pkgs.ripgrep
     pkgs.bat
@@ -51,8 +52,12 @@
     pkgs.gitui
     pkgs.tldr
     pkgs.viu
-    #pkgs.avrdude
-    #pkgs.qmk
+    pkgs.t-rec
+    pkgs.neofetch
+    pkgs.htop
+    #pkgs.peek #- issue on darwin
+    #pkgs.avrdude #- issue on m1
+    #pkgs.qmk #- issue on m1
   ];
 
   imports = [
