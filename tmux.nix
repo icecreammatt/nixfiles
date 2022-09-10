@@ -3,7 +3,17 @@
     programs.tmux = {
         enable = true;
         plugins = with pkgs.tmuxPlugins; [
-          { plugin = dracula; }
+          { 
+            plugin = dracula; 
+            extraConfig = ''
+              set -g @dracula-show-powerline true
+              set -g @dracula-plugins "cpu-usage ram-usage battery time weather"
+              set -g @dracula-refresh-rate 10
+              set -g @dracula-show-location false
+            '';
+          }
+          { plugin = sensible; }
+          { plugin = extrakto; }
         ];
         extraConfig = ''
             set-environment -g PATH  "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$HOME/.cargo/bin"
@@ -13,19 +23,21 @@
             set -g prefix 'C-o'
             bind-key 'C-o' send-prefix
 
+            set-option -g status-position top
+
             # set aggressive resizing for mixed display sizes and shared sessions
             setw -gq aggressive-resize
 
             # start window numbering at 1 for easier switching
             set -g base-index 1
 
-            set -g status-left ""
-            set -g status-left-length 50
-            set -g status-right-length 50
-            set -g status-right "#() | %H:%M %d-%h-%Y "
-            setw -g window-status-current-format "|#I:#W|"
-            set-window-option -g automatic-rename on
-            set-option -g allow-rename on
+            # set -g status-left ""
+            # set -g status-left-length 50
+            # set -g status-right-length 50
+            # set -g status-right "#() | %H:%M %d-%h-%Y "
+            # setw -g window-status-current-format "|#I:#W|"
+            # set-window-option -g automatic-rename on
+            # set-option -g allow-rename on
 
             set -g history-limit 10000
 
@@ -72,22 +84,12 @@
 
             # https://github.com/tmux/tmux/issues/754
 
-            # List of plugins
-            set -g @plugin 'tmux-plugins/tpm'
-            set -g @plugin 'tmux-plugins/tmux-sensible'
-
             # Other examples:
             # set -g @plugin 'github_username/plugin_name'
             # set -g @plugin 'git@github.com/user/plugin'
             # set -g @plugin 'git@bitbucket.com/user/plugin'
-            set -g @plugin 'tmux-plugins/dracula'
-            #set -g @plugin 'tmux-plugins/tmux-copycat' broken with tmux 4.x
-            #set -g @plugin 'tmux-plugins/tmux-resurrect'
-            #set -g @plugin 'tmux-plugins/tmux-continuum'
-            TMUX_FZF_LAUNCH_KEY="C-f"
 
-            # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-            # run '~/.tmux/plugins/tpm/tpm'
+            TMUX_FZF_LAUNCH_KEY="C-f"
 
             set-option -g default-shell $HOME/.nix-profile/bin/fish
             set -g default-command $HOME/.nix-profile/bin/fish
