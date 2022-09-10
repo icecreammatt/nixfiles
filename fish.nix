@@ -27,6 +27,7 @@
         "....." = "../../../..";
         "......" = "../../../../..";
         "......." = "../../../../../..";
+        dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
         flushdns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
         amend="git commit --amend --no-edit";
