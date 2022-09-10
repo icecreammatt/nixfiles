@@ -17,6 +17,8 @@
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/bin
       export EDITOR=nvim
+      navi widget fish | source
+      export FZF_DEFAULT_OPTS="--height 75% --layout=reverse --border --preview='bat --style=numbers --color=always {} || cat {} 2>/dev/null | head -500'"
     '';
     shellAliases = {
         "cd.." = "cd ..";
@@ -73,6 +75,7 @@
         ehosts="sudo vi /etc/hosts";
         memory = "ps -A u | sort -k 4 -r | head";
 
+        navi="navi --path ~/.navi/";
         tm="tmux -2 new -s '(basename '(pwd)')'";
         tma="tmux -2 attach -d -t";
         tmk="tmux kill-session -t";
