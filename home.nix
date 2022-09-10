@@ -16,6 +16,8 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
   home.packages = [
     pkgs.ripgrep
     pkgs.bat
@@ -52,12 +54,6 @@
     #pkgs.avrdude
     #pkgs.qmk
   ];
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-#   programs.neovim.enable = true;
-  programs.htop.enable = true;
 
   imports = [
 	./git.nix
