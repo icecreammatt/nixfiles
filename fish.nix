@@ -4,7 +4,7 @@
   programs.fish = { 
     enable = true;
     plugins = [{
-            name = "fisher";
+        name = "fisher";
         src = pkgs.fetchFromGitHub {
           owner = "PatrickF1";
           repo = "fzf.fish";
@@ -12,15 +12,18 @@
           sha256 = "sha256-eSNUqvKXTxcuvICxo8BmVWL1ESXQuU7VhOl7aONrhwM=";
         };
     }];
+
     shellInit = ''
       fish_add_path $HOME/.nix-profile/bin
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/bin
       export EDITOR=nvim
       navi widget fish | source
-      export FZF_DEFAULT_OPTS="--height 75% --layout=reverse --border --preview='bat --style=numbers --color=always {} || cat {} 2>/dev/null | head -500'"
+      export FZF_DEFAULT_OPTS="--preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} | less -f {}),f2:toggle-preview,ctrl-d:down,ctrl-u:up' --height 75% --layout=reverse --border --preview='bat --style=numbers --color=always {} || cat {} 2>/dev/null | head -500'"
     '';
+
     shellAliases = {
+        "fzf-help" = "echo 'ctrl+option (f -> files, l -> log, s -> status, r -> history, v -> variables, e -> process id)'";
         "cd.." = "cd ..";
         "..." = "../..";
         "...." = "../../..";
