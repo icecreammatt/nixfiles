@@ -76,6 +76,7 @@
         memory = "ps -A u | sort -k 4 -r | head";
 
         navi="navi --path ~/.navi/";
+
         tm="tmux -2 new -s '(basename '(pwd)')'";
         tma="tmux -2 attach -d -t";
         tmk="tmux kill-session -t";
