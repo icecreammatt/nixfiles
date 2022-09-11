@@ -37,7 +37,7 @@
         ];
 
         extraConfig = ''
-            let mapleader = ","
+            luafile ~/.config/nvim/settings.lua
 
             noremap H ^
             noremap L $
@@ -95,12 +95,9 @@
             let base16colorspace=256  " Access colors present in 256 colorspace
             set nocompatible            " disable compatibility to old-time vi
             set showmatch               " show matching 
-            set ignorecase              " case insensitive 
             set mouse=v                 " middle-click paste with 
             set hlsearch                " highlight search 
             set incsearch               " incremental search
-            set tabstop=4               " number of columns occupied by a tab 
-            set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
             set expandtab               " converts tabs to white space
             set shiftwidth=4            " width for autoindents
             set autoindent              " indent a new line the same amount as the line just typed
@@ -108,13 +105,9 @@
             set wildmode=longest,list   " get bash-like tab completions
             " set cc=80                  " set an 80 column border for good coding style
             filetype plugin indent on   "allow auto-indenting depending on file type
-            syntax on                   " syntax highlighting
             " set mouse=a                 " enable mouse click
-            set clipboard=unnamedplus   " using system clipboard
             filetype plugin on
-            set cursorline              " highlight current cursorline
-            hi CursorLine cterm=NONE ctermbg=Black ctermfg=NONE
-            hi SignColumn cterm=NONE ctermbg=NONE ctermfg=NONE
+
             set ttyfast                 " Speed up scrolling in Vim
             " set spell                 " enable spell check (may need to download language package)
             " set noswapfile            " disable creating swap file
@@ -125,19 +118,19 @@
             "     set termguicolors
             " endif
 
+            hi CursorLine cterm=NONE ctermbg=Black ctermfg=NONE
+            hi SignColumn cterm=NONE ctermbg=NONE ctermfg=NONE
+
             highlight GitGutterAdd    guifg=#009900 ctermfg=2
             highlight GitGutterChange guifg=#bbbb00 ctermfg=3
             highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
-            syntax enable
+            "syntax on                   " syntax highlighting
+            "syntax enable
 
             " colorscheme evening 
             " colorscheme dracula
             
-            " open new split panes to right and below
-            set splitright
-            set splitbelow
-
             " move line or visually selected block - alt+j/k
             " inoremap <A-j> <Esc>:m .+1<CR>==gi
             " inoremap <A-k> <Esc>:m .-2<CR>==gi
@@ -193,4 +186,5 @@
 
         '';
     };
+home.file.".config/nvim/settings.lua".source = ./nvim/init.lua;
 }
