@@ -61,10 +61,10 @@
   ];
 
   imports = [
-	./git.nix
-	./fish.nix
-	./nvim.nix
-	./tmux.nix
-	./gitui.nix
+    ./git.nix
+    ./fish.nix
+    ./nvim.nix
+    ./tmux.nix
+    ./gitui.nix
   ];
 }
