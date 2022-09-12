@@ -32,6 +32,7 @@
             vim-easymotion
             neoterm
             commentary
+            lualine-nvim
             #base16-vim
             #coc-tsserver
         ];
