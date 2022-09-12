@@ -55,6 +55,9 @@
     pkgs.t-rec
     pkgs.neofetch
     pkgs.htop
+    pkgs.rnix-lsp
+    pkgs.sumneko-lua-language-server
+    # pkgs.svelte-language-server
     #pkgs.peek #- issue on darwin
     #pkgs.avrdude #- issue on m1
     #pkgs.qmk #- issue on m1

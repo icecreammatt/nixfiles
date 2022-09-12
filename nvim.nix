@@ -15,6 +15,10 @@
 
 # plugin = pluginGit "HEAD";
 
+# tokyonight-nvim
+            # nerdtree
+
+
 # in {
 {
     programs.neovim = {
@@ -23,7 +27,6 @@
             gitgutter
             vim-fugitive
             vim-devicons
-            nerdtree
             vim-nix
             fugitive
             fzf-vim
@@ -32,13 +35,34 @@
             vim-easymotion
             neoterm
             commentary
+            nvim-compe
+            nvim-lspconfig
             lualine-nvim
+            nvim-web-devicons
+            nvim-tree-lua
+            vim-svelte
+            indentLine
+            # Eyecandy
+            bufferline-nvim
+            nvim-treesitter
             #base16-vim
             #coc-tsserver
         ];
 
         extraConfig = ''
             luafile ~/.config/nvim/settings.lua
+            " luafile ~/.config/nvim/nvim-treesitter.config
+            "autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252
+            "autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg
+
+
+            " lua << EOF
+            " vim.defer_fn(function()
+            "   vim.cmd [[
+            "     luafile ~/.config/nvim/lua/lsp.lua
+            "   ]]
+            " end, 70)
+            " EOF
 
             noremap H ^
             noremap L $
@@ -58,8 +82,9 @@
 
             map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
-            map <leader>b :NERDTreeToggle<CR>
-            map <leader>f :NERDTreeFind<CR>
+            "map <leader>b :NERDTreeToggle<CR>
+            "map <leader>f :NERDTreeFind<CR>
+            map <leader>b :NvimTreeToggle<CR>
 
             map <leader>n :set number!<CR>
             map <leader>e :s/&/\r&/g<CR>
@@ -188,4 +213,5 @@
         '';
     };
 home.file.".config/nvim/settings.lua".source = ./nvim/init.lua;
+# home.file.".config/nvim/lualine.lua".source = ./nvim/lualine.lua;
 }
