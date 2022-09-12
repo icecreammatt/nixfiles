@@ -68,7 +68,7 @@
         gdcw = "git diff --cached -w";
         ghb = "gh browse";
         ealias = "vi ~/nixfiles/fish.nix";
-        hmbs = "home-manager build && home-manager switch";
+        hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
         hmb = "home-manager build";
         hms = "home-manager switch";
         l = "exa -lh";
