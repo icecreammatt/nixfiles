@@ -18,6 +18,7 @@
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/bin
       export EDITOR=nvim
+      export BAT_THEME=Dracula
       navi widget fish | source
       export FZF_DEFAULT_OPTS="--preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} | less -f {}),f2:toggle-preview,ctrl-d:down,ctrl-u:up' --height 75% --layout=reverse --border --preview='bat --style=numbers --color=always {} || cat {} 2>/dev/null | head -500'"
     '';
