@@ -18,6 +18,10 @@
         extraConfig = ''
             unbind f
             bind -n C-f send-keys 'tab'
+
+            unbind r
+            bind -n C-r source ~/.config/tmux/tmux.conf
+
             set-environment -g PATH  "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$HOME/.cargo/bin"
 
             # Change ctrl-b default tmux activation to ctrl-o
