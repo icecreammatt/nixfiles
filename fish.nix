@@ -20,7 +20,7 @@
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/bin
       export EDITOR=nvim
-      export BAT_THEME=Dracula
+      export BAT_THEME="Dracula"
       navi widget fish | source
     '';
 
