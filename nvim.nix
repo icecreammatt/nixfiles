@@ -85,6 +85,11 @@
             "map <leader>b :NERDTreeToggle<CR>
             "map <leader>f :NERDTreeFind<CR>
             map <leader>b :NvimTreeToggle<CR>
+            map <leader>f :Rg<CR>
+            map <leader>r :NvimTreeFindFile<CR>
+            map <leader>p :Command<CR>
+            map <leader>g :GFiles<CR>
+            map <leader>o :Buffers<CR>
 
             map <leader>n :set number!<CR>
             map <leader>e :s/&/\r&/g<CR>
