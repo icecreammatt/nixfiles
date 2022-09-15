@@ -82,7 +82,9 @@
             map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
             map <leader>b :NvimTreeToggle<CR>
-            map <leader>f :Rg<CR>
+
+            map <leader>f :Rg!<CR>
+            map <c-f> :Rg!<CR>
             map <leader>r :NvimTreeFindFile<CR>
             map <leader>p :Command<CR>
             map <leader>g :GFiles<CR>
