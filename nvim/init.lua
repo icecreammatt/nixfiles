@@ -1,7 +1,10 @@
 local o = vim.opt
 local g = vim.g
 
+-- o.termguicolors = true
+
 vim.o.completeopt = "menuone,noselect"
+
 
 -- bufferline settings
 require("bufferline").setup{
@@ -175,8 +178,6 @@ end
 
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-
--- o.termguicolors = true
 
 -- o.syntax = true
 o.cursorline = true
