@@ -88,6 +88,8 @@
             map <leader>r :NvimTreeFindFile<CR>
             map <leader>g :GFiles<CR>
             map <leader>o :Buffers<CR>
+            map <leader><Tab> :Buffers<CR>
+
             nnoremap <c-p> :Files<CR>
 
             map <leader>n :set number!<CR>
