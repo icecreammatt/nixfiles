@@ -101,6 +101,8 @@
             set list " View whitespace
             set laststatus=3
             highlight WinSeparator guibg=None
+            highlight VertSplit cterm=NONE
+            highlight EndOfBuffer ctermfg=black ctermbg=NONE
 
             map <leader>l <Plug>(easymotion-lineforward)
             map <leader>j <Plug>(easymotion-j)
