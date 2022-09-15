@@ -86,9 +86,9 @@
             map <leader>f :Rg!<CR>
             map <c-f> :Rg!<CR>
             map <leader>r :NvimTreeFindFile<CR>
-            map <leader>p :Command<CR>
             map <leader>g :GFiles<CR>
             map <leader>o :Buffers<CR>
+            nnoremap <c-p> :Files<CR>
 
             map <leader>n :set number!<CR>
             map <leader>e :s/&/\r&/g<CR>
@@ -97,9 +97,6 @@
             set list " View whitespace
             set laststatus=3
             highlight WinSeparator guibg=None
-
-            nnoremap <c-p> :FZF<CR>
-
 
             map <leader>l <Plug>(easymotion-lineforward)
             map <leader>j <Plug>(easymotion-j)
