@@ -16,7 +16,6 @@
 # plugin = pluginGit "HEAD";
 
 # tokyonight-nvim
-            # nerdtree
 
 
 # in {
@@ -82,8 +81,6 @@
 
             map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
-            "map <leader>b :NERDTreeToggle<CR>
-            "map <leader>f :NERDTreeFind<CR>
             map <leader>b :NvimTreeToggle<CR>
             map <leader>f :Rg<CR>
             map <leader>r :NvimTreeFindFile<CR>
@@ -93,14 +90,6 @@
 
             map <leader>n :set number!<CR>
             map <leader>e :s/&/\r&/g<CR>
-
-            let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$', 'node_modules$', 'build$', '\.git', '\.svn']
-
-            "{ NERDTree Settings
-              " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-              " autocmd StdinReadPre * let s:std_in=1
-              " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-            "}
 
             set listchars=tab:│\ ,nbsp:·
             set list " View whitespace
