@@ -17,7 +17,6 @@
 
 # tokyonight-nvim
 
-
 # in {
 {
     programs.neovim = {
@@ -85,12 +84,15 @@
 
             map <leader>f :Rg!<CR>
             map <c-f> :Rg!<CR>
+
             map <leader>r :NvimTreeFindFile<CR>
             map <leader>g :GFiles<CR>
+
             map <leader>o :Buffers<CR>
             map <leader><Tab> :Buffers<CR>
 
             nnoremap <c-p> :Files<CR>
+            map <leader>p :Command<CR>
 
             map <leader>n :set number!<CR>
             map <leader>e :s/&/\r&/g<CR>
