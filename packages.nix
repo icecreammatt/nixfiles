@@ -41,6 +41,7 @@
     pkgs.time
     pkgs.gettext
     pkgs.hugo
+    pkgs.caddy
     pkgs.sumneko-lua-language-server
     # pkgs.svelte-language-server
     #pkgs.peek #- issue on darwin
