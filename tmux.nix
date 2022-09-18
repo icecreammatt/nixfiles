@@ -14,6 +14,13 @@
           }
           { plugin = sensible; }
           { plugin = extrakto; }
+          { 
+            plugin = tmux-fzf; 
+            extraConfig = ''
+              set -g @plugin 'sainnhe/tmux-fzf'
+              TMUX_FZF_LAUNCH_KEY="C-f"
+            '';
+          }
         ];
         extraConfig = ''
             set-environment -g PATH  "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$HOME/.cargo/bin"
@@ -94,8 +101,6 @@
             # set -g @plugin 'github_username/plugin_name'
             # set -g @plugin 'git@github.com/user/plugin'
             # set -g @plugin 'git@bitbucket.com/user/plugin'
-
-            TMUX_FZF_LAUNCH_KEY="C-f"
 
             set-option -g default-shell $HOME/.nix-profile/bin/fish
             set -g default-command $HOME/.nix-profile/bin/fish
