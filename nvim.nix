@@ -109,13 +109,11 @@
             map <leader>k <Plug>(easymotion-k)
             map <leader>h <Plug>(easymotion-linebackward)
 
-            "{ Easymotion
             let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
             map / <Plug>(easymotion-sn)
             omap / <Plug>(easymotion-tn)
             map n <Plug>(easymotion-next)
             map N <Plug>(easymotion-prev)
-            "}
 
             let base16colorspace=256  " Access colors present in 256 colorspace
             set nocompatible            " disable compatibility to old-time vi
@@ -206,7 +204,6 @@
             nnoremap <silent> <C-j> :call TmuxMove('j')<cr>
             nnoremap <silent> <C-k> :call TmuxMove('k')<cr>
             nnoremap <silent> <C-l> :call TmuxMove('l')<cr>
-
 
 
         '';
