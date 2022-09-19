@@ -102,6 +102,7 @@ require('lualine').setup {
 
 require'lspconfig'.rnix.setup{}
 require'lspconfig'.svelte.setup{}
+require'lspconfig'.tsserver.setup{}
 
 require'lspconfig'.sumneko_lua.setup {
   settings = {
