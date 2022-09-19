@@ -80,7 +80,7 @@
 
             map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
-            map <leader>b :NvimTreeToggle<CR>
+            map <leader>d :NvimTreeToggle<CR>
 
             map <leader>f :Rg!<CR>
             map <c-f> :Rg!<CR>
