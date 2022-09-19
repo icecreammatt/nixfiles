@@ -13,7 +13,12 @@
             '';
           }
           { plugin = sensible; }
-          { plugin = extrakto; }
+          { 
+            plugin = extrakto; 
+            extraConfig = ''
+              set -g @extrakto_filter_order "line word all"
+            '';
+          }
           { 
             plugin = tmux-fzf; 
             extraConfig = ''
