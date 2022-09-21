@@ -43,6 +43,8 @@
     pkgs.hugo
     pkgs.caddy
     pkgs.sumneko-lua-language-server
+    pkgs.nodePackages.typescript-language-server
+    pkgs.nodejs-16_x
     # pkgs.svelte-language-server
     #pkgs.peek #- issue on darwin
     #pkgs.avrdude #- issue on m1
