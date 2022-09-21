@@ -5,6 +5,7 @@ local g = vim.g
 
 vim.o.completeopt = "menuone,noselect"
 
+g.indentLine_setConceal = 0
 
 -- bufferline settings
 require("bufferline").setup{
