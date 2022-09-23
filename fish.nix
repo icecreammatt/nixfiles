@@ -19,6 +19,7 @@
       fish_add_path $HOME/.nix-profile/bin
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/bin
+      fish_add_path $HOME/.nvm/versions/node/v16.13.1/bin
       export EDITOR=nvim
       export BAT_THEME="Dracula"
       navi widget fish | source
