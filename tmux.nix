@@ -35,6 +35,8 @@
             set -g prefix 'C-o'
             bind-key 'C-o' send-prefix
 
+            bind-key -n 'F12' resize-pane -Z
+
             set-option -g status-position top
 
             # Undercurl
