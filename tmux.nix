@@ -39,6 +39,8 @@
 
             set-option -g status-position top
 
+            bind r source ~/.config/tmux/tmux.conf; display "~/.config/tmux/tmux.conf sourced!"
+
             # Undercurl
             # set -g default-terminal "{TERM}"
             #set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
