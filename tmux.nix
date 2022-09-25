@@ -39,7 +39,7 @@
 
             set-option -g status-position top
 
-            bind r source ~/.config/tmux/tmux.conf; display "~/.config/tmux/tmux.conf sourced!"
+            bind r source ~/.config/tmux/tmux.conf
 
             # Undercurl
             # set -g default-terminal "{TERM}"
