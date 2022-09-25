@@ -78,6 +78,10 @@
           imap <c-s> <Esc>:w<CR>a
           imap <c-s> <Esc><c-s>
 
+          nmap <c-_> :Commentary<CR>
+          vmap <c-_> :Commentary<CR>
+          imap <c-_> <Esc>:Commentary<CR>i
+
           map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
           map <leader>d :NvimTreeToggle<CR>
