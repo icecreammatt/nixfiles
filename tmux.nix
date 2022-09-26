@@ -114,6 +114,9 @@
             set-option -g default-shell $HOME/.nix-profile/bin/fish
             set -g default-command $HOME/.nix-profile/bin/fish
 
+            set-option -g status-interval 1
+            set-option -g automatic-rename on
+            set-option -g automatic-rename-format "#{?#{==:#{pane_current_command},fish},#{b:pane_current_path},#{pane_current_command}}"
             '';
     };
 }
