@@ -53,6 +53,7 @@
           "autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252
           "autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg
 
+          let g:fzf_history_dir = '~/.fzf-history'
 
           " lua << EOF
           " vim.defer_fn(function()
