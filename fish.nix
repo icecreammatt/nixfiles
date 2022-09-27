@@ -23,7 +23,7 @@
       export EDITOR=nvim
       export BAT_THEME="Dracula"
       navi widget fish | source
-      export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+      export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}"'
     '';
 
     shellAliases = {
