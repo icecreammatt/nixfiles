@@ -24,6 +24,7 @@
       plugins = with pkgs.vimPlugins; [
           commentary
           fugitive
+          fzf-lsp-nvim
           fzf-vim
           fzfWrapper
           gitgutter
