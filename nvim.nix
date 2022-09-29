@@ -41,6 +41,7 @@
           vim-fugitive
           vim-nix
           vim-svelte
+          plenary-nvim
           # Eyecandy
           bufferline-nvim
           nvim_context_vt

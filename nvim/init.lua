@@ -101,6 +101,7 @@ require('lualine').setup {
   extensions = {}
 }
 
+require'fzf_lsp'.setup()
 require'lspconfig'.rnix.setup{}
 require'lspconfig'.svelte.setup{}
 require'lspconfig'.tsserver.setup{}
