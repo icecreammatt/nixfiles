@@ -32,6 +32,8 @@
     pkgs.nnn
     pkgs.navi
     pkgs.gitui
+    pkgs.nss
+    pkgs.nssTools
     pkgs.tldr
     pkgs.viu
     pkgs.t-rec
