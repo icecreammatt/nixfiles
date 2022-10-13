@@ -100,6 +100,12 @@
         npmt="npm test";
         npml="npm run lint";
 
+        pnpmi="pnpm i";
+        pnpmb="pnpm run build";
+        pnpmt="pnpm test";
+        pnpms="pnpm start";
+        pnpml="pnpm run lint";
+
         vi = "nvim";
         vim = "nvim";
         vimrc = "vim ~/nixfiles/nvim.nix";
