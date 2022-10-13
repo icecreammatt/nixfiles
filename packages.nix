@@ -9,6 +9,7 @@
     pkgs.fzf
     pkgs.coreutils
     pkgs.jq
+    pkgs.yq
     pkgs.tig
     pkgs.gron
     pkgs.gh
