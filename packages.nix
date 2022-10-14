@@ -40,6 +40,7 @@
     pkgs.t-rec
     pkgs.neofetch
     pkgs.htop
+    pkgs.bottom
     pkgs.rnix-lsp
     pkgs.time
     pkgs.gettext
