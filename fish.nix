@@ -124,6 +124,10 @@
             description = "git fast commit";
             body = "git commit -m $argv[1]";
         };
+        ggn = {
+            description = "git fast commit, no verify";
+            body = "git commit -m $argv[1] --no-verify";
+        };
         take = {
             description = "make directory and navigate to it";
             body = "mkdir $argv[1]; and cd $argv[1]";
