@@ -36,6 +36,7 @@
         "......." = "../../../../../..";
         dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
+        pkgs = "vi ~/nixfiles/packages.nix";
         Source = "cd ~/Source";
         flushdns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
         amend="git commit --amend --no-edit";
