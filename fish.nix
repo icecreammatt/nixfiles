@@ -103,6 +103,7 @@
         npml="npm run lint";
 
         pnpmi="pnpm i";
+        pnpmr="pnpm run";
         pnpmb="pnpm run build";
         pnpmt="pnpm test";
         pnpms="pnpm start";
