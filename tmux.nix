@@ -36,6 +36,7 @@
             bind-key 'C-o' send-prefix
 
             bind-key -n 'F12' resize-pane -Z
+            bind-key -n 'F3' split-window -v -p 22 'fish'
 
             set-option -g status-position top
 
