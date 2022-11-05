@@ -29,6 +29,7 @@
     pkgs.gifsicle
     pkgs.gist
     pkgs.s3cmd
+    pkgs.awscli
     pkgs.reattach-to-user-namespace
     pkgs.nnn
     pkgs.navi
