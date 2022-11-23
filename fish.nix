@@ -15,6 +15,7 @@
 
     #  export FZF_DEFAULT_OPTS="--preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} | less -f {}),f2:toggle-preview,ctrl-d:down,ctrl-u:up' --height 75% --layout=reverse --border --preview='bat --style=numbers --color=always {} || cat {} 2>/dev/null | head -500'"
 
+
     shellInit = ''
       fish_add_path $HOME/.nix-profile/bin
       fish_add_path $HOME/.npm-global/bin
@@ -85,8 +86,6 @@
         cat="bat -p --theme Dracula";
         ehosts="sudo vi /etc/hosts";
         memory = "ps -A u | sort -k 4 -r | head";
-
-        navi="navi --path ~/.navi/";
 
         tm="tmux -2 new -s '(basename '(pwd)')'";
         tma="tmux -2 attach -d -t";

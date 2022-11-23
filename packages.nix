@@ -1,4 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+
 
 {
   home.packages = [
@@ -33,7 +34,6 @@
     pkgs.awscli
     pkgs.reattach-to-user-namespace
     pkgs.nnn
-    pkgs.navi
     pkgs.gitui
     pkgs.nss
     pkgs.nssTools
@@ -66,5 +66,5 @@
     ./nvim.nix
     ./tmux.nix
     ./gitui.nix
-  ];
+  ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
 }
