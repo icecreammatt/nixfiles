@@ -13,6 +13,7 @@
     pkgs.tig
     pkgs.gron
     pkgs.gh
+    pkgs.python
     pkgs.delta
     pkgs.wget
     pkgs.tree
