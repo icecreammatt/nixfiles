@@ -5,6 +5,7 @@
   home.packages = [
     pkgs.ripgrep
     pkgs.nmap
+    pkgs.kitty
     pkgs.bat
     pkgs.fd
     pkgs.exa
