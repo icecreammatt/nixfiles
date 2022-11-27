@@ -4,6 +4,7 @@
 {
   home.packages = [
     pkgs.ripgrep
+    pkgs.wlr-randr
     pkgs.nmap
     pkgs.kitty
     pkgs.bat
