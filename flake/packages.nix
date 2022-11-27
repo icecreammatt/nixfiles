@@ -7,6 +7,8 @@
     pkgs.nmap
     pkgs.kitty
     pkgs.bat
+    pkgs.dolphin
+    pkgs.rofi-wayland
     pkgs.fd
     pkgs.exa
     pkgs.fzf
