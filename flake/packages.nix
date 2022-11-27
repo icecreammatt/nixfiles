@@ -26,6 +26,7 @@
     pkgs.curl
     pkgs.bash
     pkgs.rsync
+    pkgs.waybar
     pkgs.tig
     pkgs.git
     pkgs.ffmpeg
@@ -74,4 +75,6 @@
     ./tmux.nix
     ./gitui.nix
   ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
+
+  programs.waybar.enable = true;
 }
