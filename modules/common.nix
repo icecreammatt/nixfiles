@@ -32,7 +32,6 @@
     pkgs.gist
     pkgs.s3cmd
     pkgs.awscli
-    pkgs.reattach-to-user-namespace
     pkgs.nnn
     pkgs.gitui
     pkgs.nss
@@ -54,17 +53,18 @@
     pkgs.nodePackages.typescript-language-server
     pkgs.nodejs-16_x
     pkgs.nodePackages.pnpm
+    #pkgs.reattach-to-user-namespace
     # pkgs.svelte-language-server
     #pkgs.peek #- issue on darwin
     #pkgs.avrdude #- issue on m1
     #pkgs.qmk #- issue on m1
   ];
 
-  imports = [
-    ./git.nix
-    ./fish.nix
-    ./nvim.nix
-    ./tmux.nix
-    ./gitui.nix
-  ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
+#  imports = [
+#    ./git.nix
+#    ./fish.nix
+#    ./nvim.nix
+#    ./tmux.nix
+#    ./gitui.nix
+#  ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
 }
