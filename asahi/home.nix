@@ -1,14 +1,14 @@
-{ pkgs, user, ... }:
+{ nixpkgs, user, ... }:
 
 {
-  imports = [
-    ../modules/common.nix
-  ];
+  # imports = [
+  #   ../modules/common.nix
+  # ];
 
   home = {
     username = ${user};
     homeDirectory = "/home/${user}";
-    packages = with pkgs; [
+    packages = with nixpkgs; [
       cowsay
     ];
 

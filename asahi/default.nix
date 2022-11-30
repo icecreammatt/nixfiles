@@ -1,20 +1,24 @@
-{ lib, inputs, nixpkgs, home-manager, user, ...}:
+{ lib, inputs, nixpkgs, home-manager, user, ... }:
 
 let
   system = "aarch64-linux";
+  pkgs = nixpkgs.legacyPackages.${system};
 in
 {
   asahi = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    specialArgs = { inherit inputs user; };
+    extraSpecialArgs = { inherit inputs user; };
     modules = [
-      home-manager.darwinModules.home-manager {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user; };  # Pass flake variable
-        home-manager.users.${user} = import ./home.nix;
+      # ../modules/common.nix
+      # ./home.nix
+      {
+        home = {
+          username = "${user}";
+          homeDirectory = "/home/${user}";
+          packages = [ pkgs.home-manager ];
+          stateVersion = "22.05";
+        };
       }
     ];
   };
-
 }

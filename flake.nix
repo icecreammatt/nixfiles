@@ -20,10 +20,21 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, hyprland, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, hyprland, utils, ... }:
     let
       user = "matt";
-    in
+
+      mkHomeConfiguration = args: home-manager.lib.homeManagerConfiguration (rec {
+        system = args.system or "aarch64-linux";
+        # configuration = import ./home.nix;
+        homeDirectory = "/home/matt";
+        username = "matt";
+        # pkgs = pkgsForSystem system;
+     } // args);
+
+    in utils.lib.eachSystem [ "x86_64-linux" ] (system: rec {
+      # legacyPackages = pkgsForSystem system;
+    })
     {
       darwinConfiguration = (
         import ./darwin {
