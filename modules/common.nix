@@ -48,6 +48,7 @@
     pkgs.hugo
     pkgs.ttyd
     pkgs.go
+    pkgs.xclip
     pkgs.caddy
     pkgs.sumneko-lua-language-server
     pkgs.nodePackages.typescript-language-server
