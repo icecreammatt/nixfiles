@@ -20,28 +20,17 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, hyprland, utils, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, hyprland, ... }:
     let
       user = "matt";
-
-      mkHomeConfiguration = args: home-manager.lib.homeManagerConfiguration (rec {
-        system = args.system or "aarch64-linux";
-        # configuration = import ./home.nix;
-        homeDirectory = "/home/matt";
-        username = "matt";
-        # pkgs = pkgsForSystem system;
-     } // args);
-
-    in utils.lib.eachSystem [ "x86_64-linux" ] (system: rec {
-      # legacyPackages = pkgsForSystem system;
-    })
+    in
     {
-      darwinConfiguration = (
-        import ./darwin {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager darwin user;
-        }
-      );
+  #    darwinConfiguration = (
+  #      import ./darwin {
+  #        inherit (nixpkgs) lib;
+  #        inherit inputs nixpkgs home-manager darwin user;
+  #      }
+  #    );
 
       asahiConfiguration = (
         import ./asahi {
