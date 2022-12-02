@@ -22,20 +22,17 @@
 
   outputs = inputs @ { self, nixpkgs, home-manager, darwin, hyprland, ... }:
     let
-      user = "matt";
+      config.user = {
+        firstName = "Matt";
+        lastName = "Carrier";
+        email = "placeholder@example.com";
+      };
     in
     {
-  #    darwinConfiguration = (
-  #      import ./darwin {
-  #        inherit (nixpkgs) lib;
-  #        inherit inputs nixpkgs home-manager darwin user;
-  #      }
-  #    );
-
       asahiConfiguration = (
         import ./asahi {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager user;
+          inherit inputs nixpkgs home-manager config;
         }
       );
     };

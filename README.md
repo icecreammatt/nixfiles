@@ -1,5 +1,14 @@
 # nixfiles
 
+## Flakes Setup
+
+### Asahi
+
+```bash
+nix build .#asahiConfiguration.asahi.activationPackage
+./result/activate
+```
+
 ## Setup
 
 ### Install nix and home manager

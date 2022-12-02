@@ -15,6 +15,7 @@
     pkgs.gron
     pkgs.gh
     pkgs.python
+    pkgs.bandwhich
     pkgs.delta
     pkgs.wget
     pkgs.tree
