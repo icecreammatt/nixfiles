@@ -15,48 +15,33 @@
 
   outputs = { self, nixpkgs, home-manager, hyprland }:
     let 
-      system = "x86_64-linux";
+      system = "aarch64-linux";
       pkgs = import nixpkgs {
         inherit system;
-	config.allowUnfree = true;
+    config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
         nixos = lib.nixosSystem {
-	  inherit system;
-	  modules = [ 
+      inherit system;
+      modules = [ 
             ./configuration.nix 
 
-	    home-manager.nixosModules.home-manager {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      home-manager.users.matt = {
-	        imports = [ ./home.nix ];
-	      };
-	    }
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.matt = {
+            imports = [ ./home.nix ];
+          };
+        }
 
-	    hyprland.nixosModules.default {
-	      programs.hyprland.enable = true; 
-	    }
+        hyprland.nixosModules.default {
+          programs.hyprland.enable = true; 
+        }
 
           ];
-	};
+    };
       };
-
-      #hmConfig = {
-      #  nixos = home-manager.lib.homeManagerConfiguration {
-          #inherit system pkgs;
-          #username = "matt";
-          #homeDirectory = "/home/matt";
-          #stateVersion = "22.05";
-          #configuration = {
-          #  imports = [
-          #    ./home.nix
-          #  ];
-          #};
-      #  };
-      #};
-
     };
 }

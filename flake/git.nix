@@ -19,7 +19,7 @@ programs.git = {
             defaultBranch = "main";
         };
         core = {
-            excludesfile = "/Users/matt/.gitignore_global";
+            excludesfile = "/home/matt/.gitignore_global";
             autocrlf = "input";
             trustctime = false;
             pager = "delta";
