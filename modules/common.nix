@@ -1,65 +1,65 @@
-{ pkgs, lib, ... }:
+{  pkgs, lib, ... }:
 
 
 {
-  home.packages = [
-    pkgs.ripgrep
-    pkgs.bat
-    pkgs.fd
-    pkgs.exa
-    pkgs.fzf
-    pkgs.coreutils
-    pkgs.jq
-    pkgs.yq
-    pkgs.tig
-    pkgs.gron
-    pkgs.gh
-    pkgs.python
-    pkgs.bandwhich
-    pkgs.delta
-    pkgs.wget
-    pkgs.tree
-    pkgs.curl
-    pkgs.bash
-    pkgs.rsync
-    pkgs.tig
-    pkgs.git
-    pkgs.ffmpeg
-    pkgs.coreutils
-    pkgs.mkcert
-    pkgs.git-standup
-    pkgs.imagemagick
-    pkgs.gifsicle
-    pkgs.gist
-    pkgs.s3cmd
-    pkgs.awscli
-    pkgs.nnn
-    pkgs.gitui
-    pkgs.nss
-    pkgs.nssTools
-    pkgs.tldr
-    pkgs.viu
-    pkgs.t-rec
-    pkgs.neofetch
-    pkgs.htop
-    pkgs.bottom
-    pkgs.rnix-lsp
-    pkgs.time
-    pkgs.gettext
-    pkgs.hugo
-    pkgs.ttyd
-    pkgs.go
-    pkgs.xclip
-    pkgs.caddy
-    pkgs.sumneko-lua-language-server
-    pkgs.nodePackages.typescript-language-server
-    pkgs.nodejs-16_x
-    pkgs.nodePackages.pnpm
-    #pkgs.reattach-to-user-namespace
-    # pkgs.svelte-language-server
-    #pkgs.peek #- issue on darwin
-    #pkgs.avrdude #- issue on m1
-    #pkgs.qmk #- issue on m1
+  home.packages = with pkgs; [
+    ripgrep
+    bat
+    fd
+    exa
+    fzf
+    coreutils
+    jq
+    yq
+    tig
+    gron
+    gh
+    python
+    bandwhich
+    delta
+    wget
+    tree
+    curl
+    bash
+    rsync
+    tig
+    git
+    ffmpeg
+    coreutils
+    mkcert
+    git-standup
+    imagemagick
+    gifsicle
+    gist
+    s3cmd
+    awscli
+    nnn
+    gitui
+    nss
+    nssTools
+    tldr
+    viu
+    t-rec
+    neofetch
+    htop
+    bottom
+    rnix-lsp
+    time
+    gettext
+    hugo
+    ttyd
+    go
+    xclip
+    caddy
+    sumneko-lua-language-server
+    nodePackages.typescript-language-server
+    nodejs-16_x
+    nodePackages.pnpm
+    #reattach-to-user-namespace
+    # svelte-language-server
+    #peek #- issue on darwin
+    #avrdude #- issue on m1
+    #qmk #- issue on m1
   ];
 
 #  imports = [
