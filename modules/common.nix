@@ -64,9 +64,5 @@
 
 #  imports = [
 #    ./git.nix
-#    ./fish.nix
-#    ./nvim.nix
-#    ./tmux.nix
-#    ./gitui.nix
 #  ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
 }
