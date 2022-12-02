@@ -1,13 +1,16 @@
-{ pkgs, ... }:
+{ pkgs,  ... }:
 
+let
+  userName = "mcarrier";
+in
 {
   imports = [
     ../modules/common.nix
   ];
 
   home = {
-    username = "matt";
-    homeDirectory = "/Users/matt";
+    username = "${userName}";
+    homeDirectory = "/Users/${userName}";
     packages = with pkgs; [
       reattach-to-user-namespace
     ];

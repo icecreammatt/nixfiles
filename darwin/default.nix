@@ -1,20 +1,20 @@
-{ lib, inputs, nixpkgs, home-manager, darwin, user, ...}:
+{ lib, inputs, nixpkgs, home-manager, darwin, config, ...}:
 
 let
-  system = "x86_64-darwin";
+  userName = config.user.firstName;
 in
 {
-  macbook = darwin.lib.darwinSystem {
-    inherit system;
-    specialArgs = { inherit user inputs; };
+  work = darwin.lib.darwinSystem {
+    system = "x86_64-darwin";
+    specialArgs = { inherit config inputs; };
     modules = [
-      ./configuration.nix
+      ./home.nix
 
       home-manager.darwinModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user; };  # Pass flake variable
-        home-manager.users.${user} = import ./home.nix;
+        home-manager.extraSpecialArgs = { inherit config; };  # Pass flake variable
+        home-manager.users.${userName} = import ./home.nix;
       }
     ];
   };

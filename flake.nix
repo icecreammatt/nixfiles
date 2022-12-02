@@ -35,5 +35,11 @@
           inherit inputs nixpkgs home-manager config;
         }
       );
+      darwinConfiguration = (
+        import ./darwin {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager darwin config;
+        }
+      );
     };
 }
