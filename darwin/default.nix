@@ -8,7 +8,7 @@ in
     system = "x86_64-darwin";
     specialArgs = { inherit config inputs; };
     modules = [
-      ./home.nix
+      # ./home.nix
 
       home-manager.darwinModules.home-manager {
         home-manager.useGlobalPkgs = true;

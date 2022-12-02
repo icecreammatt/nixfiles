@@ -3,10 +3,19 @@
 ## Flakes Setup
 
 ### Asahi
-
 ```bash
 nix build .#asahiConfiguration.asahi.activationPackage
 ./result/activate
+```
+
+### Work x86
+```bash
+nix build .#darwinConfiguration.work.system
+```
+
+### Personal M1
+```bash
+nix build .#darwinConfiguration.personal.system
 ```
 
 ## Setup
