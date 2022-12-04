@@ -26,6 +26,8 @@
     home.packages = with pkgs; [
       reattach-to-user-namespace
       home-manager
+      qmk
+      avrdude
     ];
 
     home.stateVersion = "22.11";
