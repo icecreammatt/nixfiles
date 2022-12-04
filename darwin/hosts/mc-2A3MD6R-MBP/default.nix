@@ -2,10 +2,6 @@
 { pkgs, ... }:
 {
 
-  imports = [
-    #../../../modules/common.nix
-
-  ];
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
   programs.zsh.enable = true;
@@ -15,20 +11,14 @@
   home-manager.users.mcarrier = { pkgs, ... }: {
    home.stateVersion = "22.11";
    programs.fish.enable = true;
-#  programs.tmux = { # my tmux configuration, for example
-#    enable = true;
-#    keyMode = "vi";
-#    clock24 = true;
-#    historyLimit = 10000;
-#    plugins = with pkgs.tmuxPlugins; [
-#      vim-tmux-navigator
-#      gruvbox
-#    ];
-#    extraConfig = ''
-#      new-session -s main
-#      bind-key -n C-a send-prefix
-#    '';
-#  };
+    imports = [
+      ../../../modules/common.nix
+      ../../../modules/shell/fish.nix
+      # ../modules/shell/git.nix
+      ../../../modules/shell/gitui.nix
+      ../../../modules/shell/tmux.nix
+      ../../../modules/editors/nvim.nix
+    ];
   };
   #homebrew = {
   #  enable = true;
