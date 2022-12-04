@@ -15,7 +15,12 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit user; };  # Pass flake variable
-        home-manager.users.${user} = import ./home.nix;
+        home-manager.users.${user} = {
+          home = {
+            stateVersion = "22.11";
+          };
+          programs.home-manager.enable = true;
+        };
       }
     ];
   };
