@@ -10,7 +10,9 @@ nix build .#asahiConfiguration.asahi.activationPackage
 
 ### Work x86
 ```bash
-nix build .#darwinConfiguration.work.system
+nix build .#darwinConfigurations.mc-2A3MD6R-MBP.system
+./result/sw/bin/darwin-rebuild switch --flake . # Use this for the initial build
+darwin-rebuild switch --flake . #this will work after initial build
 ```
 
 ### Personal M1
