@@ -10,7 +10,7 @@ in
 
     specialArgs = { inherit user inputs; };
     modules = [
-      ./configuration.nix
+      #./configuration.nix
 
       home-manager.darwinModules.home-manager {
         home-manager.useGlobalPkgs = true;

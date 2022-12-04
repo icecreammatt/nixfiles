@@ -3,3 +3,4 @@ result
 config.json
 work.nix
 reference/
+*.swp

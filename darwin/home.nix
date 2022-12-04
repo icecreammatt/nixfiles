@@ -1,16 +1,18 @@
-{ pkgs,  ... }:
+{ pkgs, user, ... }:
 
-let
-  userName = "mcarrier";
-in
 {
   imports = [
     ../modules/common.nix
+    ../modules/shell/fish.nix
+    # ../modules/shell/git.nix
+    ../modules/shell/gitui.nix
+    ../modules/shell/tmux.nix
+    ../modules/editors/nvim.nix
   ];
 
   home = {
-    username = "${userName}";
-    homeDirectory = "/Users/${userName}";
+    #username = "${user}";
+    #homeDirectory = "/Users/${user}";
     packages = with pkgs; [
       reattach-to-user-namespace
     ];
@@ -23,7 +25,7 @@ in
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
-    stateVersion = "22.05";
+    stateVersion = "22.11";
   };
 
   # Let Home Manager install and manage itself.

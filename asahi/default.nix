@@ -1,10 +1,10 @@
-{ lib, inputs, nixpkgs, home-manager, config, ... }:
+{ lib, inputs, nixpkgs, home-manager, userConfig, ... }:
 
 let
   system = "aarch64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
-  user = config.user;
-  userName = user.firstName;
+  user = usepCconfig.user;
+  userName = userConfig.firstName;
 in
 {
   asahi = home-manager.lib.homeManagerConfiguration {
