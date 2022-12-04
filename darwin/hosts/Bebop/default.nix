@@ -26,9 +26,9 @@
     home.packages = with pkgs; [
       reattach-to-user-namespace
       home-manager
-      # qmk
-      # avrdude
-      # automake
+      automake
+      avrdude
+      #qmk # still not working on M1 with OSX (works on M1 with Linux though)
     ];
 
     home.stateVersion = "22.11";
