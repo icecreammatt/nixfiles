@@ -2,7 +2,7 @@
 
 let
   userName = userConfig.user.firstName;
-  user = "mcarrier";
+  user = "matt";
 in
 {
   mc-2A3MD6R-MBP = darwin.lib.darwinSystem {
@@ -11,6 +11,25 @@ in
     modules = [
       #./configuration.nix
       ./hosts/mc-2A3MD6R-MBP/default.nix
+      home-manager.darwinModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = { inherit user; };  # Pass flake variable
+        home-manager.users.${user} = {
+          home = {
+            stateVersion = "22.11";
+          };
+          programs.home-manager.enable = true;
+        };
+      }
+    ];
+  };
+
+  Bebop = darwin.lib.darwinSystem {
+    system = "aarch64-darwin";
+    specialArgs = { inherit user inputs; };
+    modules = [
+      ./hosts/Bebop/default.nix
       home-manager.darwinModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
