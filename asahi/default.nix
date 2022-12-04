@@ -23,7 +23,7 @@ in
         home = {
           username = "${userName}";
           homeDirectory = "/home/${userName}";
-          packages = [ pkgs.home-manager ];
+          packages = [ pkgs.home-manager pkgs.avrdude pkgs.qmk ];
           stateVersion = "22.11";
         };
       }
