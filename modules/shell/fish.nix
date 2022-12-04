@@ -37,7 +37,7 @@
         "......." = "../../../../../..";
         dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
-        pkgs = "vi ~/nixfiles/packages.nix";
+        pkgs = "vi ~/nixfiles/modules/common.nix";
         Source = "cd ~/Source";
         flushdns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
         amend="git commit --amend --no-edit";
@@ -75,7 +75,7 @@
         gdc = "git diff --cached";
         gdcw = "git diff --cached -w";
         ghb = "gh browse";
-        ealias = "vi ~/nixfiles/fish.nix";
+        ealias = "vi ~/nixfiles/modules/shell/fish.nix";
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
         hmb = "home-manager build";
         hms = "home-manager switch";
