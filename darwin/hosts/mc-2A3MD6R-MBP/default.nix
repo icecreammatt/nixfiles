@@ -10,6 +10,10 @@
   home-manager.useUserPackages = true;
   home-manager.users.mcarrier = { pkgs, ... }: {
    home.stateVersion = "22.11";
+   home.packages = with pkgs; [
+     reattach-to-user-namespace
+     home-manager
+   ];
    programs.fish.enable = true;
     imports = [
       ../../../modules/common.nix
