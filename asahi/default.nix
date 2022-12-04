@@ -15,10 +15,10 @@ in
     modules = [
         ../modules/common.nix
         ../modules/shell/fish.nix
-        #../modules/shell/git.nix
         ../modules/shell/gitui.nix
         ../modules/shell/tmux.nix
         ../modules/editors/nvim.nix
+        #../modules/shell/git.nix
       {
         home = {
           username = "${userName}";
