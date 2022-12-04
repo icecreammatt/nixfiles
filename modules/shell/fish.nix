@@ -121,6 +121,10 @@
         ag = "rg";
     };
     functions = {
+        fish_greeting = {
+          description = "welcome message";
+          body = "";
+        };
         gg = {
             description = "git fast commit";
             body = "git commit -m $argv[1]";
