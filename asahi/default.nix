@@ -3,8 +3,10 @@
 let
   system = "aarch64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
-  user = usepCconfig.user;
-  userName = userConfig.firstName;
+  #user = userConfig.user.firstName;
+  #userName = userConfig.firstName;
+  user = "matt";
+  userName = "matt";
 in
 {
   asahi = home-manager.lib.homeManagerConfiguration {
@@ -13,7 +15,7 @@ in
     modules = [
         ../modules/common.nix
         ../modules/shell/fish.nix
-        ../modules/shell/git.nix
+        #../modules/shell/git.nix
         ../modules/shell/gitui.nix
         ../modules/shell/tmux.nix
         ../modules/editors/nvim.nix
