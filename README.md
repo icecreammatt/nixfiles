@@ -17,7 +17,9 @@ darwin-rebuild switch --flake . #this will work after initial build
 
 ### Personal M1
 ```bash
-nix build .#darwinConfiguration.personal.system
+nix --experimental-features 'flakes nix-command' build .#darwinConfigurations.Bebop.system
+./result/sw/bin/darwin-rebuild switch --flake . # Use this for the initial build
+darwin-rebuild switch --flake . #this will work after initial build
 ```
 
 ## Setup
