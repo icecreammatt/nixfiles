@@ -28,7 +28,9 @@
           }
         ];
         extraConfig = ''
-            set-environment -g PATH  "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$HOME/.cargo/bin"
+            #set-environment -g PATH  "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$HOME/.cargo/bin"
+            #set-option -g default-shell $HOME/.nix-profile/bin/fish
+            set -g default-command fish
 
             # Change ctrl-b default tmux activation to ctrl-o
             unbind-key C-b
@@ -111,9 +113,6 @@
             # set -g @plugin 'github_username/plugin_name'
             # set -g @plugin 'git@github.com/user/plugin'
             # set -g @plugin 'git@bitbucket.com/user/plugin'
-
-            set-option -g default-shell $HOME/.nix-profile/bin/fish
-            set -g default-command $HOME/.nix-profile/bin/fish
 
             set-option -g status-interval 1
             set-option -g automatic-rename on
