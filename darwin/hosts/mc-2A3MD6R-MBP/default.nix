@@ -1,29 +1,36 @@
 # hosts/YourHostName/default.nix
 { pkgs, ... }:
-{
 
+{
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
+
   programs.zsh.enable = true;
-  #system.defaults.dock.autohide = true;
+
+  system.defaults.dock.autohide = true;
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.users.mcarrier = { pkgs, ... }: {
-   home.stateVersion = "22.11";
-   home.packages = with pkgs; [
-     reattach-to-user-namespace
-     home-manager
-   ];
-   programs.fish.enable = true;
+  home-manager.users.mcarrier = { pkgs, ... }: 
+
+  {
     imports = [
       ../../../modules/common.nix
       ../../../modules/shell/fish.nix
-      # ../modules/shell/git.nix
       ../../../modules/shell/gitui.nix
       ../../../modules/shell/tmux.nix
       ../../../modules/editors/nvim.nix
+      # ../../../modules/shell/git.nix
     ];
+ 
+    home.packages = with pkgs; [
+      reattach-to-user-namespace
+      home-manager
+    ];
+
+    home.stateVersion = "22.11";
   };
+
   #homebrew = {
   #  enable = true;
   #  autoUpdate = true;
