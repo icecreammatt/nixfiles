@@ -1,6 +1,5 @@
 {  pkgs, lib, ... }:
 
-
 {
   home.packages = with pkgs; [
     ripgrep
@@ -61,7 +60,5 @@
     #qmk #- issue on m1
   ];
 
-#  imports = [
-#    ./git.nix
-#  ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
+#  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
 }
