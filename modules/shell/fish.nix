@@ -18,10 +18,8 @@
       #navi widget fish | source
 
     shellInit = ''
-      fish_add_path $HOME/.nix-profile/bin
-      fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/bin
-      fish_add_path $HOME/.nvm/versions/node/v16.13.1/bin
+      fish_add_path $HOME/.npm-global/bin
       export EDITOR=nvim
       export BAT_THEME="Dracula"
       export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}"'
