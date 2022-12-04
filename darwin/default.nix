@@ -2,9 +2,10 @@
 
 let
   userName = userConfig.user.firstName;
-  user = "matt";
+  user = "matt"; # TODO dynamically set this based on architecture
 in
 {
+  # Work laptop config for x86 architecture
   mc-2A3MD6R-MBP = darwin.lib.darwinSystem {
     system = "x86_64-darwin";
     specialArgs = { inherit user inputs; };
@@ -25,6 +26,7 @@ in
     ];
   };
 
+  # Personal laptop config for M1 architecture
   Bebop = darwin.lib.darwinSystem {
     system = "aarch64-darwin";
     specialArgs = { inherit user inputs; };

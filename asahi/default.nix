@@ -9,6 +9,7 @@ let
   userName = "matt";
 in
 {
+  # M1 Macbook Pro + Asahi Linux Configuration
   asahi = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = { inherit inputs user; };
