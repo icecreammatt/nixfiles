@@ -55,7 +55,6 @@
     nodePackages.typescript-language-server
     nodejs-16_x
     nodePackages.pnpm
-    #reattach-to-user-namespace
     # svelte-language-server
     #peek #- issue on darwin
     #avrdude #- issue on m1
