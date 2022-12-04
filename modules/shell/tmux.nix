@@ -30,7 +30,6 @@
         extraConfig = ''
             #set-environment -g PATH  "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$HOME/.cargo/bin"
             #set-option -g default-shell $HOME/.nix-profile/bin/fish
-            set-environment -g PATH "/etc/profiles/per-user/matt/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin/:/nix/var/nix/profiles/default/bin:$HOME/.cargo/bin"
             set -g default-command fish
 
             # Change ctrl-b default tmux activation to ctrl-o
