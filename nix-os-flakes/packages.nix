@@ -66,6 +66,7 @@
     #pkgs.peek #- issue on darwin
     #pkgs.avrdude #- issue on m1
     #pkgs.qmk #- issue on m1
+    pkgs.signal-desktop
   ];
 
   imports = [
