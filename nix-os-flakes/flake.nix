@@ -34,7 +34,8 @@
 	      home-manager.useUserPackages = true;
 	      home-manager.users.matt = {
 	        imports = [ 
-		    ./packages.nix
+		    ./nixos-packages.nix
+		    ../modules/common.nix
 		    ../modules/shell/fish.nix
 		    ../modules/shell/tmux.nix
 		    ../modules/shell/gitui.nix
