@@ -21,6 +21,7 @@
 	config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
+      user = "matt";
     in {
       nixosConfigurations = {
         nixos = lib.nixosSystem {
@@ -32,7 +33,17 @@
 	      home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
 	      home-manager.users.matt = {
-	        imports = [ ./home.nix ];
+	        imports = [ 
+		    ./packages.nix
+		    ../modules/shell/fish.nix
+		    ../modules/shell/tmux.nix
+		    ../modules/shell/gitui.nix
+		    ../modules/editors/nvim.nix
+		    #../modules/shell/git.nix
+		];
+		home.stateVersion = "22.05";
+		home.username = "matt";
+		programs.home-manager.enable = true;
 	      };
 	    }
 

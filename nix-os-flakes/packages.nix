@@ -69,13 +69,5 @@
     pkgs.signal-desktop
   ];
 
-  imports = [
-    ./git.nix
-    ./fish.nix
-    ./nvim.nix
-    ./tmux.nix
-    ./gitui.nix
-  ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
-
   programs.waybar.enable = true;
 }
