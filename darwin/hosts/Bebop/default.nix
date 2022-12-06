@@ -1,7 +1,11 @@
 # hosts/Bebop/default.nix
-{ pkgs, ... }:
+{ nix, pkgs, ... }:
 
 {
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
 
