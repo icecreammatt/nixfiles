@@ -56,6 +56,9 @@
     nodePackages.typescript-language-server
     nodejs-16_x
     nodePackages.pnpm
+    lazydocker
+    lazygit
+    lazycli
     # svelte-language-server
     #peek #- issue on darwin
   ];
