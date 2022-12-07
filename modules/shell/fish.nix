@@ -84,6 +84,8 @@
         cat="bat -p --theme Dracula";
         ehosts="sudo vi /etc/hosts";
         memory = "ps -A u | sort -k 4 -r | head";
+        top="btm";
+        htop="btm";
 
         tm="tmux -2 new -s '(basename '(pwd)')'";
         tma="tmux -2 attach -d -t";
