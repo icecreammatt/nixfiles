@@ -33,6 +33,8 @@
             set -g default-command fish
 
             set -g @scroll-speed-num-lines-per-scroll 0.25
+            set -g pane-border-status top
+            set -g pane-border-format "[#[fg=white]#{?pane_active,#[bold],} #T #[fg=default,nobold]]"
             # Change ctrl-b default tmux activation to ctrl-o
             unbind-key C-b
             set -g prefix 'C-o'
