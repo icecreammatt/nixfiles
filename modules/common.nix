@@ -1,4 +1,5 @@
 # Programs to install on all systems
+# Modern Unix https://github.com/ibraheemdev/modern-unix
 
 {  pkgs, lib, ... }:
 
@@ -8,7 +9,19 @@
     bat
     fd
     exa
+    broot
+    choose
+    curlie
+    dogdns
+    du-dust
+    duf
+    fd
     fzf
+    gping
+    httpie
+    procs
+    xh
+    zoxide
     coreutils
     jq
     yq
@@ -61,6 +74,7 @@
     lazycli
     # svelte-language-server
     #peek #- issue on darwin
+    #nvtop #nonfree
   ];
 
 #  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
