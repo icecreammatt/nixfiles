@@ -32,6 +32,7 @@
             #set-option -g default-shell $HOME/.nix-profile/bin/fish
             set -g default-command fish
 
+            set -g @scroll-speed-num-lines-per-scroll 0.25
             # Change ctrl-b default tmux activation to ctrl-o
             unbind-key C-b
             set -g prefix 'C-o'
