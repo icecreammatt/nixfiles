@@ -95,6 +95,12 @@
         tmr="tmux rename-session -t";
         tmux="tmux -2";
 
+        rust="echo \"Use rr instead:\" && rust-script";
+        rr="rust-script";
+        ru="rust-script";
+        cb="cargo build";
+        cr="cargo run";
+
         npmi="npm install";
         npmb="npm run build";
         npms="npm start";
