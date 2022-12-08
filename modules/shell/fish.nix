@@ -74,7 +74,7 @@
         gdc = "git diff --cached";
         gdcw = "git diff --cached -w";
         ghb = "gh browse";
-        lazygit = "lg";
+        lg = "lazygit";
 
         ealias = "vi ~/nixfiles/modules/shell/fish.nix";
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
@@ -90,7 +90,7 @@
         top="btm";
         htop="btm";
 
-        port="lazycli=\"lsof -i -P -n | grep LISTEN\"";
+        port="lazycli -- 'lsof -i -P -n | grep LISTEN'";
 
         tm="tmux -2 new -s '(basename '(pwd)')'";
         tma="tmux -2 attach -d -t";
