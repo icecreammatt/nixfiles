@@ -74,6 +74,8 @@
         gdc = "git diff --cached";
         gdcw = "git diff --cached -w";
         ghb = "gh browse";
+        lazygit = "lg";
+
         ealias = "vi ~/nixfiles/modules/shell/fish.nix";
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
         hmb = "home-manager build";
