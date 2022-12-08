@@ -90,6 +90,8 @@
         top="btm";
         htop="btm";
 
+        port="lazycli=\"lsof -i -P -n | grep LISTEN\"";
+
         tm="tmux -2 new -s '(basename '(pwd)')'";
         tma="tmux -2 attach -d -t";
         tmk="tmux kill-session -t";
