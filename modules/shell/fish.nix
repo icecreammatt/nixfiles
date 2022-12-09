@@ -61,7 +61,6 @@
         gcleanall = "git remote prune origin; git branch | grep -v -E \"(\*|master|main|dev|release|hotfix|trunk|prod)\" | xargs -n 1 git branch -D";
         gs = "git show";
         gf = "git fetch --all";
-        gl = "git log";
         gb = "git branch -a";
         gcop = "git branch --sort=-committerdate | fzf --header 'Checkout Recent Branch' --preview \"git diff {1} --color=always\" --pointer=\"->\" | xargs git checkout";
         gco = "git co";
@@ -74,6 +73,7 @@
         gdc = "git diff --cached";
         gdcw = "git diff --cached -w";
         ghb = "gh browse";
+        gl = "lazygit";
         lg = "lazygit";
 
         ealias = "vi ~/nixfiles/modules/shell/fish.nix";
