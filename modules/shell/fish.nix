@@ -80,7 +80,7 @@
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
         hmb = "home-manager build";
         hms = "home-manager switch";
-        l = "exa -lh";
+        l = "exa -lh --icons";
         ll = "exa -lah";
         ls = "exa";
         la = "exa -la";
