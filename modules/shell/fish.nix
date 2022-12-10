@@ -20,6 +20,9 @@
     shellInit = ''
       fish_add_path $HOME/bin
       fish_add_path $HOME/.npm-global/bin
+      fish_add_path $HOME/.cargo/bin
+      fish_add_path /etc/static/profiles/per-user/mcarrier/bin
+
       export EDITOR=nvim
       export BAT_THEME="Dracula"
       export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}"'
