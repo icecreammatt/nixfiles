@@ -90,7 +90,8 @@
         top="btm";
         htop="btm";
 
-        port="lazycli -- 'lsof -i -P -n | grep LISTEN'";
+        port="lazycli -- 'lsof -i -P -n | grep -E \"(LISTEN|COMMAND)\"'";
+        wine="lazycli -- 'lsof -i -P -n | grep -E \"(node|nginx)\" || echo \"No node or nginx servers running\"'";
 
         tm="tmux -2 new -s '(basename '(pwd)')'";
         tma="tmux -2 attach -d -t";
