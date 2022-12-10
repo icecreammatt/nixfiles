@@ -56,6 +56,7 @@
     t-rec
     neofetch
     htop
+    bmon
     bottom
     rnix-lsp
     time
