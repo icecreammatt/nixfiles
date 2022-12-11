@@ -1,4 +1,4 @@
-# hosts/YourHostName/default.nix
+# hosts/mc-2A3MD6R-MBP/default.nix
 { pkgs, ... }:
 
 {
@@ -16,6 +16,7 @@
   {
     imports = [
       ../../../modules/common.nix
+      ../../../modules/x86.nix
       ../../../modules/shell/fish.nix
       ../../../modules/shell/gitui.nix
       ../../../modules/shell/tmux.nix
@@ -26,8 +27,6 @@
     home.packages = with pkgs; [
       reattach-to-user-namespace
       home-manager
-      qmk
-      avrdude
     ];
 
     home.stateVersion = "22.11";
