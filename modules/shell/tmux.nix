@@ -84,6 +84,22 @@
             bind -n C-h run-shell "if $is_vim ; then tmux send-keys C-h; else tmux select-pane -L; fi"
             bind -n C-l run-shell "if $is_vim ; then tmux send-keys C-l; else tmux select-pane -R; fi"
 
+            bind -n K run-shell "if $is_vim ; then tmux send-keys K; else tmux resize-pane -U; fi"
+            bind -n J run-shell "if $is_vim ; then tmux send-keys J; else tmux resize-pane -D; fi"
+            bind -n H run-shell "if $is_vim ; then tmux send-keys H; else tmux resize-pane -L; fi"
+            bind -n L run-shell "if $is_vim ; then tmux send-keys L; else tmux resize-pane -R; fi"
+
+            # switch windows alt+number
+            bind-key -n M-1 select-window -t 1
+            bind-key -n M-2 select-window -t 2
+            bind-key -n M-3 select-window -t 3
+            bind-key -n M-4 select-window -t 4
+            bind-key -n M-5 select-window -t 5
+            bind-key -n M-6 select-window -t 6
+            bind-key -n M-7 select-window -t 7
+            bind-key -n M-8 select-window -t 8
+            bind-key -n M-9 select-window -t 9
+
             # Fix clear screen
             bind C-l send-keys 'C-l'
 
