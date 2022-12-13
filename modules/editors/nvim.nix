@@ -212,6 +212,12 @@
           nnoremap <silent> <C-j> :call TmuxMove('j')<cr>
           nnoremap <silent> <C-k> :call TmuxMove('k')<cr>
           nnoremap <silent> <C-l> :call TmuxMove('l')<cr>
+          " Resize windows using alt hjkl
+          nnoremap <M-h> :vertical resize -1<cr>
+          nnoremap <M-j> :res -1<cr>
+          nnoremap <M-k> :res +1<cr>
+          nnoremap <M-l> :vertical resize +1<cr>
+
         '';
       };
 
