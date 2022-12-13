@@ -125,7 +125,7 @@
 
         vi = "nvim";
         vim = "nvim";
-        vimrc = "vim ~/nixfiles/nvim.nix";
+        vimrc = "nvim ~/nixfiles/modules/editors/nvim.nix";
         sm = "merge";
         merge = "open -n -a \"Sublime Merge\" .";
         bane = "bane2";
