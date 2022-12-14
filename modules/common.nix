@@ -5,8 +5,8 @@
 
 {
   home.packages = with pkgs; [
-    rustc
-    cargo
+    gcc
+    rustup
     ripgrep
     skim
     ranger
