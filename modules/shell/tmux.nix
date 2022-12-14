@@ -84,10 +84,10 @@
             bind -n C-h run-shell "if $is_vim ; then tmux send-keys C-h; else tmux select-pane -L; fi"
             bind -n C-l run-shell "if $is_vim ; then tmux send-keys C-l; else tmux select-pane -R; fi"
 
-            bind -n K run-shell "if $is_vim ; then tmux send-keys K; else tmux resize-pane -U; fi"
-            bind -n J run-shell "if $is_vim ; then tmux send-keys J; else tmux resize-pane -D; fi"
-            bind -n H run-shell "if $is_vim ; then tmux send-keys H; else tmux resize-pane -L; fi"
-            bind -n L run-shell "if $is_vim ; then tmux send-keys L; else tmux resize-pane -R; fi"
+            bind -n M-k run-shell "if $is_vim ; then tmux send-keys M-k; else tmux resize-pane -U; fi"
+            bind -n M-j run-shell "if $is_vim ; then tmux send-keys M-j; else tmux resize-pane -D; fi"
+            bind -n M-h run-shell "if $is_vim ; then tmux send-keys M-h; else tmux resize-pane -L; fi"
+            bind -n M-l run-shell "if $is_vim ; then tmux send-keys M-l; else tmux resize-pane -R; fi"
 
             # switch windows alt+number
             bind-key -n M-1 select-window -t 1
