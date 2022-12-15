@@ -122,6 +122,7 @@ nixpkgs.config.packageOverrides = pkgs: {
       neovim
       git
       gamescope
+      lm_sensors
     ];
   };
 
