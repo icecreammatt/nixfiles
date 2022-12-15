@@ -5,6 +5,9 @@
 
 {
   home.packages = with pkgs; [
+    psensor
+    lm_sensors
+    krakenx
     gcc
     rustup
     ripgrep
