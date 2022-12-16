@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    pipes-rs
     hyprpaper
     psensor
     lm_sensors
