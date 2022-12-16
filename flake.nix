@@ -1,3 +1,5 @@
+# This file is the entrypoint into all the system configurations
+
 {
   description = "System configuration for NixOS, Mac, Asahi";
 
@@ -30,12 +32,15 @@
       #user = "mcarrier";
     in
     {
+      # M1 Mac + Linux config
       asahiConfiguration = (
         import ./asahi {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs home-manager userConfig;
         }
       );
+
+      # Mac x86_64/aarch64 configs
       darwinConfigurations = (
         import ./darwin {
           inherit (nixpkgs) lib;

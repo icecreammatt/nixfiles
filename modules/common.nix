@@ -1,3 +1,5 @@
+# Programs to install on all systems
+
 {  pkgs, lib, ... }:
 
 {
@@ -56,8 +58,6 @@
     nodePackages.pnpm
     # svelte-language-server
     #peek #- issue on darwin
-    #avrdude #- issue on m1
-    #qmk #- issue on m1
   ];
 
 #  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
