@@ -37,6 +37,7 @@
     gron
     gh
     python
+    python39
     bandwhich
     delta
     wget
