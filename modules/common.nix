@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    hyprpaper
     psensor
     lm_sensors
     krakenx
