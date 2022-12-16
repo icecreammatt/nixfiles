@@ -5,6 +5,8 @@
 
 {
   home.packages = with pkgs; [
+    freerdp
+    vscode
     font-awesome
     pipes-rs
     onefetch
