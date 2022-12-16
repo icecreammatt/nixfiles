@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    font-awesome
     pipes-rs
     onefetch
     hyprpaper
