@@ -6,6 +6,7 @@
 {
   home.packages = with pkgs; [
     pipes-rs
+    onefetch
     hyprpaper
     psensor
     lm_sensors
