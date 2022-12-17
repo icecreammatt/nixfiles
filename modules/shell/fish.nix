@@ -22,6 +22,7 @@
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/.cargo/bin
       fish_add_path /etc/static/profiles/per-user/mcarrier/bin
+      set fish_color_valid_path
 
       export EDITOR=nvim
       export BAT_THEME="Dracula"
