@@ -97,6 +97,7 @@
   imports = [
     ./shell/cava.nix
     ./shell/neofetch.nix
+    ./shell/bottom.nix
   ];
 
 #  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
