@@ -45,7 +45,7 @@
 		    ../modules/DE/rofi.nix
 		    #../modules/shell/git.nix
 		];
-		home.stateVersion = "22.05";
+		home.stateVersion = "22.11";
 		home.username = "matt";
 		programs.home-manager.enable = true;
 	      };
