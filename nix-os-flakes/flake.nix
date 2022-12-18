@@ -43,6 +43,7 @@
 		    ../modules/DE/hypr.nix
 		    ../modules/DE/waybar.nix
 		    ../modules/DE/rofi.nix
+		    ../modules/shell/kitty.nix
 		    #../modules/shell/git.nix
 		];
 		home.stateVersion = "22.11";
