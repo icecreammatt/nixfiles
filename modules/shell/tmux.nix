@@ -6,10 +6,14 @@
           { 
             plugin = dracula; 
             extraConfig = ''
+              set -g @dracula-show-left-sep 
+              set -g @dracula-show-right-sep 
               set -g @dracula-show-powerline true
               set -g @dracula-plugins "cpu-usage ram-usage battery time"
               set -g @dracula-refresh-rate 10
               set -g @dracula-show-location false
+              set -g @dracula-show-left-sep 
+              set -g @dracula-show-right-sep 
             '';
           }
           { plugin = sensible; }
