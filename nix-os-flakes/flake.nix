@@ -42,6 +42,7 @@
 		    ../modules/editors/nvim.nix
 		    ../modules/DE/hypr.nix
 		    ../modules/DE/waybar.nix
+		    ../modules/DE/rofi.nix
 		    #../modules/shell/git.nix
 		];
 		home.stateVersion = "22.05";
