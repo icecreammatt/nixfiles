@@ -10,6 +10,7 @@
     vscode
     font-awesome
     nerdfonts
+    terminal-colors
     pipes-rs
     onefetch
     hyprpaper
