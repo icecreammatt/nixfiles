@@ -9,6 +9,7 @@
     freerdp
     vscode
     font-awesome
+    nerdfonts
     pipes-rs
     onefetch
     hyprpaper
