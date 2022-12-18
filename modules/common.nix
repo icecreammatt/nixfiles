@@ -94,5 +94,9 @@
     #nvtop #nonfree
   ];
 
+  imports = [
+    ./shell/cava.nix
+  ];
+
 #  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
 }
