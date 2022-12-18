@@ -113,6 +113,7 @@ nixpkgs.config.packageOverrides = pkgs: {
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.defaultUserShell = pkgs.fish;
   users.users.matt = {
     isNormalUser = true;
     description = "matt";
@@ -139,6 +140,7 @@ nixpkgs.config.packageOverrides = pkgs: {
   environment.systemPackages = with pkgs; [
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      killall
+     fish
   #  wget
   ];
 
