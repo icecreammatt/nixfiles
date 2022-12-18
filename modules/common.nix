@@ -34,7 +34,7 @@
     fd
     fzf
     gping
-    httpie
+    #httpie
     procs
     xh
     zoxide
