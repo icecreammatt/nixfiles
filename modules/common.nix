@@ -5,18 +5,10 @@
 
 {
   home.packages = with pkgs; [
-    cava
-    freerdp
-    vscode
-    font-awesome
-    nerdfonts
-    terminal-colors
-    pipes-rs
+    kitty
     onefetch
-    hyprpaper
-    psensor
-    lm_sensors
-    krakenx
+    pipes-rs
+    terminal-colors
     gcc
     rustup
     ripgrep
@@ -34,7 +26,7 @@
     fd
     fzf
     gping
-    #httpie
+    httpie
     procs
     xh
     zoxide
@@ -98,6 +90,7 @@
     ./shell/cava.nix
     ./shell/neofetch.nix
     ./shell/bottom.nix
+    ./shell/kitty.nix
   ];
 
 #  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
