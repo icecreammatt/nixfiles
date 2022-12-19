@@ -34,6 +34,7 @@
         "fzf-help" = "echo 'ctrl+option (f -> files, l -> log, s -> status, r -> history, v -> variables, e -> process id)'";
         "cd.." = "cd ..";
         "cdr" = "ranger";
+        "ran" = "ranger";
         "..." = "../..";
         "...." = "../../..";
         "....." = "../../../..";
