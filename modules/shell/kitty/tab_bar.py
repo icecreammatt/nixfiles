@@ -76,8 +76,8 @@ def draw_right_status(draw_data: DrawData, screen: Screen) -> None:
 def create_cells() -> list[str]:
     now = datetime.datetime.now()
     return [
-        currently_playing(),
-        get_headphone_battery_status(),
+        #currently_playing(),
+        #get_headphone_battery_status(),
         now.strftime("%d %b"),
         now.strftime("%H:%M"),
     ]
