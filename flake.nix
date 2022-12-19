@@ -40,6 +40,14 @@
         }
       );
 
+      # NixOS
+      nixosConfiguration = (
+        import ./nixos {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager userConfig;
+        }
+      );
+
       # Mac x86_64/aarch64 configs
       darwinConfigurations = (
         import ./darwin {

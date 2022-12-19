@@ -5,6 +5,12 @@
 
 {
   home.packages = with pkgs; [
+    kitty
+    onefetch
+    pipes-rs
+    terminal-colors
+    gcc
+    rustup
     ripgrep
     skim
     ranger
@@ -31,6 +37,7 @@
     gron
     gh
     python
+    python39
     bandwhich
     delta
     wget
@@ -75,8 +82,14 @@
     lazygit
     lazycli
     # svelte-language-server
-    #peek #- issue on darwin
     #nvtop #nonfree
+  ];
+
+  imports = [
+    ./shell/cava.nix
+    ./shell/neofetch.nix
+    ./shell/bottom.nix
+    ./shell/kitty.nix
   ];
 
 #  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;

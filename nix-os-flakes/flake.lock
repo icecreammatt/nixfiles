@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "darwin": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1671020882,
-        "narHash": "sha256-nilsez0cjzvWUZzcWI+ZK3gY/wT3RvkQA9qw8GYJmEU=",
-        "owner": "lnl7",
-        "repo": "nix-darwin",
-        "rev": "2795e05cca69bddad989186888175548f4fca33d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lnl7",
-        "ref": "master",
-        "repo": "nix-darwin",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -54,13 +33,13 @@
       "locked": {
         "lastModified": 1671125794,
         "narHash": "sha256-OTb9A2JgJnuJIyUISx3o9cj/5c31XdGojYQ0/6AbigY=",
-        "owner": "vaxerski",
+        "owner": "hyprwm",
         "repo": "Hyprland",
         "rev": "198b7cae1287a9ec56f5673e86b8bcb6dd5b721c",
         "type": "github"
       },
       "original": {
-        "owner": "vaxerski",
+        "owner": "hyprwm",
         "repo": "Hyprland",
         "type": "github"
       }
@@ -115,7 +94,6 @@
     },
     "root": {
       "inputs": {
-        "darwin": "darwin",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs"

@@ -22,6 +22,7 @@
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/.cargo/bin
       fish_add_path /etc/static/profiles/per-user/mcarrier/bin
+      set fish_color_valid_path
 
       export EDITOR=nvim
       export BAT_THEME="Dracula"
@@ -32,6 +33,8 @@
     shellAliases = {
         "fzf-help" = "echo 'ctrl+option (f -> files, l -> log, s -> status, r -> history, v -> variables, e -> process id)'";
         "cd.." = "cd ..";
+        "cdr" = "ranger";
+        "ran" = "ranger";
         "..." = "../..";
         "...." = "../../..";
         "....." = "../../../..";
@@ -136,6 +139,25 @@
         ag = "rg";
     };
     functions = {
+	ranger = {
+		body = ''
+
+		set tempfile (mktemp -t tmp.XXXXXX)
+		command ranger --choosedir=$tempfile $argv
+		set return_value $status
+
+		if test -s $tempfile
+			set ranger_pwd (cat $tempfile)
+			if test -n $ranger_pwd -a -d $ranger_pwd
+				builtin cd -- $ranger_pwd
+			end
+		end
+
+		command rm -f -- $tempfile
+		return $return_value
+	'';
+
+	};
         fish_greeting = {
           description = "welcome message";
           body = "";
