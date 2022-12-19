@@ -82,7 +82,6 @@
     lazygit
     lazycli
     # svelte-language-server
-    #peek #- issue on darwin
     #nvtop #nonfree
   ];
 
