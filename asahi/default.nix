@@ -19,12 +19,27 @@ in
         ../modules/shell/gitui.nix
         ../modules/shell/tmux.nix
         ../modules/editors/nvim.nix
+        ../modules/DE/hypr.nix
+        ../modules/DE/waybar.nix
+        ../modules/DE/rofi.nix
+        ../modules/shell/kitty.nix
         #../modules/shell/git.nix
       {
         home = {
           username = "${userName}";
           homeDirectory = "/home/${userName}";
-          packages = [ pkgs.home-manager pkgs.avrdude pkgs.qmk ];
+          packages = [ 
+            pkgs.home-manager 
+            pkgs.avrdude 
+            pkgs.qmk
+            pkgs.wlr-randr
+            pkgs.nmap
+            pkgs.dolphin
+            pkgs.rofi-wayland
+            pkgs.waybar
+            pkgs.which
+            # signal-desktop
+          ];
           stateVersion = "22.11";
         };
       }
