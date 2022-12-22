@@ -76,7 +76,6 @@
     caddy
     sumneko-lua-language-server
     nodePackages.typescript-language-server
-    nodejs-16_x
     nodePackages.pnpm
     lazydocker
     lazygit
