@@ -174,6 +174,10 @@
         take = {
             description = "make directory and navigate to it";
             body = "mkdir $argv[1]; and cd $argv[1]";
+          };
+        npmGlobalFix = {
+            description = "fix npm bin directory linking";
+            body = "npm config set prefix '~/.npm-global'";
         };
     };
   };
