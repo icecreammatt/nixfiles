@@ -194,6 +194,23 @@
               \| exe "normal! g'\"" | endif
           endif
 
+          " Fullscreen current buffer
+          "map <leader>z :tabe %<CR>
+          "map <leader>Z :q<CR>
+          map <leader>a :call ToggleFullScreenBuffer()<CR>
+          map <leader>z :call ToggleFullScreenBuffer()<CR>
+
+          let g:fullScreen = 0
+          function! ToggleFullScreenBuffer()
+            if g:fullScreen
+                :q
+                let g:fullScreen = 0
+            else
+                :tabe %
+                let g:fullScreen = 1
+            endif
+          endfunction
+
           function! TmuxMove(direction)
                   let wnr = winnr()
                   silent! execute 'wincmd ' . a:direction
