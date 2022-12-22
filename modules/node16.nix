@@ -15,5 +15,7 @@ in
 {
   home.packages = with pkgs; [
     node16
+    nodePackages.typescript-language-server
+    nodePackages.pnpm
   ];
 }

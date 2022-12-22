@@ -75,8 +75,6 @@
     xclip
     caddy
     sumneko-lua-language-server
-    nodePackages.typescript-language-server
-    nodePackages.pnpm
     lazydocker
     lazygit
     lazycli
