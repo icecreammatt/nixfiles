@@ -36,6 +36,7 @@
 	        imports = [ 
 		    ./nixos-packages.nix
 		    ../modules/common.nix
+		    ../modules/common-linux.nix
 		    ../modules/shell/fish.nix
 		    ../modules/shell/tmux.nix
 		    ../modules/shell/gitui.nix
