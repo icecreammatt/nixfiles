@@ -5,6 +5,7 @@
     bmon
     qmk
     avrdude
+    dfu-programmer
 
     font-awesome
     nerdfonts
