@@ -11,6 +11,8 @@
     terminal-colors
     gcc
     rustup
+    rust-script
+    libiconvReal
     ripgrep
     skim
     ranger
