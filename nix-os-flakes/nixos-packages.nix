@@ -11,6 +11,7 @@
     waybar
     which
     wlogout
+    plymouth
   ];
 
   programs.waybar.enable = true;

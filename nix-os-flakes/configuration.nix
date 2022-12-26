@@ -4,6 +4,9 @@
 
 { config, pkgs, ... }:
 
+let
+  nixos_plymouth = pkgs.callPackage ./nixos-plymouth.nix {};
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -50,13 +53,41 @@ nixpkgs.config.packageOverrides = pkgs: {
     environment.systemPackages = [ pkgs.gamescope pkgs.mangohud ];
   };
 
-
-
-
   # Bootloader.
+  boot.loader.timeout = 0;
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  console = {
+    #font = "ter-132n";
+    #packages = with pkgs; [ terminus_font ];
+    keyMap = "us";
+  };
+
+  fonts.fonts = with pkgs; [ meslo-lgs-nf ];
+  services.kmscon = {
+    enable = true;
+    hwRender = true;
+    extraConfig = ''
+      font-name=MesloLGS NF
+      font-size=14
+    '';
+  };
+
+  boot = {
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" ];
+
+    # Pretty boot
+    plymouth = {
+      enable = true;
+      theme = "nixos-blur";
+      themePackages = [ nixos_plymouth ];
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
