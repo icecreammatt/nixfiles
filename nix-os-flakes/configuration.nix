@@ -116,6 +116,7 @@ nixpkgs.config.packageOverrides = pkgs: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.defaultUserShell = pkgs.fish;
   users.users.matt = {
+    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmdl6XNEdT+EWf1IDRjHAygUIGpNCaBv9Qhm19cRCEm"];
     isNormalUser = true;
     description = "matt";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -156,7 +157,8 @@ nixpkgs.config.packageOverrides = pkgs: {
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+  services.openssh.passwordAuthentication = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
