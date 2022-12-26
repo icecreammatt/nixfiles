@@ -16,8 +16,13 @@
     "network",
     "pulseaudio",
     "custom/date",
+    "custom/power",
     "clock"
   ],
+  "custom/power": {
+	"format": "", // This icon is provided by the Awesome-fonts collection, not sure how to paste it unfortunately
+	"on-click": "wlogout"
+  },
   "modules-right": [
     "custom/cava",
     "custom/media"

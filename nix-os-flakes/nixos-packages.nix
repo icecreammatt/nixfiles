@@ -10,6 +10,7 @@
     rofi-wayland
     waybar
     which
+    wlogout
   ];
 
   programs.waybar.enable = true;
