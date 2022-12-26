@@ -28,6 +28,8 @@
       export BAT_THEME="Dracula"
       export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}"'
       zoxide init fish | source
+
+      fzf_configure_bindings --variables=\ce
     '';
 
     shellAliases = {
