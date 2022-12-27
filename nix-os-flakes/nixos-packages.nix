@@ -11,6 +11,7 @@
     which
     wlogout
     plymouth
+    obsidian
   ];
 
   programs.waybar.enable = true;
