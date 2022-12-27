@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    syncthing
+    syncthingtray
     signal-desktop
     wlr-randr
     nmap
