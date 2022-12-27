@@ -24,7 +24,7 @@ tooltip {
   color: #cba6f7;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   color: #0f0f0f;
   background-color: #c49ec4;
   border-radius: 15px;
@@ -47,9 +47,13 @@ tooltip {
   padding: 5px 10px;
 }
 
+#custom-power,
+#pulseaudio,
+#hyrpland-submap,
+#hyprland-window,
+#wls-workspaces,
 #custom-date,
 #custom-notification,
-#custom-power,
 #custom-media,
 #custom-cava,
 #clock,
@@ -58,7 +62,6 @@ tooltip {
 #disk,
 #temperature,
 #battery,
-#pulseaudio,
 #network,
 #workspaces,
 #tray {
@@ -100,6 +103,13 @@ tooltip {
   color: #89dceb;
 }
 
+#custom-power {
+  color: #f38ba8;
+  border-radius: 0 50px 50px 0;
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+
 #clock {
   color: #cba6f7;
   border-radius: 0 50px 50px 0;
@@ -121,4 +131,5 @@ tooltip {
 
 #pulseaudio {
   color: #a6e3a1;
+  border-radius: 50px 0px 0px 50px;
 }

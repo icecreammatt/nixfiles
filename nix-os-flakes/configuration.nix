@@ -28,9 +28,16 @@ in
       extraOptions = "experimental-features = nix-command flakes";
   };
 
+  nixpkgs.overlays = [
+    (self: super: { 
+      waybar = super.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+    })
+  ];
 
   programs.steam.enable = true;
-nixpkgs.config.packageOverrides = pkgs: {
+  nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
       extraPkgs = pkgs: with pkgs; [
         xorg.libXcursor
@@ -152,6 +159,7 @@ nixpkgs.config.packageOverrides = pkgs: {
     description = "matt";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      waybar
       firefox
       neovim
       git

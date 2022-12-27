@@ -8,7 +8,6 @@
     kitty
     dolphin
     rofi-wayland
-    waybar
     which
     wlogout
     plymouth

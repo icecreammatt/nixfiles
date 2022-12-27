@@ -6,17 +6,7 @@
     "wlr/workspaces"
   ],
   "modules-center": [
-    "cpu",
-    "memory",
-    "disk",
-    "temperature",
-    "tray",
-    "backlight",
-    "custom/notification",
-    "network",
     "pulseaudio",
-    "custom/date",
-    "custom/power",
     "clock"
   ],
   "custom/power": {
@@ -24,14 +14,31 @@
 	"on-click": "wlogout"
   },
   "modules-right": [
-    "custom/cava",
-    "custom/media"
+    "cpu",
+    "memory",
+    "disk",
+    "temperature",
+    "tray",
+    "backlight",
+    "network",
+    "custom/power"
   ],
+  "hyprland/window": {
+    "format": "{}",
+    "separate-outputs": true
+  },
+  "hyprland/submap": {
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "format": "{}"
+  },
   "wlr/workspaces": {
-    "disable-scroll": true,
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
     "all-outputs": true,
     "on-click": "activate",
-    "format": "{icon}",
+    "format": "{}",
+    "separate-outputs": true,
     "format-icons": {
       "1": "一",
       "2": "二",
