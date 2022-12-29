@@ -6,6 +6,7 @@
 {
   home.packages = with pkgs; [
     helix
+    clang-tools
     kitty
     onefetch
     pipes-rs
