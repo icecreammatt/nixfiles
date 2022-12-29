@@ -14,6 +14,7 @@
     gcc
     rustup
     rust-script
+    rust-analyzer
     libiconvReal
     ripgrep
     skim
