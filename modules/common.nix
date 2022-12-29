@@ -91,6 +91,7 @@
     ./shell/neofetch.nix
     ./shell/bottom.nix
     ./shell/kitty.nix
+    ./editors/helix.nix
   ];
 
 #  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
