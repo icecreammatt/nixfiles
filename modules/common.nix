@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    helix
     kitty
     onefetch
     pipes-rs
