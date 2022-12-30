@@ -9,6 +9,7 @@
     clang-tools
     kitty
     onefetch
+    zellij
     pipes-rs
     terminal-colors
     gcc
