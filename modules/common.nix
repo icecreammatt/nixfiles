@@ -7,6 +7,8 @@
   home.packages = with pkgs; [
     helix
     clang-tools
+    lldb
+    vscode-extensions.vadimcn.vscode-lldb
     kitty
     onefetch
     zellij
