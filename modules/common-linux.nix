@@ -6,6 +6,8 @@
     qmk
     avrdude
 
+    vscode-extensions.vadimcn.vscode-lldb
+
     font-awesome
     nerdfonts
 
