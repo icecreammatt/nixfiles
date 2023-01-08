@@ -55,6 +55,8 @@
           "autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252
           "autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg
 
+          set scrolloff=20
+
           let g:fzf_history_dir = '~/.fzf-history'
 
           " lua << EOF
@@ -65,8 +67,8 @@
           " end, 70)
           " EOF
 
-          noremap H ^
-          noremap L $
+          " noremap H ^
+          " noremap L $
 
           nnoremap <space> <C-d>
           nnoremap <leader><space> <C-u>
@@ -183,6 +185,70 @@
           " :inoremap kj <Esc>
           " :vnoremap jk <Esc>
           " :vnoremap kj <Esc>
+
+          " https://github.com/bunnyfly/dotfiles/blob/master/config/nvim/init.vim
+          """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+          " Colemak-Vim Mappings
+          "
+          " The idea is to use HNEI as arrows – keeping the traditional Vim homerow style – and changing as
+          " little else as possible. This means JKL are free to use and NEI need new keys.
+          " - k/K is the new n/N.
+          " - s/S is the new i/I ["inSert"].
+          " - j/J is the new e/E ["Jump" to EOW].
+          " - l/L skip to the beginning and end of lines. Much more intuitive than ^/$.
+          " - Ctrl-l joins lines, making l/L the veritable "Line" key.
+          " - r replaces i as the "inneR" modifier [e.g. "diw" becomes "drw"].
+          """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+          " HNEI arrows. (Swapping 'gn'/'ge' and 'n'/'e'.)
+            noremap n gj|noremap e gk|noremap i l|noremap gn j|noremap ge k
+          " in(S)ert. The default s/S is synonymous with cl/cc and is not very useful.
+            noremap s i|noremap S I
+          " Repeat search.
+            noremap k n|noremap K N
+          " BOL/EOL/Join.
+            noremap l ^|noremap L $|noremap <C-l> J
+          " _r_ = inneR text objects.
+            onoremap r i
+          " EOW.
+            noremap j e|noremap J E
+
+           """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+          " Other Colemak Arrow-Based Mappings
+          """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+          " Switch tabs with Ctrl.
+          " nnoremap <C-h> <C-PageUp>|nnoremap <C-i> <C-PageDown>
+          " Switch panes with Shift.
+          " noremap H <C-w>h|noremap I <C-w>l|noremap N <C-w>j|noremap E <C-w>k
+          " Moving windows around.
+          " noremap <C-w>N <C-w>J|noremap <C-w>E <C-w>K|noremap <C-w>I <C-w>L
+          " High/Low. Mid remains `M` since <C-m> is unfortunately interpreted as <CR>.
+            noremap <C-e> H|noremap <C-n> L
+          " Scroll screen up/down.
+            noremap zn <C-y>|noremap ze <C-e>
+          " Jumplist and changelist.
+            nnoremap gh <C-o>|nnoremap gi <C-i>|nnoremap gH g;|nnoremap gI g,           
+
+
+          """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+          " General Mappings
+          """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+          " The best!
+          " noremap ; :|noremap : ;
+          " Sane redo.
+            noremap U <C-r>
+          " Y consistent with C and D.
+            noremap Y y$
+          " +/- increment and decrement.
+          " nnoremap + <C-a>|nnoremap - <C-x>
+          " Jump to exact mark location with ' instead of line.
+          " noremap ' `|noremap ` '
+          " Switch between most recent buffer with backspace
+            nnoremap <BS> <C-^>
+          " zT/zB is like zt/zb, but scrolls to the top/bottom quarter of the screen.
+            nnoremap <expr> zT 'zt' . winheight(0)/4 . '<C-y>'
+            nnoremap <expr> zB 'zb' . winheight(0)/4 . '<C-e>'
+          " Auto-bracket.
+            inoremap {<CR> {<CR>}<Esc>O
 
           " open file in a text by placing text and gf (this places file under cursor into buffer)
           " nnoremap gf :vert winc f<cr>" copies filepath to clipboard by pressing yf
