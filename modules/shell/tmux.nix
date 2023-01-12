@@ -46,6 +46,9 @@
             bind-key -n 'F12' resize-pane -Z
             bind-key -n 'F3' split-window -v -p 22 'fish'
 
+            unbind-key tab
+            unbind-key c-tab
+
             set-option -g status-position top
 
             bind r source ~/.config/tmux/tmux.conf
@@ -82,15 +85,15 @@
 
             is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
                 | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'" 
-            bind -n C-k run-shell "if $is_vim ; then tmux send-keys C-k; else tmux select-pane -D; fi"
-            bind -n C-j run-shell "if $is_vim ; then tmux send-keys C-h; else tmux select-pane -L; fi"
-            bind -n C-i run-shell "if $is_vim ; then tmux send-keys C-i; else tmux select-pane -U; fi"
-            bind -n C-l run-shell "if $is_vim ; then tmux send-keys C-l; else tmux select-pane -R; fi"
+            #bind -n C-k run-shell "if $is_vim ; then tmux send-keys C-k; else tmux select-pane -D; fi"
+            #bind -n C-j run-shell "if $is_vim ; then tmux send-keys C-h; else tmux select-pane -L; fi"
+            #bind -n C-i run-shell "if $is_vim ; then tmux send-keys C-i; else tmux select-pane -U; fi"
+            #bind -n C-l run-shell "if $is_vim ; then tmux send-keys C-l; else tmux select-pane -R; fi"
 
-            bind -n M-k run-shell "if $is_vim ; then tmux send-keys M-k; else tmux resize-pane -D; fi"
-            bind -n M-j run-shell "if $is_vim ; then tmux send-keys M-h; else tmux resize-pane -L; fi"
-            bind -n M-i run-shell "if $is_vim ; then tmux send-keys M-i; else tmux resize-pane -U; fi"
-            bind -n M-l run-shell "if $is_vim ; then tmux send-keys M-l; else tmux resize-pane -R; fi"
+            #bind -n M-k run-shell "if $is_vim ; then tmux send-keys M-k; else tmux resize-pane -D; fi"
+            #bind -n M-j run-shell "if $is_vim ; then tmux send-keys M-h; else tmux resize-pane -L; fi"
+            #bind -n M-i run-shell "if $is_vim ; then tmux send-keys M-i; else tmux resize-pane -U; fi"
+            #bind -n M-l run-shell "if $is_vim ; then tmux send-keys M-l; else tmux resize-pane -R; fi"
 
             # switch windows alt+number
             bind-key -n M-1 select-window -t 1
