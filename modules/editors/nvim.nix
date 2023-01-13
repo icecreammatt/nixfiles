@@ -74,10 +74,10 @@
           nnoremap <leader><space> <C-u>
 
           " Allows tab to indent and switch between tabs
-          vnoremap <c-Tab> >gv
-          vnoremap <c-S-Tab> <gv
-          nnoremap <c-S-TAB> :bprev<CR>
-          nnoremap <c-TAB> :bnext<CR>
+          " vnoremap <c-Tab> >gv
+          " vnoremap <c-S-Tab> <gv
+          " nnoremap <c-S-TAB> :bprev<CR>
+          " nnoremap <c-TAB> :bnext<CR>
 
           noremap <c-s> :w<CR>
           imap <c-s> <Esc>:w<CR>a
