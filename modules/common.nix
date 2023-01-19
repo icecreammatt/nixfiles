@@ -84,6 +84,7 @@
     lazydocker
     lazygit
     lazycli
+    xplr
     # svelte-language-server
     #nvtop #nonfree
   ];
