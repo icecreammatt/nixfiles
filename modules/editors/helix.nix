@@ -29,7 +29,7 @@
 
     [editor.indent-guides]
     render = true
-    character = "⸽"
+    character = "|"
     skip-levels = 1
 
     [keys.insert]
