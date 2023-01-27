@@ -74,5 +74,21 @@
     # L => U (QWERTY position)
     l = "undo"
     L = "redo"
+
+    p = ":clipboard-paste-after"
+    P = ":clipboard-paste-before"
+    y = ":clipboard-yank-join"
+    Y = ":clipboard-yank"
+    R = ":clipboard-paste-replace"
+    d = [":clipboard-yank-join", "delete_selection"]
+
+    [keys.select]
+    p = ":clipboard-paste-after"
+    P = ":clipboard-paste-before"
+    y = ":clipboard-yank-join"
+    Y = ":clipboard-yank"
+    R = ":clipboard-paste-replace"
+    d = [":clipboard-yank-join", "delete_selection"]
+
   '';
 }
