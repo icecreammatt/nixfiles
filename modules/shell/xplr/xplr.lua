@@ -1254,13 +1254,13 @@ xplr.config.modes.builtin.default.key_bindings.on_key["V"] =
   xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-a"]
 xplr.config.modes.builtin.default.key_bindings.on_key["/"] =
   xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-f"]
-xplr.config.modes.builtin.default.key_bindings.on_key["h"] =
+xplr.config.modes.builtin.default.key_bindings.on_key["n"] =
   xplr.config.modes.builtin.default.key_bindings.on_key["left"]
-xplr.config.modes.builtin.default.key_bindings.on_key["j"] =
+xplr.config.modes.builtin.default.key_bindings.on_key["e"] =
   xplr.config.modes.builtin.default.key_bindings.on_key["down"]
-xplr.config.modes.builtin.default.key_bindings.on_key["k"] =
+xplr.config.modes.builtin.default.key_bindings.on_key["u"] =
   xplr.config.modes.builtin.default.key_bindings.on_key["up"]
-xplr.config.modes.builtin.default.key_bindings.on_key["l"] =
+xplr.config.modes.builtin.default.key_bindings.on_key["i"] =
   xplr.config.modes.builtin.default.key_bindings.on_key["right"]
 
 -- The builtin debug error mode.
@@ -1864,7 +1864,7 @@ xplr.config.modes.builtin.action = {
           { SwitchModeBuiltin = "create" },
         },
       },
-      ["e"] = {
+      ["o"] = {
         help = "open in editor",
         messages = {
           {
