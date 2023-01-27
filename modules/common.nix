@@ -94,6 +94,7 @@
     ./shell/neofetch.nix
     ./shell/bottom.nix
     ./shell/kitty.nix
+    ./shell/xplr.nix
     ./editors/helix.nix
   ];
 
