@@ -6,6 +6,7 @@
 {
   home.packages = with pkgs; [
     helix
+    kind
     clang-tools
     lldb
     kitty
