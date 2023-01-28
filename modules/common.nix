@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     helix
     kind
+    kubernetes-helm-wrapped
     clang-tools
     lldb
     kitty
