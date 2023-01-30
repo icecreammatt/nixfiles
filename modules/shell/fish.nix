@@ -128,6 +128,7 @@
         pnpms="pnpm start";
         pnpml="pnpm run lint";
 
+        xp="xplr";
 
         vi = "$EDITOR";
         vim = "nvim";
