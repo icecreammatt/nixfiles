@@ -127,8 +127,8 @@ keybinding:
     openFile: 'o'
     scrollUpMain: '<pgup>' # main panel scroll up
     scrollDownMain: '<pgdown>' # main panel scroll down
-    scrollUpMain-alt1: 'K' # main panel scroll up
-    scrollDownMain-alt1: 'J' # main panel scroll down
+    scrollUpMain-alt1: 'U' # main panel scroll up
+    scrollDownMain-alt1: 'E' # main panel scroll down
     scrollUpMain-alt2: '<c-u>' # main panel scroll up
     scrollDownMain-alt2: '<c-d>' # main panel scroll down
     executeCustomCommand: ':'
@@ -154,7 +154,7 @@ keybinding:
     increaseContextInDiffView: '}'
     decreaseContextInDiffView: '{'
   status:
-    checkForUpdate: 'U'
+    checkForUpdate: 'J'
     recentRepos: '<enter>'
   files:
     commitChanges: 'c'
@@ -182,7 +182,7 @@ keybinding:
     viewGitFlowOptions: 'l'
     fastForward: 'f' # fast-forward this branch from its upstream
     pushTag: 'P'
-    setUpstream: 'U' # set as upstream of checked-out branch
+    setUpstream: 'J' # set as upstream of checked-out branch
     fetchRemote: 'f'
   commits:
     squashDown: 's'
@@ -218,5 +218,5 @@ keybinding:
     pickBothHunks: 'b'
   submodules:
     init: 'L'
-    update: 'U'
+    update: 'J'
     bulkMenu: 'b'
