@@ -13,7 +13,6 @@
 
     [editor.cursor-shape]
     insert = "bar"
-    select = "underline"
 
     [editor.whitespace.render]
     space = "none"
