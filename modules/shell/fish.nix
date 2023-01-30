@@ -37,11 +37,6 @@
         "cd.." = "cd ..";
         "cdr" = "ranger";
         "ran" = "ranger";
-        "..." = "../..";
-        "...." = "../../..";
-        "....." = "../../../..";
-        "......" = "../../../../..";
-        "......." = "../../../../../..";
         dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
         pkgs = "$EDITOR ~/nixfiles/modules/common.nix";
