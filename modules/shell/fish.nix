@@ -24,7 +24,7 @@
       fish_add_path /etc/static/profiles/per-user/mcarrier/bin
       set fish_color_valid_path
 
-      export EDITOR=nvim
+      export EDITOR=hx
       export BAT_THEME="Dracula"
       export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}"'
       zoxide init fish | source
@@ -44,7 +44,7 @@
         "......." = "../../../../../..";
         dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
-        pkgs = "vi ~/nixfiles/modules/common.nix";
+        pkgs = "$EDITOR ~/nixfiles/modules/common.nix";
         Source = "cd ~/Source";
         flushdns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
         amend="git commit --amend --no-edit";
@@ -84,7 +84,7 @@
         gl = "lazygit";
         lg = "lazygit";
 
-        ealias = "vi ~/nixfiles/modules/shell/fish.nix";
+        ealias = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
         hmb = "home-manager build";
         hms = "home-manager switch";
@@ -93,7 +93,7 @@
         ls = "exa";
         la = "exa -la";
         cat="bat -p --theme Dracula";
-        ehosts="sudo vi /etc/hosts";
+        ehosts="sudo $EDITOR /etc/hosts";
         memory = "ps -A u | sort -k 4 -r | head";
         top="btm";
         htop="btm";
@@ -128,9 +128,11 @@
         pnpms="pnpm start";
         pnpml="pnpm run lint";
 
-        vi = "nvim";
+
+        vi = "$EDITOR";
         vim = "nvim";
         vimrc = "nvim ~/nixfiles/modules/editors/nvim.nix";
+        hxrc = "$EDITOR ~/nixfiles/modules/editors/helix.nix";
         sm = "merge";
         merge = "open -n -a \"Sublime Merge\" .";
         bane = "bane2";
