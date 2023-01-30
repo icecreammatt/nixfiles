@@ -98,6 +98,7 @@
     ./shell/kitty.nix
     ./shell/wezterm.nix
     ./shell/xplr.nix
+    ./shell/lazygit.nix
     ./editors/helix.nix
   ];
 
