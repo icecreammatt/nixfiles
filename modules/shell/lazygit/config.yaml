@@ -123,7 +123,7 @@ keybinding:
     confirm-alt1: 'y'
     remove: 'd'
     new: 'h'
-    edit: 'E'
+    edit: '<c-e>'
     openFile: 'o'
     scrollUpMain: '<pgup>' # main panel scroll up
     scrollDownMain: '<pgdown>' # main panel scroll down
