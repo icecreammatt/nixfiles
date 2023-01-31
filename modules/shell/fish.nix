@@ -123,6 +123,7 @@
         pnpms="pnpm start";
         pnpml="pnpm run lint";
 
+        xcd="cd $(xplr --print-pwd-as-result)";
         xp="xplr";
 
         vi = "$EDITOR";
