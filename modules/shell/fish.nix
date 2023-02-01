@@ -110,6 +110,8 @@
         cb="cargo build";
         cr="cargo run";
 
+        kk="kubectl";
+
         npmi="npm install";
         npmb="npm run build";
         npms="npm start";
