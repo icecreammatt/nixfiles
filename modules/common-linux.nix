@@ -19,5 +19,6 @@
     psensor
     vscode
     peek
+    #nvtop #nonfree
   ];
 }
