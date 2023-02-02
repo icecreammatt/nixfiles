@@ -78,6 +78,7 @@
         ghb = "gh browse";
         gl = "lazygit";
         lg = "lazygit";
+        x = "z";
 
         ealias = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
