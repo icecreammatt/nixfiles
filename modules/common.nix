@@ -8,6 +8,7 @@
     helix
     kind
     kubernetes-helm-wrapped
+    k9s
     clang-tools
     lldb
     kitty
