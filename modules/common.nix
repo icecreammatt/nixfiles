@@ -9,6 +9,7 @@
     kind
     kubernetes-helm-wrapped
     k9s
+    argocd
     clang-tools
     lldb
     kitty
