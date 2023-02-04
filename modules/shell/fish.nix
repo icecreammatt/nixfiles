@@ -27,6 +27,7 @@
       export EDITOR=hx
       export BAT_THEME="Dracula"
       export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}"'
+      export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=0 --padding=0"
       zoxide init fish | source
 
       fzf_configure_bindings --variables=\ce
