@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     helix
     kind
+    minikube
     kubernetes-helm-wrapped
     k9s
     argocd
