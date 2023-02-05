@@ -41,6 +41,10 @@
     [keys.insert]
     "," = { s = "normal_mode" }
 
+    [keys.normal.space]
+    F = "file_picker"
+    f = "file_picker_in_current_directory"
+
     [keys.normal]
     # -------------------------
     # QWERTY to Colemak remaps
@@ -48,6 +52,8 @@
     #  [..] [NJ] [EK] [IL]
     #   [KN] [..] [..] [..]
     # -------------------------
+
+    "C-p" = "file_picker_in_current_directory"
 
     # N <=> K (swap, QWERTY position)
     e = "move_line_down"
