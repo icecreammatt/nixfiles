@@ -5,11 +5,18 @@
 
   home.file.".config/helix/config.toml".text = ''
     theme = "dracula"
+    icons = "nerdfonts"
 
     [editor]
     scrolloff = 9999999999
     cursorline = true
     bufferline = "multiple"
+
+    [editor.icons]
+    # enable = true
+    bufferline = true
+    picker = true
+    statusline = true
 
     [editor.cursor-shape]
     insert = "bar"
