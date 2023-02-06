@@ -88,7 +88,9 @@
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
         hmb = "home-manager build";
         hms = "home-manager switch";
-        l = "exa -lh   --icons --group-directories-first --classify";
+        tree = "exa --tree";
+        l =  "exa -lh  --icons --group-directories-first --classify";
+        lt = "exa -lh  --icons --group-directories-first --classify --tree --color=always | bat";
         ll = "exa -lah --icons --group-directories-first --classify";
         la = "exa -la  --icons --group-directories-first --classify";
         ls = "exa";
