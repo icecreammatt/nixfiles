@@ -29,6 +29,7 @@
       export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}"'
       export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=0 --padding=0"
       zoxide init fish | source
+      export SKIM_DEFAULT_COMMAND="rg --files || find ."
 
       fzf_configure_bindings --variables=\ce
     '';
@@ -166,8 +167,27 @@
                 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
             '';
         };
-
-
+        rge = {
+            description = "search file contents and open in editor on line number";
+            body = ''
+              set x (sk --bind "ctrl-p:toggle-preview" --ansi -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=right:50%:hidden)
+              set statusCode $status
+              set fileName (echo $x | cut -d: -f1)
+              set lineNum (echo $x | cut -d: -f2)
+              if [ $statusCode = 0 ];
+                $EDITOR $fileName:$lineNum
+              end
+            '';
+        };
+        ske = {
+            description = "search file names and open in editor";
+            body = ''
+              set x (sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=right:50%:visible)
+              if [ $status = 0 ];
+                $EDITOR "$x"
+              end
+            '';
+        };
         fish_greeting = {
           description = "welcome message";
           body = "";
