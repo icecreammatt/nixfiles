@@ -67,8 +67,8 @@
         gf = "git fetch --all";
         gb = "git branch -a";
         gcop = "git branch --sort=-committerdate | fzf --header 'Checkout Recent Branch' --preview \"git diff {1} --color=always\" --pointer=\"->\" | xargs git checkout";
-        gco = "git co";
-        gcob = "git cob";
+        gco = "git checkout";
+        gcob = "git checkout -b";
         grv = "git remote -v";
         ga = "git add";
         gap = "git add -p";
