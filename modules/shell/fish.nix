@@ -132,6 +132,7 @@
         xd="xcd";
         xp="xplr";
 
+        he = "hx";
         vi = "$EDITOR";
         vim = "nvim";
         vimrc = "nvim ~/nixfiles/modules/editors/nvim.nix";
