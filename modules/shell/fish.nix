@@ -143,6 +143,10 @@
         merge = "open -n -a \"Sublime Merge\" .";
         bane = "bane2";
         c = "code .";
+        note = "pushd ~/notes";
+        nt = "pushd ~/notes";
+        ntf = "pushd ~/notes && ske && popd";
+        nts = "pushd ~/notes && rge && popd";
     };
     shellAbbrs = {
         o = "open . &";
