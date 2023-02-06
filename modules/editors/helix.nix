@@ -54,6 +54,7 @@
     # -------------------------
 
     "C-p" = "file_picker_in_current_directory"
+    "C-l" = "page_up"
 
     # N <=> K (swap, QWERTY position)
     e = "move_line_down"
