@@ -133,8 +133,8 @@
         pnpml="pnpm run lint";
 
         xcd="cd (xplr --print-pwd-as-result)";
-        xd="xcd";
-        xp="xplr";
+        xp="cd (xplr --print-pwd-as-result)";
+        xd="cd (xplr --print-pwd-as-result)";
 
         he = "hx";
         vi = "$EDITOR";

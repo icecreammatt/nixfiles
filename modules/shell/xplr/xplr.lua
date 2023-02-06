@@ -1145,6 +1145,12 @@ xplr.config.modes.builtin.default = {
       ["q"] = {
         help = "quit",
         messages = {
+          "PrintResultAndQuit",
+        },
+      },
+      ["esc"] = {
+        help = "quit",
+        messages = {
           "Quit",
         },
       },
