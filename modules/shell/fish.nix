@@ -86,10 +86,10 @@
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
         hmb = "home-manager build";
         hms = "home-manager switch";
-        l = "exa -lh --icons";
-        ll = "exa -lah";
+        l = "exa -lh   --icons --group-directories-first --classify";
+        ll = "exa -lah --icons --group-directories-first --classify";
+        la = "exa -la  --icons --group-directories-first --classify";
         ls = "exa";
-        la = "exa -la";
         cat="bat -p --theme Dracula";
         ehosts="sudo $EDITOR /etc/hosts";
         memory = "ps -A u | sort -k 4 -r | head";
