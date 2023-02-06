@@ -175,11 +175,10 @@
         rge = {
             description = "search file contents and open in editor on line number";
             body = ''
-              set x (sk --bind "ctrl-p:toggle-preview" --ansi -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=right:50%:hidden)
-              set statusCode $status
-              set fileName (echo $x | cut -d: -f1)
-              set lineNum (echo $x | cut -d: -f2)
-              if [ $statusCode = 0 ];
+              set x (sk --bind "ctrl-p:toggle-preview" --ansi -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=right:50%:visible)
+              if [ $status = 0 ];
+                set fileName (echo $x | cut -d: -f1)
+                set lineNum (echo $x | cut -d: -f2)
                 $EDITOR $fileName:$lineNum
               end
             '';
