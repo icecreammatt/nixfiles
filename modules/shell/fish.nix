@@ -82,6 +82,7 @@
         lg = "lazygit";
         x = "z";
         xi = "zi";
+        pd = "popd";
 
         ealias = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
