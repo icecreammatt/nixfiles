@@ -45,6 +45,32 @@
     F = "file_picker"
     f = "file_picker_in_current_directory"
 
+    [keys.normal."("]
+    d = "goto_prev_diag"
+    D = "goto_first_diag"
+    g = "goto_prev_change"
+    G = "goto_last_change"
+    f = "goto_prev_function"
+    t = "goto_prev_class"
+    a = "goto_prev_parameter"
+    c = "goto_prev_comment"
+    T = "goto_prev_test"
+    p = "goto_prev_paragraph"
+    space = "add_newline_above"
+
+    [keys.normal.")"]
+    d = "goto_next_diag"
+    D = "goto_last_diag"
+    g = "goto_next_change"
+    G = "goto_first_change"
+    f = "goto_next_function"
+    t = "goto_next_class"
+    a = "goto_next_parameter"
+    c = "goto_next_comment"
+    T = "goto_next_test"
+    p = "goto_next_paragraph"
+    space = "add_newline_below"
+
     [keys.normal]
     # -------------------------
     # QWERTY to Colemak remaps
