@@ -66,6 +66,7 @@
     gifsicle
     gist
     s3cmd
+    mdcat
     awscli
     nnn
     gitui
