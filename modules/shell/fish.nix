@@ -150,6 +150,8 @@
         nt = "pushd ~/notes";
         ntf = "pushd ~/notes && ske && popd";
         nts = "pushd ~/notes && rge && popd";
+
+        dsw = "darwin-rebuild switch --flake .";
     };
     shellAbbrs = {
         o = "open . &";
