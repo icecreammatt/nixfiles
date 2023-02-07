@@ -180,7 +180,7 @@
         rge = {
             description = "search file contents and open in editor on line number";
             body = ''
-              set x (sk --bind "ctrl-p:toggle-preview" --ansi -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=right:50%:visible)
+              set x (sk --bind "ctrl-v:toggle-preview,ctrl-k:down" --ansi -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=right:50%:visible)
               if [ $status = 0 ];
                 set fileName (echo $x | cut -d: -f1)
                 set lineNum (echo $x | cut -d: -f2)
@@ -191,7 +191,7 @@
         ske = {
             description = "search file names and open in editor";
             body = ''
-              set x (sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=right:50%:visible)
+              set x (sk --bind "ctrl-v:toggle-preview,ctrl-k:down" --ansi --preview="preview.sh -v {}" --preview-window=right:50%:visible)
               if [ $status = 0 ];
                 $EDITOR "$x"
               end
