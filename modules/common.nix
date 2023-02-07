@@ -11,6 +11,7 @@
     kubernetes-helm-wrapped
     k9s
     argocd
+    nix-prefetch
     clang-tools
     lldb
     kitty
