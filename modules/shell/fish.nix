@@ -57,6 +57,7 @@
         grom = "git rebase origin/main || git rebase origin/master";
         gpom = "git push -u origin main || git push -u origin master";
         grc = "git rebase --continue";
+        gc = "git clone";
         gcm = "git checkout main || git checkout master || git checkout trunk";
         gss = "git stash save";
         gsp = "git stash pop";
