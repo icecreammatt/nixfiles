@@ -40,6 +40,8 @@
 
     [keys.insert]
     "," = { s = "normal_mode" }
+    # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+    esc = ["collapse_selection", "normal_mode"]
 
     [keys.normal.space]
     F = "file_picker"
@@ -121,6 +123,8 @@
     R = ":clipboard-paste-replace"
     d = [":clipboard-yank-join", "delete_selection"]
 
+    # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+    esc = ["collapse_selection", "keep_primary_selection"]
     [keys.select]
     p = ":clipboard-paste-after"
     P = ":clipboard-paste-before"
@@ -129,6 +133,8 @@
     R = ":clipboard-paste-replace"
     d = [":clipboard-yank-join", "delete_selection"]
 
+    # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+    esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
   '';
 
   home.file.".config/helix/languages.toml".text = ''
