@@ -98,10 +98,10 @@
     # ILU loop
     # I => L
     i = "move_char_right"
-    I = "insert_at_line_end"
+    # I = "insert_at_line_end"
 
     n = "move_char_left"
-    N = "workspace_symbol_picker"
+    # N = "workspace_symbol_picker"
 
     s = "insert_mode"
     S = "insert_at_line_start"
