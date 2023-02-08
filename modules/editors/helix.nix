@@ -125,6 +125,16 @@
 
     # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
     esc = ["collapse_selection", "keep_primary_selection"]
+
+    # Muscle memory
+    "{" = ["goto_prev_paragraph", "collapse_selection"]
+    "}" = ["goto_next_paragraph", "collapse_selection"]
+    "N" = "goto_first_nonwhitespace"
+    "$" = "goto_line_end"
+    "I" = "goto_line_end"
+    "^" = "goto_first_nonwhitespace"
+    G = "goto_file_end"
+
     [keys.select]
     p = ":clipboard-paste-after"
     P = ":clipboard-paste-before"
