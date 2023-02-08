@@ -29,6 +29,8 @@ return {
   },
 
   keys = {
+    { key = '{', mods = 'SHIFT|ALT', action = act.MoveTabRelative(-1) },
+    { key = '}', mods = 'SHIFT|ALT', action = act.MoveTabRelative(1) },
     { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
     { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
     { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen },
