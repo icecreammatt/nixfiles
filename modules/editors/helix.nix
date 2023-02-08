@@ -145,6 +145,30 @@
 
     # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
     esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+
+    # Make selecting lines in visual mode behave sensibly
+    u = ["extend_line_up", "extend_to_line_bounds"]
+    e = ["extend_line_down", "extend_to_line_bounds"]
+
+    # e = "extend_line_down"
+    # u = "extend_line_up"
+    i = "extend_char_right"
+    n = "extend_char_left"
+
+    # F = "extend_next_long_word_end"
+    # f = "extend_next_word_end"
+    # G = "extend_till_prev_char"
+    # g = "extend_till_char"
+    # T = "extend_prev_char"
+    # t = "extend_next_char"
+
+    # selection manipulation
+    # r = "select_regex"
+    # R = "split_selection"
+    # o = "collapse_selection"
+    # N = "join_selections"
+    # E = "keep_selections"
+
   '';
 
   home.file.".config/helix/languages.toml".text = ''
