@@ -43,7 +43,6 @@
     procs
     xh
     zoxide
-    coreutils
     jq
     yq
     tig
@@ -61,6 +60,7 @@
     git
     ffmpeg
     coreutils
+    # uutils-coreutils - enable once all is ported
     mkcert
     git-standup
     imagemagick
