@@ -12,6 +12,7 @@
     k9s
     argocd
     nix-prefetch
+    pandoc
     clang-tools
     lldb
     kitty
