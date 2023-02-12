@@ -152,6 +152,7 @@
         nts = "pushd ~/notes && rge && popd";
 
         dsw = "darwin-rebuild switch --flake .";
+        md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
         o = "open . &";
