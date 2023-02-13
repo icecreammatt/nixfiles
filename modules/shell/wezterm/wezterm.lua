@@ -9,24 +9,24 @@ return {
 
    use_fancy_tab_bar = false,
 
-   tab_bar_style = {
-    active_tab_left = wezterm.format {
-      { Background = { Color = '#0b0022' } },
-      { Foreground = { Color = '#2b2042' } },
-    },
-    active_tab_right = wezterm.format {
-      { Background = { Color = '#0b0022' } },
-      { Foreground = { Color = '#2b2042' } },
-    },
-    inactive_tab_left = wezterm.format {
-      { Background = { Color = '#0b0022' } },
-      { Foreground = { Color = '#1b1032' } },
-    },
-    inactive_tab_right = wezterm.format {
-      { Background = { Color = '#0b0022' } },
-      { Foreground = { Color = '#1b1032' } },
-    },
-  },
+  --  tab_bar_style = {
+  --   active_tab_left = wezterm.format {
+  --     { Background = { Color = '#0b0022' } },
+  --     { Foreground = { Color = '#2b2042' } },
+  --   },
+  --   active_tab_right = wezterm.format {
+  --     { Background = { Color = '#0b0022' } },
+  --     { Foreground = { Color = '#2b2042' } },
+  --   },
+  --   inactive_tab_left = wezterm.format {
+  --     { Background = { Color = '#0b0022' } },
+  --     { Foreground = { Color = '#1b1032' } },
+  --   },
+  --   inactive_tab_right = wezterm.format {
+  --     { Background = { Color = '#0b0022' } },
+  --     { Foreground = { Color = '#1b1032' } },
+  --   },
+  -- },
 
   keys = {
     { key = '{', mods = 'SHIFT|ALT', action = act.MoveTabRelative(-1) },
@@ -258,18 +258,18 @@ return {
      }
     },
 
-    search_mode = {
-      { key = 'Enter', mods = 'NONE', action = act.CopyMode 'PriorMatch' },
-      { key = 'Escape', mods = 'NONE', action = act.CopyMode 'Close' },
-      { key = 'n', mods = 'CTRL', action = act.CopyMode 'NextMatch' },
-      { key = 'p', mods = 'CTRL', action = act.CopyMode 'PriorMatch' },
-      { key = 'r', mods = 'CTRL', action = act.CopyMode 'CycleMatchType' },
-      { key = 'u', mods = 'CTRL', action = act.CopyMode 'ClearPattern' },
-      { key = 'PageUp', mods = 'NONE', action = act.CopyMode 'PriorMatchPage' },
-      { key = 'PageDown', mods = 'NONE', action = act.CopyMode 'NextMatchPage' },
-      { key = 'UpArrow', mods = 'NONE', action = act.CopyMode 'PriorMatch' },
-      { key = 'DownArrow', mods = 'NONE', action = act.CopyMode 'NextMatch' },
-    },
+    -- search_mode = {
+    --   { key = 'Enter', mods = 'NONE', action = act.CopyMode 'PriorMatch' },
+    --   { key = 'Escape', mods = 'NONE', action = act.CopyMode 'Close' },
+    --   { key = 'n', mods = 'CTRL', action = act.CopyMode 'NextMatch' },
+    --   { key = 'p', mods = 'CTRL', action = act.CopyMode 'PriorMatch' },
+    --   { key = 'r', mods = 'CTRL', action = act.CopyMode 'CycleMatchType' },
+    --   { key = 'u', mods = 'CTRL', action = act.CopyMode 'ClearPattern' },
+    --   { key = 'PageUp', mods = 'NONE', action = act.CopyMode 'PriorMatchPage' },
+    --   { key = 'PageDown', mods = 'NONE', action = act.CopyMode 'NextMatchPage' },
+    --   { key = 'UpArrow', mods = 'NONE', action = act.CopyMode 'PriorMatch' },
+    --   { key = 'DownArrow', mods = 'NONE', action = act.CopyMode 'NextMatch' },
+    -- },
 
     hyperlink_rules = {
       -- Linkify things that look like URLs and the host has a TLD name.
