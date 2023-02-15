@@ -17,6 +17,7 @@
     lldb
     kitty
     onefetch
+    nmap
     zellij
     pipes-rs
     terminal-colors
