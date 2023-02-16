@@ -70,6 +70,8 @@
     gist
     s3cmd
     mdcat
+    imgcat
+    wezterm
     awscli
     nnn
     gitui

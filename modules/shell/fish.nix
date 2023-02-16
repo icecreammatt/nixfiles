@@ -96,6 +96,7 @@
         la = "exa -la  --icons --group-directories-first --classify";
         ls = "exa";
         cat="bat -p --theme Dracula";
+        icat="wezterm imgcat";
         ehosts="sudo $EDITOR /etc/hosts";
         memory = "ps -A u | sort -k 4 -r | head";
         top="btm";
