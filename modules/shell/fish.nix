@@ -157,6 +157,10 @@
     shellAbbrs = {
         o = "open . &";
         ag = "rg";
+        he = "hx";
+        kk="kubectl";
+        gco = "git checkout";
+        gcob = "git checkout -b";
     };
     functions = {
         ranger = {
