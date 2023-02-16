@@ -96,7 +96,7 @@
     lazygit
     lazycli
     xplr
-    nodePackages.vscode-json-languageserver
+    nodePackages.vscode-langservers-extracted
     nodejs-18_x
     # svelte-language-server
   ];

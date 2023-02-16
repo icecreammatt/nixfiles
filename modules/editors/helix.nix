@@ -176,16 +176,5 @@
     name = "markdown"
     language-server = { command = "mdpls" }
     config = { markdown.preview.auto = true, markdown.preview.browser = "firefox" }
-    
-    [[language]]
-    name = "json"
-    scope = "source.json"
-    injection-regex = "json"
-    file-types = ["json", "jsonc"]
-    roots = []
-    language-server = { command = "vscode-json-languageserver", args = ["--stdio"] }
-    auto-format = true
-    config = { "provideFormatter" = true }
-    indent = { tab-width = 2, unit = "  " }
    '';
 }
