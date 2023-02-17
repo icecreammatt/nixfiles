@@ -152,7 +152,7 @@
         ntf = "pushd ~/notes && ske && popd";
         nts = "pushd ~/notes && rge && popd";
 
-        dsw = "darwin-rebuild switch --flake .";
+        dsw = "pushd ~/nixfiles && darwin-rebuild switch --flake . && popd";
         md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
@@ -162,6 +162,9 @@
         kk="kubectl";
         gco = "git checkout";
         gcob = "git checkout -b";
+        dbt = "docker build -t temp .";
+        drt = "docker run -it -p 3000:3000 temp";
+        drti = "docker run -it -p 3000:3000 temp /bin/bash";
     };
     functions = {
         ranger = {
