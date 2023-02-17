@@ -98,7 +98,7 @@
     xplr
     nodePackages.vscode-langservers-extracted
     nodejs-18_x
-    # svelte-language-server
+    nodePackages.svelte-language-server
   ];
 
   imports = [
