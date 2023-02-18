@@ -174,6 +174,7 @@
   home.file.".config/helix/languages.toml".text = ''
     [[language]]
     name = "markdown"
+    file-types = ["md", "markdown" ]
     language-server = { command = "mdpls" }
    '';
 }
