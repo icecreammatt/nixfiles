@@ -175,6 +175,5 @@
     [[language]]
     name = "markdown"
     language-server = { command = "mdpls" }
-    config = { markdown.preview.auto = true, markdown.preview.browser = "firefox" }
    '';
 }
