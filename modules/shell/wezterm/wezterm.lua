@@ -123,6 +123,7 @@ return {
     { key = 'X', mods = 'SHIFT|CTRL', action = act.ActivateCopyMode },
     { key = 'Z', mods = 'CTRL', action = act.TogglePaneZoomState },
     { key = 'Z', mods = 'SHIFT|CTRL', action = act.TogglePaneZoomState },
+    { key = 'F12', mods = 'NONE', action = act.TogglePaneZoomState },
     { key = '[', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(-1) },
     { key = ']', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(1) },
     { key = '^', mods = 'CTRL', action = act.ActivateTab(5) },
