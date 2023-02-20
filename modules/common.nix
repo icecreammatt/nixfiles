@@ -61,6 +61,7 @@
     tig
     git
     ffmpeg
+    mediainfo
     coreutils
     # uutils-coreutils - enable once all is ported
     mkcert
