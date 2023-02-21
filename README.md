@@ -23,6 +23,8 @@ darwin-rebuild switch --flake . #this will work after initial build
 ```bash
 nix --experimental-features 'flakes nix-command' build .#darwinConfigurations.Bebop.system
 nix build .#darwinConfigurations.Bebop.system # the longer version above might be neede for initial install
+sudo ./result/activate
+
 ./result/sw/bin/darwin-rebuild switch --flake . # Use this for the initial build
 darwin-rebuild switch --flake . #this will work after initial build
 ```
