@@ -72,7 +72,7 @@
     s3cmd
     mdcat
     imgcat
-    wezterm
+    # wezterm
     awscli
     nnn
     gitui
