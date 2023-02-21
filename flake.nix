@@ -4,7 +4,7 @@
   description = "System configuration for NixOS, Mac, Asahi";
 
   inputs = { 
-    nixpkgs.url = "github:icecreammatt/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
