@@ -98,7 +98,6 @@
     lazycli
     xplr
     nodePackages.vscode-langservers-extracted
-    nodejs-18_x
     nodePackages.svelte-language-server
   ];
 
