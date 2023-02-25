@@ -28,7 +28,13 @@ return {
   --   },
   -- },
 
+
+  -- timeout_milliseconds defaults to 1000 and can be omitted
+  leader = { key = ',', mods = 'CTRL', timeout_milliseconds = 1000 },
+
   keys = {
+    { key = 's', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
+    { key = 'v', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
     { key = '{', mods = 'SHIFT|ALT', action = act.MoveTabRelative(-1) },
     { key = '}', mods = 'SHIFT|ALT', action = act.MoveTabRelative(1) },
     { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
@@ -119,7 +125,7 @@ return {
  --   { key = 'U', mods = 'CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
 
     -- { key = 'U', mods = 'SHIFT|CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
-    { key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
+    -- { key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
     { key = 'V', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
     { key = 'W', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = true } },
     { key = 'W', mods = 'SHIFT|CTRL', action = act.CloseCurrentTab{ confirm = true } },
@@ -128,6 +134,8 @@ return {
     { key = 'Z', mods = 'CTRL', action = act.TogglePaneZoomState },
     { key = 'Z', mods = 'SHIFT|CTRL', action = act.TogglePaneZoomState },
     { key = 'F12', mods = 'NONE', action = act.TogglePaneZoomState },
+    { key = 'z', mods = 'LEADER', action = act.TogglePaneZoomState },
+    { key = 'x', mods = 'LEADER', action = act.TogglePaneZoomState },
     { key = '[', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(-1) },
     { key = ']', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(1) },
     { key = '^', mods = 'CTRL', action = act.ActivateTab(5) },
