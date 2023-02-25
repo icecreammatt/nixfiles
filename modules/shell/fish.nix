@@ -31,7 +31,6 @@
       zoxide init fish | source
       export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 
-      fzf_configure_bindings --variables=\ce
     '';
 
     shellAliases = {
