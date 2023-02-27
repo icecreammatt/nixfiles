@@ -35,6 +35,8 @@ return {
   keys = {
     { key = 's', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
     { key = 'v', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
+    { key = 's', mods = 'SHIFT|SUPER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
+    { key = 'v', mods = 'SHIFT|SUPER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
     { key = '{', mods = 'SHIFT|ALT', action = act.MoveTabRelative(-1) },
     { key = '}', mods = 'SHIFT|ALT', action = act.MoveTabRelative(1) },
     { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
@@ -136,6 +138,7 @@ return {
     { key = 'F12', mods = 'NONE', action = act.TogglePaneZoomState },
     { key = 'z', mods = 'LEADER', action = act.TogglePaneZoomState },
     { key = 'f', mods = 'LEADER', action = act.TogglePaneZoomState },
+    { key = 'f', mods = 'SHIFT|SUPER', action = act.TogglePaneZoomState },
     { key = 'x', mods = 'LEADER', action = act.TogglePaneZoomState },
     { key = '[', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(-1) },
     { key = ']', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(1) },
