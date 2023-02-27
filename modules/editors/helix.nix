@@ -176,5 +176,18 @@
     name = "markdown"
     file-types = ["md", "markdown" ]
     language-server = { command = "mdpls" }
+
+    [[language]]
+    name = "java"
+    scope = "source.java"
+    injection-regex = "java"
+    file-types = ["java", "groovy"]
+    roots = ["pom.xml", "build.gradle"]
+    language-server = { command = "jdtls" }
+    indent = { tab-width = 4, unit = "    " }
+
+    [[grammar]]
+    name = "java"
+    source = { git = "https://github.com/tree-sitter/tree-sitter-java", rev = "09d650def6cdf7f479f4b78f595e9ef5b58ce31e" }
    '';
 }
