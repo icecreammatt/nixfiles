@@ -135,6 +135,7 @@ return {
     { key = 'Z', mods = 'SHIFT|CTRL', action = act.TogglePaneZoomState },
     { key = 'F12', mods = 'NONE', action = act.TogglePaneZoomState },
     { key = 'z', mods = 'LEADER', action = act.TogglePaneZoomState },
+    { key = 'f', mods = 'LEADER', action = act.TogglePaneZoomState },
     { key = 'x', mods = 'LEADER', action = act.TogglePaneZoomState },
     { key = '[', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(-1) },
     { key = ']', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(1) },
