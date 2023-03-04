@@ -112,7 +112,8 @@ return {
 
     { key = 'M', mods = 'CTRL', action = act.Hide },
     { key = 'M', mods = 'SHIFT|CTRL', action = act.Hide },
-    { key = 'N', mods = 'SHIFT|SUPER', action = act.SpawnWindow },
+    { key = 'N', mods = 'SUPER', action = act.SpawnWindow },
+    -- { key = 'N', mods = 'SHIFT|SUPER', action = act.SpawnWindow },
     -- { key = 'N', mods = 'CTRL', action = act.SpawnWindow },
     -- { key = 'N', mods = 'SHIFT|CTRL', action = act.SpawnWindow },
     { key = 'P', mods = 'CTRL', action = act.ActivateCommandPalette },
