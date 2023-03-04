@@ -78,7 +78,6 @@
         gdc = "git diff --cached";
         gdcw = "git diff --cached -w";
         ghb = "gh browse";
-        gl = "lazygit";
         lg = "lazygit";
         x = "z";
         xi = "zi";
@@ -159,6 +158,14 @@
         ag = "rg";
         he = "hx";
         kk="kubectl";
+        g = "git status";
+        gl = "git log";
+        gf = "git fetch --all";
+        gp = "git pull --rebase";
+        gpu = "git push";
+        gpuf = "git push -f";
+        gpuo = "git push -u origin";
+        grc = "git rebase --continue";
         gco = "git checkout";
         gcob = "git checkout -b";
         dbt = "docker build -t temp .";
