@@ -11,6 +11,7 @@
     scrolloff = 9999999999
     cursorline = true
     bufferline = "multiple"
+    mouse = false
 
     # [editor.icons]
     # enable = true
