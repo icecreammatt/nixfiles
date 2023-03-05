@@ -39,6 +39,12 @@
     character = "|"
     skip-levels = 1
 
+    [keys.normal.C-w]
+    n = "jump_view_left"
+    e = "jump_view_down"
+    u = "jump_view_up"
+    i = "jump_view_right"
+
     [keys.insert]
     "," = { s = "normal_mode" }
     # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
