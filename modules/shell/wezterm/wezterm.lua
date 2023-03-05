@@ -35,6 +35,7 @@ return {
   keys = {
     { key = 's', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
     { key = 'v', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
+    { key = "Space", mods = "LEADER", action = wezterm.action.ShowLauncher },
     { key = 's', mods = 'SHIFT|SUPER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
     { key = 'v', mods = 'SHIFT|SUPER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
     { key = '{', mods = 'SHIFT|ALT', action = act.MoveTabRelative(-1) },
