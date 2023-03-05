@@ -328,6 +328,19 @@ return {
         format = '$0',
       },
 
+      -- Make localhost links clickable
+      -- Orders seems to matter here so check for localhost without
+      -- http first since in the second scenario since wezterm wont
+      -- open a url without a prefix
+      {
+        regex = [[(localhost)+(:?[0-9]{1,9})?]],
+        format = 'http://$1$2',
+      },
+      {
+        regex = [[(http+s?://)?(localhost)+(:?[0-9]{1,9})?]],
+        format = '$1$2$3',
+      },
+
       -- Make task numbers clickable
       -- The first matched regex group is captured in $1.
       {
