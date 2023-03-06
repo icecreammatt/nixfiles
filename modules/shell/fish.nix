@@ -79,6 +79,7 @@
         gdcw = "git diff --cached -w";
         ghb = "gh browse";
         lg = "lazygit";
+        gl = "lazygit log";
         x = "z";
         xi = "zi";
         pd = "popd";
@@ -159,7 +160,6 @@
         he = "hx";
         kk="kubectl";
         g = "git status";
-        gl = "git log";
         gf = "git fetch --all";
         gp = "git pull --rebase";
         gpu = "git push";
