@@ -87,6 +87,7 @@
     #  [..] [NJ] [EK] [IL]
     #   [KN] [..] [..] [..]
     # -------------------------
+    "," = { q = "wclose" }
 
     "C-p" = "file_picker_in_current_directory"
     "C-l" = "page_up"
