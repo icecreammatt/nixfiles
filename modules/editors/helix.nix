@@ -87,7 +87,7 @@
     #  [..] [NJ] [EK] [IL]
     #   [KN] [..] [..] [..]
     # -------------------------
-    "," = { Q = "wclose", q = ":buffer-close", s = ":w", p = ":lsp-workspace-command" }
+    "," = { Q = "wclose", q = ":buffer-close", s = ":w", m = ":lsp-workspace-command", p = "file_picker_in_current_directory" }
 
     "C-p" = "file_picker_in_current_directory"
     "C-l" = "page_up"
