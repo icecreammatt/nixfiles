@@ -53,6 +53,8 @@
     [keys.normal.space]
     F = "file_picker"
     f = "file_picker_in_current_directory"
+    E = "reveal_current_file"
+    e = "open_or_focus_explorer"
 
     [keys.normal."("]
     d = "goto_prev_diag"
