@@ -29,6 +29,14 @@ sudo ./result/activate
 darwin-rebuild switch --flake . #this will work after initial build
 ```
 
+### NixOS | Raspberry Pi & VM
+
+> Build command will match nix config with machine hostname
+
+```bash
+sudo nixos-rebuild switch --flake .
+```
+
 ## Shoutouts
 - https://github.com/MatthiasBenaets/nixos-config
 - https://github.com/thexyno/nixos-config
