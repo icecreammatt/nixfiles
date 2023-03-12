@@ -34,6 +34,7 @@ in
           home.stateVersion = "22.11";
 	        imports = [ 
             ../modules/core.nix
+            ../modules/rust.nix
     		    # ./nixos-packages.nix
             ../modules/editors/helix.nix
             ../modules/shell/lazygit.nix
