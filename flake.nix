@@ -57,7 +57,7 @@
       # };
 
       # Gaming PC, VM, Raspberry Pi
-      nixConfigurations = (
+      nixosConfigurations = (
         import ./nixos {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs home-manager userConfig;
