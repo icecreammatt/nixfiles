@@ -13,6 +13,7 @@
     coreutils
     curl
     delta # diff dool
+    du-dust # space visualizer
     duf  # du alternative
     exa  # ls alternative
     fd   # find alternative

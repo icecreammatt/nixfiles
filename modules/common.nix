@@ -11,7 +11,6 @@
     choose # awk like tool
     clang-tools
     dogdns
-    du-dust
     ffmpeg
     gcc
     gettext
