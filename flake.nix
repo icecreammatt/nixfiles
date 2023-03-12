@@ -29,20 +29,33 @@
         lastName = "Carrier";
         email = "placeholder@example.com";
       };
-      #user = "mcarrier";
     in
     {
+      # NixOS
+      nixosConfigurations.gaming = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        # inherit pkgs;
+        modules = [
+          ./nix-os-flakes/configuration.nix
+    	    home-manager.nixosModules.home-manager {
+    	      home-manager.useGlobalPkgs = true;
+    	      home-manager.useUserPackages = true;
+    	      home-manager.users.matt = {
+              home.stateVersion = "22.11";
+    	        imports = [ 
+        		    # ./nixos-packages.nix
+        		    # ./modules/common.nix
+        		    # ./modules/common-linux.nix
+        		    ./modules/shell/fish.nix
+              ];
+            };
+          }
+        ];
+      };
+
       # M1 Mac + Linux config
       asahiConfiguration = (
         import ./asahi {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager userConfig;
-        }
-      );
-
-      # NixOS
-      nixosConfiguration = (
-        import ./nixos {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs home-manager userConfig;
         }
@@ -55,5 +68,6 @@
           inherit inputs nixpkgs home-manager darwin userConfig;
         }
       );
-    };
+
+  };
 }
