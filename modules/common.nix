@@ -70,7 +70,6 @@
     t-rec
     terminal-colors
     tig
-    tig
     ttyd
     viu
     xclip
@@ -81,6 +80,7 @@
 
   imports = [
     ./core.nix
+    ./rust.nix
     ./shell/cava.nix
     ./shell/kitty.nix
     ./shell/wezterm.nix
