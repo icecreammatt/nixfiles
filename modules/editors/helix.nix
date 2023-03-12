@@ -8,7 +8,7 @@
     # icons = "nerdfonts"
 
     [editor]
-    scrolloff = 9999999999
+    scrolloff = 10
     cursorline = true
     bufferline = "multiple"
     mouse = false
