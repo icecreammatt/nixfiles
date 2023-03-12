@@ -5,27 +5,40 @@
 
 {
   home.packages = with pkgs; [
-    bat
-    bottom
+    # uutils-coreutils - enable once all is ported
+    bandwhich # network monitor
+    bat # cat alternative
+    bottom # btm top alternative
+    broot
+    coreutils
     curl
-    delta
-    exa
-    fd
+    delta # diff dool
+    duf  # du alternative
+    exa  # ls alternative
+    fd   # find alternative
     fzf
     git
+    gping # ping with graph
     helix
     htop
+    jq
     lazygit
-    nnn
-    ranger
+    neofetch # os summary
+    mdcat # cat for markdown files
+    nmap # network scanner utility
+    nnn    # cli explorer
+    ranger # cli explorer
     ripgrep
-    skim
+    rsync
+    skim   # fzf in rust
     time
     tldr
     tree
     wget
-    xplr
-    zoxide
+    xh # http request viewer
+    xplr   # cli explorer
+    yq # cli yaml parser
+    zoxide # z shortcut tool
   ];
 
   imports = [
