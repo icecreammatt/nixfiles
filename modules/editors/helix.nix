@@ -188,6 +188,11 @@
     language-server = { command = "mdpls" }
 
     [[language]]
+    name = "nix"
+    file-types = [ "nix" ]
+    language-server = { command = "rnix-lsp" }
+
+    [[language]]
     name = "java"
     scope = "source.java"
     injection-regex = "java"
