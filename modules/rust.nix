@@ -5,5 +5,7 @@
     rust-analyzer
     rust-script
     rustup
+    gcc
+    clang-tools
   ];
 }
