@@ -62,9 +62,6 @@
     python39
     rnix-lsp
     rsync
-    rust-analyzer
-    rust-script
-    rustup
     s3cmd
     sumneko-lua-language-server
     t-rec
