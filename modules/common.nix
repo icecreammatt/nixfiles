@@ -1,85 +1,60 @@
-# Programs to install on all systems
-# Modern Unix https://github.com/ibraheemdev/modern-unix
+# Programs to install on most systems
 
 {  pkgs, lib, ... }:
 
 {
   home.packages = with pkgs; [
-    # uutils-coreutils - enable once all is ported
     # wezterm
-    argocd
     awscli
-    bandwhich
     bash
-    broot
-    caddy
-    choose
+    caddy # web server
+    choose # awk like tool
     clang-tools
-    coreutils
-    curlie
     dogdns
     du-dust
-    duf
     ffmpeg
     gcc
     gettext
-    gh
-    gifsicle
-    gist
-    git-standup
-    gitui
-    go
-    gping
-    gron
-    httpie
-    hugo
+    gh # github cli
+    gifsicle # cli gif tool
+    gist # github gist uploader
+    git-standup # list work done in repo over last day
+    gitui # gitui in rust
+    go # programming languge
+    gron # json search tool
+    hugo # static site generator
     imagemagick
-    imgcat
-    jq
-    k9s
-    kind
-    kitty
-    kubernetes-helm-wrapped
+    imgcat # display images in terminal
     lazycli
     lazydocker
     libiconvReal
     lldb
-    mdcat
     mediainfo
-    minikube
     mkcert
-    neofetch
     nix-prefetch
-    nmap
     nodePackages.svelte-language-server
     nodePackages.vscode-langservers-extracted
     nss
     nssTools
-    onefetch
-    pandoc
+    onefetch # git repo summary
+    pandoc # document convertions
     pipes-rs
-    procs
-    python39
+    procs # ps in rust
+    python39 # programming languge
     rnix-lsp
-    rsync
-    s3cmd
+    s3cmd # s3 cli
     sumneko-lua-language-server
-    t-rec
+    t-rec # screenshot
     terminal-colors
-    tig
-    ttyd
-    viu
-    xclip
-    xh
-    yq
-    zellij
+    ttyd # share terminal over web
+    viu # image viewer
+    zellij # terminal multiplexer
   ];
 
   imports = [
     ./core.nix
     ./rust.nix
-    ./shell/cava.nix
-    ./shell/kitty.nix
+    ./k8s.nix
     ./shell/wezterm.nix
   ];
 
