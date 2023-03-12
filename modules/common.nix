@@ -5,111 +5,85 @@
 
 {
   home.packages = with pkgs; [
-    helix
-    kind
-    minikube
-    kubernetes-helm-wrapped
-    k9s
+    # uutils-coreutils - enable once all is ported
+    # wezterm
     argocd
-    nix-prefetch
-    pandoc
-    clang-tools
-    lldb
-    kitty
-    onefetch
-    nmap
-    zellij
-    pipes-rs
-    terminal-colors
-    gcc
-    rustup
-    rust-script
-    rust-analyzer
-    libiconvReal
-    ripgrep
-    skim
-    ranger
-    bat
-    fd
-    exa
+    awscli
+    bandwhich
+    bash
     broot
+    caddy
     choose
+    clang-tools
+    coreutils
     curlie
     dogdns
     du-dust
     duf
-    fd
-    fzf
-    gping
-    httpie
-    procs
-    xh
-    zoxide
-    jq
-    yq
-    tig
-    gron
-    gh
-    python39
-    bandwhich
-    delta
-    wget
-    tree
-    curl
-    bash
-    rsync
-    tig
-    git
     ffmpeg
-    mediainfo
-    coreutils
-    # uutils-coreutils - enable once all is ported
-    mkcert
-    git-standup
-    imagemagick
+    gcc
+    gettext
+    gh
     gifsicle
     gist
-    s3cmd
-    mdcat
-    imgcat
-    # wezterm
-    awscli
-    nnn
+    git-standup
     gitui
+    go
+    gping
+    gron
+    httpie
+    hugo
+    imagemagick
+    imgcat
+    jq
+    k9s
+    kind
+    kitty
+    kubernetes-helm-wrapped
+    lazycli
+    lazydocker
+    libiconvReal
+    lldb
+    mdcat
+    mediainfo
+    minikube
+    mkcert
+    neofetch
+    nix-prefetch
+    nmap
+    nodePackages.svelte-language-server
+    nodePackages.vscode-langservers-extracted
     nss
     nssTools
-    tldr
-    viu
-    t-rec
-    neofetch
-    htop
-    bottom
+    onefetch
+    pandoc
+    pipes-rs
+    procs
+    python39
     rnix-lsp
-    time
-    gettext
-    hugo
-    ttyd
-    go
-    xclip
-    caddy
+    rsync
+    rust-analyzer
+    rust-script
+    rustup
+    s3cmd
     sumneko-lua-language-server
-    lazydocker
-    lazygit
-    lazycli
-    xplr
-    nodePackages.vscode-langservers-extracted
-    nodePackages.svelte-language-server
+    t-rec
+    terminal-colors
+    tig
+    tig
+    ttyd
+    viu
+    xclip
+    xh
+    yq
+    zellij
   ];
 
   imports = [
+    ./core.nix
     ./shell/cava.nix
-    ./shell/neofetch.nix
-    ./shell/bottom.nix
     ./shell/kitty.nix
     ./shell/wezterm.nix
-    ./shell/xplr.nix
-    ./shell/lazygit.nix
-    ./editors/helix.nix
   ];
 
 #  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
