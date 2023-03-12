@@ -44,10 +44,7 @@
         Source = "cd ~/Source";
         flushdns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
         amend="git commit --amend --no-edit";
-        df = "df -h";
         diff = "diff -u";
-        du = "du -h";
-        dus = "du -sh";
         g = "git status -s";
         gui = "gitui";
         gau = "git add -u";
@@ -159,6 +156,8 @@
         ag = "rg";
         he = "hx";
         kk="kubectl";
+        df = "duf";
+        du = "du -h";
         g = "git status";
         gf = "git fetch --all";
         gp = "git pull --rebase";
