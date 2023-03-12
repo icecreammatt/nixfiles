@@ -1,7 +1,7 @@
 { lib, inputs, nixpkgs, home-manager, userConfig, ... }:
 
 let
-  system = "x86_64-linux";
+  system = "aarch64-linux";
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
