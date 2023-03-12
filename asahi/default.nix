@@ -15,7 +15,6 @@ in
     extraSpecialArgs = { inherit inputs user; };
     modules = [
         ../modules/common.nix
-        ../modules/shell/fish.nix
         ../modules/shell/gitui.nix
         ../modules/shell/tmux.nix
         ../modules/editors/nvim.nix

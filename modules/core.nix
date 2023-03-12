@@ -31,6 +31,7 @@
   imports = [
     ./editors/helix.nix
     ./shell/bottom.nix
+    ./shell/fish.nix
     ./shell/lazygit.nix
     ./shell/neofetch.nix
     ./shell/xplr.nix
