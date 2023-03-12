@@ -1,6 +1,7 @@
 { lib, inputs, nixpkgs, home-manager, userConfig, ... }:
 
 let
+  nixos-hardware.url = "github:nixos/nixos-hardware";
   system = "aarch64-linux";
   pkgs = import nixpkgs {
     inherit system;
@@ -43,6 +44,7 @@ in
     inherit system;
     inherit pkgs;
     modules = [
+      nixos-hardware.nixosModules.raspberry-pi-4
       ./pi4/configuration.nix
 	    home-manager.nixosModules.home-manager {
 	      home-manager.useGlobalPkgs = true;
