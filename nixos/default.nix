@@ -8,6 +8,17 @@ let
   };
   lib = nixpkgs.lib;
   user = "matt";
+  nixpkgs.overlays = [(self: super: 
+
+    helix = super.helix.overrideAttrs (old: {
+      src = super.fetchFromGitHub {
+        owner = "icecreammatt";
+        repo = "helix";
+        rev = "6b7d292d29cb03739cdcb3bf82033d995aa4fad3";
+      };
+    });
+   
+  )];
 in
 {
   nixos-vm = lib.nixosSystem {
