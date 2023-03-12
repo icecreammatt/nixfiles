@@ -22,6 +22,7 @@ in
 	      home-manager.users.matt = {
           home.stateVersion = "22.11";
 	        imports = [ 
+            ../modules/core.nix
     		    # ./nixos-packages.nix
             ../modules/editors/helix.nix
             ../modules/shell/lazygit.nix
