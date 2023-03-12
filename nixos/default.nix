@@ -46,4 +46,27 @@ in
       }
     ];
   };
+  dockingbay94 = lib.nixosSystem {
+    inherit system;
+    inherit pkgs;
+    modules = [
+      # ./nix-os-flakes/configuration.nix
+      ./pi4/configuration.nix
+	    home-manager.nixosModules.home-manager {
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	      home-manager.users.matt = {
+          home.stateVersion = "22.11";
+	        imports = [ 
+            ../modules/core.nix
+            # ../modules/rust.nix
+    		    # ./nixos-packages.nix
+    		    # ./modules/common.nix
+    		    # ./modules/common-linux.nix
+    		    ../modules/shell/fish.nix
+          ];
+        };
+      }
+    ];
+  };
 }
