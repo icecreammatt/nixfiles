@@ -32,3 +32,4 @@ darwin-rebuild switch --flake . #this will work after initial build
 ## Shoutouts
 - https://github.com/MatthiasBenaets/nixos-config
 - https://github.com/thexyno/nixos-config
+- https://github.com/Robertof/nixos-docker-sd-image-builder
