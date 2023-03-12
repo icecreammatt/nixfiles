@@ -152,12 +152,13 @@
         md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
+        curl = "xh";
         o = "open . &";
         ag = "rg";
         he = "hx";
         kk="kubectl";
         df = "duf";
-        du = "du -h";
+        du = "dust";
         g = "git status";
         gf = "git fetch --all";
         gp = "git pull --rebase";
