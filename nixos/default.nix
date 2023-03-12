@@ -26,12 +26,12 @@ in
     inherit pkgs;
     modules = [
       ./vm/configuration.nix
-	    home-manager.nixosModules.home-manager {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      home-manager.users.matt = {
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.matt = {
           home.stateVersion = "22.11";
-	        imports = [ 
+          imports = [ 
             ../modules/core.nix
             ../modules/rust.nix
           ];
@@ -46,12 +46,12 @@ in
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
       ./pi4/configuration.nix
-	    home-manager.nixosModules.home-manager {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      home-manager.users.matt = {
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.matt = {
           home.stateVersion = "22.11";
-	        imports = [ 
+          imports = [ 
             ../modules/core.nix
           ];
         };
