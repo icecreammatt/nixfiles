@@ -6,6 +6,8 @@
   inputs = { 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,7 +24,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, hyprland, ... }:
+  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, darwin, hyprland, ... }:
     let
       userConfig.user = {
         firstName = "Matt";
@@ -36,7 +38,7 @@
       nixosConfigurations = (
         import ./nixos {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager userConfig;
+          inherit inputs nixpkgs nixos-hardware home-manager userConfig;
         }
       );
 

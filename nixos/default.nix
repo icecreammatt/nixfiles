@@ -1,7 +1,6 @@
-{ lib, inputs, nixpkgs, home-manager, userConfig, ... }:
+{ lib, inputs, nixpkgs, nixos-hardware, home-manager, userConfig, ... }:
 
 let
-  nixos-hardware.url = "github:nixos/nixos-hardware";
   system = "aarch64-linux";
   pkgs = import nixpkgs {
     inherit system;
@@ -40,6 +39,7 @@ in
       }
     ];
   };
+
   dockingbay94 = lib.nixosSystem {
     inherit system;
     inherit pkgs;
@@ -58,4 +58,5 @@ in
       }
     ];
   };
+
 }
