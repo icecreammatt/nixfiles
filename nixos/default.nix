@@ -25,7 +25,6 @@ in
     inherit system;
     inherit pkgs;
     modules = [
-      # ./nix-os-flakes/configuration.nix
       ./vm/configuration.nix
 	    home-manager.nixosModules.home-manager {
 	      home-manager.useGlobalPkgs = true;
@@ -35,12 +34,6 @@ in
 	        imports = [ 
             ../modules/core.nix
             ../modules/rust.nix
-    		    # ./nixos-packages.nix
-            ../modules/editors/helix.nix
-            ../modules/shell/lazygit.nix
-    		    # ./modules/common.nix
-    		    # ./modules/common-linux.nix
-    		    ../modules/shell/fish.nix
           ];
         };
       }
@@ -50,7 +43,6 @@ in
     inherit system;
     inherit pkgs;
     modules = [
-      # ./nix-os-flakes/configuration.nix
       ./pi4/configuration.nix
 	    home-manager.nixosModules.home-manager {
 	      home-manager.useGlobalPkgs = true;
@@ -59,11 +51,6 @@ in
           home.stateVersion = "22.11";
 	        imports = [ 
             ../modules/core.nix
-            # ../modules/rust.nix
-    		    # ./nixos-packages.nix
-    		    # ./modules/common.nix
-    		    # ./modules/common-linux.nix
-    		    ../modules/shell/fish.nix
           ];
         };
       }
