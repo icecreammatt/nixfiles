@@ -80,6 +80,8 @@
         x = "z";
         xi = "zi";
         pd = "popd";
+        br = "broot -c:open_preview";
+        lt = "broot -c:open_preview";
 
         ealias = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
@@ -87,7 +89,7 @@
         hms = "home-manager switch";
         tree = "exa --tree";
         l =  "exa -lh  --icons --group-directories-first --classify";
-        lt = "exa -lh  --icons --group-directories-first --classify --tree --color=always | bat";
+        ltree = "exa -lh  --icons --group-directories-first --classify --tree --color=always | bat";
         ll = "exa -lah --icons --group-directories-first --classify";
         la = "exa -la  --icons --group-directories-first --classify";
         ls = "exa";
