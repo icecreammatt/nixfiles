@@ -1,12 +1,18 @@
 { lib, inputs, nixpkgs, nixos-hardware, home-manager, hyprland, userConfig, ... }:
 
 let
-  system = "aarch64-linux";
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-  };
-  lib = nixpkgs.lib;
+    system = "x86_64-linux";
+    # system = "aarch64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+  # system = "aarch64-linux";
+  # pkgs = import nixpkgs {
+  #   inherit system;
+  #   config.allowUnfree = true;
+  # };
+  # lib = nixpkgs.lib;
   user = "matt";
   # nixpkgs.overlays = [(self: super: 
 
@@ -23,8 +29,11 @@ in
 {
 
   nixos-vm = lib.nixosSystem {
-    inherit system;
-    inherit pkgs;
+    system = "aarch64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
     modules = [
       ./vm/configuration.nix
       home-manager.nixosModules.home-manager {
@@ -42,8 +51,11 @@ in
   };
 
   dockingbay94 = lib.nixosSystem {
-    inherit system;
-    inherit pkgs;
+    system = "aarch64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
       ./pi4/configuration.nix
@@ -60,12 +72,13 @@ in
     ];
   };
 
-   nixos = lib.nixosSystem {
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
+   gaming = lib.nixosSystem {
+    # system = "x86_64-linux";
+    inherit system;
+    inherit pkgs;
+    # pkgs = import nixpkgs {
+    #   config.allowUnfree = true;
+    # };
     modules = [
       ./gaming/configuration.nix
       home-manager.nixosModules.home-manager {
@@ -74,6 +87,7 @@ in
         home-manager.users.matt = {
           home.stateVersion = "22.11";
           imports = [ 
+            ./gaming/nixos-packages.nix
             ../modules/core.nix
     		    ../modules/common.nix
     		    ../modules/common-linux.nix
