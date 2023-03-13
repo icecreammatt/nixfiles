@@ -89,7 +89,7 @@
     #  [..] [NJ] [EK] [IL]
     #   [KN] [..] [..] [..]
     # -------------------------
-    "," = { Q = "wclose", q = ":buffer-close", s = ":w", S = ":write-quit", m = ":lsp-workspace-command", p = "file_picker_in_current_directory" }
+    "," = { Q = "wclose", q = ":buffer-close", s = ":w", S = ":write-quit", g = ":run-shell-command lazygit", m = ":lsp-workspace-command", p = "file_picker_in_current_directory" }
 
     "C-p" = "file_picker_in_current_directory"
     "C-l" = "page_up"
