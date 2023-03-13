@@ -9,7 +9,6 @@
     bandwhich # network monitor
     bat # cat alternative
     bottom # btm top alternative
-    broot
     coreutils
     curl
     delta # diff dool
@@ -45,6 +44,7 @@
   imports = [
     ./editors/helix.nix
     ./shell/bottom.nix
+    ./shell/broot.nix
     ./shell/fish.nix
     ./shell/lazygit.nix
     ./shell/neofetch.nix
