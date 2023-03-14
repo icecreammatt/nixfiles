@@ -197,7 +197,7 @@ return {
     { key = '{', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(-1) },
     { key = '}', mods = 'SUPER', action = act.ActivateTabRelative(1) },
     { key = '}', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(1) },
-    { key = 'phys:Space', mods = 'SHIFT|CTRL', action = act.QuickSelect },
+    { key = 'c', mods = 'LEADER', action = act.QuickSelect },
     { key = 'PageUp', mods = 'SHIFT', action = act.ScrollByPage(-1) },
     { key = 'U', mods = 'SHIFT|CTRL', action = act.ScrollByPage(-1) },
     { key = 'PageUp', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
