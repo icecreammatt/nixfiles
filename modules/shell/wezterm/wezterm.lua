@@ -33,6 +33,23 @@ return {
   leader = { key = ',', mods = 'CTRL', timeout_milliseconds = 1000 },
 
   keys = {
+    { key="l", mods="LEADER", action=wezterm.action{QuickSelectArgs={
+            patterns={
+              "http?://\\S+",
+              "https?://\\S+",
+              "localhost:[0-9]+",
+              "localhost",
+            },
+            action = wezterm.action_callback(function(window, pane)
+               local url = window:get_selection_text_for_pane(pane)
+               local pattern = "local"
+               if url:find(pattern) then
+                  url = string.format("http://%s", url)
+               end
+              wezterm.open_with(url)
+            end)
+          } }
+    },
     { key = 's', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
     { key = 'v', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
     { key = "Space", mods = "LEADER", action = wezterm.action.ShowLauncher },
