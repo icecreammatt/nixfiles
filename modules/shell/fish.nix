@@ -227,8 +227,8 @@
         };
         take = {
             description = "make directory and navigate to it";
-            body = "mkdir $argv[1]; and cd $argv[1]";
-          };
+            body = "mkdir -p $argv[1]; and cd $argv[1]";
+        };
         gc = {
             description = "clone repo and navigate to it";
             body = ''
