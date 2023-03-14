@@ -53,7 +53,6 @@
         grom = "git rebase origin/main || git rebase origin/master";
         gpom = "git push -u origin main || git push -u origin master";
         grc = "git rebase --continue";
-        gc = "git clone";
         gcm = "git checkout main || git checkout master || git checkout trunk";
         gss = "git stash save";
         gsp = "git stash pop";
@@ -230,6 +229,20 @@
             description = "make directory and navigate to it";
             body = "mkdir $argv[1]; and cd $argv[1]";
           };
+        gc = {
+            description = "clone repo and navigate to it";
+            body = ''
+              git clone $argv[1]; 
+              set repoPath (string split '/' $argv[1])
+              set repoName (string split '.' $repoPath[-1])
+              set length (count $repoName)
+              if [ $length = 1 ];
+                cd $repoName
+              else
+                cd $repoName[-2]
+              end
+            '';
+        };
         npmGlobalFix = {
             description = "fix npm bin directory linking";
             body = "npm config set prefix '~/.npm-global'";
