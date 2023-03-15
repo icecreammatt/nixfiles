@@ -5,6 +5,7 @@
 {
   home.packages = with pkgs; [
     # wezterm
+    nodePackages_latest.yaml-language-server
     awscli
     bash
     caddy # web server
