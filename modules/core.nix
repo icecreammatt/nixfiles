@@ -49,6 +49,7 @@
     ./shell/lazygit.nix
     ./shell/neofetch.nix
     ./shell/xplr.nix
+    ./shell/scripts.nix
   ];
 
 }
