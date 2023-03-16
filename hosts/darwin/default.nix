@@ -10,8 +10,8 @@ in
     system = "x86_64-darwin";
     specialArgs = { inherit user inputs; };
     modules = [
-      #./configuration.nix
       ./hosts/mc-2A3MD6R-MBP/default.nix
+      ./hosts/configuration.nix
       home-manager.darwinModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
@@ -32,7 +32,7 @@ in
     specialArgs = { inherit user inputs; };
     modules = [
       ./hosts/Bebop/default.nix
-      ./hosts/Bebop/configuration.nix
+      ./hosts/configuration.nix
       home-manager.darwinModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
