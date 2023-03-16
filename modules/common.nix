@@ -7,7 +7,7 @@
     # wezterm
     qemu
     nodePackages_latest.yaml-language-server
-    awscli
+    awscli2
     bash
     caddy # web server
     choose # awk like tool
