@@ -198,8 +198,8 @@
     injection-regex = "java"
     file-types = ["java", "groovy"]
     roots = ["pom.xml", "build.gradle"]
-    language-server = { command = "jdtls" }
-    indent = { tab-width = 4, unit = "    " }
+    language-server = { command = "jdt-language-server" }
+    indent = { tab-width = 2, unit = "  " }
 
     [[language]]
     name = "javascript"

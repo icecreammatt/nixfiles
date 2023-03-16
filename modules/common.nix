@@ -6,6 +6,8 @@
   home.packages = with pkgs; [
     # wezterm
     qemu
+    # jdt-language-server
+    # groovy
     nodePackages_latest.yaml-language-server
     awscli2
     bash
