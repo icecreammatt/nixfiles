@@ -19,10 +19,10 @@
 
   {
     imports = [
-      ../../../modules/common.nix
-      ../../../modules/shell/gitui.nix
-      ../../../modules/shell/tmux.nix
-      ../../../modules/editors/nvim.nix
+      ../../../../modules/common.nix
+      ../../../../modules/shell/gitui.nix
+      ../../../../modules/shell/tmux.nix
+      ../../../../modules/editors/nvim.nix
       # ../../../modules/shell/git.nix
     ];
  
