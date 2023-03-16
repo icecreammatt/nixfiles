@@ -5,6 +5,7 @@
 {
   home.packages = with pkgs; [
     # wezterm
+    qemu
     nodePackages_latest.yaml-language-server
     awscli
     bash
