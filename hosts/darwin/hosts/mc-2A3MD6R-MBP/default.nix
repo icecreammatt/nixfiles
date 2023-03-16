@@ -19,12 +19,12 @@
 
   {
     imports = [
-      ../../../modules/common.nix
-      ../../../modules/x86.nix
-      ../../../modules/shell/gitui.nix
-      ../../../modules/shell/tmux.nix
-      ../../../modules/editors/nvim.nix
-      ../../../modules/node16.nix
+      ../../../../modules/common.nix
+      ../../../../modules/x86.nix
+      ../../../../modules/shell/gitui.nix
+      ../../../../modules/shell/tmux.nix
+      ../../../../modules/editors/nvim.nix
+      ../../../../modules/node16.nix
       # ../../../modules/shell/git.nix
     ];
  

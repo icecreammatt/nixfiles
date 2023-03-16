@@ -36,7 +36,7 @@
 
       # Gaming PC, VM, Raspberry Pi
       nixosConfigurations = (
-        import ./nixos {
+        import ./hosts/nixos {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs nixos-hardware home-manager userConfig;
         }
@@ -44,7 +44,7 @@
 
       # M1 Mac + Linux config
       asahiConfiguration = (
-        import ./asahi {
+        import ./hosts/asahi {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs home-manager userConfig;
         }
@@ -52,7 +52,7 @@
 
       # Mac x86_64/aarch64 configs
       darwinConfigurations = (
-        import ./darwin {
+        import ./hosts/darwin {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs home-manager darwin userConfig;
         }

@@ -2,7 +2,7 @@
 
 let
   userName = userConfig.user.firstName;
-  user = "matt"; # TODO dynamically set this based on architecture
+  user = "mcarrier"; # TODO dynamically set this based on architecture
 in
 {
   # Work laptop config for x86 architecture
