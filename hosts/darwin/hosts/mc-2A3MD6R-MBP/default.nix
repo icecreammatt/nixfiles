@@ -10,8 +10,16 @@
   services.nix-daemon.enable = true;
 
   programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   system.defaults.dock.autohide = true;
+
+  environment.systemPackages = with pkgs; [ fish ];
+  environment.shells = [ pkgs.fish ];
+
+  users.users.mcarrier = {
+    shell = pkgs.fish;
+  };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -27,6 +35,7 @@
       ../../../../modules/node16.nix
       # ../../../modules/shell/git.nix
     ];
+
  
     home.packages = with pkgs; [
       reattach-to-user-namespace
