@@ -32,8 +32,8 @@ in
         home-manager.users.matt = {
           home.stateVersion = "22.11";
           imports = [ 
-            ../modules/core.nix
-            ../modules/rust.nix
+            ../../modules/core.nix
+            ../../modules/rust.nix
           ];
         };
       }
@@ -52,7 +52,7 @@ in
         home-manager.users.matt = {
           home.stateVersion = "22.11";
           imports = [ 
-            ../modules/core.nix
+            ../../modules/core.nix
           ];
         };
       }
