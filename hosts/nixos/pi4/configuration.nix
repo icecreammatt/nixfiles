@@ -63,9 +63,11 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.matt = {
+      shell = pkgs.fish;
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [
+        fish
   #     firefox
   #     thunderbird
       ];
@@ -78,7 +80,10 @@
       wget
       git
       helix
+      zsh
+      fish
     ];
+    environment.shells = with pkgs; [ zsh fish ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -87,6 +92,7 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+    programs.fish.enable = true;
 
   # List services that you want to enable:
 
