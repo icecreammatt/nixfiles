@@ -12,15 +12,15 @@ in
     inherit pkgs;
     extraSpecialArgs = { inherit inputs user; };
     modules = [
-        ../modules/common.nix
-        ../modules/shell/gitui.nix
-        ../modules/shell/tmux.nix
-        ../modules/editors/nvim.nix
-        ../modules/DE/hypr.nix
-        ../modules/DE/waybar.nix
-        ../modules/DE/rofi.nix
-        ../modules/shell/kitty.nix
-        #../modules/shell/git.nix
+        ../../modules/common.nix
+        ../../modules/shell/gitui.nix
+        ../../modules/shell/tmux.nix
+        ../../modules/editors/nvim.nix
+        ../../modules/DE/hypr.nix
+        ../../modules/DE/waybar.nix
+        ../../modules/DE/rofi.nix
+        ../../modules/shell/kitty.nix
+        #../../modules/shell/git.nix
       {
         home = {
           username = "${userName}";
