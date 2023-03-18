@@ -10,8 +10,16 @@
   services.nix-daemon.enable = true;
 
   programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   system.defaults.dock.autohide = true;
+
+  environment.systemPackages = with pkgs; [ fish ];
+  environment.shells = [ pkgs.fish ];
+
+  users.users.matt = {
+    shell = pkgs.fish;
+  };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
