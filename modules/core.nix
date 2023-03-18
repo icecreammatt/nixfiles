@@ -23,6 +23,7 @@
     htop
     jq
     lazygit
+    lsof # list open fils and connections
     neofetch # os summary
     mdcat # cat for markdown files
     nmap # network scanner utility
