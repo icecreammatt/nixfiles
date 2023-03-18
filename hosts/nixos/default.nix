@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, nixos-hardware, home-manager, userConfig, ... }:
+{ lib, inputs, nixpkgs, nixos-hardware, home-manager, ... }:
 
 let
   system = "aarch64-linux";

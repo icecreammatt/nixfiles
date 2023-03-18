@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, home-manager, darwin, userConfig, ... }:
+{ lib, inputs, nixpkgs, home-manager, darwin, ... }:
 
 let
   userName = userConfig.user.firstName;

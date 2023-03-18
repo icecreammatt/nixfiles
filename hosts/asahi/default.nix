@@ -1,10 +1,8 @@
-{ lib, inputs, nixpkgs, home-manager, userConfig, ... }:
+{ lib, inputs, nixpkgs, home-manager, ... }:
 
 let
   system = "aarch64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
-  #user = userConfig.user.firstName;
-  #userName = userConfig.firstName;
   user = "matt";
   userName = "matt";
 in

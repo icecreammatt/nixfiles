@@ -28,20 +28,13 @@
   };
 
   outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, darwin, hyprland, ... }:
-    let
-      userConfig.user = {
-        firstName = "Matt";
-        lastName = "Carrier";
-        email = "placeholder@example.com";
-      };
-    in
     {
 
       # Gaming PC, VM, Raspberry Pi
       nixosConfigurations = (
         import ./hosts/nixos {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixos-hardware home-manager userConfig;
+          inherit inputs nixpkgs nixos-hardware home-manager;
         }
       );
 
@@ -49,7 +42,7 @@
       asahiConfiguration = (
         import ./hosts/asahi {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager userConfig;
+          inherit inputs nixpkgs home-manager;
         }
       );
 
@@ -57,7 +50,7 @@
       darwinConfigurations = (
         import ./hosts/darwin {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager darwin userConfig;
+          inherit inputs nixpkgs home-manager darwin;
         }
       );
 
