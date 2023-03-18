@@ -53,6 +53,7 @@ in
           home.stateVersion = "22.11";
           imports = [ 
             ../../modules/core.nix
+            ../../modules/rust.nix
           ];
         };
       }
