@@ -94,6 +94,8 @@
     "C-p" = "file_picker_in_current_directory"
     "C-l" = "page_up"
 
+    X = ["extend_line_up", "extend_to_line_bounds"]
+
     # N <=> K (swap, QWERTY position)
     e = "move_line_down"
     E = "keep_selections"
