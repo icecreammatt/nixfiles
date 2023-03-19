@@ -94,6 +94,11 @@
     "C-p" = "file_picker_in_current_directory"
     "C-l" = "page_up"
 
+    "C-n" = "jump_view_left"
+    "C-e" = "jump_view_down"
+    "C-u" = "jump_view_up"
+    "C-i" = "jump_view_right"
+
     X = ["extend_line_up", "extend_to_line_bounds"]
 
     # N <=> K (swap, QWERTY position)
