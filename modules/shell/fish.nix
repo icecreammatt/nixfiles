@@ -140,6 +140,7 @@
         vim = "nvim";
         vimrc = "nvim ~/nixfiles/modules/editors/nvim.nix";
         hxrc = "$EDITOR ~/nixfiles/modules/editors/helix.nix";
+        wzrc = "$EDITOR ~/nixfiles/modules/shell/wezterm/wezterm.lua";
         sm = "merge";
         merge = "open -n -a \"Sublime Merge\" .";
         bane = "bane2";
