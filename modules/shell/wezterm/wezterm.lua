@@ -45,7 +45,9 @@ return {
                local url = window:get_selection_text_for_pane(pane)
                local pattern = "local"
                if url:find(pattern) then
-                  url = string.format("http://%s", url)
+                  if string.find(url, "http") == false then
+                    url = string.format("http://%s", url)
+                  end
                end
               wezterm.open_with(url)
             end)
