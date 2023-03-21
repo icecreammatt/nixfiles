@@ -40,6 +40,8 @@
     home.packages = with pkgs; [
       reattach-to-user-namespace
       home-manager
+      nodePackages_latest.grunt-cli
+      nodePackages_latest.bower
     ];
 
     home.stateVersion = "22.11";
