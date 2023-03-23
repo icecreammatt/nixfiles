@@ -38,6 +38,8 @@
         "cd.." = "cd ..";
         "cdr" = "ranger";
         "ran" = "ranger";
+        f = "fish";
+        ni = "pushd ~/nixfiles";
         dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
         pkgs = "$EDITOR ~/nixfiles/modules/common.nix";
