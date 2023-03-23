@@ -40,6 +40,8 @@
         "ran" = "ranger";
         f = "fish";
         ni = "pushd ~/nixfiles";
+        strip = "pbpaste | pbcopy";
+        clean = "pbpaste | pbcopy";
         dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
         pkgs = "$EDITOR ~/nixfiles/modules/common.nix";
