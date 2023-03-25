@@ -30,6 +30,7 @@
       export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=0 --padding=0"
       zoxide init fish | source
       export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
+      export NNN_TMPFILE="~/.config/nnn/.lastd"
 
     '';
 
@@ -179,6 +180,44 @@
         drti = "docker run -it -p 3000:3000 temp /bin/bash";
     };
     functions = {
+        n = {
+          body = ''
+            # Rename this file to match the name of the function
+            # e.g. ~/.config/fish/functions/n.fish
+            # or, add the lines to the 'config.fish' file.
+
+            # Block nesting of nnn in subshells
+            if test -n "$NNNLVL" -a "$NNNLVL" -ge 1
+                echo "nnn is already running"
+                return
+            end
+
+            # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
+            # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
+            # see. To cd on quit only on ^G, remove the "-x" from both lines below,
+            # without changing the paths.
+            if test -n "$XDG_CONFIG_HOME"
+                set -x NNN_TMPFILE "$XDG_CONFIG_HOME/nnn/.lastd"
+            else
+                set -x NNN_TMPFILE "$HOME/.config/nnn/.lastd"
+            end
+
+            # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+            # stty start undef
+            # stty stop undef
+            # stty lwrap undef
+            # stty lnext undef
+
+            # The command function allows one to alias this function to `nnn` without
+            # making an infinitely recursive alias
+            command nnn $argv
+
+            if test -e $NNN_TMPFILE
+                source $NNN_TMPFILE
+                rm $NNN_TMPFILE
+            end
+          '';
+        };
         ranger = {
             body = ''
                 set tempfile (mktemp -t tmp.XXXXXX)
