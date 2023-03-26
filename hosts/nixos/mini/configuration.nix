@@ -35,13 +35,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  networking.firewall.allowedTCPPorts = [ 6443 ];
-  services.k3s.enable = true;
-  services.k3s.role = "server";
-  # services.k3s.extraFlags = toString [
-  # "--kubelet-arg=v=4" # Optionally add additional args to k3s
-  # ];
-
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   # console = {
