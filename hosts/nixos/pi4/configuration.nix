@@ -16,7 +16,6 @@
   # services.k3s.extraFlags = toString [
     # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   # ];
-  # environment.systemPackages = [ pkgs.k3s ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
@@ -93,6 +92,7 @@
       helix
       zsh
       fish
+      k3s
     ];
     environment.shells = with pkgs; [ zsh fish ];
 
