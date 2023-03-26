@@ -10,6 +10,13 @@
       ./hardware-configuration.nix
     ];
 
+  networking.firewall.allowedTCPPorts = [ 6443 ];
+  services.k3s.enable = true;
+  services.k3s.role = "server";
+  # services.k3s.extraFlags = toString [
+    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+  # ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device= "nodev";
   boot.loader.systemd-boot.enable = true;
@@ -78,6 +85,7 @@
      helix
      git
      fish
+     k3s
   ];
   environment.shells = with pkgs; [ fish ];
   programs.fish.enable = true;

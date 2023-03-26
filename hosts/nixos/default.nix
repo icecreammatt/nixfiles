@@ -74,6 +74,7 @@ in
           imports = [
             ../../modules/core.nix
             ../../modules/rust.nix
+            ../../modules/k8s.nix
           ];
         };
       }
