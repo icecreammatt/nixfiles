@@ -23,6 +23,7 @@
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/.cargo/bin
       set fish_color_valid_path
+      direnv hook fish | source
 
       export EDITOR=hx
       export BAT_THEME="Dracula"
