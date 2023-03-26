@@ -1,7 +1,8 @@
 { lib, inputs, nixpkgs, nixos-hardware, home-manager, ... }:
 
 let
-  system = "aarch64-linux";
+  # system = "aarch64-linux";
+  system = "x86_64-linux";
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
@@ -31,7 +32,7 @@ in
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
           home.stateVersion = "22.11";
-          imports = [ 
+          imports = [
             ../../modules/core.nix
             ../../modules/rust.nix
           ];
@@ -51,7 +52,26 @@ in
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
           home.stateVersion = "22.11";
-          imports = [ 
+          imports = [
+            ../../modules/core.nix
+            ../../modules/rust.nix
+          ];
+        };
+      }
+    ];
+  };
+
+  mini= lib.nixosSystem {
+    inherit system;
+    inherit pkgs;
+    modules = [
+      ./mini/configuration.nix
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.matt = {
+          home.stateVersion = "22.11";
+          imports = [
             ../../modules/core.nix
             ../../modules/rust.nix
           ];
