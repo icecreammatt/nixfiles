@@ -157,6 +157,7 @@
         nts = "pushd ~/notes && rge && popd";
 
         dsw = "pushd ~/nixfiles && darwin-rebuild switch --flake . && popd";
+        nsw = "pushd ~/nixfiles && sudo nixos-rebuild switch --flake . && popd";
         md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
