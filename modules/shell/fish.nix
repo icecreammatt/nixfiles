@@ -182,6 +182,27 @@
         drti = "docker run -it -p 3000:3000 temp /bin/bash";
     };
     functions = {
+        nrs = {
+          body = ''
+            pushd ~/nixfiles
+
+            uname -a | grep Darwin
+
+            if [ $status = 0 ];
+              darwin-rebuild switch --flake .
+            else
+              uname -a | grep NixOS
+              if [ $status = 0 ];
+                sudo nixos-rebuild switch --flake .
+              else
+                nix build .#asahiConfiguration.asahi.activationPackage
+                ./result/activate
+              end
+            end
+
+            popd
+          '';
+        };
         n = {
           body = ''
             # Rename this file to match the name of the function
