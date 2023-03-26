@@ -10,10 +10,21 @@
       ./hardware-configuration.nix
     ];
 
+  networking.firewall.allowedTCPPorts = [ 6443 ];
+  services.k3s.enable = true;
+  services.k3s.role = "server";
+  # services.k3s.extraFlags = toString [
+    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+  # ];
+  # environment.systemPackages = [ pkgs.k3s ];
+
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
+  boot.kernelParams = [
+    "cgroup_enable=cpuset" "cgroup_memory=1" "cgroup_enable=memory"
+  ];
 
   networking.hostName = "dockingbay94"; # Define your hostname.
   # Pick only one of the below networking options.
