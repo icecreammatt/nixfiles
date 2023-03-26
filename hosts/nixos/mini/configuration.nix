@@ -60,14 +60,15 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.matt = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     initialPassword = "abc123";
-     packages = with pkgs; [
-	fish
-     ];
-   };
+    users.users.matt = {
+      shell = pkgs.fish;
+      isNormalUser = true;
+      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      initialPassword = "abc123";
+      packages = with pkgs; [
+        fish
+      ];
+    };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
