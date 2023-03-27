@@ -6,6 +6,7 @@
 {
   home.packages = with pkgs; [
     # uutils-coreutils - enable once all is ported
+    rnix-lsp
     direnv
     bandwhich # network monitor
     bat # cat alternative

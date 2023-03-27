@@ -43,7 +43,6 @@
     pipes-rs
     procs # ps in rust
     python39 # programming languge
-    rnix-lsp
     s3cmd # s3 cli
     sumneko-lua-language-server
     t-rec # screenshot
