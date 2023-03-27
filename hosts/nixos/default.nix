@@ -1,16 +1,9 @@
 { lib, inputs, nixpkgs, nixos-hardware, home-manager, ... }:
 
 let
-  # system = "aarch64-linux";
-  system = "x86_64-linux";
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-  };
-  lib = nixpkgs.lib;
   user = "matt";
-  # nixpkgs.overlays = [(self: super: 
 
+  # nixpkgs.overlays = [(self: super:
   #   helix = super.helix.overrideAttrs (old: {
   #     src = super.fetchFromGitHub {
   #       owner = "icecreammatt";
@@ -18,13 +11,15 @@ let
   #       rev = "6b7d292d29cb03739cdcb3bf82033d995aa4fad3";
   #     };
   #   });
-   
   # )];
+
 in
 {
   nixos-vm = lib.nixosSystem {
-    inherit system;
-    inherit pkgs;
+    pkgs = import nixpkgs {
+      system = "aarch64-linux";
+      config.allowUnfree = true;
+    };
     modules = [
       ./vm/configuration.nix
       home-manager.nixosModules.home-manager {
@@ -42,8 +37,10 @@ in
   };
 
   dockingbay94 = lib.nixosSystem {
-    inherit system;
-    inherit pkgs;
+    pkgs = import nixpkgs {
+      system = "aarch64-linux";
+      config.allowUnfree = true;
+    };
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
       ./pi4/configuration.nix
@@ -62,9 +59,11 @@ in
     ];
   };
 
-  mini= lib.nixosSystem {
-    inherit system;
-    inherit pkgs;
+  mini = lib.nixosSystem {
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
     modules = [
       ./mini/configuration.nix
       home-manager.nixosModules.home-manager {
