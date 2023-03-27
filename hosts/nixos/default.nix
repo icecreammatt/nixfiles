@@ -21,6 +21,7 @@ in
       config.allowUnfree = true;
     };
     modules = [
+      ./config-common.nix
       ./vm/configuration.nix
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
@@ -43,6 +44,7 @@ in
     };
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
+      ./config-common.nix
       ./pi4/configuration.nix
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
@@ -65,6 +67,7 @@ in
       config.allowUnfree = true;
     };
     modules = [
+      ./config-common.nix
       ./mini/configuration.nix
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;

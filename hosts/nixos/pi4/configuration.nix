@@ -31,7 +31,7 @@
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "America/Los_Angeles";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -72,29 +72,29 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.matt = {
-      shell = pkgs.fish;
-      isNormalUser = true;
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-      packages = with pkgs; [
-        fish
+    # users.users.matt = {
+    #   shell = pkgs.fish;
+    #   isNormalUser = true;
+    #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    #   packages = with pkgs; [
+    #     fish
   #     firefox
   #     thunderbird
-      ];
-    };
+    #   ];
+    # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
     environment.systemPackages = with pkgs; [
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      wget
-      git
-      helix
-      zsh
-      fish
+      # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      # wget
+      # git
+      # helix
+      # zsh
+      # fish
       k3s
     ];
-    environment.shells = with pkgs; [ zsh fish ];
+    # environment.shells = with pkgs; [ zsh fish ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -103,12 +103,12 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-    programs.fish.enable = true;
+    # programs.fish.enable = true;
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
+    # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
