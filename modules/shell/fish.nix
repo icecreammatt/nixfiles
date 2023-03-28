@@ -181,6 +181,7 @@
         dbt = "docker build -t temp .";
         drt = "docker run -it -p 3000:3000 temp";
         drti = "docker run -it -p 3000:3000 temp /bin/bash";
+        nu = "ni && gp && nrs";
     };
     functions = {
         nrs = {
