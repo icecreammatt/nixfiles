@@ -8,6 +8,8 @@ return {
    window_decorations = "RESIZE",
    color_scheme = 'Dracula (Official)',
 
+   check_for_updates_interval_seconds = 1209600,
+
    use_fancy_tab_bar = false,
 
   --  tab_bar_style = {
