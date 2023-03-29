@@ -22,8 +22,11 @@
       fish_add_path $HOME/bin
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/.cargo/bin
+
       set fish_color_valid_path
+
       direnv hook fish | source
+      export DIRENV_LOG_FORMAT=""
 
       export EDITOR=hx
       export BAT_THEME="Dracula"
@@ -322,7 +325,7 @@
 
             # PWD
             # set_color $fish_color_cwd
-            # echo -n (prompt_pwd)
+            printf (prompt_pwd)
             set_color normal
 
             set -q __fish_git_prompt_showdirtystate
@@ -359,14 +362,19 @@
             or set -g __fish_git_prompt_color_branch green
             set -q __fish_git_prompt_char_stateseparator
             or set -g __fish_git_prompt_char_stateseparator ""
-            fish_vcs_prompt ':(%s)'
-            # echo
+            fish_vcs_prompt '(%s)'
 
             if not test $last_status -eq 0
                 set_color $fish_color_error
             end
 
-            echo -n "> "
+            if test -f .envrc
+                set prompt_symbol (cat .envrc | grep symbol | cut -d "=" -f 2-)
+                printf "$prompt_symbol =>"
+            else
+                printf ">"
+            end
+
             set_color normal
           '';
         };
