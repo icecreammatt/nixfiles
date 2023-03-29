@@ -210,7 +210,7 @@
 
     [[language]]
     name = "javascript"
-    file-types = ["js", "template"]
+    file-types = ["js", "template", "lock"]
 
     [[grammar]]
     name = "java"
