@@ -48,6 +48,7 @@
         ni = "pushd ~/nixfiles";
         strip = "pbpaste | pbcopy";
         clean = "pbpaste | pbcopy";
+        jsonvalidate = "pbpaste | jq";
         dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
         pkgs = "$EDITOR ~/nixfiles/modules/common.nix";
@@ -165,6 +166,7 @@
         md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
+        jv = "jsonvalidate";
         curl = "xh";
         o = "open . &";
         ag = "rg";
