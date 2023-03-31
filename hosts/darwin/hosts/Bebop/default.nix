@@ -41,6 +41,7 @@
  
     home.packages = with pkgs; [
       nnn
+      worm
       reattach-to-user-namespace
       home-manager
       automake
