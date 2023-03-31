@@ -29,7 +29,7 @@
     neofetch # os summary
     mdcat # cat for markdown files
     nmap # network scanner utility
-    nnn    # cli explorer
+    # nnn    # cli explorer
     ranger # cli explorer
     ripgrep
     rsync

@@ -2,6 +2,11 @@
 { nix, pkgs, ... }:
 
 {
+
+  nixpkgs.overlays = [
+    (import ../../../../overlay/nnn.nix)
+  ];
+
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
@@ -35,6 +40,7 @@
     ];
  
     home.packages = with pkgs; [
+      nnn
       reattach-to-user-namespace
       home-manager
       automake
