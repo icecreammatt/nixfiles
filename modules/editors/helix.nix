@@ -200,6 +200,11 @@
     language-server = { command = "rnix-lsp" }
 
     [[language]]
+    name = "yaml"
+    file-types = ["yaml"]
+    indent = { tab-width = 2, unit = "  " }
+
+    [[language]]
     name = "java"
     scope = "source.java"
     injection-regex = "java"
