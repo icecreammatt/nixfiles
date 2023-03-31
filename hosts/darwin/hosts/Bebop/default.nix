@@ -4,7 +4,7 @@
 {
 
   nixpkgs.overlays = [
-    (import ../../../../overlay/nnn.nix)
+    (import ../../../../overlay/overlay.nix)
   ];
 
   nix.extraOptions = ''
