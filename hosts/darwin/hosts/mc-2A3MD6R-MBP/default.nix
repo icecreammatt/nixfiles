@@ -6,6 +6,10 @@
     experimental-features = nix-command flakes
   '';
 
+  nixpkgs.overlays = [
+    (import ../../../../overlay/overlay.nix)
+  ];
+
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
 
@@ -38,6 +42,8 @@
 
  
     home.packages = with pkgs; [
+      nnn
+      worm
       reattach-to-user-namespace
       home-manager
       jdk8
