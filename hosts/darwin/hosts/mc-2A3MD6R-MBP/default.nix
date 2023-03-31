@@ -41,6 +41,7 @@
       reattach-to-user-namespace
       home-manager
       jdk8
+      jenkins
       groovy
       nodePackages_latest.grunt-cli
       nodePackages_latest.bower
