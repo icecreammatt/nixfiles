@@ -95,7 +95,7 @@
     #  [..] [NJ] [EK] [IL]
     #   [KN] [..] [..] [..]
     # -------------------------
-    "," = { d = ['select_mode', 'move_prev_word_start', 'move_next_word_end', 'search_selection', 'extend_search_next', 'exit_select_mode'], D = ['select_mode', 'move_prev_word_start', 'move_next_word_end', 'search_selection', 'extend_search_prev', 'exit_select_mode'],  Q = "wclose", q = ":buffer-close", w = ":w", W = ":write-quit", g = ":run-shell-command lazygit", r = ":theme catppuccin_frappe", R = ":theme dracula", m = ":lsp-workspace-command", p = "file_picker_in_current_directory", "," = ["collapse_selection", "keep_primary_selection"]  }
+    "," = { d = ['select_mode', 'move_prev_word_start', 'move_next_word_end', 'search_selection', 'extend_search_next', 'exit_select_mode'], D = ['select_mode', 'move_prev_word_start', 'move_next_word_end', 'search_selection', 'extend_search_prev', 'exit_select_mode'],  Q = "wclose", q = ":buffer-close", w = ":w", W = ":write-quit", g = ":run-shell-command lazygit", r = ":theme catppuccin_latte", R = ":theme dracula", m = ":lsp-workspace-command", p = "file_picker_in_current_directory", "," = ["collapse_selection", "keep_primary_selection"]  }
 
     "C-p" = "file_picker_in_current_directory"
     "C-l" = "page_up"
