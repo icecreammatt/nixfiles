@@ -148,6 +148,7 @@
     "}" = ["goto_next_paragraph", "collapse_selection"]
     "N" = "goto_first_nonwhitespace"
     "$" = "goto_line_end"
+    "0" = "goto_line_start"
     "I" = "goto_line_end"
     "^" = "goto_first_nonwhitespace"
     G = "goto_file_end"
