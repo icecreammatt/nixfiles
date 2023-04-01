@@ -133,12 +133,12 @@
     l = "undo"
     L = "redo"
 
-    p = ":clipboard-paste-after"
-    P = ":clipboard-paste-before"
-    y = ":clipboard-yank-join"
-    Y = ":clipboard-yank"
-    R = ":clipboard-paste-replace"
-    d = [":clipboard-yank-join", "delete_selection"]
+    # p = ":clipboard-paste-after"
+    # P = ":clipboard-paste-before"
+    # y = ":clipboard-yank-join"
+    # Y = ":clipboard-yank"
+    # R = ":clipboard-paste-replace"
+    # d = [":clipboard-yank-join", "delete_selection"]
 
     # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
     esc = ["collapse_selection", "keep_primary_selection"]
