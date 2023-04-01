@@ -13,11 +13,17 @@
     bufferline = "multiple"
     mouse = false
 
+    [editor.soft-wrap]
+    enable = true
+
     # [editor.icons]
     # enable = true
     # bufferline = true
     # picker = true
     # statusline = true
+
+    [editor.statusline]
+    right = ["version-control", "diagnostics", "selections", "position", "file-encoding"]
 
     [editor.cursor-shape]
     insert = "bar"
