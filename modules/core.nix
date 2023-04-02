@@ -5,44 +5,44 @@
 
 {
   home.packages = with pkgs; [
-    # uutils-coreutils - enable once all is ported
-    rnix-lsp # lsp for nix files used by helix
-    nix-tree # tree view of nix flake dependencies
-    direnv # auto switch to using nix flake on directory nav
+              # uutils-coreutils - enable once all is ported
+    rnix-lsp  # lsp for nix files used by helix
+    nix-tree  # tree view of nix flake dependencies
+    direnv    # auto switch to using nix flake on directory nav
     bandwhich # network monitor
-    bat # cat alternative
-    bottom # btm top alternative
+    bat       # cat alternative
+    bottom    # btm top alternative
     coreutils
     curl
-    delta # diff dool
-    du-dust # space visualizer
-    duf  # du alternative
-    exa  # ls alternative
-    fd   # find alternative
+    delta     # diff dool
+    du-dust   # space visualizer
+    duf       # du alternative
+    exa       # ls alternative
+    fd        # find alternative
     fzf
     git
-    gping # ping with graph
+    gping     # ping with graph
     helix
     htop
     jq
     lazygit
-    lsof # list open fils and connections
-    neofetch # os summary
-    mdcat # cat for markdown files
-    nmap # network scanner utility
-    # nnn    # cli explorer
-    ranger # cli explorer
+    lsof      # list open fils and connections
+    neofetch  # os summary
+    mdcat     # cat for markdown files
+    nmap      # network scanner utility
+              # nnn    # cli explorer
+    ranger    # cli explorer
     ripgrep
     rsync
-    skim   # fzf in rust
+    skim      # fzf in rust
     time
     tldr
     tree
     wget
-    xh # http request viewer
-    xplr   # cli explorer
-    yq # cli yaml parser
-    zoxide # z shortcut tool
+    xh        # http request viewer
+    xplr      # cli explorer
+    yq        # cli yaml parser
+    zoxide    # z shortcut tool
   ];
 
   imports = [
