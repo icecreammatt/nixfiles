@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     # wezterm
     qemu
+    nodePackages_latest.web-ext # web extension packager
     # jdt-language-server
     nodePackages_latest.yaml-language-server
     awscli2
