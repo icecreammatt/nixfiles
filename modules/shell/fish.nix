@@ -267,6 +267,11 @@
                 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
             '';
         };
+        clip = {
+          body = ''
+            cat $argv[1] | pbcopy
+          '';
+        };
         rge = {
             description = "search file contents and open in editor on line number";
             body = ''
