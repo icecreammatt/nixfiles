@@ -29,7 +29,7 @@ sudo ./result/activate
 darwin-rebuild switch --flake . #this will work after initial build
 ```
 
-### NixOS | Raspberry Pi & VM
+### NixOS | Raspberry Pi & VM & Gaming PC
 
 > Build command will match nix config with machine hostname
 
@@ -40,4 +40,41 @@ sudo nixos-rebuild switch --flake .
 ## Shoutouts
 - https://github.com/MatthiasBenaets/nixos-config
 - https://github.com/thexyno/nixos-config
-- https://github.com/Robertof/nixos-docker-sd-image-builder
+- https://github.com/Robertof/nixos-docker-sd-image-builder.
+
+## Directory Setup
+
+```txt
+├── hosts (Computers)
+│  ├── asahi (M1 Linux)
+│  ├── darwin (MacOS)
+│  │  └── hosts
+│  │     ├── Bebop
+│  │     └── mc-2A3MD6R-MBP
+│  └── nixos (NixOS)
+│     ├── gaming
+│     ├── mini
+│     ├── pi4
+│     └── vm
+├── modules (Programs)
+│  ├── DE (Linux Desktop Environments)
+│  │  ├── hypr
+│  │  ├── rofi
+│  │  └── waybar
+│  ├── editors
+│  │  └── nvim
+│  ├── firefox
+│  └── shell (CLI tools and dotfiles)
+│     ├── bottom
+│     ├── broot
+│     ├── cava
+│     ├── kitty
+│     ├── lazygit
+│     ├── neofetch
+│     ├── scripts
+│     ├── wezterm
+│     └── xplr
+└── overlay (Customizations and Overlays)
+   ├── nnn
+   └── worm
+```
