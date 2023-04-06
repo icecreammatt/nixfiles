@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    wezterm
     bmon
     lm_sensors
     psensor
