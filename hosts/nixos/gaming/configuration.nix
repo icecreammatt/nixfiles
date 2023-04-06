@@ -36,6 +36,7 @@ in
     })
   ];
 
+  programs.fish.enable = true;
   programs.steam.enable = true;
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
