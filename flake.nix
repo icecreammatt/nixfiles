@@ -34,7 +34,7 @@
       nixosConfigurations = (
         import ./hosts/nixos {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixos-hardware home-manager;
+          inherit inputs nixpkgs nixos-hardware home-manager hyprland;
         }
       );
 

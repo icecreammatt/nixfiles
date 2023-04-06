@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, nixos-hardware, home-manager, ... }:
+{ lib, inputs, nixpkgs, nixos-hardware, home-manager, hyprland, ... }:
 
 let
   user = "matt";
@@ -33,6 +33,43 @@ in
             ../../modules/rust.nix
           ];
         };
+      }
+    ];
+  };
+
+   gaming = lib.nixosSystem {
+
+    # inherit hyprland;
+    # inherit system;
+    # inherit pkgs;
+
+    pkgs = import nixpkgs {
+      config.allowUnfree = true;
+      system = "x86_64-linux";
+    };
+    modules = [
+      ./gaming/configuration.nix
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.matt = {
+          home.stateVersion = "22.11";
+          imports = [
+            ./gaming/nixos-packages.nix
+            ../../modules/core.nix
+            ../../modules/common.nix
+            ../../modules/common-linux.nix
+            ../../modules/rust.nix
+            ../../modules/DE/hypr.nix
+            ../../modules/DE/waybar.nix
+            ../../modules/DE/rofi.nix
+            ../../modules/shell/kitty.nix
+          ];
+        };
+      }
+
+      hyprland.nixosModules.default {
+        programs.hyprland.enable = true;
       }
     ];
   };

@@ -86,7 +86,7 @@ in
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
           home.stateVersion = "22.11";
-          imports = [ 
+          imports = [
             ./gaming/nixos-packages.nix
             ../modules/core.nix
     		    ../modules/common.nix
