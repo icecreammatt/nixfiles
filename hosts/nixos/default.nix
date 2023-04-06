@@ -69,7 +69,7 @@ in
       }
 
       hyprland.nixosModules.default {
-        programs.hyprland.enable = true;
+        programs.hyprland.enable = false;
       }
     ];
   };
