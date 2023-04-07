@@ -216,14 +216,18 @@
     name = "java"
     scope = "source.java"
     injection-regex = "java"
-    file-types = ["java", "groovy"]
+    file-types = ["java", "groovy", "wse"]
     roots = ["pom.xml", "build.gradle"]
     language-server = { command = "jdt-language-server" }
     indent = { tab-width = 2, unit = "  " }
 
     [[language]]
     name = "javascript"
-    file-types = ["js", "template", "lock"]
+    file-types = ["js", "template"]
+
+    [[language]]
+    name = "json"
+    file-types = ["json", "lock", ".releaserc"]
 
     [[grammar]]
     name = "java"
