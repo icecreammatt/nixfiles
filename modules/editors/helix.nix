@@ -161,6 +161,15 @@
     G = "goto_file_end"
 
     [keys.select]
+    "N" = "goto_first_nonwhitespace"
+    "I" = "goto_line_end"
+    "$" = "goto_line_end"
+    "0" = "goto_line_start"
+    "^" = "goto_first_nonwhitespace"
+    G = "goto_file_end"
+    "{" = "goto_prev_paragraph"
+    "}" = "goto_next_paragraph"
+
     p = ":clipboard-paste-after"
     P = ":clipboard-paste-before"
     y = ":clipboard-yank-join"
