@@ -166,6 +166,7 @@
         md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
+        gbl = "git blame";
         jv = "pbpaste | jq";
         ghprv = "gh pr view --web";
         curl = "xh";
