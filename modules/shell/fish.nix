@@ -29,7 +29,7 @@
       export DIRENV_LOG_FORMAT=""
 
       export EDITOR=hx
-      export BAT_THEME="Dracula"
+      export BAT_THEME="Nord"
       export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}"'
       export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=0 --padding=0"
       zoxide init fish | source
@@ -103,7 +103,7 @@
         ll = "exa -lah --icons --group-directories-first --classify";
         la = "exa -la  --icons --group-directories-first --classify";
         ls = "exa";
-        cat="bat -p --theme Dracula";
+        cat="bat -p";
         icat="wezterm imgcat";
         ehosts="sudo $EDITOR /etc/hosts";
         memory = "ps -A u | sort -k 4 -r | head";

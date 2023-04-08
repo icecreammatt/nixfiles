@@ -6,7 +6,7 @@ return {
    font_size = 18.0,
    hide_tab_bar_if_only_one_tab = true,
    window_decorations = "RESIZE",
-   color_scheme = 'Dracula (Official)',
+   color_scheme = 'nord',
    scrollback_lines = 10000,
 
    check_for_updates_interval_seconds = 1209600,

@@ -37,7 +37,7 @@ in
           delta = {
               navigate = true;    # use n and N to move between diff sections
               light = false;      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-              syntax-theme = "Dracula";
+              syntax-theme = "Nord";
               side-by-side = "true";
               line-numbers = "true";
           };
