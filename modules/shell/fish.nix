@@ -166,7 +166,8 @@
         md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
-        jv = "jsonvalidate";
+        jv = "pbpaste | jq";
+        ghprv = "gh pr view --web";
         curl = "xh";
         o = "open . &";
         ag = "rg";
