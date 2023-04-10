@@ -3,7 +3,5 @@
 {
   home.packages = with pkgs; [
     bmon
-    #qmk
-    avrdude
   ];
 }
