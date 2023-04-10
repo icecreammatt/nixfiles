@@ -26,7 +26,6 @@
       automake
       avrdude
       nodejs-18_x
-      #qmk # still not working on M1 with OSX (works on M1 with Linux though)
     ];
 
     home.stateVersion = "22.11";

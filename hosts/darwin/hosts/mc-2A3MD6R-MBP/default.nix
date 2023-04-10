@@ -21,7 +21,6 @@
       # ../../../modules/shell/git.nix
     ];
 
- 
     home.packages = with pkgs; [
       nnn
       worm
