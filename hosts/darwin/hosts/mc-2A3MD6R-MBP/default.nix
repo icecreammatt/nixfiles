@@ -2,33 +2,13 @@
 { pkgs, ... }:
 
 {
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
-
-  nixpkgs.overlays = [
-    (import ../../../../overlay/overlay.nix)
-  ];
-
-  # Make sure the nix daemon always runs
-  services.nix-daemon.enable = true;
-
-  programs.zsh.enable = true;
-  programs.fish.enable = true;
-
-  system.defaults.dock.autohide = true;
-
-  environment.systemPackages = with pkgs; [ fish ];
-  environment.shells = [ pkgs.fish ];
+  system.defaults.dock.autohide = false;
 
   users.users.mcarrier = {
     shell = pkgs.fish;
   };
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users.mcarrier = { pkgs, ... }: 
-
+  home-manager.users.mcarrier = { pkgs, ... }:
   {
     imports = [
       ../../../../modules/common.nix
