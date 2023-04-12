@@ -191,6 +191,7 @@
         dbt = "docker build -t temp .";
         drt = "docker run -it -p 3000:3000 temp";
         drti = "docker run -it -p 3000:3000 temp /bin/bash";
+        ddmp = "set image (docker ps | grep traffic | choose -1) && docker cp $image:/etc/nginx/ .";
         nu = "ni && gp && nrs";
     };
     functions = {
