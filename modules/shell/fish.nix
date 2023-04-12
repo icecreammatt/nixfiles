@@ -193,6 +193,28 @@
         nu = "ni && gp && nrs";
     };
     functions = {
+        docker-run-image-td = {
+          body = ''
+            set port 3080
+            if [ $argv[2] > 0 ];
+              set port $argv[2]
+            end
+
+            echo "docker run -it -p $port:80 $argv[1]"
+            docker run -it -p $port:80 $argv[1]
+          '';
+        };
+        docker-run-image-td-bash = {
+          body = ''
+            set port 3080
+            if [ $argv[2] > 0 ];
+              set port $argv[2]
+            end
+
+            echo "docker run -it -p $port:80 $argv[1]" /bin/bash
+            docker run -it -p $port:80 $argv[1] /bin/bash
+          '';
+        };
         nrs = {
           body = ''
             pushd ~/nixfiles
