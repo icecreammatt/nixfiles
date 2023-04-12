@@ -96,6 +96,7 @@
         lt = "broot -c:open_preview";
 
         ealias = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
+        ea = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
         hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
         hmb = "home-manager build";
         hms = "home-manager switch";
