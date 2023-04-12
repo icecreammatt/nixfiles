@@ -4,7 +4,7 @@
 
 {
   home.packages = with pkgs; [
-    # wezterm
+    wezterm
     qemu
     nodePackages_latest.web-ext # web extension packager
     # jdt-language-server
