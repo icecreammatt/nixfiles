@@ -87,6 +87,8 @@
         ghb = "gh browse";
         lg = "lazygit";
         gl = "lazygit log";
+        lad = "lazydocker";
+        lac = "lazycli";
         x = "z";
         xi = "zi";
         pd = "popd";
