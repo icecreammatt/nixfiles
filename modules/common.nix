@@ -4,6 +4,8 @@
 
 {
   home.packages = with pkgs; [
+    imagemagick
+    audacity
     wezterm
     qemu
     nodePackages_latest.web-ext # web extension packager
