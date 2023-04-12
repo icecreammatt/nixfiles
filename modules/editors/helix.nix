@@ -62,6 +62,7 @@
     E = "reveal_current_file"
     e = "open_or_focus_explorer"
     u = "open_or_focus_explorer"
+    n = "open_or_focus_explorer"
 
     [keys.normal."("]
     d = "goto_prev_diag"
