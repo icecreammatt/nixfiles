@@ -14,7 +14,6 @@
     awscli2
     bash
     caddy # web server
-    choose # awk like tool
     clang-tools
     dogdns
     ffmpeg

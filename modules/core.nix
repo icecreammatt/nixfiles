@@ -14,6 +14,7 @@
     bottom    # btm top alternative
     coreutils
     curl
+    choose    # awk like tool
     delta     # diff dool
     du-dust   # space visualizer
     duf       # du alternative
