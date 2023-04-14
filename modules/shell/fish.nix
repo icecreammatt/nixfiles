@@ -195,6 +195,19 @@
         nu = "ni && gp && nrs";
     };
     functions = {
+        pdf-to-png = {
+          body = ''
+            if test (count $argv) -lt 1;
+              echo "pdf-to-png <filename>"
+              exit 0;
+            end
+
+            set fileName (echo $argv | sed 's/.pdf//')
+            
+            echo imagemagickBig --run "convert -density 300 -quality 100 $filename.{pdf,png}"
+            imagemagickBig --run "convert -density 300 -quality 100 $fileName.{pdf,png}" && ls *.png
+          '';
+        };
         docker-run-image-td = {
           body = ''
             set port 3080
