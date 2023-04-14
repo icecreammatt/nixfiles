@@ -5,7 +5,7 @@
 {
   home.packages = with pkgs; [
     python310Packages.python-lsp-server
-    imagemagick
+    # imagemagickBig
     audacity
     wezterm
     qemu
@@ -28,7 +28,6 @@
     go # programming languge
     gron # json search tool
     hugo # static site generator
-    imagemagick
     imgcat # display images in terminal
     lazycli
     lazydocker
