@@ -4,6 +4,7 @@
 
 {
   home.packages = with pkgs; [
+    python310Packages.python-lsp-server
     imagemagick
     audacity
     wezterm
