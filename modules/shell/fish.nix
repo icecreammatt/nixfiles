@@ -204,8 +204,8 @@
 
             set fileName (echo $argv | sed 's/.pdf//')
             
-            echo imagemagickBig --run "convert -density 300 -quality 100 $filename.{pdf,png}"
-            imagemagickBig --run "convert -density 300 -quality 100 $fileName.{pdf,png}" && ls *.png
+            echo convert --run "convert -density 300 -quality 100 $filename.{pdf,png}"
+            convert -density 300 -quality 100 $fileName.{pdf,png} && ls *.png
           '';
         };
         docker-run-image-td = {

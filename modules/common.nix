@@ -5,7 +5,7 @@
 {
   home.packages = with pkgs; [
     python310Packages.python-lsp-server
-    # imagemagickBig
+    imagemagickBig
     audacity
     wezterm
     qemu
