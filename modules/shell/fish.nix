@@ -297,7 +297,7 @@
         };
         clip = {
           body = ''
-            cat $argv[1] | pbcopy
+            cat $argv | pbcopy
           '';
         };
         rge = {
