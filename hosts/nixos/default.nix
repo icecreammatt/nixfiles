@@ -37,6 +37,29 @@ in
     ];
   };
 
+  vm2 = lib.nixosSystem {
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
+    modules = [
+      ./config-common.nix
+      ./vm2/configuration.nix
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.matt = {
+          home.stateVersion = "22.11";
+          imports = [
+            ../../modules/core.nix
+            ../../modules/common.nix
+            ../../modules/rust.nix
+          ];
+        };
+      }
+    ];
+  };
+
    gaming = lib.nixosSystem {
 
     # inherit hyprland;
