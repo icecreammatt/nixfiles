@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-  networking.firewall.allowedTCPPorts = [ 6443 ];
   services.k3s.enable = true;
   services.k3s.role = "server";
   # services.k3s.extraFlags = toString [
@@ -46,18 +45,12 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
-  
-
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
   #   "eurosign:e";
   #   "caps:escape" # map caps to escape.
   # };
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable sound.
   # sound.enable = true;
@@ -66,53 +59,19 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-    # users.users.matt = {
-    #   shell = pkgs.fish;
-    #   isNormalUser = true;
-    #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    #   initialPassword = "abc123";
-    #   packages = with pkgs; [
-    #     fish
-    #   ];
-    # };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     # wget
-     # helix
-     # git
-     # fish
      k3s
   ];
-  # environment.shells = with pkgs; [ fish ];
-  # programs.fish.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 
+    6443 # k3s?
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
