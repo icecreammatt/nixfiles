@@ -76,6 +76,7 @@
         gf = "git fetch --all";
         gb = "git branch -a";
         gcop = "git branch --sort=-committerdate | fzf --header 'Checkout Recent Branch' --preview \"git diff {1} --color=always\" --pointer=\"->\" | xargs git checkout";
+        gme = "git status --short | choose -1 | sk | xargs $EDITOR";
         gco = "git checkout";
         gcob = "git checkout -b";
         grv = "git remote -v";
