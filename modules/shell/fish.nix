@@ -48,6 +48,7 @@
         ni = "pushd ~/nixfiles";
         strip = "pbpaste | pbcopy";
         clean = "pbpaste | pbcopy";
+        pwdcp = "pwd | pbcopy";
         jsonvalidate = "pbpaste | jq";
         dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
