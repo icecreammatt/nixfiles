@@ -20,7 +20,6 @@
      helix
      git
      fish
-     # k3s
   ];
 
   environment.shells = with pkgs; [ fish ];
