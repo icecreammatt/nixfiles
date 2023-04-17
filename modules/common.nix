@@ -35,6 +35,7 @@
     lldb
     mediainfo
     mkcert
+    nebula # vpn client/server
     nix-prefetch
     nodePackages.svelte-language-server
     nodePackages.vscode-langservers-extracted
