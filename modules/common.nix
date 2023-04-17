@@ -35,6 +35,7 @@
     lldb
     mediainfo
     mkcert
+    morph
     nebula # vpn client/server
     nix-prefetch
     nodePackages.svelte-language-server
