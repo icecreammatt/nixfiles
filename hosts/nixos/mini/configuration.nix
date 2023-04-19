@@ -63,6 +63,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      k3s
+     nebula
+     morph
+     tmux
+     caddy
   ];
 
   # Open ports in the firewall.
