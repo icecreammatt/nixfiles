@@ -213,7 +213,7 @@
         docker-run-image-td = {
           body = ''
             set port 3080
-            if [ $argv[2] > 0 ];
+            if test $argv[2] -gt 0;
               set port $argv[2]
             end
 
@@ -224,7 +224,7 @@
         docker-run-image-td-bash = {
           body = ''
             set port 3080
-            if [ $argv[2] > 0 ];
+            if test $argv[2] -gt 0;
               set port $argv[2]
             end
 
