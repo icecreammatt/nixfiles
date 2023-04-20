@@ -4,6 +4,8 @@
 
 {
   home.packages = with pkgs; [
+    nodePackages.typescript-language-server
+    nodePackages.pnpm
     python310Packages.python-lsp-server
     imagemagickBig
     audacity
