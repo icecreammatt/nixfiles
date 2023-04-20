@@ -56,6 +56,7 @@
         Source = "cd ~/Source";
         flushdns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
         amend="git commit --amend --no-edit";
+        less = "bat";
         diff = "diff -u";
         g = "git status -s";
         gui = "gitui";
