@@ -44,6 +44,7 @@
         "cd.." = "cd ..";
         "cdr" = "ranger";
         "ran" = "ranger";
+        "start-nebula" = "sudo nebula -config /etc/nebula/config.yaml";
         f = "fish";
         ni = "pushd ~/nixfiles";
         strip = "pbpaste | pbcopy";
