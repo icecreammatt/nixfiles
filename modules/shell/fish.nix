@@ -14,17 +14,14 @@
     }];
 
     #  export FZF_DEFAULT_OPTS="--preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} | less -f {}),f2:toggle-preview,ctrl-d:down,ctrl-u:up' --height 75% --layout=reverse --border --preview='bat --style=numbers --color=always {} || cat {} 2>/dev/null | head -500'"
+
+      # fish_add_path /etc/static/profiles/per-user/mcarrier/bin
       #navi widget fish | source
 
     shellInit = ''
-      set fish_user_paths /usr/bin /usr/local/bin /bin /usr/sbin /sbin
-      fish_add_path /opt/homebrew/bin
-      fish_add_path /nix/var/nix/profiles/default/bin
-      fish_add_path /run/current-system/sw/bin
-      fish_add_path /etc/profiles/per-user/matt/bin 
-      fish_add_path -p $HOME/.npm-global/bin
-      fish_add_path -p $HOME/.cargo/bin
-      fish_add_path -p $HOME/bin
+      fish_add_path $HOME/bin
+      fish_add_path $HOME/.npm-global/bin
+      fish_add_path $HOME/.cargo/bin
 
       set fish_color_valid_path
 
