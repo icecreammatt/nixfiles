@@ -39,6 +39,7 @@
     time
     tldr
     tree
+    unzip
     wget
     xh        # http request viewer
     xplr      # cli explorer
