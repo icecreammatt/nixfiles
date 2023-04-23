@@ -135,7 +135,7 @@ in
         home-manager.users.matt = {
           home.stateVersion = "22.11";
           imports = [
-            ../../modules/core.nix
+            ../../modules/common.nix
             ../../modules/rust.nix
             ../../modules/k8s.nix
           ];
