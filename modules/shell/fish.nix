@@ -176,7 +176,6 @@
         gbl = "git blame";
         jv = "pbpaste | jq";
         ghprv = "gh pr view --web";
-        curl = "xh";
         o = "open . &";
         ag = "rg";
         he = "hx";
