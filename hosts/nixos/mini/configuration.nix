@@ -16,6 +16,54 @@
     # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   # ];
 
+  services.caddy = {
+    enable = true;
+
+    extraConfig = ''
+        :80 {
+          encode gzip
+          file_server
+
+          handle_path /* {
+            root * "/mnt/storage/rewind"
+            file_server browse
+          }
+        }
+    '';
+
+    virtualHosts."mini.dev.c4er.com".extraConfig = ''
+        encode gzip
+        file_server
+        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
+
+        handle_path /media/* {
+          root * "/mnt/storage/rewind"
+          file_server browse
+        }
+
+        handle_path /* {
+          root * "/mnt/storage/rewind"
+          file_server browse
+        }
+    '';
+
+    virtualHosts."mini-vpn.dev.c4er.com".extraConfig = ''
+        encode gzip
+        file_server
+        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
+
+        handle_path /media/* {
+          root * "/mnt/storage/rewind"
+          file_server browse
+        }
+
+        handle_path /* {
+          reverse_proxy localhost:5173
+        }
+    '';
+
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device= "nodev";
   boot.loader.systemd-boot.enable = true;
@@ -72,10 +120,12 @@
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 
     6443 # k3s?
+    443
+    80
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
