@@ -115,6 +115,7 @@
      morph
      tmux
      caddy
+     nodejs
   ];
 
   # Open ports in the firewall.
