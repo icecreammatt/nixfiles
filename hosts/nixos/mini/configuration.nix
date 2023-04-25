@@ -43,6 +43,9 @@
         }
 
         handle_path /* {
+          reverse_proxy localhost:5173
+        }
+    '';
           root * "/mnt/storage/rewind"
           file_server browse
         }
