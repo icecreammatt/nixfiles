@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
     ];
 
+  services.vaultwarden.enable = true;
   services.k3s.enable = false;
   services.k3s.role = "server";
   # services.k3s.extraFlags = toString [
@@ -62,6 +63,14 @@
         }
     '';
 
+    virtualHosts."bw-vpn.dev.c4er.com".extraConfig = ''
+        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
+
+        handle_path /* {
+          reverse_proxy localhost:8000
+        }
+    '';
+    
   };
 
   # Use the systemd-boot EFI boot loader.
