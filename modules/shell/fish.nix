@@ -198,9 +198,14 @@
         nu = "ni && gp && nrs";
     };
     functions = {
-        prefetch-sri = {
+        prefetch-url-sri = {
           body = ''
             nix-prefetch-url "$argv[1]" | xargs nix hash to-sri --type sha256
+          '';
+        };
+        prefetch-git-sri = {
+          body = ''
+            nix-prefetch-git "$argv[1]" --rev "$argv[2]" | jq .sha256 | xargs nix hash to-sri --type sha256
           '';
         };
         pdf-to-png = {
