@@ -26,7 +26,7 @@
           file_server
 
           handle_path /* {
-            root * "/mnt/storage/rewind"
+            root * "/mnt/storage/webroot"
             file_server browse
           }
         }
