@@ -198,6 +198,11 @@
         nu = "ni && gp && nrs";
     };
     functions = {
+        prefetch-sri = {
+          body = ''
+            nix-prefetch-url "$argv[1]" | xargs nix hash to-sri --type sha256
+          '';
+        };
         pdf-to-png = {
           body = ''
             if test (count $argv) -lt 1;
