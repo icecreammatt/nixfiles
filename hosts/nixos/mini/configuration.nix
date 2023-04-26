@@ -84,6 +84,14 @@
           reverse_proxy localhost:8000
         }
     '';
+
+    virtualHosts."pocketbase.dev.c4er.com".extraConfig = ''
+        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
+
+        handle_path /* {
+          reverse_proxy localhost:8090
+        }
+    '';
     
   };
 
@@ -144,6 +152,7 @@
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 
     6443 # k3s?
+    8090
     443
     80
   ];
