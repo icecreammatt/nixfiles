@@ -19,6 +19,7 @@
     ];
  
     home.packages = with pkgs; [
+      pocketbase
       nnn
       worm
       reattach-to-user-namespace
