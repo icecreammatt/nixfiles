@@ -5,8 +5,6 @@
 {
   home.packages = with pkgs; [
     nix-prefetch-git
-    nodePackages.typescript-language-server
-    nodePackages.pnpm
     python310Packages.python-lsp-server
     imagemagickBig
     audacity

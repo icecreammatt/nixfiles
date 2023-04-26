@@ -20,6 +20,8 @@
  
     home.packages = with pkgs; [
       pocketbase
+      nodePackages.typescript-language-server
+      nodePackages.pnpm
       nnn
       worm
       reattach-to-user-namespace
