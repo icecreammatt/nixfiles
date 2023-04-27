@@ -77,10 +77,10 @@
         }
     '';
 
-    virtualHosts."mini-story.dev.c4er.com".extraConfig = ''
+    virtualHosts."storybook.rewind.c4er.com".extraConfig = ''
         encode gzip
         file_server
-        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
+        tls /mnt/certs/rewind.c4er.com/fullchain1.pem  /mnt/certs/rewind.c4er.com/privkey1.pem
 
         handle_path /media/* {
           root * "/mnt/storage/rewind"
