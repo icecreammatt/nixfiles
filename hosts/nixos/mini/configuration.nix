@@ -47,6 +47,36 @@
         }
     '';
 
+    virtualHosts."dev.rewind.c4er.com".extraConfig = ''
+        encode gzip
+        file_server
+        tls /mnt/certs/rewind.c4er.com/fullchain1.pem  /mnt/certs/rewind.c4er.com/privkey1.pem
+
+        handle_path /media/* {
+          root * "/mnt/storage/rewind"
+          file_server browse
+        }
+
+        handle_path /* {
+          reverse_proxy localhost:5173
+        }
+    '';
+
+    virtualHosts."rewind.c4er.com".extraConfig = ''
+        encode gzip
+        file_server
+        tls /mnt/certs/rewind.c4er.com/fullchain1.pem  /mnt/certs/rewind.c4er.com/privkey1.pem
+
+        handle_path /media/* {
+          root * "/mnt/storage/rewind"
+          file_server browse
+        }
+
+        handle_path /* {
+          reverse_proxy localhost:5173
+        }
+    '';
+
     virtualHosts."mini-story.dev.c4er.com".extraConfig = ''
         encode gzip
         file_server
