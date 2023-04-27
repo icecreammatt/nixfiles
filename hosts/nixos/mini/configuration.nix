@@ -141,12 +141,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     k3s
-     nebula
-     morph
-     tmux
-     caddy
-     nodejs
+    k3s
+    nebula
+    morph
+    tmux
+    caddy
+    nodejs
   ];
 
   # Open ports in the firewall.
