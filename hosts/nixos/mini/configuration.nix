@@ -147,6 +147,7 @@
     tmux
     caddy
     nodejs
+    certbot-full
   ];
 
   # Open ports in the firewall.
