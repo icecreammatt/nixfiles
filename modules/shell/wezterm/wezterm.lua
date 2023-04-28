@@ -10,6 +10,7 @@ return {
    window_decorations = "RESIZE",
    color_scheme = 'nord',
    scrollback_lines = 10000,
+  enable_kitty_keyboard = true,
 
    check_for_updates_interval_seconds = 1209600,
 
