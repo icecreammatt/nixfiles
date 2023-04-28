@@ -17,11 +17,14 @@
       ../../../../modules/shell/gitui.nix
       ../../../../modules/shell/tmux.nix
       ../../../../modules/editors/nvim.nix
-      ../../../../modules/node16.nix
+      # ../../../../modules/node16.nix
       # ../../../modules/shell/git.nix
     ];
 
     home.packages = with pkgs; [
+      nodejs-18_x
+      nodePackages.typescript-language-server
+      nodePackages.pnpm
       nnn
       worm
       reattach-to-user-namespace
