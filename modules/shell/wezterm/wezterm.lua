@@ -16,6 +16,14 @@ return {
 
    use_fancy_tab_bar = false,
 
+  ssh_domains = {
+    {
+      name = "mini",
+      remote_address = "192.168.88.164",
+      username = "matt",
+    }
+  },
+
   -- https://wezfurlong.org/wezterm/config/appearance.html#retro-tab-bar-appearance
   colors = {
     tab_bar = {
