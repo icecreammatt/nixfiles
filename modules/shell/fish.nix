@@ -50,6 +50,8 @@
         strip = "pbpaste | pbcopy";
         clean = "pbpaste | pbcopy";
         pwdcp = "pwd | pbcopy";
+        cdc = "pwd | pbcopy";
+        cdp = "cd (pbpaste)";
         jsonvalidate = "pbpaste | jq";
         dotfiles = "cd ~/nixfiles";
         nixfiles = "cd ~/nixfiles";
