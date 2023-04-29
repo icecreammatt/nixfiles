@@ -91,6 +91,7 @@
     space = "add_newline_below"
 
     [keys.normal]
+    "C-/" = "toggle_comments"
     # -------------------------
     # QWERTY to Colemak remaps
     # [JY] [LU] [UI] [..]
