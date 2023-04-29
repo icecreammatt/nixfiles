@@ -48,7 +48,6 @@ return {
     end
   end);
   wezterm.on('update-right-status', function(_, pane)
-    E_KEY_TAPPED = false
     local title = pane:get_title()
     if string.find(title, "EDITOR") then
       ENABLE_EDITOR_CTRL_NAV = true
