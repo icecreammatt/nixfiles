@@ -55,7 +55,7 @@ return {
     end
   end);
 
-  wezterm.on('toggle-opacity', function(window, pane)
+  wezterm.on('toggle-opacity', function(window, _)
     local overrides = window:get_config_overrides() or {}
 
     if not overrides.window_background_opacity then
