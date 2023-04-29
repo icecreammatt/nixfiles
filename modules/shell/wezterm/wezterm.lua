@@ -14,6 +14,18 @@ return {
   check_for_updates_interval_seconds = 1209600,
   use_fancy_tab_bar = false,
 
+  wezterm.on('toggle-opacity', function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+
+    if not overrides.window_background_opacity then
+      overrides.window_background_opacity = 0.5
+    else
+      overrides.window_background_opacity = nil
+    end
+
+    window:set_config_overrides(overrides)
+  end);
+
   ssh_domains = {
     {
       name = "mini",
@@ -120,6 +132,7 @@ return {
             end)
           } }
     },
+    { key = 'B', mods = 'ALT', action = wezterm.action.EmitEvent 'toggle-opacity', },
     { key = 's', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
     { key = 'v', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
     { key = "Space", mods = "LEADER", action = wezterm.action.ShowLauncher },
