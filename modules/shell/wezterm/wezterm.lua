@@ -14,6 +14,49 @@ return {
   check_for_updates_interval_seconds = 1209600,
   use_fancy_tab_bar = false,
 
+  ENABLE_EDITOR_CTRL_NAV = false,
+
+  -- Allow swapping bwteeen panes in whatever editor is open
+  -- This will currently trap nav to that editor till a way
+  -- to escape without using ALT NEIO/HJKL is figured out
+  wezterm.on('triggerWindowNavE', function(window, pane)
+    if ENABLE_EDITOR_CTRL_NAV then
+        window:perform_action( act.SendKey({key = 'e', mods = 'CTRL'}), pane )
+      else
+        window:perform_action( act.ActivatePaneDirection 'Down', pane )
+    end
+  end);
+  wezterm.on('triggerWindowNavN', function(window, pane)
+    if ENABLE_EDITOR_CTRL_NAV then
+        window:perform_action( act.SendKey({key = 'n', mods = 'CTRL'}), pane )
+      else
+        window:perform_action( act.ActivatePaneDirection 'Left', pane )
+    end
+  end);
+  wezterm.on('triggerWindowNavI', function(window, pane)
+    if ENABLE_EDITOR_CTRL_NAV then
+        window:perform_action( act.SendKey({key = 'i', mods = 'CTRL'}), pane )
+      else
+        window:perform_action( act.ActivatePaneDirection 'Right', pane )
+    end
+  end);
+  wezterm.on('triggerWindowNavU', function(window, pane)
+    if ENABLE_EDITOR_CTRL_NAV then
+        window:perform_action( act.SendKey({key = 'u', mods = 'CTRL'}), pane )
+      else
+        window:perform_action( act.ActivatePaneDirection 'Up', pane )
+    end
+  end);
+  wezterm.on('update-right-status', function(_, pane)
+    E_KEY_TAPPED = false
+    local title = pane:get_title()
+    if string.find(title, "EDITOR") then
+      ENABLE_EDITOR_CTRL_NAV = true
+    else
+      ENABLE_EDITOR_CTRL_NAV = false
+    end
+  end);
+
   wezterm.on('toggle-opacity', function(window, pane)
     local overrides = window:get_config_overrides() or {}
 
@@ -313,10 +356,16 @@ return {
     { key = 'i', mods = 'SHIFT|ALT', action = act.AdjustPaneSize{ 'Right', 1 } },
     { key = 'u', mods = 'SHIFT|ALT', action = act.AdjustPaneSize{ 'Up', 1 } },
     { key = 'e', mods = 'SHIFT|ALT', action = act.AdjustPaneSize{ 'Down', 1 } },
+
     { key = 'n', mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
     { key = 'i', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
     { key = 'u', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
     { key = 'e', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
+
+    { key = 'n', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavN' },
+    { key = 'i', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavI' },
+    { key = 'u', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavU' },
+    { key = 'e', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavE' },
 
     { key = 'Copy', mods = 'NONE', action = act.CopyTo 'Clipboard' },
     { key = 'Paste', mods = 'NONE', action = act.PasteFrom 'Clipboard' },
