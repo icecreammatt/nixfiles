@@ -200,6 +200,15 @@
         nu = "ni && gp && nrs";
     };
     functions = {
+        connect = {
+          body = ''
+            if test (count $argv) -lt 1;
+              echo "connect <ssh server>"
+              exit 0;
+            end
+            wezterm cli spawn -- wezterm connect --position 0,0 $argv[1]
+          '';
+        };
         prefetch-url-sri = {
           body = ''
             nix-prefetch-url "$argv[1]" | xargs nix hash to-sri --type sha256
