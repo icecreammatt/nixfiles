@@ -2,6 +2,7 @@ local wezterm = require 'wezterm'
 local act = wezterm.action
 
 local background_color = '#2E3440';
+_G.ENABLE_EDITOR_CTRL_NAV = false
 
 return {
   adjust_window_size_when_changing_font_size = false,
@@ -14,34 +15,32 @@ return {
   check_for_updates_interval_seconds = 1209600,
   use_fancy_tab_bar = false,
 
-  ENABLE_EDITOR_CTRL_NAV = false,
-
   -- Allow swapping bwteeen panes in whatever editor is open
   -- This will currently trap nav to that editor till a way
   -- to escape without using ALT NEIO/HJKL is figured out
   wezterm.on('triggerWindowNavE', function(window, pane)
-    if ENABLE_EDITOR_CTRL_NAV then
+    if _G.ENABLE_EDITOR_CTRL_NAV then
         window:perform_action( act.SendKey({key = 'e', mods = 'CTRL'}), pane )
       else
         window:perform_action( act.ActivatePaneDirection 'Down', pane )
     end
   end);
   wezterm.on('triggerWindowNavN', function(window, pane)
-    if ENABLE_EDITOR_CTRL_NAV then
+    if _G.ENABLE_EDITOR_CTRL_NAV then
         window:perform_action( act.SendKey({key = 'n', mods = 'CTRL'}), pane )
       else
         window:perform_action( act.ActivatePaneDirection 'Left', pane )
     end
   end);
   wezterm.on('triggerWindowNavI', function(window, pane)
-    if ENABLE_EDITOR_CTRL_NAV then
+    if _G.ENABLE_EDITOR_CTRL_NAV then
         window:perform_action( act.SendKey({key = 'i', mods = 'CTRL'}), pane )
       else
         window:perform_action( act.ActivatePaneDirection 'Right', pane )
     end
   end);
   wezterm.on('triggerWindowNavU', function(window, pane)
-    if ENABLE_EDITOR_CTRL_NAV then
+    if _G.ENABLE_EDITOR_CTRL_NAV then
         window:perform_action( act.SendKey({key = 'u', mods = 'CTRL'}), pane )
       else
         window:perform_action( act.ActivatePaneDirection 'Up', pane )
@@ -49,10 +48,10 @@ return {
   end);
   wezterm.on('update-right-status', function(_, pane)
     local title = pane:get_title()
-    if string.find(title, "EDITOR") then
-      ENABLE_EDITOR_CTRL_NAV = true
+    if string.find(title, "EDITOR") or string.find(title, "hx") then
+      _G.ENABLE_EDITOR_CTRL_NAV = true
     else
-      ENABLE_EDITOR_CTRL_NAV = false
+      _G.ENABLE_EDITOR_CTRL_NAV = false
     end
   end);
 
