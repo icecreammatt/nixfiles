@@ -4,17 +4,15 @@ local act = wezterm.action
 local background_color = '#2E3440';
 
 return {
-   adjust_window_size_when_changing_font_size = false,
-   font_size = 18.0,
-   hide_tab_bar_if_only_one_tab = true,
-   window_decorations = "RESIZE",
-   color_scheme = 'nord',
-   scrollback_lines = 10000,
+  adjust_window_size_when_changing_font_size = false,
+  font_size = 18.0,
+  hide_tab_bar_if_only_one_tab = true,
+  window_decorations = "RESIZE",
+  color_scheme = 'nord',
+  scrollback_lines = 10000,
   enable_kitty_keyboard = true,
-
-   check_for_updates_interval_seconds = 1209600,
-
-   use_fancy_tab_bar = false,
+  check_for_updates_interval_seconds = 1209600,
+  use_fancy_tab_bar = false,
 
   ssh_domains = {
     {
