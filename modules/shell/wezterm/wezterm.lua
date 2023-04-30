@@ -174,6 +174,8 @@ return {
           } }
     },
 
+      -- Detaches the domain associated with the current pane
+    { key = 'd', mods = 'SUPER', action = act.DetachDomain 'CurrentPaneDomain', },
     { key = 'e', mods = 'LEADER', action = act.SendKey({key = 'e', mods = 'CTRL'}) },
     { key = 'B', mods = 'ALT', action = wezterm.action.EmitEvent 'toggle-opacity', },
     { key = 's', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
