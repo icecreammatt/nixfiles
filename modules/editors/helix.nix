@@ -208,6 +208,17 @@
 
   '';
 
+
+  home.file.".config/helix/themes/nord-clear.toml".text = ''
+    inherits = "nord"
+    "ui.background" = {}
+  '';
+
+  home.file.".config/helix/themes/catppuccin_latte-clear.toml".text = ''
+    inherits = "catppuccin_latte"
+    "ui.background" = {}
+  '';
+
   home.file.".config/helix/languages.toml".text = ''
     [[language]]
     name = "markdown"
