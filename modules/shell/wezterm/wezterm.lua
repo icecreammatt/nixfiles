@@ -59,9 +59,11 @@ return {
     local overrides = window:get_config_overrides() or {}
 
     if not overrides.window_background_opacity then
-      overrides.window_background_opacity = 0.85
+      overrides.window_background_opacity = 0.95
+      overrides.text_background_opacity = 0.95
     else
       overrides.window_background_opacity = nil
+      overrides.text_background_opacity = nil
     end
 
     window:set_config_overrides(overrides)
