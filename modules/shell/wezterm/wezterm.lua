@@ -364,10 +364,10 @@ return {
     { key = 'u', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
     { key = 'e', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
 
-    { key = 'n', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavN' },
-    { key = 'i', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavI' },
-    { key = 'u', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavU' },
-    { key = 'e', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavE' },
+    -- { key = 'n', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavN' },
+    -- { key = 'i', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavI' },
+    -- { key = 'u', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavU' },
+    -- { key = 'e', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavE' },
 
     { key = 'Copy', mods = 'NONE', action = act.CopyTo 'Clipboard' },
     { key = 'Paste', mods = 'NONE', action = act.PasteFrom 'Clipboard' },
