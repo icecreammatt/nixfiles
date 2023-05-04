@@ -82,6 +82,7 @@ in
             ../../modules/core.nix
             ../../modules/common.nix
             ../../modules/common-linux.nix
+            ../../modules/common-linux-gui.nix
             ../../modules/rust.nix
             ../../modules/DE/hypr.nix
             ../../modules/DE/waybar.nix

@@ -10,6 +10,10 @@
     font-awesome
     nerdfonts
 
+    bitwarden
+    krita
+    blender
+
     cava
     freerdp
     hyprpaper
