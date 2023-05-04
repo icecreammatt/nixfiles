@@ -30,6 +30,7 @@
     lsof      # list open fils and connections
     neofetch  # os summary
     mdcat     # cat for markdown files
+    mprocs    # task runner
     nmap      # network scanner utility
               # nnn    # cli explorer
     ranger    # cli explorer
