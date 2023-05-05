@@ -32,6 +32,7 @@
       jdk8
       jenkins
       groovy
+      jira-cli-go
       nodePackages_latest.grunt-cli
       nodePackages_latest.bower
     ];
