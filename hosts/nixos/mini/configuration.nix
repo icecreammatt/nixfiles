@@ -70,6 +70,7 @@
     tmux
     nodejs
     certbot-full
+    pocketbase
   ];
 
   # Open ports in the firewall.
