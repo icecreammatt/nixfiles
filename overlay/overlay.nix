@@ -3,4 +3,5 @@ final: prev: {
   worm = final.callPackage ./worm {};
   pocketbase = final.callPackage ./pocketbase {};
   hex2color = final.callPackage ./hex2color {};
+  mdpls = final.callPackage ./mdpls {};
 }
