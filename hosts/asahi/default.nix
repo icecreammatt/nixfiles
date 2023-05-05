@@ -3,6 +3,9 @@
 let
   system = "aarch64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
+  overlays = [ 
+    (import ../../overlay/overlay.nix)
+  ]; 
   user = "matt";
   userName = "matt";
 in

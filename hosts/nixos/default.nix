@@ -19,6 +19,9 @@ in
     pkgs = import nixpkgs {
       system = "aarch64-linux";
       config.allowUnfree = true;
+      overlays = [ 
+        (import ../../overlay/overlay.nix)
+      ]; 
     };
     modules = [
       ./config-common.nix
@@ -41,6 +44,9 @@ in
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
+      overlays = [ 
+        (import ../../overlay/overlay.nix)
+      ]; 
     };
     modules = [
       ./config-common.nix
@@ -69,6 +75,9 @@ in
     pkgs = import nixpkgs {
       config.allowUnfree = true;
       system = "x86_64-linux";
+      overlays = [ 
+        (import ../../overlay/overlay.nix)
+      ]; 
     };
     modules = [
       ./gaming/configuration.nix
@@ -102,6 +111,9 @@ in
     pkgs = import nixpkgs {
       system = "aarch64-linux";
       config.allowUnfree = true;
+      overlays = [ 
+        (import ../../overlay/overlay.nix)
+      ]; 
     };
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
