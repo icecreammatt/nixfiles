@@ -126,6 +126,9 @@ in
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
+      overlays = [ 
+        (import ../../overlay/overlay.nix)
+      ]; 
     };
     modules = [
       ./config-common.nix

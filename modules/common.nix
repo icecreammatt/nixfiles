@@ -4,6 +4,7 @@
 
 {
   home.packages = with pkgs; [
+    hex2color
     nix-prefetch-git
     python310Packages.python-lsp-server
     imagemagickBig
