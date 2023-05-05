@@ -24,6 +24,7 @@
       nodePackages.pnpm
       nnn
       worm
+      hex2color
       reattach-to-user-namespace
       home-manager
       automake
