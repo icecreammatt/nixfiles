@@ -33,8 +33,8 @@
       jenkins
       groovy
       jira-cli-go
-      nodePackages_latest.grunt-cli
-      nodePackages_latest.bower
+      # nodePackages_latest.grunt-cli
+      # nodePackages_latest.bower
     ];
 
     home.stateVersion = "22.11";
