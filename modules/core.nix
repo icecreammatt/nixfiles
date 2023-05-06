@@ -6,6 +6,7 @@
 {
   home.packages = with pkgs; [
               # uutils-coreutils - enable once all is ported
+    fishPlugins.bass
     rnix-lsp  # lsp for nix files used by helix
     nix-tree  # tree view of nix flake dependencies
     direnv    # auto switch to using nix flake on directory nav

@@ -198,6 +198,7 @@
         drti = "docker run -it -p 3000:3000 temp /bin/bash";
         ddmp = "set image (docker ps | grep traffic | choose -1) && docker cp $image:/etc/nginx/ .";
         nu = "ni && gp && nrs";
+        enable_nvm = "load_nvm > /dev/stderr";
     };
     functions = {
         connect = {
@@ -453,6 +454,34 @@
         npmGlobalFix = {
             description = "fix npm bin directory linking";
             body = "npm config set prefix '~/.npm-global'";
+        };
+        nvm = {
+          description = "node version manager";
+          body = "bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv";
+        };
+        nvm_find_nvmrc = {
+          body = "bass source ~/.nvm/nvm.sh --no-use ';' nvm_find_nvmrc";
+        };
+        load_nvm = {
+          description = "This auto changes nvm depending on dir but is extremely slow";
+          body = ''
+            function load_nvm --on-variable="PWD"
+              set -l default_node_version (nvm version default)
+              set -l node_version (nvm version)
+              set -l nvmrc_path (nvm_find_nvmrc)
+              if test -n "$nvmrc_path"
+                set -l nvmrc_node_version (nvm version (cat $nvmrc_path))
+                if test "$nvmrc_node_version" = "N/A"
+                  nvm install (cat $nvmrc_path)
+                else if test "$nvmrc_node_version" != "$node_version"
+                  nvm use $nvmrc_node_version
+                end
+              else if test "$node_version" != "$default_node_version"
+                echo "Reverting to default Node version"
+                nvm use default
+              end
+            end
+          '';
         };
     };
   };
