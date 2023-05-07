@@ -91,6 +91,7 @@
     space = "add_newline_below"
 
     [keys.normal]
+    "*" = ["move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
     "C-/" = "toggle_comments"
     # -------------------------
     # QWERTY to Colemak remaps
