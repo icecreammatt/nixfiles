@@ -175,6 +175,7 @@
         md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
+        rustfix = "export PATH=\"/usr/bin/:$PATH\"";
         gbl = "git blame";
         jv = "pbpaste | jq";
         ghprv = "gh pr view --web";
