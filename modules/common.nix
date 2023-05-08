@@ -5,6 +5,7 @@
 {
   home.packages = with pkgs; [
     slides
+    graph-easy
     mdpls
     hex2color
     nix-prefetch-git
