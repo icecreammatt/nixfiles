@@ -1,6 +1,7 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 
+local opacity = 0.85
 local background_color = '#2E3440';
 _G.ENABLE_EDITOR_CTRL_NAV = false
 
@@ -59,8 +60,8 @@ return {
     local overrides = window:get_config_overrides() or {}
 
     if not overrides.window_background_opacity then
-      overrides.window_background_opacity = 0.95
-      overrides.text_background_opacity = 0.95
+      overrides.window_background_opacity = opacity 
+      overrides.text_background_opacity = opacity
     else
       overrides.window_background_opacity = nil
       overrides.text_background_opacity = nil
@@ -180,6 +181,7 @@ return {
     { key = 'd', mods = 'SUPER', action = act.DetachDomain 'CurrentPaneDomain', },
     { key = 'n', mods = 'LEADER', action = act.PaneSelect {  alphabet = 'arstneio' } },
     { key = 'B', mods = 'ALT', action = wezterm.action.EmitEvent 'toggle-opacity', },
+    { key = 'l', mods = 'SUPER', action = wezterm.action.EmitEvent 'toggle-opacity', },
     { key = 's', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
     { key = 'v', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
     { key = "Space", mods = "LEADER", action = wezterm.action.ShowLauncher },
