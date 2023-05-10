@@ -2,11 +2,11 @@
 
 {
   home.packages = with pkgs; [
+    bacon
+    clang-tools
+    gcc
     rust-analyzer
     rust-script
     rustup
-    gcc
-    bacon
-    clang-tools
   ];
 }
