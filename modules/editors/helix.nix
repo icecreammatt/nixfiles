@@ -14,6 +14,9 @@
     mouse = false
     color-modes = true
 
+    [editor.lsp]
+    display-inlay-hints = true
+
     [editor.soft-wrap]
     enable = true
 
