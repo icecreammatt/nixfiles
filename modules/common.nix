@@ -48,6 +48,7 @@
     nodePackages.vscode-langservers-extracted
     nss
     nssTools
+    oha  # HTTP load generator inspired by rakyll/hey with tui animation
     onefetch # git repo summary
     pandoc # document convertions
     pipes-rs
