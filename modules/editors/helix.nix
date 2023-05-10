@@ -12,6 +12,7 @@
     cursorline = true
     bufferline = "multiple"
     mouse = false
+    color-modes = true
 
     [editor.soft-wrap]
     enable = true
