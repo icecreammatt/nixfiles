@@ -6,6 +6,7 @@
     rust-script
     rustup
     gcc
+    bacon
     clang-tools
   ];
 }
