@@ -6,7 +6,6 @@
 {
   home.packages = with pkgs; [
               # uutils-coreutils - enable once all is ported
-    fishPlugins.bass
     rnix-lsp  # lsp for nix files used by helix
     nix-tree  # tree view of nix flake dependencies
     direnv    # auto switch to using nix flake on directory nav
@@ -21,6 +20,7 @@
     duf       # du alternative
     exa       # ls alternative
     fd        # find alternative
+    fishPlugins.bass  # Fish function making it easy to use utilities written for Bash in Fish shell
     fzf
     git
     gping     # ping with graph
