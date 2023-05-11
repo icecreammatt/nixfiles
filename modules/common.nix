@@ -34,6 +34,7 @@
     go # programming languge
     gron # json search tool
     hugo # static site generator
+    hurl # Command line tool that performs HTTP requests defined in a simple plain text format.
     imgcat # display images in terminal
     lazycli
     lazydocker
