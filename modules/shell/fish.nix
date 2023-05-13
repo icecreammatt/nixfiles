@@ -200,6 +200,7 @@
         ddmp = "set image (docker ps | grep traffic | choose -1) && docker cp $image:/etc/nginx/ .";
         nu = "ni && gp && nrs";
         enable_nvm = "load_nvm > /dev/stderr";
+        quickweb = "caddy file-server --browse --listen :2015";
     };
     functions = {
         connect = {
