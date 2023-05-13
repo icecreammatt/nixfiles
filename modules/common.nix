@@ -12,7 +12,7 @@
     nix-prefetch-git
     python310Packages.python-lsp-server
     nodePackages.bash-language-server # A language server for Bash
-    nodePackages.diff2html-cli # Fast Diff to colorized HTML
+    # nodePackages.diff2html-cli # Fast Diff to colorized HTML (add this after updating lock file)
     imagemagickBig
     audacity
     wezterm
