@@ -335,6 +335,11 @@
                 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
             '';
         };
+        far = {
+            body = ''
+              rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}" | FZF_DEFAULT_OPTS="--height=100%" sad $argv
+            '';
+        };
         clip = {
           body = ''
             cat $argv | pbcopy
