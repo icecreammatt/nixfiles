@@ -96,6 +96,8 @@
     space = "add_newline_below"
 
     [keys.normal]
+    C-k = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+    C-j = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
     "*" = ["move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
     "C-/" = "toggle_comments"
     # -------------------------
