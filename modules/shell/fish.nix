@@ -165,7 +165,8 @@
         merge = "open -n -a \"Sublime Merge\" .";
         bane = "bane2";
         c = "code .";
-        note = "pushd ~/notes";
+        no = "pushd ~/notes && hx && popd";
+        ob = "pushd ~/obsidian-notes && hx && popd";
         nt = "pushd ~/notes";
         ntf = "pushd ~/notes && ske && popd";
         nts = "pushd ~/notes && rge && popd";
