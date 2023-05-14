@@ -68,7 +68,7 @@
 
   imports = [
     ./core.nix
-    ./rust.nix
+    # ./rust.nix
     ./k8s.nix
     ./shell/wezterm.nix
   ];

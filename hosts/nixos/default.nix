@@ -92,11 +92,11 @@ in
             ../../modules/common.nix
             ../../modules/common-linux.nix
             ../../modules/common-linux-gui.nix
-            ../../modules/rust.nix
-            ../../modules/DE/hypr.nix
-            ../../modules/DE/waybar.nix
+            # ../../modules/rust.nix
+            # ../../modules/DE/hypr.nix
+            # ../../modules/DE/waybar.nix
             ../../modules/DE/rofi.nix
-            ../../modules/shell/kitty.nix
+            # ../../modules/shell/kitty.nix
           ];
         };
       }
