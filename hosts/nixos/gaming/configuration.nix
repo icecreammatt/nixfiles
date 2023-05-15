@@ -14,6 +14,8 @@ in
       ./udev.nix
     ];
 
+  system.autoUpgrade.enable = false;
+
   # Nvidia
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;
