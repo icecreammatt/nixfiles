@@ -176,6 +176,7 @@
         md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
+        steamgame = "gamescope -w 3440 -h 1440 -W 3440 -H 1440 -r 120 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless
         rustfix = "export PATH=\"/usr/bin/:$PATH\"";
         gbl = "git blame";
         jv = "pbpaste | jq";
