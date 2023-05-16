@@ -183,6 +183,7 @@ in
       neovim
       git
       gamescope
+      mangohud
       lm_sensors
     ];
   };
