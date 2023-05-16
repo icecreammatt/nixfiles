@@ -49,7 +49,7 @@
     xplr      # cli explorer
     yq        # cli yaml parser
     zoxide    # z shortcut tool
-    wezterm
+    # wezterm
   ];
 
   imports = [
