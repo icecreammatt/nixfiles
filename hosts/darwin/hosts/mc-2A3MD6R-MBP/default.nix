@@ -12,7 +12,7 @@
   {
     imports = [
       ../../../../modules/common.nix
-      ../../../../modules/keyboard-dev.nix
+      # ../../../../modules/keyboard-dev.nix
       ../../../../modules/x86.nix
       ../../../../modules/shell/gitui.nix
       ../../../../modules/shell/tmux.nix
