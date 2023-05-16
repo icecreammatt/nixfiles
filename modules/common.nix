@@ -15,7 +15,6 @@
     nodePackages.diff2html-cli # Fast Diff to colorized HTML
     imagemagickBig
     audacity
-    wezterm
     qemu
     nodePackages_latest.web-ext # web extension packager
     # jdt-language-server
