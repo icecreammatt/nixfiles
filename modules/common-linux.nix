@@ -2,10 +2,10 @@
 
 {
   home.packages = with pkgs; [
-    wezterm
+    #nvtop #nonfree
     bmon
     lm_sensors
     psensor
-    #nvtop #nonfree
+    wezterm
   ];
 }

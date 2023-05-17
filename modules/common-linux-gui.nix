@@ -2,27 +2,23 @@
 
 {
   home.packages = with pkgs; [
-    xclip # xwindow clipboard
-    bmon
-
-    vscode-extensions.vadimcn.vscode-lldb
-
-    font-awesome
-    nerdfonts
-
+    #nvtop #nonfree
     bitwarden
-    krita
     blender
-
+    bmon
     cava
+    font-awesome
     freerdp
     hyprpaper
     krakenx
+    krita
     lm_sensors
+    nerdfonts
+    peek
     psensor
     vscode
-    peek
-    #nvtop #nonfree
+    vscode-extensions.vadimcn.vscode-lldb
+    xclip # xwindow clipboard
   ];
 
   imports = [
