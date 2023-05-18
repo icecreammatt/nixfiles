@@ -12,6 +12,7 @@
   {
     imports = [
       ../../../../modules/common.nix
+      ../../../../modules/rust.nix
       ../../../../modules/shell/gitui.nix
       ../../../../modules/shell/tmux.nix
       ../../../../modules/editors/nvim.nix
