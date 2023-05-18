@@ -20,6 +20,7 @@
     ];
  
     home.packages = with pkgs; [
+      wezterm
       pocketbase
       nodePackages.typescript-language-server
       nodePackages.pnpm
