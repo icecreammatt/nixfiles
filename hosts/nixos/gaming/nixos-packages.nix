@@ -14,6 +14,8 @@
     wlogout
     plymouth
     obsidian
+    qmk
+    avrdude
   ];
 
   programs.waybar.enable = true;
