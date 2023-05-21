@@ -11,7 +11,7 @@
     caddy # web server
     clang-tools
     dogdns
-    ffmpeg
+    ffmpeg_6-full
     gcc
     gettext
     gh # github cli
