@@ -46,6 +46,7 @@
     nodePackages_latest.yaml-language-server
     nss
     nssTools
+    oculante
     oha  # HTTP load generator inspired by rakyll/hey with tui animation
     onefetch # git repo summary
     pandoc # document convertions
