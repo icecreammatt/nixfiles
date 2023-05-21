@@ -2,20 +2,21 @@
 
 {
   home.packages = with pkgs; [
+    avrdude
+    dolphin
+    kitty
+    nmap
+    nvtop-nvidia
+    obsidian
+    plymouth
+    qmk
+    rofi-wayland
+    signal-desktop
     syncthing
     syncthingtray
-    signal-desktop
-    wlr-randr
-    nmap
-    kitty
-    dolphin
-    rofi-wayland
     which
     wlogout
-    plymouth
-    obsidian
-    qmk
-    avrdude
+    wlr-randr
   ];
 
   programs.waybar.enable = true;
