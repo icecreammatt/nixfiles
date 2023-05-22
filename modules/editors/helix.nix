@@ -244,6 +244,11 @@
     indent = { tab-width = 2, unit = "  " }
 
     [[language]]
+    name = "css"
+    file-types = ["css"]
+    indent = { tab-width = 4, unit = "    " }
+
+    [[language]]
     name = "java"
     scope = "source.java"
     injection-regex = "java"
