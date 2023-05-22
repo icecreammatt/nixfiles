@@ -13,6 +13,7 @@
     krita
     lm_sensors
     nerdfonts
+    oculante
     peek
     psensor
     vscode
