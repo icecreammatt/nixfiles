@@ -147,3 +147,16 @@ sudo nixos-rebuild switch --flake .
    ├── nnn
    └── worm
 ```
+
+## OSX Rust Fixes
+
+> Softlink these to `~/bin` to fix rust build errors
+```
+cc -> /usr/bin/cc*
+g++ -> /usr/bin/g++*
+gcc -> /usr/bin/gcc*
+ld -> /usr/bin/ld*
+lldb -> /usr/bin/lldb*
+llvm-g++ -> /usr/bin/llvm-g++*
+llvm-gcc -> /usr/bin/llvm-gcc*
+```
