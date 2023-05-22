@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    #nvtop #nonfree
     bitwarden
     blender
     bmon

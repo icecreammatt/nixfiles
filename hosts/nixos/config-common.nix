@@ -24,7 +24,5 @@
 
   environment.shells = with pkgs; [ fish ];
   programs.fish.enable = true;
-
   services.openssh.enable = true;
-
 }
