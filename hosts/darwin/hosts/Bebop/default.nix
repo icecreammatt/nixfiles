@@ -20,18 +20,18 @@
     ];
  
     home.packages = with pkgs; [
-      wezterm
-      pocketbase
-      nodePackages.typescript-language-server
-      nodePackages.pnpm
-      nnn
-      worm
-      hex2color
-      reattach-to-user-namespace
-      home-manager
       automake
       avrdude
+      hex2color
+      home-manager
+      nnn
+      nodePackages.pnpm
+      nodePackages.typescript-language-server
       nodejs-18_x
+      pocketbase
+      reattach-to-user-namespace
+      wezterm
+      worm
     ];
 
     home.stateVersion = "22.11";
