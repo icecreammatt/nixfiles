@@ -56,6 +56,7 @@
     qemu
     s3cmd # s3 cli
     slides
+    ssh-to-age # Convert ssh private keys in ed25519 format to age keys
     sumneko-lua-language-server
     t-rec # screenshot
     terminal-colors
