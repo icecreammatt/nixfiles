@@ -28,6 +28,7 @@ in
         ../../modules/shell/tmux.nix
         ../../modules/editors/nvim.nix
         ../../modules/shell/kitty.nix
+        ../../modules/rust.nix
         # ../../modules/DE/hypr.nix
         # ../../modules/DE/waybar.nix
         # ../../modules/DE/rofi.nix
