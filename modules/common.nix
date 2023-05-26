@@ -1,5 +1,3 @@
-# Programs to install on most systems
-
 {  pkgs, lib, ... }:
 
 {
@@ -68,10 +66,7 @@
 
   imports = [
     ./core.nix
-    # ./rust.nix
     ./k8s.nix
     ./shell/wezterm.nix
   ];
-
-#  imports = [ ./git.nix ] ++ lib.optional (builtins.pathExists ./work.nix) ./work.nix;
 }
