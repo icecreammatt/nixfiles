@@ -1,12 +1,21 @@
 { ... }:
 
+let
+  config = { darkmode = false; };
+  theme = if config.darkmode then
+    "catppuccin_frappe"
+  else
+    "catppuccin_latte"
+  ;
+in
 {
   programs.helix = { enable = true; };
 
   home.file.".config/helix/config.toml".text = ''
-    theme = "catppuccin_frappe"
+    # theme = "catppuccin_frappe"
     # theme = "nord"
     # icons = "nerdfonts"
+    theme = "${theme}"
 
     [editor]
     scrolloff = 10
