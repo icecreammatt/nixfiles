@@ -1,7 +1,6 @@
-{ ... }:
+{ isDark, ... }:
 
 let
-  isDark = true;
   config = { darkmode = isDark; };
   theme = if config.darkmode then
     "Catppuccin Frappe"

@@ -1,5 +1,10 @@
-{  pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
+let
+  isDark = true;
+  wezterm_custom = import ./shell/wezterm.nix { inherit isDark; };
+  core_override = import ./core.nix { inherit pkgs lib isDark; };
+in
 {
   home.packages = with pkgs; [
     # jdt-language-server
@@ -65,8 +70,10 @@
   ];
 
   imports = [
-    ./core.nix
+    core_override
+    # ./core.nix
+    wezterm_custom
+    # ./shell/wezterm.nix
     ./k8s.nix
-    ./shell/wezterm.nix
   ];
 }

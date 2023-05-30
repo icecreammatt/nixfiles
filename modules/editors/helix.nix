@@ -1,7 +1,6 @@
-{ ... }:
+{ isDark, ... }:
 
 let
-  isDark = true;
   config = { darkmode = isDark; };
   theme = if config.darkmode then
     "catppuccin_frappe"
@@ -13,10 +12,9 @@ in
   programs.helix = { enable = true; };
 
   home.file.".config/helix/config.toml".text = ''
-    # theme = "catppuccin_frappe"
     # theme = "nord"
-    # icons = "nerdfonts"
     theme = "${theme}"
+    # icons = "nerdfonts"
 
     [editor]
     scrolloff = 10

@@ -1,8 +1,11 @@
 # Programs to install on all systems
 # Modern Unix https://github.com/ibraheemdev/modern-unix
 
-{  pkgs, lib, ... }:
+{ pkgs, lib, isDark, ... }:
 
+let
+  helix_custom = import ./editors/helix.nix { inherit isDark; };
+in
 {
   home.packages = with pkgs; [
     # uutils-coreutils - enable once all is ported
@@ -53,7 +56,8 @@
   ];
 
   imports = [
-    ./editors/helix.nix
+    helix_custom
+    # ./editors/helix.nix
     ./shell/bottom.nix
     ./shell/broot.nix
     ./shell/fish.nix
