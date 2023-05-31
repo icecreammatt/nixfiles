@@ -230,7 +230,7 @@
           body = ''
             if test (count $argv) -lt 1;
               echo "pdf-to-png <filename>"
-              exit 0;
+              return 1;
             end
 
             set fileName (echo $argv | sed 's/.pdf//')
