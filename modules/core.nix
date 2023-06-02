@@ -58,6 +58,7 @@ in
   imports = [
     helix_custom
     # ./editors/helix.nix
+    ./bin.nix
     ./shell/bottom.nix
     ./shell/broot.nix
     ./shell/fish.nix
