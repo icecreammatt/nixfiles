@@ -77,6 +77,7 @@ in
     u = "open_or_focus_explorer"
     n = "open_or_focus_explorer"
     g = ":pipe-to wezterm cli split-pane -- helix-live-grep"
+    B = ":pipe-to wezterm cli split-pane -- helix-git-blame"
 
     [keys.normal."("]
     d = "goto_prev_diag"

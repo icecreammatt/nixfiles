@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+HELIX_PANE_ID=$(wezterm cli get-pane-direction Up)
+FILE_LINE=$(wezterm cli get-text --pane-id $HELIX_PANE_ID)
+
+RES=$(echo $FILE_LINE | rg -e "(?:NOR|INS|SEL)\s+(\S*)\s.* (\d+):*.*" -o --replace '$1 $2')
+FILE=$(echo $RES | choose 0)
+LINE=$(echo $RES | choose 1)
+
+git blame -L $LINE,+10 $FILE --color-by-age --color-lines | fzf --ansi
