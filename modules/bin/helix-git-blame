@@ -7,4 +7,11 @@ RES=$(echo $FILE_LINE | rg -e "(?:NOR|INS|SEL)\s+(\S*)\s.* (\d+):*.*" -o --repla
 FILE=$(echo $RES | choose 0)
 LINE=$(echo $RES | choose 1)
 
-git blame -L $LINE,+10 $FILE --color-by-age --color-lines | fzf --ansi
+git blame -L $LINE,+100 $FILE --color-by-age --color-lines | 
+  fzf --ansi \
+      --border \
+      --delimiter ':' \
+      --height '100%' \
+      --multi \
+      --print-query --exit-0 \
+      --scrollbar '▍'
