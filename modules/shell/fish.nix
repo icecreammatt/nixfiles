@@ -226,6 +226,18 @@
             nix-prefetch-git "$argv[1]" --rev "$argv[2]" | jq .sha256 | xargs nix hash to-sri --type sha256
           '';
         };
+        mov2gif = {
+          body = ''
+            if test (count $argv) -lt 1;
+              echo "mov2gif <filename>"
+              return 1;
+            end
+
+            set fileName (echo $argv | sed 's/.mov//')
+            
+            ffmpeg -i $argv[1] -r 10 -fs 10MB $fileName-out.gif
+          '';
+        };
         pdf-to-png = {
           body = ''
             if test (count $argv) -lt 1;
