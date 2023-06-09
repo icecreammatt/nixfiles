@@ -24,6 +24,7 @@ in
     extraSpecialArgs = { inherit inputs user pkgs; };
     modules = [
         ../../modules/common.nix
+        ../../modules/common-linux-gui.nix
         ../../modules/shell/gitui.nix
         ../../modules/shell/tmux.nix
         ../../modules/editors/nvim.nix
@@ -39,6 +40,7 @@ in
           homeDirectory = "/home/${userName}";
           packages = with pkgs; [ 
             pkgs.avrdude 
+            pkgs.ardour
             pkgs.cascadia-code
             pkgs.dolphin
             pkgs.hex2color
