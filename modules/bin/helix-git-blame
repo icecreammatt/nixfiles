@@ -7,11 +7,14 @@ RES=$(echo $FILE_LINE | rg -e "(?:NOR|INS|SEL)\s+(\S*)\s[^│]* (\d+):*.*" -o --
 FILE=$(echo $RES | choose 0)
 LINE=$(echo $RES | choose 1)
 
+BIND='enter:execute(git show {1})'
+KEYS="$BIND"
+
+if [[ $1 == '--exit-on-execution' ]]; then
+  KEYS="$KEYS+abort"
+  shift # remove the flag from the arguments so it's not passed to the `rg` command
+fi
+
 git blame -L $LINE,+100 $FILE --color-by-age --color-lines | 
   fzf --ansi \
-      --border \
-      --delimiter ':' \
-      --height '100%' \
-      --multi \
-      --print-query --exit-0 \
-      --scrollbar '▍'
+      --bind "$KEYS"
