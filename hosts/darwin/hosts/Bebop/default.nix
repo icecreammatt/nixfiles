@@ -24,6 +24,7 @@
       avrdude
       hex2color
       home-manager
+      lilypond-with-fonts
       nnn
       nodePackages.pnpm
       nodePackages.typescript-language-server
@@ -32,7 +33,7 @@
       reattach-to-user-namespace
       wezterm
       worm
-    ];
+];
 
     home.stateVersion = "22.11";
   };
