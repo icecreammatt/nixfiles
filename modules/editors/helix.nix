@@ -273,7 +273,7 @@ in
 
     [[language]]
     name = "json"
-    file-types = ["json", "lock", ".releaserc"]
+    file-types = ["json", "lock", ".releaserc", "pp"]
 
     [[grammar]]
     name = "java"
