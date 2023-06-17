@@ -86,7 +86,6 @@ in
           home.stateVersion = "22.11";
           imports = [
             ./gaming/nixos-packages.nix
-            ../../modules/core.nix
             ../../modules/common.nix
             ../../modules/common-linux.nix
             ../../modules/common-linux-gui.nix
