@@ -12,6 +12,7 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./udev.nix
+      ../../../modules/airplay/uxplay.nix
     ];
 
   system.autoUpgrade.enable = false;
