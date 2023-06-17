@@ -26,6 +26,7 @@ in
     graph-easy
     gron # json search tool
     hex2color
+    hexyl # Hex Viewer
     hugo # static site generator
     hurl # Command line tool that performs HTTP requests defined in a simple plain text format.
     imagemagickBig
