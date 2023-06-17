@@ -203,6 +203,7 @@
         drti = "docker run -it -p 3000:3000 temp /bin/bash";
         ddmp = "set image (docker ps | grep traffic | choose -1) && docker cp $image:/etc/nginx/ .";
         nu = "ni && gp && nrs";
+        nmap_lan = "sudo nmap -p 192.168.88.0/24";
         enable_nvm = "load_nvm > /dev/stderr";
         quickweb = "caddy file-server --browse --listen :2015";
     };
