@@ -56,7 +56,6 @@ in
   ];
 
   imports = [
-    # ./editors/helix.nix
     ./bin.nix
     ./shell/bottom.nix
     ./shell/broot.nix
