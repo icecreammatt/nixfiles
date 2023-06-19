@@ -67,7 +67,6 @@ in
     ttyd # share terminal over web
     uxplay
     viu # image viewer
-    vlan # User mode programs to enable VLANs on Ethernet devices
     wiki-tui
     zellij # terminal multiplexer
   ];

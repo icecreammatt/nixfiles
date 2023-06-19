@@ -6,6 +6,7 @@
     bmon
     lm_sensors
     psensor
+    vlan # User mode programs to enable VLANs on Ethernet devices
     wezterm
   ];
 }
