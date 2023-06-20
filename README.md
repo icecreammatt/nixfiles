@@ -160,3 +160,9 @@ lldb -> /usr/bin/lldb*
 llvm-g++ -> /usr/bin/llvm-g++*
 llvm-gcc -> /usr/bin/llvm-gcc*
 ```
+
+---
+Finding older versions by using commit hash and then convert url into 
+https://github.com/NixOS/nixpkgs/commit/708dcbce926fdfb40a08ff625148fe11b6fe601d
+
+https://codeload.github.com/NixOS/nixpkgs/tar.gz/708dcbce926fdfb40a08ff625148fe11b6fe601d

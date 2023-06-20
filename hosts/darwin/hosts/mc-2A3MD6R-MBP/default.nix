@@ -17,7 +17,7 @@
       ../../../../modules/shell/gitui.nix
       ../../../../modules/shell/tmux.nix
       ../../../../modules/editors/nvim.nix
-      # ../../../../modules/node16.nix
+      ../../../../modules/node18.nix
       # ../../../modules/shell/git.nix
     ];
 
