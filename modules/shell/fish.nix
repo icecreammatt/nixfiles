@@ -465,13 +465,17 @@
                 set_color $fish_color_error
             end
 
-            set node_version (node --version)
+            set node_prompt ""
+            if test -f package.json
+                set node_version (node --version)
+                set node_prompt "$node_version"
+            end
 
             if test -f .envrc
                 set prompt_symbol (cat .envrc | grep symbol | cut -d "=" -f 2-)
-                printf "$node_version $prompt_symbol =>"
+                printf "$node_prompt$prompt_symbol =>"
             else
-                printf "$node_version >"
+                printf "$node_prompt>"
             end
 
             set_color normal
