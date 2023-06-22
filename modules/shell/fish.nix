@@ -62,6 +62,7 @@
         less = "bat";
         diff = "diff -u";
         g = "git status -s";
+        gcp = "git cherry-pick";
         gui = "gitui";
         gau = "git add -u";
         gp = "git pull --rebase";
