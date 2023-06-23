@@ -69,6 +69,7 @@ in
     viu # image viewer
     wiki-tui
     zellij # terminal multiplexer
+    zk # A zettelkasten plain text note-taking assistant
   ];
 
   imports = [
