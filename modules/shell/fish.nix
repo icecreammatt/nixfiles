@@ -211,6 +211,16 @@
         quickweb = "caddy file-server --browse --listen :2015";
     };
     functions = {
+        certdump= {
+          body = ''
+            if test (count $argv) -lt 1;
+              echo "certdump <filename.pem>"
+              return 1;
+            end
+
+            openssl crl2pkcs7 -nocrl -certfile $argv[1] | openssl pkcs7 -print_certs -text -noout | rg -e "(Subject|DNS):"
+          '';
+        };
         connect = {
           body = ''
             if test (count $argv) -lt 1;
