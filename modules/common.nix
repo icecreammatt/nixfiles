@@ -40,6 +40,7 @@ in
     mkcert
     morph
     nebula # vpn client/server
+    openssl # A cryptographic library that implements the SSL and TLS protocols
     nix-prefetch
     nix-prefetch-git
     nodePackages.bash-language-server # A language server for Bash
