@@ -5,6 +5,14 @@
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
+    # post-build-hook = $HOME/test.sh
+
+  # home.file."test.sh".source = ''
+  #   #!/bin/bash
+
+  #   echo "===== TESTING ====="
+  #   touch ~/Desktop/worked.txt
+  # '';
 
   nixpkgs.overlays = [
     (import ../../../overlay/overlay.nix)
