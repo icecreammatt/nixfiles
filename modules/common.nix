@@ -9,6 +9,7 @@ in
   home.packages = with pkgs; [
     # jdt-language-server
     audacity
+    mtr
     awscli2
     bash
     caddy # web server
