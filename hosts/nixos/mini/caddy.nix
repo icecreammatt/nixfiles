@@ -103,6 +103,14 @@
         }
     '';
 
+    virtualHosts."bw-vpn.c4er.com".extraConfig = ''
+        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
+
+        handle_path /* {
+          reverse_proxy localhost:8000
+        }
+    '';
+
     virtualHosts."pocketbase.rewind.c4er.com".extraConfig = ''
         tls /mnt/certs/rewind.c4er.com/fullchain1.pem  /mnt/certs/rewind.c4er.com/privkey1.pem
 
