@@ -179,6 +179,7 @@ in
     description = "matt";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      bitwarden
       waybar
       firefox
       neovim

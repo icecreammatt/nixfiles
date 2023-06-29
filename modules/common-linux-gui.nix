@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     ardour
-    bitwarden
     blender
     bmon
     cava
