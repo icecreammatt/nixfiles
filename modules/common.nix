@@ -7,71 +7,71 @@ let
 in
 {
   home.packages = with pkgs; [
-    # jdt-language-server
     audacity
-    mtr
     awscli2
     bash
-    caddy # web server
+    caddy                             # web server
     clang-tools
-    dogdns
+    dogdns                            # Command-line DNS client
     ffmpeg_6-full
     gcc
     gettext
-    gh # github cli
-    gifsicle # cli gif tool
-    gist # github gist uploader
-    git-standup # list work done in repo over last day
-    gitui # gitui in rust
-    go # programming languge
-    graph-easy
-    gron # json search tool
+    gh                                # github cli
+    gifsicle                          # cli gif tool
+    gist                              # github gist uploader
+    git-standup                       # list work done in repo over last day
+    gitui                             # gitui in rust
+    go                                # programming languge
+    graph-easy                        # Render/convert graphs in/from various formats
+    gron                              # json search tool
     hex2color
-    hexyl # Hex Viewer
-    hugo # static site generator
-    hurl # Command line tool that performs HTTP requests defined in a simple plain text format.
+    hexyl                             # Hex Viewer
+    hugo                              # static site generator
+    hurl                              # Command line tool that performs HTTP requests defined in a simple plain text format.
     imagemagickBig
-    imgcat # display images in terminal
+    imgcat                            # display images in terminal
+                                      # jdt-language-server
     lazycli
     lazydocker
     libiconvReal
     lldb
-    mdpls
+    mdpls                             # markdown language server
     mediainfo
     mkcert
-    morph
-    nebula # vpn client/server
-    openssl # A cryptographic library that implements the SSL and TLS protocols
+    morph                             # A NixOS host manager written in Golang
+    mtr                               # A network diagnostics tool
+    nebula                            # vpn client/server
     nix-prefetch
     nix-prefetch-git
     nodePackages.bash-language-server # A language server for Bash
-    nodePackages.diff2html-cli # Fast Diff to colorized HTML
+    nodePackages.diff2html-cli        # Fast Diff to colorized HTML
+    nodePackages_latest.web-ext       # web extension packager
+    nodePackages_latest.yaml-language-server
     nodePackages.svelte-language-server
     nodePackages.vscode-langservers-extracted
-    nodePackages_latest.web-ext # web extension packager
-    nodePackages_latest.yaml-language-server
     nss
     nssTools
-    oha  # HTTP load generator inspired by rakyll/hey with tui animation
-    onefetch # git repo summary
-    pandoc # document convertions
+    oha                               # HTTP load generator inspired by rakyll/hey with tui animation
+    onefetch                          # git repo summary
+    openssl                           # A cryptographic library that implements the SSL and TLS protocols
+    pandoc                            # document convertions
     pipes-rs
-    procs # ps in rust
+    procs                             # ps in rust
     python310Packages.python-lsp-server
-    python39 # programming languge
+    python39                          # programming languge
     qemu
-    s3cmd # s3 cli
+    s3cmd                             # s3 cli
     slides
-    ssh-to-age # Convert ssh private keys in ed25519 format to age keys
+    ssh-to-age                        # Convert ssh private keys in ed25519 format to age keys
     sumneko-lua-language-server
-    t-rec # screenshot
     terminal-colors
-    ttyd # share terminal over web
-    uxplay
-    viu # image viewer
-    wiki-tui
-    zellij # terminal multiplexer
-    zk # A zettelkasten plain text note-taking assistant
+    t-rec                             # screenshot
+    ttyd                              # share terminal over web
+    uxplay                            # AirPlay Unix mirroring server
+    viu                               # image viewer
+    wiki-tui                          # A simple and easy to use Wikipedia Text User Interface
+    zellij                            # terminal multiplexer
+    zk                                # A zettelkasten plain text note-taking assistant
   ];
 
   imports = [
