@@ -22,6 +22,7 @@ in
     git-standup                       # list work done in repo over last day
     gitui                             # gitui in rust
     go                                # programming languge
+    gping                             # Ping, but with a graph
     graph-easy                        # Render/convert graphs in/from various formats
     gron                              # json search tool
     hex2color
