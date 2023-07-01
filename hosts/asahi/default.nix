@@ -30,6 +30,7 @@ in
         ../../modules/editors/nvim.nix
         ../../modules/shell/kitty.nix
         ../../modules/rust.nix
+        ../../modules/keyboard-dev.nix
         # ../../modules/DE/hypr.nix
         # ../../modules/DE/waybar.nix
         # ../../modules/DE/rofi.nix
@@ -39,7 +40,6 @@ in
           username = "${userName}";
           homeDirectory = "/home/${userName}";
           packages = with pkgs; [ 
-            pkgs.avrdude 
             pkgs.ardour
             pkgs.cascadia-code
             pkgs.dolphin
@@ -47,7 +47,6 @@ in
             pkgs.home-manager 
             pkgs.nerdfonts
             pkgs.nmap
-            pkgs.qmk
             pkgs.wezterm
             pkgs.which
             # pkgs.rofi-wayland
