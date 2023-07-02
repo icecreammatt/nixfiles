@@ -1,9 +1,9 @@
---- toneport.c	2018-01-28 16:20:33.000000000 -0500
-+++ toneport_new.c	2019-05-10 15:37:48.430974082 -0400
-@@ -69,8 +69,8 @@
+--- root/sound/usb/line6/toneport.c	2021-10-05 11:12:00.000000000 -0700
++++ root/sound/usb/line6/toneport.c	2023-07-02 00:15:00.000000000 -0700
+@@ -64,8 +64,8 @@
  #define TONEPORT_PCM_DELAY 1
  
- static struct snd_ratden toneport_ratden = {
+ static const struct snd_ratden toneport_ratden = {
 -	.num_min = 44100,
 -	.num_max = 44100,
 +	.num_min = 48000,
@@ -11,7 +11,7 @@
  	.num_step = 1,
  	.den = 1
  };
-@@ -85,8 +85,8 @@
+@@ -80,8 +80,8 @@
  					   SNDRV_PCM_INFO_SYNC_START),
  				  .formats = SNDRV_PCM_FMTBIT_S16_LE,
  				  .rates = SNDRV_PCM_RATE_KNOT,
@@ -22,7 +22,7 @@
  				  .channels_min = 2,
  				  .channels_max = 2,
  				  .buffer_bytes_max = 60000,
-@@ -102,8 +102,8 @@
+@@ -97,8 +97,8 @@
  					  SNDRV_PCM_INFO_SYNC_START),
  				 .formats = SNDRV_PCM_FMTBIT_S16_LE,
  				 .rates = SNDRV_PCM_RATE_KNOT,
