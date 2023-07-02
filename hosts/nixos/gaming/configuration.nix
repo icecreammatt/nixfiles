@@ -31,6 +31,19 @@ in
       extraOptions = "experimental-features = nix-command flakes";
   };
 
+  # Add Kernel patch for Line6 TonePort UX1
+  # To us 24-bit audio 48000hz audio as confirmed by Line6 support
+  # Source: https://www.reddit.com/r/linuxaudio/comments/blun53/anyone_know_good_settings_for_jack_with_line_6/
+  # Credit: goes to /u/wolfgothmog and myself to update their work
+  # to be compatible with latest Kernel which at this time is 6.1.28
+  # as toneport.c had some changes since that post.
+  boot.kernelPatches = [
+    {
+      name = "toneport-patch";
+      patch = ../../../modules/kernel/toneport.patch;
+    }
+  ];
+
   nixpkgs.overlays = [
     (self: super: { 
       waybar = super.waybar.overrideAttrs (oldAttrs: {
