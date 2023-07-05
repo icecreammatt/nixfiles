@@ -17,7 +17,7 @@ in
     gcc
     gettext
     gh                                # github cli
-    gifsicle                          # cli gif tool
+    # gifsicle                          # cli gif tool
     gist                              # github gist uploader
     git-standup                       # list work done in repo over last day
     gitui                             # gitui in rust
