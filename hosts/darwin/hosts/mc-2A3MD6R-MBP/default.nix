@@ -6,6 +6,7 @@
 
   users.users.mcarrier = {
     shell = pkgs.fish;
+    home = /Users/mcarrier;
   };
 
   home-manager.users.mcarrier = { pkgs, ... }:
