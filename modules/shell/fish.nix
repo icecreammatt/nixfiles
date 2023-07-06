@@ -104,9 +104,6 @@
 
         ealias = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
         ea = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
-        hmbs = "pushd ~/.config/; home-manager build && home-manager switch; popd";
-        hmb = "home-manager build";
-        hms = "home-manager switch";
         tree = "exa --tree";
         l =  "exa -lh  --icons --group-directories-first --classify";
         ltree = "exa -lh  --icons --group-directories-first --classify --tree --color=always | bat";
@@ -118,7 +115,6 @@
         ehosts="sudo $EDITOR /etc/hosts";
         memory = "ps -A u | sort -k 4 -r | head";
         top="btm";
-        htop="btm";
 
         port="lazycli -- 'lsof -i -P -n | grep -E \"(LISTEN|COMMAND)\"'";
         wine="lazycli -- 'lsof -i -P -n | grep -E \"(node|nginx)\" || echo \"No node or nginx servers running\"'";
@@ -172,8 +168,6 @@
         ntf = "pushd ~/notes && ske && popd";
         nts = "pushd ~/notes && rge && popd";
 
-        dsw = "pushd ~/nixfiles && darwin-rebuild switch --flake . && popd";
-        nsw = "pushd ~/nixfiles && sudo nixos-rebuild switch --flake . && popd";
         md2j = "pandoc --to jira | pbcopy";
     };
     shellAbbrs = {
