@@ -1,7 +1,10 @@
 { pkgs, lib, ... }:
 
 let
+  # Enable dark mode theme
   isDark = true;
+
+  # Override to pass darkmode settings
   wezterm_custom = import ./shell/wezterm.nix { inherit isDark; };
   core_override = import ./core.nix { inherit pkgs lib isDark; };
 in
@@ -25,7 +28,7 @@ in
     gping                             # Ping, but with a graph
     graph-easy                        # Render/convert graphs in/from various formats
     gron                              # json search tool
-    hex2color
+    hex2color                         # Hex code color preview
     hexyl                             # Hex Viewer
     hugo                              # static site generator
     hurl                              # Command line tool that performs HTTP requests defined in a simple plain text format.
@@ -37,7 +40,7 @@ in
     libiconvReal
     lldb
     mdpls                             # markdown language server
-    mediainfo
+    mediainfo                         # display media info from mpeg file
     mkcert
     morph                             # A NixOS host manager written in Golang
     mtr                               # A network diagnostics tool

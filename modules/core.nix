@@ -4,6 +4,7 @@
 { pkgs, lib, isDark, ... }:
 
 let
+  # Override to inject light vs dark theme setting
   helix_custom = import ./editors/helix.nix { inherit isDark; };
 in
 {
