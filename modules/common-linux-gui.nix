@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     ardour
-    blender
+    # blender # build errors with latest flake.lock
     bmon
     cava
     font-awesome
@@ -14,7 +14,7 @@
     lm_sensors
     nerdfonts
     oculante
-    peek
+    # peek # causing issues in latest flake.lock
     psensor
     vscode
     vscode-extensions.vadimcn.vscode-lldb
