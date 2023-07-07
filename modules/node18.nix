@@ -11,7 +11,7 @@
 
 let
     system = "x86_64-darwin"; # Todo see how to pass this through from parent
-    # version = "16.13.1"; <-- this is for refence for the build sha below
+    # version = "18.15.0"; <-- this is for refence for the build sha below
     pkgs = import (builtins.fetchTarball {
       url = "https://github.com/NixOS/nixpkgs/archive/708dcbce926fdfb40a08ff625148fe11b6fe601d.tar.gz";
       sha256 = "1gm4garc5qk11hkxbiqf85wxnr9c67jw4bm69afxqcnchh9b4fai";
