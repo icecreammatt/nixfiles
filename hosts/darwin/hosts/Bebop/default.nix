@@ -6,6 +6,7 @@
 
   users.users.matt = {
     shell = pkgs.fish;
+    home = /Users/matt;
   };
 
   home-manager.users.matt = { pkgs, ... }:
