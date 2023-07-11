@@ -26,7 +26,6 @@ in
     fishPlugins.bass  # Fish function making it easy to use utilities written for Bash in Fish shell
     fzf
     git
-    # gping     # ping with graph | problems on darwin
     helix
     htop
     jq
