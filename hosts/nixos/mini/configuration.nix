@@ -12,6 +12,11 @@
     ];
 
   services.vaultwarden.enable = true;
+  services.vaultwarden.config = {
+    ROCKET_ADDRESS = "127.0.0.1";
+    ROCKET_PORT = 8000;
+  };
+
   services.k3s.enable = false;
   services.k3s.role = "server";
   # services.k3s.extraFlags = toString [
