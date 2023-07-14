@@ -41,14 +41,4 @@
     home.stateVersion = "22.11";
   };
 
-  #homebrew = {
-  #  enable = true;
-  #  autoUpdate = true;
-  # updates homebrew packages on activation,
-  # can make darwin-rebuild much slower (otherwise i'd forget to do it ever though)
-  #  casks = [
-  #    "iina"
-  #  ];
-  #};
-
 }
