@@ -3,12 +3,19 @@
 let
   user = "matt";
   userName = "matt";
+
   pkgs = import nixpkgs {
+    # Setup Asahi Architecture
     system = "aarch64-linux";
+
+    # Allow packages like Nvidia Drivers
     config.allowUnfree = true;
+
+    # Import overlays defined in the root directory overlay config
     overlays = [ 
       (import ../../overlay/overlay.nix)
     ]; 
+
   };
 in
 {
@@ -36,13 +43,13 @@ in
           username = "${userName}";
           homeDirectory = "/home/${userName}";
           packages = [ 
-            pkgs.cascadia-code
-            pkgs.hex2color
-            pkgs.home-manager 
-            pkgs.nerdfonts
-            pkgs.nmap
-            pkgs.wezterm
-            pkgs.which
+            pkgs.cascadia-code  # Fonts
+            pkgs.hex2color      # CLI color display
+            pkgs.home-manager   # Used for managing files and programs in home directory
+            pkgs.nerdfonts      # Fonts
+            pkgs.nmap           # Network Debugging tool
+            pkgs.wezterm        # The Best Terminal
+            pkgs.which          # Determine where processes are
           ];
           stateVersion = "22.11";
         };
