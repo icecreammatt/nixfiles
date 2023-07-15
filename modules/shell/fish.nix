@@ -193,6 +193,8 @@
         gpuf = "git push -f";
         gpuo = "git push -u origin";
         grc = "git rebase --continue";
+        gt = "./gradlew test";
+        gti = "./gradlew test --info";
         gco = "git checkout";
         gcob = "git checkout -b";
         dbt = "docker build -t temp .";
