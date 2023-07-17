@@ -42,6 +42,7 @@
     shellAliases = {
         "fzf-help" = "echo 'ctrl+option (f -> files, l -> log, s -> status, r -> history, v -> variables, e -> process id)'";
         "cd.." = "cd ..";
+        "..." = "cd ../../";
         "cdr" = "ranger";
         "ran" = "ranger";
         "start-nebula" = "sudo nebula -config /etc/nebula/config.yaml";
