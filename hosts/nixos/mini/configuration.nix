@@ -81,10 +81,10 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 
-    6443 # k3s?
-    8090
-    443
-    80
+    80   # caddy http
+    443  # caddy https
+    6443 # k3s
+    8090 # pocketbase
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
