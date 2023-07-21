@@ -69,14 +69,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wezterm
-    k3s
-    nebula
-    morph
-    tmux
-    nodejs
+    argocd
     certbot-full
+    k3s
+    k9s
+    kubernetes-helm-wrapped
+    morph
+    nebula
+    nodejs
     pocketbase
+    tmux
+    wezterm
   ];
 
   # Open ports in the firewall.
