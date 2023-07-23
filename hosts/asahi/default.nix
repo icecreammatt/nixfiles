@@ -48,7 +48,7 @@ in
             pkgs.home-manager   # Used for managing files and programs in home directory
             pkgs.nerdfonts      # Fonts
             pkgs.nmap           # Network Debugging tool
-            pkgs.wezterm        # The Best Terminal
+            # pkgs.wezterm        # The Best Terminal // Use pacman verion that doesn't crash for Asahi
             pkgs.which          # Determine where processes are
           ];
           stateVersion = "22.11";
