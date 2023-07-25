@@ -99,7 +99,7 @@
         tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
 
         handle_path /* {
-          reverse_proxy localhost:8000
+          reverse_proxy localhost:8110
         }
     '';
 
@@ -107,7 +107,7 @@
         tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
 
         handle_path /* {
-          reverse_proxy localhost:8000
+          reverse_proxy localhost:8110
         }
     '';
 
@@ -115,7 +115,7 @@
         tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
 
         handle_path /* {
-          reverse_proxy localhost:8000
+          reverse_proxy localhost:8110
         }
     '';
 

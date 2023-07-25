@@ -14,7 +14,7 @@
   services.vaultwarden.enable = true;
   services.vaultwarden.config = {
     ROCKET_ADDRESS = "127.0.0.1";
-    ROCKET_PORT = 8000;
+    ROCKET_PORT = 8110;
   };
 
   services.k3s.enable = false;
