@@ -44,6 +44,7 @@ in
           homeDirectory = "/home/${userName}";
           packages = [ 
             pkgs.cascadia-code  # Fonts
+            pkgs.docker
             pkgs.hex2color      # CLI color display
             pkgs.home-manager   # Used for managing files and programs in home directory
             pkgs.nerdfonts      # Fonts
