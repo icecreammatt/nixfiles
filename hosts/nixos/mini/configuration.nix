@@ -11,6 +11,9 @@
       ./caddy.nix
     ];
 
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "matt" ];
+
   services.vaultwarden.enable = true;
   services.vaultwarden.config = {
     ROCKET_ADDRESS = "127.0.0.1";
