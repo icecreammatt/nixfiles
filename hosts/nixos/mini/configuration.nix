@@ -13,6 +13,7 @@
 
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "matt" ];
+  users.users.matt.extraGroups = [ "docker" ];
 
   services.vaultwarden.enable = true;
   services.vaultwarden.config = {
