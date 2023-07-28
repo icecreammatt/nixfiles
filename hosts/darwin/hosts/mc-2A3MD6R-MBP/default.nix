@@ -32,6 +32,7 @@
       home-manager
       jdk8
       jenkins
+      jenkins-job-builder
       groovy
       jira-cli-go
       # nodePackages_latest.grunt-cli
