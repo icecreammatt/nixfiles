@@ -33,7 +33,7 @@ in
     hurl                              # Command line tool that performs HTTP requests defined in a simple plain text format.
     imagemagickBig
     imgcat                            # display images in terminal
-                                      # jdt-language-server
+    jless                             # A command-line pager for JSON data
     lazycli
     lazydocker
     libiconvReal
