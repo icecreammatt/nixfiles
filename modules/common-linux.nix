@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     bmon
+    jless                             # A command-line pager for JSON data
     gping     # ping with graph | problems on darwin
     lm_sensors
     psensor
