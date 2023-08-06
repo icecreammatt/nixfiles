@@ -27,6 +27,15 @@
     # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   # ];
 
+  services = {
+    syncthing = {
+      enable = true;
+      user = "matt";
+      dataDir = "/mnt/storage/syncthing/personal";
+      configDir = "/mnt/storage/syncthing/config";
+    };
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device= "nodev";
   boot.loader.systemd-boot.enable = true;
@@ -82,6 +91,7 @@
     nebula
     nodejs
     pocketbase
+    syncthing
     tmux
     wezterm
   ];
@@ -92,8 +102,13 @@
     443  # caddy https
     6443 # k3s
     8090 # pocketbase
+    8384 # syncthing
+    22000 #syncthing
   ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [ 
+    22000 #syncthing
+    21027 #syncthing
+  ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
