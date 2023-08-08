@@ -2,6 +2,8 @@
 
 ```bash
 gc git@github.com:icecreammatt/helix.git
+git submodule init
+git submodule update
 cargo install --locked --path helix-term
 ```
 
@@ -17,4 +19,10 @@ from source.
 ```bash
 cd ~/.config/helix
 ln -s ~/Source/helix/runtime .
+```
+
+## Add to path
+
+```bash
+fish_add_path ~/.cargo/bin/
 ```
