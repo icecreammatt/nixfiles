@@ -8,4 +8,7 @@
   home.file."bin/helix-git-blame" = {
     source = ./bin/helix-git-blame;
   };
+  home.file."bin/fix-rust" = {
+    source = ./bin/fix-rust;
+  };
 }
