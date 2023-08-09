@@ -2,10 +2,14 @@
 
 echo "Fixing rust compiler on OSX"
 
-ln -s /usr/bin/cc* ~/bin/
-ln -s /usr/bin/g++* ~/bin/
-ln -s /usr/bin/gcc* ~/bin/
-ln -s /usr/bin/ld* ~/bin/
-ln -s /usr/bin/lldb* ~/bin/
-ln -s /usr/bin/llvm-g++* ~/bin/
-ln -s /usr/bin/llvm-gcc* ~/bin/
+pushd ~/bin
+
+ln -s /usr/bin/cc* .
+ln -s /usr/bin/g++* .
+ln -s /usr/bin/gcc* .
+ln -s /usr/bin/ld* .
+ln -s /usr/bin/lldb* .
+ln -s /usr/bin/llvm-g++* .
+ln -s /usr/bin/llvm-gcc* .
+
+popd
