@@ -6,7 +6,7 @@
   ];
 
   services.caddy = {
-    enable = true;
+    enable = false;
 
     extraConfig = ''
         :80 {
