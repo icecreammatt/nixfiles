@@ -151,6 +151,9 @@ sudo nixos-rebuild switch --flake .
 ## OSX Rust Fixes
 
 > Softlink these to `~/bin` to fix rust build errors
+
+`~/bin/fix-rust` will do the following:
+
 ```
 cc -> /usr/bin/cc*
 g++ -> /usr/bin/g++*
