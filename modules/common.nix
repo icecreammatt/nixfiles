@@ -15,6 +15,7 @@ in
     bash
     caddy                             # web server
     clang-tools
+    dive                              # A tool for exploring each layer in a docker image
     dogdns                            # Command-line DNS client
     ffmpeg_6-full
     gcc
