@@ -65,6 +65,7 @@ in
     qemu
     s3cmd                             # s3 cli
     slides
+    sqlite
     ssh-to-age                        # Convert ssh private keys in ed25519 format to age keys
     sumneko-lua-language-server
     terminal-colors
