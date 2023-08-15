@@ -27,6 +27,15 @@
     # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   # ];
 
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "matttest" ];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+    '';
+  };
+
   services = {
     syncthing = {
       enable = true;
