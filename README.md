@@ -33,6 +33,10 @@ darwin-rebuild switch --flake . #this will work after initial build
 sudo nixos-rebuild switch --flake .
 ```
 
+### `nrs` (nix rebuild switch)
+
+Once all systems have been built once the `nrs` alias can be used to `"nix rebuilt switch"` which works on NixOS, Asahi Linux and OSX. No need to memorize separate commands for each environment. The alias defined in the fish config will pick the correct command depending on if running NixOS, Darwin or Asahi.
+
 ## Shoutouts
 - https://github.com/MatthiasBenaets/nixos-config
 - https://github.com/thexyno/nixos-config
