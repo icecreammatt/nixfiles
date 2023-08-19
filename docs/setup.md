@@ -1,4 +1,9 @@
-## New NixOS install
+# New NixOS install
+
+## Nix setup guide for fresh machines
+https://zero-to-nix.com/
+
+## Adding this repo to machine after installing nix
 
 ```bash
 # Enable Flakes
@@ -42,7 +47,7 @@ cp /etc/nixos/hardware-configuration.nix ~/nixfiles/hosts/nixos/MACHINE_NAME/
   };
 ```
 
-### Add changes to git so build works
+## Add changes to git so build works
 
 ```bash
 git add ~/nixfiles/hosts/nixos/MACHINE_NAME
@@ -51,11 +56,11 @@ git add ~/nixfiles/hosts/nixos/MACHINE_NAME
 sudo nixos-rebuild switch --flake .
 ```
 
-### Start a new shell window or run fish to update aliases
+## Start a new shell window or run fish to update aliases
 
 `fish`
 
-### Update hostname to be unique
+## Update hostname to be unique
 > nixfiles/hosts/nixos/MACHINE_NAME/configuration.nix
 ```nix
 networking.hostName = "nixos"; # Define your hostname.
@@ -65,11 +70,11 @@ nixos = lib.nixosSystem {
 ...
 ```
 
-### rebuild to apply changes
+## rebuild to apply changes
 ```bash
 sudo nixos-rebuild switch --flake .
 ```
 
-### Install nix and home manager
+## Install nix and home manager
 - https://nix.dev/tutorials/install-nix
 
