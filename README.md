@@ -3,19 +3,30 @@
 ## [Setup new machine](docs/setup.md)
 
 ### Asahi
+<details>
+  <summary>Click me</summary>
+
 ```bash
 nix build .#asahiConfiguration.asahi.activationPackage
 ./result/activate
 ```
+</details>
 
 ### Work x86
+<details>
+  <summary>Click me</summary>
+
 ```bash
 nix build .#darwinConfigurations.mc-2A3MD6R-MBP.system
 ./result/sw/bin/darwin-rebuild switch --flake . # Use this for the initial build
 darwin-rebuild switch --flake . #this will work after initial build
 ```
+</details>
 
 ### Personal M1
+<details>
+  <summary>Click me</summary>
+
 ```bash
 nix --experimental-features 'flakes nix-command' build .#darwinConfigurations.Bebop.system
 nix build .#darwinConfigurations.Bebop.system # the longer version above might be neede for initial install
@@ -25,13 +36,18 @@ sudo ./result/activate
 darwin-rebuild switch --flake . #this will work after initial build
 ```
 
+</details>
+
 ### NixOS | Raspberry Pi & VM & Gaming PC
+<details>
+  <summary>Click me</summary>
 
 > Build command will match nix config with machine hostname
 
 ```bash
 sudo nixos-rebuild switch --flake .
 ```
+</details>
 
 ### `nrs` (nix rebuild switch)
 
