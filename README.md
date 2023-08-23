@@ -97,8 +97,14 @@ Once all systems have been built once the `nrs` alias can be used to `"nix rebui
 
 ## [OSX Rust Fixes](docs/rust.md)
 
----
+## Old Package Versions
+<details>
+  <summary>Click me</summary>
 Finding older versions by using commit hash and then convert url into 
-https://github.com/NixOS/nixpkgs/commit/708dcbce926fdfb40a08ff625148fe11b6fe601d
 
-https://codeload.github.com/NixOS/nixpkgs/tar.gz/708dcbce926fdfb40a08ff625148fe11b6fe601d
+- [https://github.com/NixOS/nixpkgs/commit/708dcbce926fdfb40a08ff625148fe11b6fe601d](https://github.com/NixOS/nixpkgs/commit/708dcbce926fdfb40a08ff625148fe11b6fe601d)
+- [https://codeload.github.com/NixOS/nixpkgs/tar.gz/708dcbce926fdfb40a08ff625148fe11b6fe601d](https://codeload.github.com/NixOS/nixpkgs/tar.gz/708dcbce926fdfb40a08ff625148fe11b6fe601d)
+- This site can also be used to find version info for past releases
+  - [https://lazamar.co.uk/nix-versions/](https://lazamar.co.uk/nix-versions/)
+
+</details>
