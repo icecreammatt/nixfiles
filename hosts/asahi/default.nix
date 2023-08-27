@@ -51,6 +51,7 @@ in
             pkgs.nmap           # Network Debugging tool
             # pkgs.wezterm        # The Best Terminal // Use pacman verion that doesn't crash for Asahi
             pkgs.which          # Determine where processes are
+            pkgs.lilypond-with-fonts # Sheet Music
           ];
           stateVersion = "22.11";
         };
