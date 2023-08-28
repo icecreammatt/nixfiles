@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     ardour
+    reaper    # Digital audio workstation
     # blender # build errors with latest flake.lock
     bmon
     cava
