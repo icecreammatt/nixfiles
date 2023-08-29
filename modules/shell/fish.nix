@@ -69,6 +69,8 @@
         gp = "git pull --rebase";
         gprom = "git pull --rebase origin/main || git pull --rebase origin/master";
         grom = "git rebase origin/main || git rebase origin/master";
+        grot = "git rebase origin/trunk";
+        grod = "git rebase origin/dev";
         gpom = "git push -u origin main || git push -u origin master";
         grc = "git rebase --continue";
         gcm = "git checkout main || git checkout master || git checkout trunk";
