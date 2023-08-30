@@ -53,7 +53,7 @@ in
             pkgs.which          # Determine where processes are
             pkgs.lilypond-with-fonts # Sheet Music
           ];
-          stateVersion = "22.11";
+          stateVersion = "23.05";
         };
       }
     ];
