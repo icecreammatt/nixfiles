@@ -23,9 +23,6 @@
     ];
 
     home.packages = with pkgs; [
-      # nodejs-18_x
-      # nodePackages.typescript-language-server
-      # nodePackages.pnpm
       nnn
       worm
       reattach-to-user-namespace
