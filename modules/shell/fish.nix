@@ -194,7 +194,7 @@
         gp = "git pull --rebase";
         gpu = "git push";
         gpuf = "git push -f";
-        gpuo = "git push -u origin(git branch --show-current)"
+        gpuo = "git push -u origin(git branch --show-current)";
         grc = "git rebase --continue";
         gt = "./gradlew test";
         gti = "./gradlew test --info";
