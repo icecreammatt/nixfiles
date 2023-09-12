@@ -23,6 +23,9 @@
       fish_add_path $HOME/.npm-global/bin
       fish_add_path $HOME/.cargo/bin
 
+      set --export BUN_INSTALL "$HOME/.bun"
+      set --export PATH $BUN_INSTALL/bin $PATH
+
       set fish_color_valid_path
 
       direnv hook fish | source
