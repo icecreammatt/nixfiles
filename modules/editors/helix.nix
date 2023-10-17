@@ -269,7 +269,25 @@ in
 
     [[language]]
     name = "javascript"
-    file-types = ["js", "template"]
+    file-types = ["js"]
+
+    [[language]]
+    name = "ini"
+    file-types = [
+      "conf",
+
+      # from https://github.com/helix-editor/helix/blob/master/languages.toml
+      "ini", "service", "automount", "device", "mount", "path", "service", "slice", "socket", "swap", "target", "timer", "container", "volume", "kube", "network",
+    ]
+
+    [[language]]
+    name = "bash"
+    file-types = [
+      "nginx.conf",
+
+      # from https://github.com/helix-editor/helix/blob/master/languages.toml
+      "sh", "bash", "zsh", ".bash_login", ".bash_logout", ".bash_profile", ".bashrc", ".profile", ".zshenv", "zshenv", ".zlogin", "zlogin", ".zlogout", "zlogout", ".zprofile", "zprofile", ".zshrc", "zshrc", ".zimrc", "APKBUILD", "PKGBUILD", "eclass", "ebuild", "bazelrc", ".bash_aliases", "Renviron", ".Renviron", "template", "inc",
+    ]
 
     [[language]]
     name = "json"
