@@ -54,28 +54,28 @@ in
 
   programs.fish.enable = true;
   programs.steam.enable = true;
-  nixpkgs.config.packageOverrides = pkgs: {
-    steam = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXinerama
-        xorg.libXScrnSaver
-        libpng
-        libpulseaudio
-        libvorbis
-        stdenv.cc.cc.lib
-        libkrb5
-        keyutils
-        cmake
-        pkg-config
-        libevdev
-	pkgs.xorg.libX11
-	gcc
-      ];
-    };
-    environment.systemPackages = [ pkgs.gamescope pkgs.mangohud ];
-  };
+ #  nixpkgs.config.packageOverrides = pkgs: {
+ #    steam = pkgs.steam.override {
+ #      extraPkgs = pkgs: with pkgs; [
+ #        xorg.libXcursor
+ #        xorg.libXi
+ #        xorg.libXinerama
+ #        xorg.libXScrnSaver
+ #        libpng
+ #        libpulseaudio
+ #        libvorbis
+ #        stdenv.cc.cc.lib
+ #        libkrb5
+ #        keyutils
+ #        cmake
+ #        pkg-config
+ #        libevdev
+	# pkgs.xorg.libX11
+	# gcc
+ #      ];
+ #    };
+ #    environment.systemPackages = [ pkgs.gamescope pkgs.mangohud ];
+ #  };
 
   # Bootloader.
   boot.loader.timeout = 0;
@@ -204,7 +204,7 @@ in
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

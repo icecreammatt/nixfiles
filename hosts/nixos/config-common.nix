@@ -2,7 +2,7 @@
 
 {
 
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
   time.timeZone = "America/Los_Angeles";
 
   users.users.matt = {
