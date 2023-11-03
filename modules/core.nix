@@ -21,7 +21,7 @@ in
     direnv    # auto switch to using nix flake on directory nav
     du-dust   # space visualizer
     duf       # du alternative
-    exa       # ls alternative
+    # exa       # ls alternative
     fd        # find alternative
     fishPlugins.bass  # Fish function making it easy to use utilities written for Bash in Fish shell
     fzf

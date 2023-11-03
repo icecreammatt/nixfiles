@@ -110,12 +110,12 @@
 
         ealias = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
         ea = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
-        tree = "exa --tree";
-        l =  "exa -lh  --icons --group-directories-first --classify";
-        ltree = "exa -lh  --icons --group-directories-first --classify --tree --color=always | bat";
-        ll = "exa -lah --icons --group-directories-first --classify";
-        la = "exa -la  --icons --group-directories-first --classify";
-        ls = "exa";
+        # tree = "exa --tree";
+        # l =  "exa -lh  --icons --group-directories-first --classify";
+        # ltree = "exa -lh  --icons --group-directories-first --classify --tree --color=always | bat";
+        # ll = "exa -lah --icons --group-directories-first --classify";
+        # la = "exa -la  --icons --group-directories-first --classify";
+        # ls = "exa";
         cat="bat -p";
         icat="wezterm imgcat";
         ehosts="sudo $EDITOR /etc/hosts";
