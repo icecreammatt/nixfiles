@@ -90,7 +90,7 @@ in
     keyMap = "us";
   };
 
-  fonts.fonts = with pkgs; [ meslo-lgs-nf ];
+  fonts.packages = with pkgs; [ meslo-lgs-nf ];
   services.kmscon = {
     enable = true;
     hwRender = true;
