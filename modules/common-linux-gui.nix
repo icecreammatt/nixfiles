@@ -16,7 +16,7 @@
     mission-center # task manager
     nerdfonts
     oculante
-    # peek # causing issues in latest flake.lock
+    peek
     psensor
     vscode
     vscode-extensions.vadimcn.vscode-lldb
