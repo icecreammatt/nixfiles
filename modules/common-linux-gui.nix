@@ -13,7 +13,7 @@
     krakenx
     krita
     lm_sensors
-    # mission-center # task manager (needs flake update)
+    mission-center # task manager
     nerdfonts
     oculante
     # peek # causing issues in latest flake.lock
