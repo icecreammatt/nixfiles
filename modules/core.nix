@@ -13,6 +13,7 @@ in
     # wezterm
     bandwhich # network monitor
     bat       # cat alternative
+    bind      # DNS utils
     bottom    # btm top alternative
     choose    # awk like tool
     coreutils
