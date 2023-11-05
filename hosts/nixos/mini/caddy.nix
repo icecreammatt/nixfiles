@@ -20,33 +20,11 @@
         }
     '';
 
-    virtualHosts."mini.dev.c4er.com".extraConfig = ''
-        encode gzip
-        file_server
-        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
-
-        handle_path /media/* {
-          root * "/mnt/storage/rewind"
-          file_server browse
-        }
+    virtualHosts."bw-vpn.c4er.com".extraConfig = ''
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
         handle_path /* {
-          reverse_proxy localhost:5173
-        }
-    '';
-
-    virtualHosts."dev.rewind.c4er.com".extraConfig = ''
-        encode gzip
-        file_server
-        tls /mnt/certs/rewind.c4er.com/fullchain1.pem  /mnt/certs/rewind.c4er.com/privkey1.pem
-
-        handle_path /media/* {
-          root * "/mnt/storage/rewind"
-          file_server browse
-        }
-
-        handle_path /* {
-          reverse_proxy localhost:5173
+          reverse_proxy localhost:8110
         }
     '';
 
@@ -65,10 +43,10 @@
         }
     '';
 
-    virtualHosts."storybook.rewind.c4er.com".extraConfig = ''
+    virtualHosts."storybook-rewind.dev.c4er.com".extraConfig = ''
         encode gzip
         file_server
-        tls /mnt/certs/rewind.c4er.com/fullchain1.pem  /mnt/certs/rewind.c4er.com/privkey1.pem
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
         handle_path /media/* {
           root * "/mnt/storage/rewind"
@@ -80,10 +58,33 @@
         }
     '';
 
-    virtualHosts."mini-vpn.dev.c4er.com".extraConfig = ''
+    virtualHosts."pocketbase-rewind.dev.c4er.com".extraConfig = ''
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
+
+        handle_path /* {
+          reverse_proxy localhost:8090
+        }
+    '';
+
+    virtualHosts."rewind.dev.c4er.com".extraConfig = ''
         encode gzip
         file_server
-        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
+
+        handle_path /media/* {
+          root * "/mnt/storage/rewind"
+          file_server browse
+        }
+
+        handle_path /* {
+          reverse_proxy localhost:5174
+        }
+    '';
+
+    virtualHosts."mini.dev.c4er.com".extraConfig = ''
+        encode gzip
+        file_server
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
         handle_path /media/* {
           root * "/mnt/storage/rewind"
@@ -95,40 +96,8 @@
         }
     '';
 
-    virtualHosts."bw-vpn.dev.c4er.com".extraConfig = ''
-        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
-
-        handle_path /* {
-          reverse_proxy localhost:8110
-        }
-    '';
-
-    virtualHosts."bw-vpn.c4er.com".extraConfig = ''
-        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
-
-        handle_path /* {
-          reverse_proxy localhost:8110
-        }
-    '';
-
-    virtualHosts."bw.dev.c4er.com".extraConfig = ''
-        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
-
-        handle_path /* {
-          reverse_proxy localhost:8110
-        }
-    '';
-
-    virtualHosts."pocketbase.rewind.c4er.com".extraConfig = ''
-        tls /mnt/certs/rewind.c4er.com/fullchain1.pem  /mnt/certs/rewind.c4er.com/privkey1.pem
-
-        handle_path /* {
-          reverse_proxy localhost:8090
-        }
-    '';
-
     virtualHosts."k3s.dev.c4er.com".extraConfig = ''
-        tls /mnt/certs/dev.c4er.com/fullchain1.pem  /mnt/certs/dev.c4er.com/privkey1.pem
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
         handle_path /* {
           reverse_proxy localhost:8001
