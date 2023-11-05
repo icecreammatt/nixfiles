@@ -222,6 +222,8 @@ in
      # wine64
      # wine
      # winetricks
+
+     # sunshine
   #  wget
   ];
 
@@ -240,8 +242,18 @@ in
   services.openssh.settings.PasswordAuthentication = false;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 
+    # sunshine
+    # 47984
+    # 47989
+    # 48010
+  ];
+  networking.firewall.allowedUDPPorts = [ 
+    # sunshine
+    # 47998
+    # 47999
+    # 48000
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
