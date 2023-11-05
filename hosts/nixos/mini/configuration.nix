@@ -15,6 +15,18 @@
   users.extraGroups.docker.members = [ "matt" ];
   users.users.matt.extraGroups = [ "docker" ];
 
+  systemd.services.nebula = {
+    enable = true;
+    description = "nebula";
+    serviceConfig = {
+      ExecStart = "${pkgs.nebula}/bin/nebula -config /etc/nebula/config.yaml";
+      Type = "simple";
+      Restart = "always";
+      RestartSec=1;
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
+
   services.vaultwarden.enable = true;
   services.vaultwarden.config = {
     ROCKET_ADDRESS = "127.0.0.1";
