@@ -108,3 +108,9 @@ Finding older versions by using commit hash and then convert url into
   - [https://lazamar.co.uk/nix-versions/](https://lazamar.co.uk/nix-versions/)
 
 </details>
+
+## Firefox
+
+> about:config
+
+- `mousewheel.default.delta_multiplier_(X,Y,Z) = 15`
