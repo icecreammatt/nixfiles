@@ -10,6 +10,7 @@ local opacity = 0.85
 _G.ENABLE_EDITOR_CTRL_NAV = false
 
 return {
+  alternate_buffer_wheel_scroll_speed = 1;
   adjust_window_size_when_changing_font_size = false,
   font_size = 18.0,
   command_palette_font_size = 18.0,
