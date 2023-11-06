@@ -10,6 +10,12 @@ local opacity = 0.85
 _G.ENABLE_EDITOR_CTRL_NAV = false
 
 return {
+  -- For gaming pc
+  -- webgpu_preferred_adapter={
+  --   backend="Vulkan",
+  --   device_type="GPU",
+  --   name="NVIDIA GeForce RTX 3080"
+  -- },
   alternate_buffer_wheel_scroll_speed = 1;
   adjust_window_size_when_changing_font_size = false,
   font_size = 18.0,
