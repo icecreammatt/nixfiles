@@ -181,6 +181,8 @@
         steamstreamdeck = "gamescope -w 1920 -h 1080 -W 1920 -H 1080 -r 60 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless
         steamstreamtv = "gamescope -w 2560 -h 1440 -W 2560 -H 1440 -r 60 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless
         rustfix = "export PATH=\"/usr/bin/:$PATH\"";
+        wlcopy = "wl-copy -n";
+        wlpaste = "wl-paste";
         she = "ske";
         readme = "ske readme";
         gbl = "git blame";

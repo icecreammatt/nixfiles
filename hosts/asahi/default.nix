@@ -52,6 +52,7 @@ in
             # pkgs.wezterm        # The Best Terminal // Use pacman verion that doesn't crash for Asahi
             pkgs.which          # Determine where processes are
             pkgs.lilypond-with-fonts # Sheet Music
+            pkgs.wl-clipboard   # Command-line copy/paste utilities for Wayland
           ];
           stateVersion = "23.05";
         };
