@@ -30,7 +30,7 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
-          home.stateVersion = "22.11";
+          home.stateVersion = "23.11";
           imports = [
             ../../modules/core.nix
             ../../modules/rust.nix
@@ -55,7 +55,7 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
-          home.stateVersion = "22.11";
+          home.stateVersion = "23.11";
           imports = [
             ../../modules/core.nix
             ../../modules/common.nix
@@ -83,7 +83,7 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
-          home.stateVersion = "22.11";
+          home.stateVersion = "23.11";
           imports = [
             ./gaming/nixos-packages.nix
             ../../modules/common.nix
@@ -119,7 +119,7 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
-          home.stateVersion = "22.11";
+          home.stateVersion = "23.11";
           imports = [
             ../../modules/core.nix
             ../../modules/rust.nix
@@ -145,7 +145,7 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
-          home.stateVersion = "22.11";
+          home.stateVersion = "23.11";
           imports = [
             ../../modules/common.nix
             ../../modules/rust.nix
