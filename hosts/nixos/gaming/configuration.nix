@@ -125,7 +125,7 @@ in
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
-  time.hardwareClockInLocalTime = true;
+  time.hardwareClockInLocalTime = false;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
