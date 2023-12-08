@@ -5,6 +5,7 @@
     avrdude
     dolphin
     kitty
+    kopia
     nmap
     nvtop-nvidia
     obsidian
