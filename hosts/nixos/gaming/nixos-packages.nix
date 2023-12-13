@@ -8,7 +8,7 @@
     kopia
     nmap
     nvtop-nvidia
-    obsidian
+    # obsidian
     plymouth
     qmk
     rofi-wayland
