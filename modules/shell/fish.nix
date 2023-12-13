@@ -18,6 +18,8 @@
       # fish_add_path /etc/static/profiles/per-user/mcarrier/bin
       #navi widget fish | source
 
+    #  set --export XKB_DEFAULT_LAYOUT colemak_dh
+
     shellInit = ''
       fish_add_path $HOME/bin
       fish_add_path $HOME/.npm-global/bin

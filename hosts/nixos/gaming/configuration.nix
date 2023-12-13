@@ -165,6 +165,7 @@ in
   services.xserver = {
     layout = "us";
     xkbVariant = "";
+    # xkbVariant = "colemak_dh,";
   };
 
   # Enable CUPS to print documents.
