@@ -224,6 +224,7 @@ in
      killall
      fish
      waypipe
+     # cage
 
      # Wine for Ableton (Using Steam Proton instead)
      # wine64
