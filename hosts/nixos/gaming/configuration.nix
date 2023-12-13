@@ -41,20 +41,22 @@ in
   # Credit: goes to /u/wolfgothmog and myself to update their work
   # to be compatible with latest Kernel which at this time is 6.1.28
   # as toneport.c had some changes since that post.
-  boot.kernelPatches = [
-    {
-      name = "toneport-patch";
-      patch = ../../../modules/kernel/toneport.patch;
-    }
-  ];
+  # I'm using ProSonus now but keeping this around if I need to ever switch back and for reference
+  # boot.kernelPatches = [
+  #   {
+  #     name = "toneport-patch";
+  #     patch = ../../../modules/kernel/toneport.patch;
+  #   }
+  # ];
 
-  nixpkgs.overlays = [
-    (self: super: { 
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-    })
-  ];
+  # Disable waybar for now since not using to speed up build times
+  # nixpkgs.overlays = [
+  #   (self: super: { 
+  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
+  #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  #     });
+  #   })
+  # ];
 
   programs.fish.enable = true;
   programs.steam.enable = true;
