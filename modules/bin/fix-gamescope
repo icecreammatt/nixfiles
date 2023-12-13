@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# https://bbs.archlinux.org/viewtopic.php?id=290009
+
+set GBM_BACKEND nvidia-drm
+set __GLX_VENDOR_LIBRARY_NAME nvidia

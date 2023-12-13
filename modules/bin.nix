@@ -11,4 +11,7 @@
   home.file."bin/fix-rust" = {
     source = ./bin/fix-rust;
   };
+  home.file."bin/fix-gamescope" = {
+    source = ./bin/fix-gamescope;
+  };
 }
