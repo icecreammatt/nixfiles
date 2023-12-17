@@ -1,0 +1,23 @@
+postgres:
+    key: ENC[AES256_GCM,data:Tg/DvUvSkNisQjtsBl0KHR0UaWx9,iv:aMzWT8DMZX7oZJEi3fwRcCVJ93wx51mgH/Y513hojgY=,tag:S9KzDx4tirM37/Gk85Z7Kw==,type:str]
+    gitea_dbpass: ENC[AES256_GCM,data:SZNg+IkJpXBVGZXM+X/DTenx7GGu,iv:4/AziKDlpR7CDLwZkWHCcQczo6LLtAzrKZX+cnCsTi8=,tag:WKr3AZJZO21fhQfcQXq8MQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1m6p5fqprcepsuwdntzw2khdgstmd28y2us3xvdeqqflz7s5yf34sydejuz
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqZHhhaExlUk40U1ZFQnhs
+            akpMeWFjb3NjRFpjQ2haRENyZ2xnK1BrWm1vClRvbFhENkdmdHN0c2JjTlZBWVc1
+            TkF5Uy9sdXVseGdqZE54QldqYVA2emcKLS0tIFgzKzJDYXlGSlk4UHV2bHZuK2Vs
+            aTRUSzJMRlJIZTV1TGViK0N5Mm80dXMKCcclTZP2nw+hUobR0AioJprc869m/+t2
+            1Gf4RhDpqzb7gmgpFfhQ8IKT3Azrgntckl79qLrYiVDbe+2wuS7HBQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-12-14T08:47:50Z"
+    mac: ENC[AES256_GCM,data:hxN4KhmzaJJYijQO+xAcwZ3edVXqRxZqr3DegkMsPXQqhgr4uLbw/0X2dwdJoxjDsV7mG32s1APZI5/EobXk/jtxGlo5KXrp91p1P9SEFhfXAvpnahDJ/EOKBklRjVCzd5di2UVlZ71WV0M068AEcELrBzQUsnRIfIoY3afcqsk=,iv:aofKNmZCF1NOOSNU6y8+4eZ6BWVOYgzNlslC0yWac1s=,tag:YaJvT+BnFVInvS41RknrfA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.8.1
