@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Mac System Configuration
     darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -27,14 +32,14 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, darwin, hyprland, ... }:
+  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, darwin, hyprland, sops-nix, ... }:
     {
 
       # Gaming PC, VM, Raspberry Pi
       nixosConfigurations = (
         import ./hosts/nixos {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixos-hardware home-manager hyprland;
+          inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix;
         }
       );
 
