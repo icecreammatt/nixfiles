@@ -56,6 +56,45 @@
     }
   ];
 
+  services.woodpecker-server = {
+    enable = true;
+    environment = {
+      WOODPECKER_HOST = "https://woodpecker.c4er.com";
+      WOODPECKER_SERVER_ADDR = ":3007";
+      WOODPECKER_OPEN = "true";
+
+      WOODPECKER_ADMINS="Matt";
+      WOODPECKER_ADMIN="Matt";
+      WOODPECKER_GITEA="true";
+      WOODPECKER_GITEA_URL="https://gitea.c4er.com";
+    };
+    # You can pass a file with env vars to the system it could look like:
+    # WOODPECKER_AGENT_SECRET=XXXXXXXXXXXXXXXXXXXXXX
+    environmentFile = config.sops.secrets."woodpecker/WOODPECKER_AGENT_SECRET".path; # "/path/to/my/secrets/file";
+  };
+
+    # This sets up a woodpecker agent
+  services.woodpecker-agents.agents."docker" = {
+    enable = true;
+    # We need this to talk to the podman socket
+    extraGroups = [ "docker" ];
+    environment = {
+      WOODPECKER_SERVER = "localhost:9000";
+      WOODPECKER_MAX_WORKFLOWS = "4";
+      DOCKER_HOST = "unix:///run/docker.sock";
+      WOODPECKER_BACKEND = "docker";
+    };
+    # Same as with woodpecker-server
+    # environmentFile = [ "/var/lib/secrets/woodpecker.env" ];
+    environmentFile = [config.sops.secrets."woodpecker/WOODPECKER_AGENT_SECRET".path]; # "/path/to/my/secrets/file";
+  };
+
+  sops.secrets."woodpecker/WOODPECKER_AGENT_SECRET" = {
+    sopsFile = ../../../.secrets/woodpecker.ini;
+    # owner = config.services.woodpecker-server.user;
+    format = "ini";
+  };
+
   sops.secrets."postgres/gitea_dbpass" = {
     sopsFile = ../../../.secrets/postgres.yaml;
     owner = config.services.gitea.user;
@@ -116,6 +155,7 @@
     127.0.0.1 c4er.com
     127.0.0.1 gitea.c4er.com
     127.0.0.1 hydra.c4er.com
+    127.0.0.1 woodpecker.c4er.com
   '';
 
   # Set your time zone.
