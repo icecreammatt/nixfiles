@@ -14,7 +14,7 @@ buildGoModule rec {
     sha256 = "sha256-9LIOBfNOa+u7yLL7iWb/e7c8ZSiyjukqaY0ifVR2iSs=";
   };
 
-  vendorSha256 = "sha256-LFIJClPByaLXtsBOk7SjpJlIuQhWbVIs6H4PXhd7oyo=";
+  vendorHash = "sha256-LFIJClPByaLXtsBOk7SjpJlIuQhWbVIs6H4PXhd7oyo=";
 
   # This is the released subpackage from upstream repo
   subPackages = [ "examples/base" ];
