@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, nixos-hardware, home-manager, hyprland, ... }:
+{ lib, inputs, nixpkgs, nixos-hardware, home-manager, hyprland, sops-nix, ... }:
 
 let
   user = "matt";
@@ -141,6 +141,9 @@ in
     modules = [
       ./config-common.nix
       ./mini/configuration.nix
+
+      sops-nix.nixosModules.sops
+
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
