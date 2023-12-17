@@ -56,9 +56,35 @@
     }
   ];
 
+  sops.secrets."postgres/gitea_dbpass" = {
+    sopsFile = ../../../.secrets/postgres.yaml;
+    owner = config.services.gitea.user;
+  };
+
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/matt/.config/sops/age/keys.txt";
+
+  services.gitea = {
+    enable = true;                               # Enable Gitea
+    appName = "Gitea";                           # Give the site a name
+    database = {
+      type = "postgres";                         # Database type
+      passwordFile = config.sops.secrets."postgres/gitea_dbpass".path;
+    };
+    settings.server.DOMAIN = "gitea.c4er.com";                   # Domain name
+    settings.server.ROOT_URL = "https://gitea.c4er.com/";         # Root web URL
+    settings.server.HTTP_PORT = 3001;   
+  };
+
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "matttest" ];
+    ensureDatabases = [ "matttest" config.services.gitea.user ];
+    ensureUsers = [
+      {
+        name = config.services.gitea.database.user;
+        ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
+      }
+    ];
     authentication = pkgs.lib.mkOverride 10 ''
       #type database  DBuser  auth-method
       local all       all     trust
@@ -84,6 +110,13 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   # nixpkgs.config.allowUnfree = true;
+  networking.extraHosts =
+  ''
+    127.0.0.2 other-localhost
+    127.0.0.1 c4er.com
+    127.0.0.1 gitea.c4er.com
+    127.0.0.1 hydra.c4er.com
+  '';
 
   # Set your time zone.
   # time.timeZone = "America/Los_Angeles";
@@ -122,6 +155,7 @@
   environment.systemPackages = with pkgs; [
     argocd
     certbot-full
+    gitea
     k3s
     k9s
     kubernetes-helm-wrapped
@@ -129,6 +163,7 @@
     nebula
     nodejs
     pocketbase
+    sops
     syncthing
     tmux
     wezterm
