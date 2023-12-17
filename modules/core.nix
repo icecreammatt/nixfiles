@@ -6,11 +6,14 @@
 let
   # Override to inject light vs dark theme setting
   helix_custom = import ./editors/helix.nix { inherit isDark; };
+  
+  hello = import ./bin/hello.nix { inherit pkgs; };
 in
 {
   home.packages = with pkgs; [
     # uutils-coreutils - enable once all is ported
     # wezterm
+    hello
     bandwhich # network monitor
     bat       # cat alternative
     bind      # DNS utils
