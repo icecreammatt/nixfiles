@@ -41,8 +41,9 @@
 
   services.hydra = {
     enable = true;
+    port = 3050;
     notificationSender = "hydra@localhost"; # e-mail of hydra service
-    hydraURL = "http://localhost:3000";
+    hydraURL = "http://localhost:3050";
     # buildMachinesFiles = [];
     useSubstitutes = true;
   };

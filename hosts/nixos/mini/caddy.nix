@@ -63,7 +63,7 @@
         tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
         handle_path /* {
-          reverse_proxy localhost:3000
+          reverse_proxy localhost:3050
         }
     '';
 
