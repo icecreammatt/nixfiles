@@ -63,6 +63,7 @@ in
     python310Packages.python-lsp-server
     python39                          # programming languge
     qemu
+    qrencode                          #C library for encoding data in a QR Code symbol
     s3cmd                             # s3 cli
     slides
     sqlite
