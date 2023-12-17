@@ -52,6 +52,14 @@
         }
     '';
 
+    virtualHosts."hydra.c4er.com".extraConfig = ''
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
+
+        handle_path /* {
+          reverse_proxy localhost:3000
+        }
+    '';
+
     virtualHosts."storybook-rewind.dev.c4er.com".extraConfig = ''
         encode gzip
         file_server
