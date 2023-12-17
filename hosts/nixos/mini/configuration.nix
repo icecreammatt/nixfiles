@@ -39,6 +39,23 @@
     # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   # ];
 
+  services.hydra = {
+    enable = true;
+    notificationSender = "hydra@localhost"; # e-mail of hydra service
+    hydraURL = "http://localhost:3000";
+    # buildMachinesFiles = [];
+    useSubstitutes = true;
+  };
+
+  nix.buildMachines = [
+    { 
+      hostName = "localhost";
+      system = "x86_64-linux";
+      supportedFeatures = [];
+      maxJobs = 8;
+    }
+  ];
+
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "matttest" ];
