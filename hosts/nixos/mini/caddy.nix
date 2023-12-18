@@ -128,6 +128,21 @@
         }
     '';
 
+    virtualHosts."gaming.dev.c4er.com".extraConfig = ''
+        encode gzip
+        file_server
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
+
+        handle_path /media/* {
+          root * "/mnt/storage/rewind"
+          file_server browse
+        }
+
+        handle_path /* {
+          reverse_proxy localhost:5173
+        }
+    '';
+
     virtualHosts."k3s.dev.c4er.com".extraConfig = ''
         tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
