@@ -195,7 +195,10 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.defaultUserShell = pkgs.fish;
   users.users.matt = {
-    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmdl6XNEdT+EWf1IDRjHAygUIGpNCaBv9Qhm19cRCEm"];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmdl6XNEdT+EWf1IDRjHAygUIGpNCaBv9Qhm19cRCEm" 
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGi7DLE/5v9yI2ZRPeKOftyngeNMvXOX/RDIyA0J3rtI matt@mini"
+    ];
     isNormalUser = true;
     description = "matt";
     extraGroups = [ "networkmanager" "wheel" ];
