@@ -268,6 +268,11 @@ in
     wantedBy = [ "multi-user.target" ];
   };
 
+  networking.extraHosts =
+  ''
+    127.0.0.1 gaming.dev.c4er.com
+  '';
+
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 
     # sunshine
