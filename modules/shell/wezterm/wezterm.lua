@@ -9,13 +9,20 @@ local opacity = 0.85
 
 _G.ENABLE_EDITOR_CTRL_NAV = false
 
-return {
+
+
+local config = {
   -- For gaming pc
   -- webgpu_preferred_adapter={
   --   backend="Vulkan",
-  --   device_type="GPU",
-  --   name="NVIDIA GeForce RTX 3080"
+  --   device=8726,
+  --   device_type="DiscreteGpu",
+  --   driver="NVIDIA",
+  --   driver_info="545.29.06",
+  --   name="NVIDIA GeForce RTX 3080",
+  --   vendor=4318,
   -- },
+  -- front_end = 'WebGpu',
   alternate_buffer_wheel_scroll_speed = 1;
   adjust_window_size_when_changing_font_size = false,
   font_size = 18.0,
@@ -532,3 +539,13 @@ return {
     },
 
 }
+
+for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+  if gpu.backend == 'Vulkan' and gpu.device_type == 'IntegratedGpu' then
+    config.webgpu_preferred_adapter = gpu
+    config.front_end = 'WebGpu'
+    break
+  end
+end
+
+return config
