@@ -230,6 +230,7 @@ in
      killall
      fish
      waypipe
+     blender
      # cage
 
      # Wine for Ableton (Using Steam Proton instead)
