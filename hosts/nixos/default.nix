@@ -25,6 +25,7 @@ in
     };
     modules = [
       ./config-common.nix
+      ./networking.nix
       ./vm/configuration.nix
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
@@ -50,6 +51,7 @@ in
     };
     modules = [
       ./config-common.nix
+      ./networking.nix
       ./vm2/configuration.nix
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
@@ -79,6 +81,7 @@ in
     };
     modules = [
       ./gaming/configuration.nix
+      ./networking.nix
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
@@ -114,6 +117,7 @@ in
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
       ./config-common.nix
+      ./networking.nix
       ./pi4/configuration.nix
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
@@ -140,6 +144,7 @@ in
     };
     modules = [
       ./config-common.nix
+      ./networking.nix
       ./mini/configuration.nix
 
       sops-nix.nixosModules.sops
