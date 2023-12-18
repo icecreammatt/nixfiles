@@ -16,6 +16,16 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  networking.extraHosts = ''
+    192.168.100.1 lighthouse
+    192.168.100.10 mini
+    192.168.100.11 asahi
+    192.168.100.12 gaming
+    192.168.100.13 dockingbay94
+    192.168.100.14 octoprint
+    192.168.100.15 wololo
+  '';
+
   environment.systemPackages = with pkgs; [
      fish
      git
