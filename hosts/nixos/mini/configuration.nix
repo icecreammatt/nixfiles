@@ -43,11 +43,24 @@
       }
     ];
   };
+
   systemd.services.nebula = {
     enable = true;
     description = "nebula";
     serviceConfig = {
       ExecStart = "${pkgs.nebula}/bin/nebula -config /etc/nebula/config.yaml";
+      Type = "simple";
+      Restart = "always";
+      RestartSec=1;
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
+
+  systemd.services.rewind-db = {
+    enable = true;
+    description = "rewind-db";
+    serviceConfig = {
+      ExecStart = "/home/matt/pocketbase/pocketbase serve";
       Type = "simple";
       Restart = "always";
       RestartSec=1;
