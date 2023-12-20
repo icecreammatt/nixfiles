@@ -36,6 +36,52 @@ in
       extraOptions = "experimental-features = nix-command flakes";
   };
 
+  sops.secrets."postgres/gitea_dbpass" = {
+    sopsFile = ../../../.secrets/postgres.yaml;
+    owner = config.services.gitea.user;
+  };
+
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/matt/.config/sops/age/keys.txt";
+
+  services.gitea = {
+    enable = true;                               # Enable Gitea
+    appName = "Gitea";                           # Give the site a name
+    database = {
+      type = "postgres";                         # Database type
+      passwordFile = config.sops.secrets."postgres/gitea_dbpass".path;
+    };
+    settings.server.DOMAIN = "gitea.c4er.com";                   # Domain name
+    settings.server.ROOT_URL = "https://gitea.c4er.com/";         # Root web URL
+    settings.server.HTTP_PORT = 3001;
+  };
+
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ config.services.gitea.user ];
+    ensureUsers = [
+      {
+        name = config.services.gitea.database.user;
+
+# trace: warning:
+#       `services.postgresql.ensureUsers.*.ensurePermissions` is used in your expressions,
+#       this option is known to be broken with newer PostgreSQL versions,
+#       consider migrating to `services.postgresql.ensureUsers.*.ensureDBOwnership` or
+#       consult the release notes or manual for more migration guidelines.
+
+#       This option will be removed in NixOS 24.05 unless it sees significant
+#       maintenance improvements.
+
+        # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
+        # using ensureDBOwnership instead of older command above
+        ensureDBOwnership = true;
+      }
+    ];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+    '';
+  };
   # Add Kernel patch for Line6 TonePort UX1
   # To us 24-bit audio 48000hz audio as confirmed by Line6 support
   # Source: https://www.reddit.com/r/linuxaudio/comments/blun53/anyone_know_good_settings_for_jack_with_line_6/
@@ -231,6 +277,7 @@ in
      fish
      waypipe
      blender
+     sops
      # cage
 
      # Wine for Ableton (Using Steam Proton instead)
