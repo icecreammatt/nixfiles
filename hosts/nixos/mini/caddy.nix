@@ -20,6 +20,15 @@
         }
     '';
 
+    virtualHosts."901.c4er.com".extraConfig = ''
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
+
+        handle_path /* {
+          root * "/mnt/storage/webroot/901"
+          file_server browse
+        }
+    '';
+
     virtualHosts."bw-vpn.c4er.com".extraConfig = ''
         tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
