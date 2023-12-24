@@ -61,9 +61,9 @@ in
     pipes-rs
     procs                             # ps in rust
     qemu
-    qrencode                          #C library for encoding data in a QR Code symbol
     # python310Packages.python-lsp-server
     # python39                        # programming languge
+    qrencode                          # C library for encoding data in a QR Code symbol
     s3cmd                             # s3 cli
     slides
     sqlite
