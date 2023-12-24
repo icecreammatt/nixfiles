@@ -250,6 +250,9 @@
     syncthing
     tmux
     wezterm
+    waypipe
+    firefox
+    signal-desktop
   ];
 
   # Open ports in the firewall.
