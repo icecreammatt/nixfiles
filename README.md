@@ -114,3 +114,19 @@ Finding older versions by using commit hash and then convert url into
 > about:config
 
 - `mousewheel.default.delta_multiplier_(X,Y,Z) = 15`
+
+
+## Keyboard login screen fix SDDM / KDE Plasma
+
+> Use Colemak DH on login screen
+```
+localectl --no-convert set-x11-keymap us apple_laptop colemak_dh
+```
+
+* Troubleshooting
+```
+cat /etc/X11/xorg.conf.d/00-keyboard.conf
+cat /etc/vconsole.conf
+localectl list-x11-keymap-variants
+localectl list-x11-keymap-layouts
+```
