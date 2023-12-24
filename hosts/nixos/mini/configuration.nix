@@ -15,6 +15,21 @@
   users.extraGroups.docker.members = [ "matt" ];
   users.users.matt.extraGroups = [ "docker" ];
 
+
+  virtualisation.vmVariant = {
+    # nixos-rebuild build-vm --flake .#mini
+    # following configuration is added only when building VM with build-vm
+    virtualisation = {
+      memorySize = 4096; # Use 2048MiB memory.
+      cores = 3;
+      graphics = false;
+    };
+    virtualisation.forwardPorts = [
+        { from = "host"; host.port = 8888; guest.port = 80; }
+        { from = "host"; host.port = 2121; guest.port = 22; }
+    ];
+  };
+
   services.grafana = {
     enable = true;
     domain = "grafana.c4er.com";
