@@ -53,6 +53,7 @@ in
             pkgs.which          # Determine where processes are
             pkgs.lilypond-with-fonts # Sheet Music
             pkgs.wl-clipboard   # Command-line copy/paste utilities for Wayland
+            pkgs.waypipe
           ];
           stateVersion = "23.05";
         };
