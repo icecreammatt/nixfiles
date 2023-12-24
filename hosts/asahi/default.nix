@@ -34,10 +34,10 @@ in
     extraSpecialArgs = { inherit inputs user pkgs; };
     modules = [
         ../../modules/common.nix
-        ../../modules/common-linux-gui.nix
+        # ../../modules/common-linux-gui.nix
         ../../modules/shell/gitui.nix
         ../../modules/rust.nix
-        ../../modules/keyboard-dev.nix
+        # ../../modules/keyboard-dev.nix
       {
         home = {
           username = "${userName}";
@@ -47,11 +47,11 @@ in
             pkgs.docker
             pkgs.hex2color      # CLI color display
             pkgs.home-manager   # Used for managing files and programs in home directory
+            # pkgs.lilypond-with-fonts # Sheet Music
             pkgs.nerdfonts      # Fonts
             pkgs.nmap           # Network Debugging tool
             # pkgs.wezterm        # The Best Terminal // Use pacman verion that doesn't crash for Asahi
             pkgs.which          # Determine where processes are
-            pkgs.lilypond-with-fonts # Sheet Music
             pkgs.wl-clipboard   # Command-line copy/paste utilities for Wayland
             pkgs.waypipe
           ];
