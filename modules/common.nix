@@ -10,14 +10,14 @@ let
 in
 {
   home.packages = with pkgs; [
-    audacity
-    awscli2
+    # audacity
+    # awscli2
     bash
     caddy                             # web server
-    clang-tools
+    # clang-tools
     dive                              # A tool for exploring each layer in a docker image
     dogdns                            # Command-line DNS client
-    ffmpeg_6-full
+    # ffmpeg_6-full
     gcc
     gettext
     gh                                # github cli
@@ -46,24 +46,24 @@ in
     nebula                            # vpn client/server
     nix-prefetch
     nix-prefetch-git
-    nodePackages.bash-language-server # A language server for Bash
-    nodePackages.diff2html-cli        # Fast Diff to colorized HTML
-    nodePackages_latest.web-ext       # web extension packager
-    nodePackages_latest.yaml-language-server
-    nodePackages.svelte-language-server
-    nodePackages.vscode-langservers-extracted
+    # nodePackages.bash-language-server # A language server for Bash
+    # nodePackages.diff2html-cli        # Fast Diff to colorized HTML
+    # nodePackages_latest.web-ext       # web extension packager
+    # nodePackages_latest.yaml-language-server
+    # nodePackages.svelte-language-server
+    # nodePackages.vscode-langservers-extracted
     nss
     nssTools
     oha                               # HTTP load generator inspired by rakyll/hey with tui animation
     onefetch                          # git repo summary
     openssl                           # A cryptographic library that implements the SSL and TLS protocols
-    pandoc                            # document convertions
+    # pandoc                          # document convertions
     pipes-rs
     procs                             # ps in rust
-    python310Packages.python-lsp-server
-    python39                          # programming languge
     qemu
     qrencode                          #C library for encoding data in a QR Code symbol
+    # python310Packages.python-lsp-server
+    # python39                        # programming languge
     s3cmd                             # s3 cli
     slides
     sqlite
