@@ -28,7 +28,6 @@ in
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.nvidia.nvidiaPersistenced = true;
   hardware.nvidia.modesetting.enable = true;
-  programs.xwayland.enable = true;
   
   #nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix = {
@@ -185,18 +184,17 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  programs.xwayland.enable = true;
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
-  services.xserver.displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
-
   services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.defaultSession = "plasmawayland";
-
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
     elisa
     gwenview
@@ -213,6 +211,20 @@ in
     layout = "us";
     xkbVariant = "";
     # xkbVariant = "colemak_dh,";
+  };
+
+  virtualisation.vmVariant = {
+    # nixos-rebuild build-vm --flake .#gaming
+    # following configuration is added only when building VM with build-vm
+    virtualisation = {
+      memorySize = 8192; # Use 2048MiB memory.
+      cores = 12;
+      graphics = true;
+    };
+    virtualisation.forwardPorts = [
+        { from = "host"; host.port = 8888; guest.port = 80; }
+        { from = "host"; host.port = 2121; guest.port = 22; }
+    ];
   };
 
   # Enable CUPS to print documents.
