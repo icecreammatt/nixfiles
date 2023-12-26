@@ -130,3 +130,17 @@ cat /etc/vconsole.conf
 localectl list-x11-keymap-variants
 localectl list-x11-keymap-layouts
 ```
+
+## Fixing error for mistyped commands
+
+> https://evanrelf.com/nixos-fix-command-not-found-database-file-error/
+
+```
+DBI connect('dbname=/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite','',...) failed: unable to open database file at /run/current-system/sw/bin/command-not-found line 13.
+cannot open database `/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite' at /run/current-system/sw/bin/command-not-found line 13.
+```
+
+```
+$ sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+$ sudo nix-channel --update nixos
+```
