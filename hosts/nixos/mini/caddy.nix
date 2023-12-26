@@ -9,7 +9,9 @@
     enable = true;
 
     extraConfig = ''
-        :80 {
+        :443 {
+          tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
+
           encode gzip
           file_server
 
