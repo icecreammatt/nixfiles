@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, nixos-hardware, home-manager, hyprland, sops-nix, ... }:
+{ lib, inputs, nixpkgs, nixos-hardware, home-manager, hyprland, sops-nix, xremap-flake, ... }:
 
 let
   user = "matt";
@@ -83,6 +83,7 @@ in
       ./gaming/configuration.nix
       ./networking.nix
       sops-nix.nixosModules.sops
+      inputs.xremap-flake.nixosModules.default
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;

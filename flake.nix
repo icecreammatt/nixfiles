@@ -30,16 +30,22 @@
       url = "github:vaxerski/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    xremap-flake = {
+      url = "github:xremap/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, darwin, hyprland, sops-nix, ... }:
+  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, darwin, hyprland, sops-nix, xremap-flake, ... }:
     {
 
       # Gaming PC, VM, Raspberry Pi
       nixosConfigurations = (
         import ./hosts/nixos {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix;
+          inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix xremap-flake;
         }
       );
 

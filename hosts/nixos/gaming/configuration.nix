@@ -21,6 +21,11 @@ in
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
+  # Settings to enable xremap
+  hardware.uinput.enable = true;
+  users.groups.uinput.members = [ "matt" ];
+  users.groups.input.members = [ "matt" ];
+
   services.blueman.enable = true;
   # Nvidia
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -33,6 +38,30 @@ in
   nix = {
       package = pkgs.nixFlakes;
       extraOptions = "experimental-features = nix-command flakes";
+  };
+
+  services.xremap = {
+    withKDE = true;
+    userName = "matt";
+    serviceMode = "user";
+    debug = false;
+    watch = false;
+    config = {
+      keymap = [
+        {
+          name = "Emacs home and end globally";
+          remap = {
+            "C-e" = "end";
+            "C-a" = "home";
+            "M-b" = { with_mark = "c-left"; };
+            "M-f" = { with_mark = "c-right"; };
+            "C-k" = ["Shift-end" "C-x"];
+            "C-y" = ["C-v"];
+          };
+        }
+      ];
+      modmap = [  ];
+    };
   };
 
   sops.secrets."postgres/gitea_dbpass" = {
@@ -213,6 +242,11 @@ in
     # xkbVariant = "colemak_dh,";
   };
 
+  # users = {
+  #   mutableUsers = false;
+  #   users.matt.password = "test";
+  # };
+  
   virtualisation.vmVariant = {
     # nixos-rebuild build-vm --flake .#gaming
     # following configuration is added only when building VM with build-vm
