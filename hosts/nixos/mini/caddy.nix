@@ -31,6 +31,14 @@
         }
     '';
 
+    virtualHosts."music.c4er.com".extraConfig = ''
+        tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
+
+        handle_path /* {
+          reverse_proxy localhost:4533
+        }
+    '';
+
     virtualHosts."bw-vpn.c4er.com".extraConfig = ''
         tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 

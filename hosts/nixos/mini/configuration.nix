@@ -51,6 +51,13 @@
     ];
   };
 
+  services.navidrome = {
+    enable = true;
+    settings = {
+       MusicFolder = "/mnt/storage/music";
+    };
+  };
+
   services.grafana = {
     enable = true;
     domain = "grafana.c4er.com";
