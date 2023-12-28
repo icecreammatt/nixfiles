@@ -55,6 +55,10 @@ in
             "C-a" = "home";
             "M-b" = { with_mark = "c-left"; };
             "M-f" = { with_mark = "c-right"; };
+            "M-left" = { with_mark = "c-left"; };
+            "M-right" = { with_mark = "c-right"; };
+            "M-backspace" = { with_mark = "c-backspace"; };
+            "M-delete" = ["c-right" "c-backspace"];
             "C-k" = ["Shift-end" "C-x"];
             "C-y" = ["C-v"];
           };
