@@ -49,7 +49,7 @@ in
     config = {
       keymap = [
         {
-          name = "Emacs home and end globally";
+          name = "Emacs commands globally";
           remap = {
             "C-e" = "end";
             "C-a" = "home";
@@ -59,8 +59,23 @@ in
             "M-right" = { with_mark = "c-right"; };
             "M-backspace" = { with_mark = "c-backspace"; };
             "M-delete" = ["c-right" "c-backspace"];
+            "M-d" = "delete";
             "C-k" = ["Shift-end" "C-x"];
             "C-y" = ["C-v"];
+            "SUPER-a" = "c-a";
+            "SUPER-t" = "c-t";
+            "SUPER-w" = "c-w";
+            "SUPER-r" = "c-r";
+            "SUPER-0" = "a-0";
+            "SUPER-1" = "a-1";
+            "SUPER-2" = "a-2";
+            "SUPER-3" = "a-3";
+            "SUPER-4" = "a-4";
+            "SUPER-5" = "a-5";
+            "SUPER-6" = "a-6";
+            "SUPER-7" = "a-7";
+            "SUPER-8" = "a-8";
+            "SUPER-9" = "a-9";
           };
         }
       ];
