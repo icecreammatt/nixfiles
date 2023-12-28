@@ -30,7 +30,7 @@ in
   # Nvidia
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
   hardware.nvidia.nvidiaPersistenced = true;
   hardware.nvidia.modesetting.enable = true;
   
