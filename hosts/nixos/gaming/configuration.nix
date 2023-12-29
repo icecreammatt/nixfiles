@@ -50,6 +50,9 @@ in
       keymap = [
         {
           name = "Emacs commands globally";
+          application = {
+            only = ["/firefox/" "/dolphin/"];
+          };
           remap = {
             "C-e" = "end";
             "C-a" = "home";
@@ -64,6 +67,7 @@ in
             "C-y" = ["C-v"];
             "SUPER-a" = "c-a";
             "SUPER-t" = "c-t";
+            "SUPER-f" = "c-f";
             "SUPER-w" = "c-w";
             "SUPER-r" = "c-r";
             "SUPER-0" = "a-0";
