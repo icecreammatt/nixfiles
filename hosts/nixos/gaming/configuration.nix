@@ -323,8 +323,6 @@ in
       firefox
       neovim
       git
-      gamescope
-      mangohud
       lm_sensors
       nodejs
     ];
@@ -347,6 +345,8 @@ in
      waypipe
      blender
      sops
+     gamescope
+     mangohud
      # cage
 
      # Wine for Ableton (Using Steam Proton instead)
