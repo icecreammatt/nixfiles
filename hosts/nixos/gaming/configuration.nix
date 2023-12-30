@@ -387,6 +387,7 @@ in
   networking.extraHosts =
   ''
     127.0.0.1 gaming.dev.c4er.com
+    127.0.0.1 rewind.dev.c4er.com
   '';
 
   # Open ports in the firewall.
