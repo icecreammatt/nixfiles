@@ -5,3 +5,4 @@ work.nix
 reference/
 *.swp
 .reference
+*.qcow2
