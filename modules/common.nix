@@ -69,6 +69,7 @@ in
     sqlite
     ssh-to-age                        # Convert ssh private keys in ed25519 format to age keys
     sumneko-lua-language-server
+    tailspin                          # A log file highlighter
     terminal-colors
     t-rec                             # screenshot
     ttyd                              # share terminal over web
