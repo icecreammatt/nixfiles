@@ -178,8 +178,6 @@ in
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
   time.hardwareClockInLocalTime = false;
 
   # Select internationalisation properties.
