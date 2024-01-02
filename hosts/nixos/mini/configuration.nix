@@ -285,6 +285,7 @@
     k3s
     k9s
     kubernetes-helm-wrapped
+    mkdocs
     morph
     nebula
     nodejs
