@@ -35,7 +35,7 @@
         tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
         handle_path /* {
-          root * "/mnt/storage/webroot/wiki/site/"
+          root * "/mnt/storage/webroot/wiki/result/www/"
           file_server browse
         }
     '';
