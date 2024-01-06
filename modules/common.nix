@@ -64,6 +64,7 @@ in
     # python310Packages.python-lsp-server
     # python39                        # programming languge
     qrencode                          # C library for encoding data in a QR Code symbol
+    skopeo                            # A command line utility for various operations on container images and image repositories
     s3cmd                             # s3 cli
     slides
     sqlite
