@@ -285,6 +285,7 @@
     k3s
     k9s
     kubernetes-helm-wrapped
+    lego #certbot lets encrypt
     mkdocs
     morph
     nebula
