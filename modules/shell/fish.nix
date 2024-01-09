@@ -177,6 +177,7 @@
         nts = "pushd ~/notes && rge && popd";
 
         md2j = "pandoc --to jira | pbcopy";
+        wiki = "pushd ~/Source/wiki/docs && $EDITOR";
     };
     shellAbbrs = {
         steam3840= "MANGOHUD_CONFIG=\"horizontal,background_alpha=0\" gamescope -w 3840 -h 2160 -W 3840 -H 2160 -F nis -r 120 -f -b -e -- mangohud steam -gamepadui"; # -b boarderless
