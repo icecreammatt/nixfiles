@@ -8,11 +8,11 @@
     192.168.100.14 octoprint
     192.168.100.15 wololo
 
-    192.168.88.164 planka.c4er.com
-    192.168.88.164 c4er.com
-    192.168.88.164 gitea.c4er.com
-    192.168.88.164 hydra.c4er.com
-    192.168.88.164 woodpecker.c4er.com
-    192.168.88.164 grafana.c4er.com
+    192.168.100.10 c4er.com
+    192.168.100.10 gitea.c4er.com
+    192.168.100.10 grafana.c4er.com
+    192.168.100.10 hydra.c4er.com
+    192.168.100.10 planka.c4er.com
+    192.168.100.10 woodpecker.c4er.com
   '';
 }
