@@ -300,16 +300,21 @@
     signal-desktop
   ];
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 
-    80   # caddy http
-    443  # caddy https
-    6443 # k3s
-    8090 # pocketbase
-    8384 # syncthing
+  # Firewall ports only for Nebula VPN users
+  networking.firewall.interfaces."nebula1".allowedTCPPorts = [
+    80     # caddy http
+    443    # caddy https
+    2015   # quickweb
+    6443   # k3s
+    8090   # pocketbase
+  ];
+
+  # Open ports on all interfaces in the firewall.
+  networking.firewall.allowedTCPPorts = [
+    8384  # syncthing
     22000 #syncthing
   ];
-  networking.firewall.allowedUDPPorts = [ 
+  networking.firewall.allowedUDPPorts = [
     22000 #syncthing
     21027 #syncthing
   ];
