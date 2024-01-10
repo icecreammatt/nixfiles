@@ -24,6 +24,7 @@ in
     # gifsicle                          # cli gif tool
     gist                              # github gist uploader
     git-standup                       # list work done in repo over last day
+    git-cliff                         # A highly customizable Changelog Generator that follows Conventional Commit specifications
     gitui                             # gitui in rust
     go                                # programming languge
     graph-easy                        # Render/convert graphs in/from various formats
