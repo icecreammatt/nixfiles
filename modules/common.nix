@@ -54,6 +54,8 @@ in
     # nodePackages.svelte-language-server
     # nodePackages.vscode-langservers-extracted
     nss
+    nh                                # Yet another nix cli helper
+    nvd                               # Nix/NixOS package version diff tool
     nssTools
     oha                               # HTTP load generator inspired by rakyll/hey with tui animation
     onefetch                          # git repo summary
