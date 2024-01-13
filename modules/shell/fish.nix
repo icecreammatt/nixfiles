@@ -173,8 +173,6 @@
         no = "pushd ~/notes && hx ./ && popd";
         ob = "pushd ~/obsidian-notes && hx && popd";
         nt = "pushd ~/notes";
-        ntf = "pushd ~/notes && ske && popd";
-        nts = "pushd ~/notes && rge && popd";
 
         md2j = "pandoc --to jira | pbcopy";
         wiki = "pushd ~/Source/wiki/docs && $EDITOR";
@@ -385,23 +383,54 @@
             cat $argv | pbcopy
           '';
         };
+        nfd = {
+          description = "search files and open in editor";
+          body = ''
+            pushd ~/notes 
+            ske $argv
+            set -l exit_status $status
+            if [ $exit_status != 0 ];
+              set -l file_path $argv
+              set -l file_name (basename $file_path)
+              set -l folder_path (dirname $file_path)
+              mkdir -p $folder_path
+              touch $file_path
+              $EDITOR $file_path
+            end
+            popd
+          '';
+        };
+        nsk = {
+          description = "search file contents and open file in editor";
+          body = ''
+            pushd ~/notes && rge $argv && popd
+          '';
+        };
         rge = {
             description = "search file contents and open in editor on line number";
             body = ''
-              set x (sk --query "$argv[1]" --bind "ctrl-v:toggle-preview,ctrl-k:down" --ansi -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=right:50%:visible)
-              if [ $status = 0 ];
+              set x (sk --query "$argv" --bind "ctrl-v:toggle-preview,ctrl-k:down" --ansi -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=right:50%:visible)
+              set -l exit_status $status
+              if [ $exit_status = 0 ];
                 set fileName (echo $x | cut -d: -f1)
                 set lineNum (echo $x | cut -d: -f2)
                 $EDITOR $fileName:$lineNum
+              end
+              if [ $exit_status = 1 ];
+                return 1
               end
             '';
         };
         ske = {
             description = "search file names and open in editor";
             body = ''
-              set x (sk --query "$argv[1]" --bind "ctrl-v:toggle-preview,ctrl-k:down" --ansi --preview="preview.sh -v {}" --preview-window=right:50%:visible)
-              if [ $status = 0 ];
+              set -l x (sk --query "$argv" --bind "ctrl-v:toggle-preview,ctrl-k:down" --ansi --preview="preview.sh -v {}" --preview-window=right:50%:visible)
+              set -l exit_status $status
+              if [ $exit_status = 0 ];
                 $EDITOR "$x"
+              end
+              if [ $exit_status = 1 ];
+                return 1
               end
             '';
         };
