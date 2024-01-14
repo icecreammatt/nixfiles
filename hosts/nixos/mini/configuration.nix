@@ -260,7 +260,6 @@
     lego #certbot lets encrypt
     mkdocs
     morph
-    archivebox
     nebula
     nodejs
     pocketbase
