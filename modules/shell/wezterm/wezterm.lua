@@ -181,6 +181,12 @@ local config = {
   leader = { key = ',', mods = 'CTRL', timeout_milliseconds = 1000 },
 
   keys = {
+    { key='c', mods='CTRL|ALT',
+    			action = wezterm.action_callback(function(win, pane)
+  				local lines = pane:get_lines_as_text(1000000) -- same as `scrollback_lines`
+  				win:copy_to_clipboard(lines, 'Clipboard')
+          end),
+        },
     { key="l", mods="LEADER", action=wezterm.action{QuickSelectArgs={
             patterns={
               "http?://\\S+",
