@@ -81,6 +81,7 @@ in
     viu                               # image viewer
     wiki-tui                          # A simple and easy to use Wikipedia Text User Interface
     zellij                            # terminal multiplexer
+    yazi                              # Blazing fast terminal file manager written in Rust, based on async I/O
     zk                                # A zettelkasten plain text note-taking assistant
   ];
 
