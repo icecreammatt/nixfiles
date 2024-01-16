@@ -132,6 +132,20 @@
         }
     '';
 
+    virtualHosts."note.c4er.com".extraConfig = ''
+        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+        handle_path /* {
+          reverse_proxy https://silverbullet.c4er.com {
+            header_up Host silverbullet.c4er.com
+            transport http {
+              tls
+              tls_server_name silverbullet.c4er.com
+            }
+          }
+        }
+    '';
+
     # uri strip_prefix /path hides this portion of the path from the upstream
 
     # header_up Host <domain> tells the origin what domain should be displayed
