@@ -93,8 +93,46 @@
       # zsh
       # fish
       k3s
+      caddy
     ];
     # environment.shells = with pkgs; [ zsh fish ];
+
+  services.caddy = {
+    enable = true;
+
+    virtualHosts."excalidraw.c4er.com".extraConfig = ''
+        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+        handle_path /* {
+          reverse_proxy https://excalidraw.c4er.com {
+            transport http {
+              tls
+              tls_server_name excalidraw.c4er.com
+            }
+          }
+        }
+    '';
+
+    # uri strip_prefix /path hides this portion of the path from the upstream
+
+    # header_up Host <domain> tells the origin what domain should be displayed
+    # failure to do this will be the same as showing example.com instead of sub.example.com
+    
+    virtualHosts."proxy.c4er.com".extraConfig = ''
+        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+        handle_path /excalidraw/* {
+          uri strip_prefix /excalidraw
+          reverse_proxy https://excalidraw.c4er.com {
+            header_up Host excalidraw.c4er.com
+            transport http {
+              tls
+              tls_server_name excalidraw.c4er.com
+            }
+          }
+        }
+    '';
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -111,7 +149,9 @@
     # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    443
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
