@@ -4,14 +4,29 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ 
+      (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_rpi4;
+  };
+  boot.loader.raspberryPi.firmwareConfig = ''
+    gpu_mem=192
+    dtparam=audio=on
+  '';
+
+  # hardware.raspberry-pi."4".fkms-3d.enable = true;
+
+  hardware.opengl = {
+    enable = true;
+    setLdLibraryPath = true;
+    package = pkgs.mesa_drivers;
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
