@@ -128,8 +128,8 @@ in
           home.stateVersion = "23.11";
           imports = [
             ../../modules/core.nix
-            ../../modules/rust.nix
-            ../../modules/k8s.nix
+            # ../../modules/rust.nix
+            # ../../modules/k8s.nix
           ];
         };
       }
