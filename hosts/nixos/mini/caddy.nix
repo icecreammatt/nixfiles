@@ -31,6 +31,14 @@
         }
     '';
 
+    virtualHosts."kopia.c4er.com".extraConfig = ''
+        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+        handle_path /* {
+          reverse_proxy localhost:51515
+        }
+    '';
+
     virtualHosts."wiki.c4er.com".extraConfig = ''
         tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
 
@@ -75,7 +83,7 @@
         }
 
         handle_path /* {
-          reverse_proxy localhost:5173
+          reverse_proxy localhost:4173
         }
     '';
 
