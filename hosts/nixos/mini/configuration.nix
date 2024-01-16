@@ -256,6 +256,7 @@
     gitea
     k3s
     k9s
+    docker-compose
     kubernetes-helm-wrapped
     lego #certbot lets encrypt
     mkdocs
