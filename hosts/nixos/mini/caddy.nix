@@ -39,6 +39,14 @@
         }
     '';
 
+    virtualHosts."excalidraw.c4er.com".extraConfig = ''
+        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+        handle_path /* {
+          reverse_proxy localhost:8085
+        }
+    '';
+
     virtualHosts."wiki.c4er.com".extraConfig = ''
         tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
 
