@@ -54,6 +54,18 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
+  systemd.services.nebula = {
+    enable = true;
+    description = "nebula";
+    serviceConfig = {
+      ExecStart = "${pkgs.nebula}/bin/nebula -config /etc/nebula/config.yaml";
+      Type = "simple";
+      Restart = "always";
+      RestartSec=1;
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
+
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
@@ -93,6 +105,7 @@
       # zsh
       # fish
       k3s
+      nebula
       caddy
     ];
     # environment.shells = with pkgs; [ zsh fish ];
