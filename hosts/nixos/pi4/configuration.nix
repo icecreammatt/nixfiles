@@ -22,7 +22,13 @@
   # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
   boot.kernelParams = [
-    "cgroup_enable=cpuset" "cgroup_memory=1" "cgroup_enable=memory"
+    "cgroup_enable=cpuset" 
+    "cgroup_memory=1" 
+    "cgroup_enable=memory" 
+    "cma=128M"
+    "8250.nr_uarts=1"
+    "console=ttyAMA0,115200"
+    "console=tty1"
   ];
 
   networking.hostName = "dockingbay94"; # Define your hostname.
