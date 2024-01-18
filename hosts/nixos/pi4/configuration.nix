@@ -48,6 +48,22 @@
   '';
 
   virtualisation.docker.enable = true;
+  virtualisation.oci-containers = {
+  backend = "docker";
+    containers = {
+      silverbullet = {
+        ports = ["127.0.0.1:3000:3000"];
+        image = "zefhemel/silverbullet:latest";
+        # command = [ "/bin/sh" ];
+        # args = [ "-c" "echo 'Hello, world!'" ];
+        volumes = [
+          "/home/matt/SyncWork:/space"
+        ];
+        # restartPolicy = "always";
+      };
+    };
+  };
+
 
   # Select internationalisation properties.
 #    i18n.defaultLocale = "en_US.UTF-8";
@@ -131,6 +147,14 @@
 
   services.caddy = {
     enable = true;
+
+    virtualHosts."notey.c4er.com".extraConfig = ''
+        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+        handle_path /* {
+          reverse_proxy localhost:3000
+        }
+    '';
 
     virtualHosts."excalidraw.c4er.com".extraConfig = ''
         tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
