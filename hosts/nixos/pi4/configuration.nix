@@ -60,6 +60,15 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
+  services = {
+    syncthing = {
+      enable = true;
+      user = "matt";
+      dataDir = "/mnt/syncthing/personal";
+      configDir = "/mnt/syncthing/config";
+    };
+  };
+
   systemd.services.nebula = {
     enable = true;
     description = "nebula";
@@ -113,6 +122,7 @@
       # k3s
       nebula
       caddy
+      syncthing
     ];
     # environment.shells = with pkgs; [ zsh fish ];
 
@@ -184,6 +194,13 @@
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     443
+    8384  # syncthing
+    22000 #syncthing
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    22000 #syncthing
+    21027 #syncthing
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
