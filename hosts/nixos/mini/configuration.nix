@@ -59,6 +59,22 @@
     };
   };
 
+  virtualisation.oci-containers = {
+  backend = "docker";
+    containers = {
+      silverbullet = {
+        ports = ["127.0.0.1:3071:3000"];
+        image = "zefhemel/silverbullet:latest";
+        # command = [ "/bin/sh" ];
+        # args = [ "-c" "echo 'Hello, world!'" ];
+        volumes = [
+          "/home/matt/SyncWork/Notes/Notes:/space"
+        ];
+        # restartPolicy = "always";
+      };
+    };
+  };
+
   systemd.services.nebula = {
     enable = true;
     description = "nebula";
