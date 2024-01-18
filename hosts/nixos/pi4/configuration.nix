@@ -47,6 +47,7 @@
     127.0.0.2 other-localhost
   '';
 
+  virtualisation.docker.enable = true;
 
   # Select internationalisation properties.
 #    i18n.defaultLocale = "en_US.UTF-8";
@@ -122,6 +123,8 @@
       # k3s
       nebula
       caddy
+      docker
+      docker-compose
       syncthing
     ];
     # environment.shells = with pkgs; [ zsh fish ];
