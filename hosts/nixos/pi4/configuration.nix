@@ -57,7 +57,7 @@
         # command = [ "/bin/sh" ];
         # args = [ "-c" "echo 'Hello, world!'" ];
         volumes = [
-          "/home/matt/SyncWork:/space"
+          "/home/matt/SyncWork/Notes/Notes:/space"
         ];
         # restartPolicy = "always";
       };
