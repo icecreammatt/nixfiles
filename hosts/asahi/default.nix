@@ -55,6 +55,7 @@ in
             pkgs.which          # Determine where processes are
             pkgs.wl-clipboard   # Command-line copy/paste utilities for Wayland
             pkgs.waypipe
+            pkgs.zk
           ];
           stateVersion = "23.05";
         };

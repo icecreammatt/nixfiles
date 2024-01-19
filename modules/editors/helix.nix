@@ -244,6 +244,14 @@ in
     language-server = { command = "mdpls" }
 
     [[language]]
+    name = "markdown"
+    scope = "source.md"
+    injection-regex = "md|markdown"
+    file-types = ["md", "markdown" ]
+    roots = [".zk"]
+    language-server = { command = "zk", args=["lsp"] }
+
+    [[language]]
     name = "nix"
     file-types = [ "nix" ]
     language-server = { command = "rnix-lsp" }
