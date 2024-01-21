@@ -166,7 +166,6 @@
         vimrc = "nvim ~/nixfiles/modules/editors/nvim.nix";
         hxrc = "$EDITOR ~/nixfiles/modules/editors/helix.nix";
         wzrc = "$EDITOR ~/nixfiles/modules/shell/wezterm/wezterm.lua";
-        sm = "merge";
         merge = "open -n -a \"Sublime Merge\" .";
         bane = "bane2";
         c = "code .";
@@ -293,6 +292,16 @@
 
             echo "docker run -it -p $port:80 $argv[1]" /bin/bash
             docker run -it -p $port:80 $argv[1] /bin/bash
+          '';
+        };
+        sm = {
+          body = ''
+            uname -a | grep Darwin
+            if [ $status = 0 ];
+              open -n -a "Sublime Merge" .
+            else
+              sublime_merge .
+            end
           '';
         };
         nrs = {
