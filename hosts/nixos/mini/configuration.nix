@@ -87,6 +87,24 @@
     wantedBy = [ "multi-user.target" ];
   };
 
+  systemd.services.rewind-server = {
+    enable = true;
+    description = "rewind-server";
+    path = [ pkgs.nodejs ];
+    serviceConfig = {
+      WorkingDirectory = /mnt/storage/rewind-server;
+      Type = "simple";
+      Environment = [
+        "PORT=4173"
+        "HOST=127.0.0.1"
+      ];
+      ExecStart = "${pkgs.nodejs}/bin/node build";
+      Restart = "always";
+      RestartSec=1;
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
+
   systemd.services.rewind-db = {
     enable = true;
     description = "rewind-db";
