@@ -272,6 +272,7 @@ in
       git
       lm_sensors
       nodejs
+      sublime-merge
     ];
   };
 
