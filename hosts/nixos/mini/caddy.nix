@@ -144,7 +144,7 @@
         }
     '';
 
-    virtualHosts."storybook-rewind.dev.c4er.com".extraConfig = ''
+    virtualHosts."storybook-rewind.c4er.com".extraConfig = ''
         encode gzip
         file_server
         tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
@@ -182,7 +182,7 @@
         }
     '';
 
-    virtualHosts."mini.dev.c4er.com".extraConfig = ''
+    virtualHosts."rewind-dev-mini.c4er.com".extraConfig = ''
         encode gzip
         file_server
         tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
