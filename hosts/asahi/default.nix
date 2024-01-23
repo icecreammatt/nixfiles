@@ -47,6 +47,7 @@ in
             pkgs.docker
             pkgs.hex2color      # CLI color display
             pkgs.home-manager   # Used for managing files and programs in home directory
+            pkgs.pocketbase
             # pkgs.lilypond-with-fonts # Sheet Music
             pkgs.nerdfonts      # Fonts
             pkgs.nmap           # Network Debugging tool
