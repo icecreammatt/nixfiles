@@ -21,6 +21,8 @@
     serviceConfig = {
       ExecStart = "${pkgs.kopia}/bin/kopia server start --insecure --server-username $USERNAME --server-password $PASSWORD";
       Type = "simple";
+      User = "matt";
+      Group = "users";
       EnvironmentFile = [
         config.sops.secrets."kopia/PASSWORD".path
         config.sops.secrets."kopia/USERNAME".path
