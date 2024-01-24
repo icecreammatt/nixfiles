@@ -15,8 +15,17 @@ let
     overlays = [ 
       (import ../../overlay/overlay.nix)
     ]; 
-
   };
+
+  yazi = pkgs.symlinkJoin {
+    name = "yazi-wrapped";
+    paths = [ pkgs.yazi ];
+    nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
+    postBuild = ''
+      wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
+    '';
+  };
+
 in
 {
   # M1 Macbook Pro + Asahi Linux Configuration
@@ -57,6 +66,7 @@ in
             pkgs.which          # Determine where processes are
             pkgs.wl-clipboard   # Command-line copy/paste utilities for Wayland
             pkgs.waypipe
+            yazi
             pkgs.zk
           ];
           stateVersion = "23.05";
