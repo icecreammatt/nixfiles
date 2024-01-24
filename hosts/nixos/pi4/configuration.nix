@@ -3,6 +3,16 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
+let
+  yazi = pkgs.symlinkJoin {
+    name = "yazi-wrapped";
+    paths = [ pkgs.yazi ];
+    nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
+    postBuild = ''
+      wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "iTerm.app"
+    '';
+  };
+in
 
 {
   imports =
@@ -142,6 +152,7 @@
       docker
       docker-compose
       syncthing
+      yazi
     ];
     # environment.shells = with pkgs; [ zsh fish ];
 
