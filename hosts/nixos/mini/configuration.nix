@@ -309,6 +309,7 @@
     mkdocs
     morph
     nebula
+    nil
     nodejs
     pocketbase
     sops
