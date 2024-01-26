@@ -9,7 +9,7 @@ let
     paths = [ pkgs.yazi ];
     nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
     postBuild = ''
-      wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "iTerm.app"
+      wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
     '';
   };
 in
