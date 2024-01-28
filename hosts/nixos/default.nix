@@ -157,6 +157,7 @@ in
         home-manager.users.matt = {
           home.stateVersion = "23.11";
           imports = [
+            ../../modules/shell/starship.nix
             ../../modules/common.nix
             ../../modules/rust.nix
             ../../modules/k8s.nix
