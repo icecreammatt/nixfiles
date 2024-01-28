@@ -12,7 +12,7 @@ in
   home.packages = with pkgs; [
     # audacity
     # awscli2
-    bash
+    bashInteractive
     caddy                             # web server
     # clang-tools
     dive                              # A tool for exploring each layer in a docker image
