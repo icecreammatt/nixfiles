@@ -31,6 +31,15 @@
         }
     '';
 
+    virtualHosts."pool.c4er.com".extraConfig = ''
+        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+        handle_path /* {
+          root * "/mnt/storage/webroot/pool"
+          file_server browse
+        }
+    '';
+
     virtualHosts."kopia.c4er.com".extraConfig = ''
         tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
 

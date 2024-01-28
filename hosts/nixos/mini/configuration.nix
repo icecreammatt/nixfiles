@@ -50,6 +50,28 @@
     plasma-browser-integration
     print-manager
   ];
+
+  systemd.timers."gauge-check" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "1m";
+      OnUnitActiveSec = "1m";
+      Unit = "gauge-check.service";
+    };
+  };
+
+  systemd.services."gauge-check" = {
+    script = ''
+      TARGET_NAME="/mnt/storage/webroot/pool/pressure-$(date +"%Y%m%d_%H%M%S.%N").jpg"
+      ${pkgs.openssh}/bin/ssh -i /home/matt/.ssh/webcam pi@192.168.50.19 fswebcam -r 1280x1024 --jpeg 90 -D 1 web-cam-shot.jpg
+      ${pkgs.openssh}/bin/scp -i /home/matt/.ssh/webcam pi@192.168.50.19:web-cam-shot.jpg $TARGET_NAME
+    '';
+
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
+  };
   
   virtualisation.vmVariant = {
     # nixos-rebuild build-vm --flake .#mini
