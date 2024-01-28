@@ -109,6 +109,7 @@
         pd = "popd";
         br = "broot -c:open_preview";
         lt = "broot -c:open_preview";
+        y = "yazi";
 
         ealias = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
         ea = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
