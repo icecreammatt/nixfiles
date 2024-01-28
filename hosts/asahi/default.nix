@@ -45,6 +45,7 @@ in
         ../../modules/common.nix
         # ../../modules/common-linux-gui.nix
         ../../modules/shell/gitui.nix
+        ../../modules/shell/starship.nix
         ../../modules/rust.nix
         # ../../modules/keyboard-dev.nix
       {
