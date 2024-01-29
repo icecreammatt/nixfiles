@@ -251,6 +251,7 @@ in {
     file-types = [ "nix" ]
     language-server = { command = "nil" }
     formatter = { command = "alejandra" }
+    auto-format = true
 
     [[language]]
     name = "yaml"
