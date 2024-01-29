@@ -5,7 +5,7 @@
     then "catppuccin_frappe"
     else "catppuccin_latte";
 in {
-  programs.helix = {enable = true;};
+  # programs.helix = {enable = true;};
 
   home.file.".config/helix/config.toml".text = ''
     # theme = "nord"
@@ -236,70 +236,80 @@ in {
     [[language]]
     name = "markdown"
     file-types = ["md", "markdown" ]
-    language-server = { command = "mdpls" }
+    language-servers = ["mdpls"]
 
-    [[language]]
-    name = "markdown"
-    scope = "source.md"
-    injection-regex = "md|markdown"
-    file-types = ["md", "markdown" ]
-    roots = [".zk"]
-    language-server = { command = "zk", args=["lsp"] }
+    [language-servers.mdpls]
+    command = "mdpls"
+
+    # [[language]]
+    # name = "markdown"
+    # scope = "source.md"
+    # injection-regex = "md|markdown"
+    # file-types = ["md", "markdown" ]
+    # roots = [".zk"]
+    # language-server = { command = "zk", args=["lsp"] }
 
     [[language]]
     name = "nix"
+    scope = "source.nix"
+    injection-regex = "nix"
+    comment-token = "#"
     file-types = [ "nix" ]
-    language-server = { command = "nil" }
+    shebangs = []
+    language-servers = ["nil"]
     formatter = { command = "alejandra" }
     auto-format = true
+
+    [language-server.nil]
+    command = "nil"
 
     [[language]]
     name = "yaml"
     file-types = ["yaml"]
     indent = { tab-width = 2, unit = "  " }
 
-    [[language]]
-    name = "css"
-    file-types = ["css"]
-    indent = { tab-width = 4, unit = "    " }
+    # [[language]]
+    # name = "css"
+    # file-types = ["css"]
+    # indent = { tab-width = 4, unit = "    " }
 
-    [[language]]
-    name = "java"
-    scope = "source.java"
-    injection-regex = "java"
-    file-types = ["java", "groovy", "wse"]
-    roots = ["pom.xml", "build.gradle"]
-    language-server = { command = "jdt-language-server" }
-    indent = { tab-width = 2, unit = "  " }
+    # [[language]]
+    # name = "java"
+    # scope = "source.java"
+    # injection-regex = "java"
+    # file-types = ["java", "groovy", "wse"]
+    # roots = ["pom.xml", "build.gradle"]
+    # language-server = { command = "jdt-language-server" }
+    # indent = { tab-width = 2, unit = "  " }
 
-    [[language]]
-    name = "javascript"
-    file-types = ["js"]
+    # [[language]]
+    # name = "javascript"
+    # file-types = ["js"]
 
-    [[language]]
-    name = "ini"
-    file-types = [
-      "conf",
+    # [[language]]
+    # name = "ini"
+    # file-types = [
+    #   "conf",
 
-      # from https://github.com/helix-editor/helix/blob/master/languages.toml
-      "ini", "service", "automount", "device", "mount", "path", "service", "slice", "socket", "swap", "target", "timer", "container", "volume", "kube", "network",
-    ]
+    #   # from https://github.com/helix-editor/helix/blob/master/languages.toml
+    #   "ini", "service", "automount", "device", "mount", "path", "service", "slice", "socket", "swap", "target", "timer", "container", "volume", "kube", "network",
+    # ]
 
-    [[language]]
-    name = "bash"
-    file-types = [
-      "nginx.conf",
+    # [[language]]
+    # name = "bash"
+    # file-types = [
+    #   "nginx.conf",
 
-      # from https://github.com/helix-editor/helix/blob/master/languages.toml
-      "sh", "bash", "zsh", ".bash_login", ".bash_logout", ".bash_profile", ".bashrc", ".profile", ".zshenv", "zshenv", ".zlogin", "zlogin", ".zlogout", "zlogout", ".zprofile", "zprofile", ".zshrc", "zshrc", ".zimrc", "APKBUILD", "PKGBUILD", "eclass", "ebuild", "bazelrc", ".bash_aliases", "Renviron", ".Renviron", "template", "inc",
-    ]
+    #   # from https://github.com/helix-editor/helix/blob/master/languages.toml
+    #   "sh", "bash", "zsh", ".bash_login", ".bash_logout", ".bash_profile", ".bashrc", ".profile", ".zshenv", "zshenv", ".zlogin", "zlogin", ".zlogout", "zlogout", ".zprofile", "zprofile", ".zshrc", "zshrc", ".zimrc", "APKBUILD", "PKGBUILD", "eclass", "ebuild", "bazelrc", ".bash_aliases", "Renviron", ".Renviron", "template", "inc",
+    # ]
 
-    [[language]]
-    name = "json"
-    file-types = ["json", "lock", ".releaserc", "pp"]
+    # [[language]]
+    # name = "json"
+    # file-types = ["json", "lock", ".releaserc", "pp"]
 
-    [[grammar]]
-    name = "java"
-    source = { git = "https://github.com/tree-sitter/tree-sitter-java", rev = "09d650def6cdf7f479f4b78f595e9ef5b58ce31e" }
+    # [[grammar]]
+    # name = "java"
+    # source = { git = "https://github.com/tree-sitter/tree-sitter-java", rev = "09d650def6cdf7f479f4b78f595e9ef5b58ce31e" }
   '';
 }

@@ -34,6 +34,11 @@
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    helix-flake = {
+      url = "github:icecreammatt/helix/refs/tags/2024-01-29";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -44,6 +49,7 @@
     darwin,
     hyprland,
     sops-nix,
+    helix-flake,
     xremap-flake,
     ...
   }: {
@@ -59,7 +65,7 @@
     asahiConfiguration = (
       import ./hosts/asahi {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager;
+        inherit inputs nixpkgs home-manager helix-flake;
       }
     );
 

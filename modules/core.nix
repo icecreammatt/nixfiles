@@ -7,7 +7,6 @@
 }: let
   # Override to inject light vs dark theme setting
   helix_custom = import ./editors/helix.nix {inherit isDark;};
-
   hello = import ./bin/hello.nix {inherit pkgs;};
 in {
   home.packages = with pkgs; [
@@ -28,7 +27,7 @@ in {
     fishPlugins.bass # Fish function making it easy to use utilities written for Bash in Fish shell
     fzf
     git
-    helix
+    # helix
     hello
     htop
     jq

@@ -1,6 +1,7 @@
 {
   lib,
   inputs,
+  helix-flake,
   nixpkgs,
   home-manager,
   ...
@@ -44,6 +45,12 @@ in {
     extraSpecialArgs = {inherit inputs user pkgs;};
     modules = [
       ../../modules/common.nix
+      {
+        programs.helix.package = helix-flake.packages."aarch64-linux".default;
+        programs.helix.enable = true;
+        home.packages = [helix-flake];
+      }
+
       # ../../modules/common-linux-gui.nix
       ../../modules/shell/gitui.nix
       ../../modules/shell/starship.nix
@@ -54,6 +61,7 @@ in {
           username = "${userName}";
           homeDirectory = "/home/${userName}";
           packages = [
+            helix-flake
             pkgs.cascadia-code # Fonts
             pkgs.docker
             pkgs.hex2color # CLI color display
