@@ -4,6 +4,7 @@
   nixpkgs,
   nixos-hardware,
   home-manager,
+  helix-flake,
   hyprland,
   sops-nix,
   xremap-flake,
@@ -171,6 +172,9 @@ in {
             ../../modules/common.nix
             ../../modules/rust.nix
             ../../modules/k8s.nix
+            {home.packages = [
+              helix-flake.packages."x86_64-linux".default
+            ];}
           ];
         };
       }

@@ -57,7 +57,7 @@
     nixosConfigurations = (
       import ./hosts/nixos {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix xremap-flake;
+        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix xremap-flake helix-flake;
       }
     );
 
