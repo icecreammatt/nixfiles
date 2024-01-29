@@ -254,7 +254,8 @@ in
     [[language]]
     name = "nix"
     file-types = [ "nix" ]
-    language-server = { command = "rnix-lsp" }
+    language-server = { command = "nil" }
+    formatter = { command = "alejandra" }
 
     [[language]]
     name = "yaml"

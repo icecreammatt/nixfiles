@@ -43,7 +43,8 @@ in
     nnn       # cli explorer
     ranger    # cli explorer
     ripgrep
-    rnix-lsp  # lsp for nix files used by helix
+    nil       # Yet another language server for Nix
+    alejandra # The Uncompromising Nix Code Formatter
     rsync
     sad       # find and replace for terminal
     sd        # like sed but nicer shorthand syntax
