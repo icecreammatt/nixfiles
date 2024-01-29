@@ -65,6 +65,7 @@
       TARGET_NAME="/mnt/storage/webroot/pool/pressure-$(date +"%Y%m%d_%H%M%S.%N").jpg"
       ${pkgs.openssh}/bin/ssh -i /home/matt/.ssh/webcam pi@192.168.50.19 fswebcam -r 1280x1024 --jpeg 90 -D 1 web-cam-shot.jpg
       ${pkgs.openssh}/bin/scp -i /home/matt/.ssh/webcam pi@192.168.50.19:web-cam-shot.jpg $TARGET_NAME
+      ${pkgs.uutils-coreutils-noprefix}/bin/ln -f $TARGET_NAME /mnt/storage/webroot/pool/_latest.jpg
     '';
 
     serviceConfig = {
