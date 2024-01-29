@@ -1,10 +1,12 @@
-{  pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     ardour
-    hydrogen  # drum machine
-    reaper    # Digital audio workstation
+    hydrogen # drum machine
+    reaper # Digital audio workstation
     # blender # build errors with latest flake.lock
     bmon
     cava

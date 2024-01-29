@@ -1,8 +1,8 @@
-{ lib
-, buildGoModule
-, fetchFromGitHub
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
 }:
-
 buildGoModule rec {
   pname = "pocketbase";
   version = "0.15.3";
@@ -17,7 +17,7 @@ buildGoModule rec {
   vendorHash = "sha256-LFIJClPByaLXtsBOk7SjpJlIuQhWbVIs6H4PXhd7oyo=";
 
   # This is the released subpackage from upstream repo
-  subPackages = [ "examples/base" ];
+  subPackages = ["examples/base"];
 
   CGO_ENABLED = 0;
 
@@ -36,6 +36,6 @@ buildGoModule rec {
     description = "Open Source realtime backend in 1 file";
     homepage = "https://github.com/pocketbase/pocketbase";
     license = licenses.mit;
-    maintainers = with maintainers; [ dit7ya ];
+    maintainers = with maintainers; [dit7ya];
   };
 }

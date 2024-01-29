@@ -1,7 +1,5 @@
 # hosts/Bebop/default.nix
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   system.defaults.dock.autohide = true;
 
   users.users.matt = {
@@ -9,8 +7,7 @@
     home = /Users/matt;
   };
 
-  home-manager.users.matt = { pkgs, ... }:
-  {
+  home-manager.users.matt = {pkgs, ...}: {
     imports = [
       ../../../../modules/common.nix
       ../../../../modules/rust.nix
@@ -19,7 +16,7 @@
       ../../../../modules/editors/nvim.nix
       # ../../../modules/shell/git.nix
     ];
- 
+
     home.packages = with pkgs; [
       automake
       avrdude
@@ -34,9 +31,8 @@
       reattach-to-user-namespace
       wezterm
       worm
-];
+    ];
 
     home.stateVersion = "22.11";
   };
-
 }

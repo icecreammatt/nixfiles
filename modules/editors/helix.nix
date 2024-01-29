@@ -1,15 +1,11 @@
-{ isDark, ... }:
-
-let
-  config = { darkmode = isDark; };
-  theme = if config.darkmode then
-    "catppuccin_frappe"
-  else
-    "catppuccin_latte"
-  ;
-in
-{
-  programs.helix = { enable = true; };
+{isDark, ...}: let
+  config = {darkmode = isDark;};
+  theme =
+    if config.darkmode
+    then "catppuccin_frappe"
+    else "catppuccin_latte";
+in {
+  programs.helix = {enable = true;};
 
   home.file.".config/helix/config.toml".text = ''
     # theme = "nord"
@@ -226,7 +222,6 @@ in
 
   '';
 
-
   home.file.".config/helix/themes/nord-clear.toml".text = ''
     inherits = "nord"
     "ui.background" = {}
@@ -305,5 +300,5 @@ in
     [[grammar]]
     name = "java"
     source = { git = "https://github.com/tree-sitter/tree-sitter-java", rev = "09d650def6cdf7f479f4b78f595e9ef5b58ce31e" }
-   '';
+  '';
 }

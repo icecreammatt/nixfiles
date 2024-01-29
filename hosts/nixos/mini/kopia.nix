@@ -1,11 +1,13 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     kopia
   ];
 
- sops.secrets."kopia/PASSWORD" = {
+  sops.secrets."kopia/PASSWORD" = {
     sopsFile = ../../../.secrets/kopia.ini;
     format = "ini";
   };
@@ -28,8 +30,8 @@
         config.sops.secrets."kopia/USERNAME".path
       ];
       Restart = "always";
-      RestartSec=1;
+      RestartSec = 1;
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 }

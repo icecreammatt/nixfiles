@@ -1,6 +1,8 @@
-{  pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     bacon # Background rust code checker
     cargo-info # Cargo subcommand to show crates info from crates.io

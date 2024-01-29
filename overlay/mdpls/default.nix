@@ -1,5 +1,8 @@
-{ lib, fetchFromGitHub, rustPlatform }:
-
+{
+  lib,
+  fetchFromGitHub,
+  rustPlatform,
+}:
 rustPlatform.buildRustPackage rec {
   name = "mdpls";
   version = "0.1.0";

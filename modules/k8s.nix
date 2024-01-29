@@ -1,6 +1,8 @@
-{  pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     argocd
     k9s
@@ -11,5 +13,4 @@
   ];
 
   imports = [];
-
 }

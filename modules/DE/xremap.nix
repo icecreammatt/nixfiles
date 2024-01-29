@@ -1,17 +1,15 @@
-{ ... }:
-
-
+{...}:
 # This has to be run manually since
 # rebuilding does not appear to restart the service
 # >systemctl --user restart xremap
 # >systemctl --user status xremap
 {
-    # Settings to enable xremap
-    hardware.uinput.enable = true;
-    users.groups.uinput.members = [ "matt" ];
-    users.groups.input.members = [ "matt" ];
+  # Settings to enable xremap
+  hardware.uinput.enable = true;
+  users.groups.uinput.members = ["matt"];
+  users.groups.input.members = ["matt"];
 
-    services.xremap = {
+  services.xremap = {
     withKDE = true;
     userName = "matt";
     serviceMode = "user";
@@ -27,11 +25,11 @@
           remap = {
             "C-e" = "end";
             "C-a" = "home";
-            "M-b" = { with_mark = "c-left"; };
-            "M-f" = { with_mark = "c-right"; };
-            "M-left" = { with_mark = "c-left"; };
-            "M-right" = { with_mark = "c-right"; };
-            "M-backspace" = { with_mark = "c-backspace"; };
+            "M-b" = {with_mark = "c-left";};
+            "M-f" = {with_mark = "c-right";};
+            "M-left" = {with_mark = "c-left";};
+            "M-right" = {with_mark = "c-right";};
+            "M-backspace" = {with_mark = "c-backspace";};
             "M-delete" = ["c-right" "c-backspace"];
             "M-d" = "delete";
             "C-k" = ["Shift-end" "C-x"];
@@ -54,8 +52,7 @@
           };
         }
       ];
-      modmap = [  ];
+      modmap = [];
     };
   };
-
 }

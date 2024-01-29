@@ -1,30 +1,30 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   yazi = pkgs.symlinkJoin {
     name = "yazi-wrapped";
-    paths = [ pkgs.yazi ];
-    nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
+    paths = [pkgs.yazi];
+    nativeBuildInputs = [pkgs.makeBinaryWrapper];
     postBuild = ''
       wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
     '';
   };
-in
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # networking.firewall.allowedTCPPorts = [ 6443 ]; # 6443 k3s
   # services.k3s.enable = false;
   # services.k3s.role = "server";
   # services.k3s.extraFlags = toString [
-    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+  # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   # ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
@@ -32,9 +32,9 @@ in
   # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
   boot.kernelParams = [
-    "cgroup_enable=cpuset" 
-    "cgroup_memory=1" 
-    "cgroup_enable=memory" 
+    "cgroup_enable=cpuset"
+    "cgroup_memory=1"
+    "cgroup_enable=memory"
     "cma=128M"
     "8250.nr_uarts=1"
     "console=ttyAMA0,115200"
@@ -52,14 +52,13 @@ in
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  networking.extraHosts =
-  ''
+  networking.extraHosts = ''
     127.0.0.2 other-localhost
   '';
 
   virtualisation.docker.enable = true;
   virtualisation.oci-containers = {
-  backend = "docker";
+    backend = "docker";
     containers = {
       silverbullet = {
         ports = ["127.0.0.1:3000:3000"];
@@ -74,15 +73,14 @@ in
     };
   };
 
-
   # Select internationalisation properties.
-#    i18n.defaultLocale = "en_US.UTF-8";
-#    console = {
-#      font = "Lat2-Terminus16";
-##      keyMap = "us";
-#
-#      useXkbConfig = true; # use xkbOptions in tty.
-#    };
+  #    i18n.defaultLocale = "en_US.UTF-8";
+  #    console = {
+  #      font = "Lat2-Terminus16";
+  ##      keyMap = "us";
+  #
+  #      useXkbConfig = true; # use xkbOptions in tty.
+  #    };
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -103,9 +101,9 @@ in
       ExecStart = "${pkgs.nebula}/bin/nebula -config /etc/nebula/config.yaml";
       Type = "simple";
       Restart = "always";
-      RestartSec=1;
+      RestartSec = 1;
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 
   # Configure keymap in X11
@@ -126,92 +124,92 @@ in
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-    # users.users.matt = {
-    #   shell = pkgs.fish;
-    #   isNormalUser = true;
-    #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    #   packages = with pkgs; [
-    #     fish
+  # users.users.matt = {
+  #   shell = pkgs.fish;
+  #   isNormalUser = true;
+  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  #   packages = with pkgs; [
+  #     fish
   #     firefox
   #     thunderbird
-    #   ];
-    # };
+  #   ];
+  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-    environment.systemPackages = with pkgs; [
-      # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      # wget
-      # git
-      # helix
-      # zsh
-      # fish
-      # k3s
-      nebula
-      caddy
-      docker
-      docker-compose
-      syncthing
-      yazi
-    ];
-    # environment.shells = with pkgs; [ zsh fish ];
+  environment.systemPackages = with pkgs; [
+    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # wget
+    # git
+    # helix
+    # zsh
+    # fish
+    # k3s
+    nebula
+    caddy
+    docker
+    docker-compose
+    syncthing
+    yazi
+  ];
+  # environment.shells = with pkgs; [ zsh fish ];
 
   services.caddy = {
     enable = true;
 
     virtualHosts."notey.c4er.com".extraConfig = ''
-        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
 
-        handle_path /* {
-          reverse_proxy localhost:3000
-        }
+      handle_path /* {
+        reverse_proxy localhost:3000
+      }
     '';
 
     virtualHosts."excalidraw.c4er.com".extraConfig = ''
-        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
 
-        handle_path /* {
-          reverse_proxy https://excalidraw.c4er.com {
-            transport http {
-              tls
-              tls_server_name excalidraw.c4er.com
-            }
+      handle_path /* {
+        reverse_proxy https://excalidraw.c4er.com {
+          transport http {
+            tls
+            tls_server_name excalidraw.c4er.com
           }
         }
+      }
     '';
 
     virtualHosts."note.c4er.com".extraConfig = ''
-        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
 
-        handle_path /* {
-          reverse_proxy https://silverbullet.c4er.com {
-            header_up Host silverbullet.c4er.com
-            transport http {
-              tls
-              tls_server_name silverbullet.c4er.com
-            }
+      handle_path /* {
+        reverse_proxy https://silverbullet.c4er.com {
+          header_up Host silverbullet.c4er.com
+          transport http {
+            tls
+            tls_server_name silverbullet.c4er.com
           }
         }
+      }
     '';
 
     # uri strip_prefix /path hides this portion of the path from the upstream
 
     # header_up Host <domain> tells the origin what domain should be displayed
     # failure to do this will be the same as showing example.com instead of sub.example.com
-    
-    virtualHosts."proxy.c4er.com".extraConfig = ''
-        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
 
-        handle_path /excalidraw/* {
-          uri strip_prefix /excalidraw
-          reverse_proxy https://excalidraw.c4er.com {
-            header_up Host excalidraw.c4er.com
-            transport http {
-              tls
-              tls_server_name excalidraw.c4er.com
-            }
+    virtualHosts."proxy.c4er.com".extraConfig = ''
+      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+      handle_path /excalidraw/* {
+        uri strip_prefix /excalidraw
+        reverse_proxy https://excalidraw.c4er.com {
+          header_up Host excalidraw.c4er.com
+          transport http {
+            tls
+            tls_server_name excalidraw.c4er.com
           }
         }
+      }
     '';
   };
 
@@ -222,17 +220,17 @@ in
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-    # programs.fish.enable = true;
+  # programs.fish.enable = true;
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-    # services.openssh.enable = true;
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     443
-    8384  # syncthing
+    8384 # syncthing
     22000 #syncthing
   ];
 
@@ -256,6 +254,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }
-

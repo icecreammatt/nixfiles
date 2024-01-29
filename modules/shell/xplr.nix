@@ -1,4 +1,3 @@
-{ pkgs, ... }:
-{
-    home.file.".config/xplr/init.lua".source = ./xplr/xplr.lua;
+{pkgs, ...}: {
+  home.file.".config/xplr/init.lua".source = ./xplr/xplr.lua;
 }

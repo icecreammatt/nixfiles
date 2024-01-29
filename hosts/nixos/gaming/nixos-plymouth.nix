@@ -1,5 +1,7 @@
-{ stdenv, fetchgit }:
-
+{
+  stdenv,
+  fetchgit,
+}:
 stdenv.mkDerivation rec {
   name = "nixos-blur";
   version = "unstable-2022-07-08";
@@ -10,7 +12,7 @@ stdenv.mkDerivation rec {
     sha256 = "15iknbzqs460vn5bxilkrw31hszxj3kd428sw4097j5pdkwa2a85";
   };
 
-  buildInputs = [ stdenv ];
+  buildInputs = [stdenv];
 
   configurePhase = ''
     install_path=$out/share/plymouth/themes
@@ -21,5 +23,5 @@ stdenv.mkDerivation rec {
     cp -r nixos-blur $install_path
   '';
 
-  meta = with stdenv.lib; { platfotms = platforms.linux; };
+  meta = with stdenv.lib; {platfotms = platforms.linux;};
 }

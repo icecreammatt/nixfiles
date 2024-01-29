@@ -1,12 +1,16 @@
-{ nix, nixpkgs, pkgs, ... }:
-
+{
+  nix,
+  nixpkgs,
+  pkgs,
+  ...
+}:
 # https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050
 {
   nixpkgs.config.allowUnfree = true;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
-    # post-build-hook = $HOME/test.sh
+  # post-build-hook = $HOME/test.sh
 
   # home.file."test.sh".source = ''
   #   #!/bin/bash
@@ -30,8 +34,8 @@
     fish.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ fish ];
-  environment.shells = [ pkgs.fish ];
+  environment.systemPackages = with pkgs; [fish];
+  environment.shells = [pkgs.fish];
 
   home-manager = {
     useGlobalPkgs = true;

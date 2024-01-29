@@ -1,7 +1,5 @@
 # hosts/mc-2A3MD6R-MBP/default.nix
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   system.defaults.dock.autohide = false;
 
   users.users.mcarrier = {
@@ -9,8 +7,7 @@
     home = /Users/mcarrier;
   };
 
-  home-manager.users.mcarrier = { pkgs, ... }:
-  {
+  home-manager.users.mcarrier = {pkgs, ...}: {
     imports = [
       ../../../../modules/common.nix
       # ../../../../modules/keyboard-dev.nix
@@ -38,5 +35,4 @@
 
     home.stateVersion = "22.11";
   };
-
 }

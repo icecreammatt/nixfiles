@@ -1,33 +1,35 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # nixpkgs.config.allowUnfree = true;
   time.timeZone = "America/Los_Angeles";
 
   users.users.matt = {
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmdl6XNEdT+EWf1IDRjHAygUIGpNCaBv9Qhm19cRCEm" 
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmdl6XNEdT+EWf1IDRjHAygUIGpNCaBv9Qhm19cRCEm"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGi7DLE/5v9yI2ZRPeKOftyngeNMvXOX/RDIyA0J3rtI matt@mini"
     ];
     shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       fish
     ];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   environment.systemPackages = with pkgs; [
-     fish
-     git
-     helix
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
+    fish
+    git
+    helix
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
   ];
 
-  environment.shells = with pkgs; [ fish ];
+  environment.shells = with pkgs; [fish];
   programs.fish.enable = true;
   services.openssh.enable = true;
 }

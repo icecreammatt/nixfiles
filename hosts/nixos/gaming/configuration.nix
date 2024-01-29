@@ -1,21 +1,22 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, lib, pkgs, ... }:
-
-let
-  nixos_plymouth = pkgs.callPackage ./nixos-plymouth.nix {};
-in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./udev.nix
-      ../mini/caddy.nix
-      ../../../modules/airplay/uxplay.nix
-      ../../../modules/DE/xremap.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  nixos_plymouth = pkgs.callPackage ./nixos-plymouth.nix {};
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./udev.nix
+    ../mini/caddy.nix
+    ../../../modules/airplay/uxplay.nix
+    ../../../modules/DE/xremap.nix
+  ];
 
   system.autoUpgrade.enable = false;
 
@@ -25,17 +26,17 @@ in
   services.blueman.enable = true;
 
   # Nvidia
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.opengl.enable = true;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
   hardware.nvidia.nvidiaPersistenced = true;
   hardware.nvidia.modesetting.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  
+
   #nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix = {
-      package = pkgs.nixFlakes;
-      extraOptions = "experimental-features = nix-command flakes";
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
   };
 
   sops.secrets."postgres/gitea_dbpass" = {
@@ -47,32 +48,32 @@ in
   sops.age.keyFile = "/home/matt/.config/sops/age/keys.txt";
 
   services.gitea = {
-    enable = true;                               # Enable Gitea
-    appName = "Gitea";                           # Give the site a name
+    enable = true; # Enable Gitea
+    appName = "Gitea"; # Give the site a name
     database = {
-      type = "postgres";                         # Database type
+      type = "postgres"; # Database type
       passwordFile = config.sops.secrets."postgres/gitea_dbpass".path;
     };
-    settings.server.DOMAIN = "gitea.c4er.com";                   # Domain name
-    settings.server.ROOT_URL = "https://gitea.c4er.com/";         # Root web URL
+    settings.server.DOMAIN = "gitea.c4er.com"; # Domain name
+    settings.server.ROOT_URL = "https://gitea.c4er.com/"; # Root web URL
     settings.server.HTTP_PORT = 3001;
   };
 
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ config.services.gitea.user ];
+    ensureDatabases = [config.services.gitea.user];
     ensureUsers = [
       {
         name = config.services.gitea.database.user;
 
-# trace: warning:
-#       `services.postgresql.ensureUsers.*.ensurePermissions` is used in your expressions,
-#       this option is known to be broken with newer PostgreSQL versions,
-#       consider migrating to `services.postgresql.ensureUsers.*.ensureDBOwnership` or
-#       consult the release notes or manual for more migration guidelines.
+        # trace: warning:
+        #       `services.postgresql.ensureUsers.*.ensurePermissions` is used in your expressions,
+        #       this option is known to be broken with newer PostgreSQL versions,
+        #       consider migrating to `services.postgresql.ensureUsers.*.ensureDBOwnership` or
+        #       consult the release notes or manual for more migration guidelines.
 
-#       This option will be removed in NixOS 24.05 unless it sees significant
-#       maintenance improvements.
+        #       This option will be removed in NixOS 24.05 unless it sees significant
+        #       maintenance improvements.
 
         # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
         # using ensureDBOwnership instead of older command above
@@ -100,7 +101,7 @@ in
 
   # Disable waybar for now since not using to speed up build times
   # nixpkgs.overlays = [
-  #   (self: super: { 
+  #   (self: super: {
   #     waybar = super.waybar.overrideAttrs (oldAttrs: {
   #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
   #     });
@@ -109,28 +110,28 @@ in
 
   programs.fish.enable = true;
   programs.steam.enable = true;
- #  nixpkgs.config.packageOverrides = pkgs: {
- #    steam = pkgs.steam.override {
- #      extraPkgs = pkgs: with pkgs; [
- #        xorg.libXcursor
- #        xorg.libXi
- #        xorg.libXinerama
- #        xorg.libXScrnSaver
- #        libpng
- #        libpulseaudio
- #        libvorbis
- #        stdenv.cc.cc.lib
- #        libkrb5
- #        keyutils
- #        cmake
- #        pkg-config
- #        libevdev
-	# pkgs.xorg.libX11
-	# gcc
- #      ];
- #    };
- #    environment.systemPackages = [ pkgs.gamescope pkgs.mangohud ];
- #  };
+  #  nixpkgs.config.packageOverrides = pkgs: {
+  #    steam = pkgs.steam.override {
+  #      extraPkgs = pkgs: with pkgs; [
+  #        xorg.libXcursor
+  #        xorg.libXi
+  #        xorg.libXinerama
+  #        xorg.libXScrnSaver
+  #        libpng
+  #        libpulseaudio
+  #        libvorbis
+  #        stdenv.cc.cc.lib
+  #        libkrb5
+  #        keyutils
+  #        cmake
+  #        pkg-config
+  #        libevdev
+  # pkgs.xorg.libX11
+  # gcc
+  #      ];
+  #    };
+  #    environment.systemPackages = [ pkgs.gamescope pkgs.mangohud ];
+  #  };
 
   # Bootloader.
   boot.loader.timeout = 0;
@@ -145,7 +146,7 @@ in
     keyMap = "us";
   };
 
-  fonts.packages = with pkgs; [ meslo-lgs-nf ];
+  fonts.packages = with pkgs; [meslo-lgs-nf];
   services.kmscon = {
     enable = true;
     hwRender = true;
@@ -158,13 +159,13 @@ in
   boot = {
     consoleLogLevel = 0;
     initrd.verbose = false;
-    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" ];
+    kernelParams = ["quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail"];
 
     # Pretty boot
     plymouth = {
       enable = true;
       theme = "nixos-blur";
-      themePackages = [ nixos_plymouth ];
+      themePackages = [nixos_plymouth];
     };
   };
 
@@ -220,7 +221,7 @@ in
   #   mutableUsers = false;
   #   users.matt.password = "test";
   # };
-  
+
   virtualisation.vmVariant = {
     # nixos-rebuild build-vm --flake .#gaming
     # following configuration is added only when building VM with build-vm
@@ -230,8 +231,16 @@ in
       graphics = true;
     };
     virtualisation.forwardPorts = [
-        { from = "host"; host.port = 8888; guest.port = 80; }
-        { from = "host"; host.port = 2121; guest.port = 22; }
+      {
+        from = "host";
+        host.port = 8888;
+        guest.port = 80;
+      }
+      {
+        from = "host";
+        host.port = 2121;
+        guest.port = 22;
+      }
     ];
   };
 
@@ -263,7 +272,7 @@ in
   users.users.matt = {
     isNormalUser = true;
     description = "matt";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       bitwarden
       waybar
@@ -287,23 +296,23 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     killall
-     fish
-     waypipe
-     blender
-     sops
-     gamescope
-     mangohud
-     # cage
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    killall
+    fish
+    waypipe
+    blender
+    sops
+    gamescope
+    mangohud
+    # cage
 
-     # Wine for Ableton (Using Steam Proton instead)
-     # wine64
-     # wine
-     # winetricks
+    # Wine for Ableton (Using Steam Proton instead)
+    # wine64
+    # wine
+    # winetricks
 
-     # sunshine
-  #  wget
+    # sunshine
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -327,25 +336,24 @@ in
       ExecStart = "${pkgs.nebula}/bin/nebula -config /etc/nebula/config.yaml";
       Type = "simple";
       Restart = "always";
-      RestartSec=1;
+      RestartSec = 1;
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 
-  networking.extraHosts =
-  ''
+  networking.extraHosts = ''
     127.0.0.1 gaming.dev.c4er.com
     127.0.0.1 rewind.dev.c4er.com
   '';
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 
+  networking.firewall.allowedTCPPorts = [
     # sunshine
     # 47984
     # 47989
     # 48010
   ];
-  networking.firewall.allowedUDPPorts = [ 
+  networking.firewall.allowedUDPPorts = [
     # sunshine
     # 47998
     # 47999

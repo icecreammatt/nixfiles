@@ -1,5 +1,9 @@
-{ lib , stdenv , fetchFromGitHub , ncurses6 }:
-
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  ncurses6,
+}:
 stdenv.mkDerivation rec {
   pname = "worm";
   version = "0.1.1";
@@ -11,7 +15,7 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-GVt4npy3j5VJ+0VhfW/GMKE8jyv6taUiW39xj0rTzmU=";
   };
 
-  buildInputs = [ ncurses6 ];
+  buildInputs = [ncurses6];
 
   buildPhase = "cd src/ && COMPILER='clang++' make";
 

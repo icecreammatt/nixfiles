@@ -1,50 +1,51 @@
-{ pkgs, lib, ... }:
-
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   # Enable dark mode theme
   isDark = true;
 
   # Override to pass darkmode settings
-  wezterm_custom = import ./shell/wezterm.nix { inherit isDark; };
-  core_override = import ./core.nix { inherit pkgs lib isDark; };
-in
-{
+  wezterm_custom = import ./shell/wezterm.nix {inherit isDark;};
+  core_override = import ./core.nix {inherit pkgs lib isDark;};
+in {
   home.packages = with pkgs; [
     # audacity
     # awscli2
     bashInteractive
-    caddy                             # web server
+    caddy # web server
     # clang-tools
-    dive                              # A tool for exploring each layer in a docker image
-    dogdns                            # Command-line DNS client
+    dive # A tool for exploring each layer in a docker image
+    dogdns # Command-line DNS client
     # ffmpeg_6-full
     gcc
     gettext
-    gh                                # github cli
+    gh # github cli
     # gifsicle                          # cli gif tool
-    gist                              # github gist uploader
-    git-standup                       # list work done in repo over last day
-    git-cliff                         # A highly customizable Changelog Generator that follows Conventional Commit specifications
-    gitui                             # gitui in rust
-    go                                # programming languge
-    graph-easy                        # Render/convert graphs in/from various formats
-    gron                              # json search tool
-    hex2color                         # Hex code color preview
-    hexyl                             # Hex Viewer
-    hugo                              # static site generator
-    hurl                              # Command line tool that performs HTTP requests defined in a simple plain text format.
+    gist # github gist uploader
+    git-standup # list work done in repo over last day
+    git-cliff # A highly customizable Changelog Generator that follows Conventional Commit specifications
+    gitui # gitui in rust
+    go # programming languge
+    graph-easy # Render/convert graphs in/from various formats
+    gron # json search tool
+    hex2color # Hex code color preview
+    hexyl # Hex Viewer
+    hugo # static site generator
+    hurl # Command line tool that performs HTTP requests defined in a simple plain text format.
     imagemagickBig
-    imgcat                            # display images in terminal
+    imgcat # display images in terminal
     lazycli
     lazydocker
     libiconvReal
     lldb
-    mdpls                             # markdown language server
-    mediainfo                         # display media info from mpeg file
+    mdpls # markdown language server
+    mediainfo # display media info from mpeg file
     mkcert
-    morph                             # A NixOS host manager written in Golang
-    mtr                               # A network diagnostics tool
-    nebula                            # vpn client/server
+    morph # A NixOS host manager written in Golang
+    mtr # A network diagnostics tool
+    nebula # vpn client/server
     nix-prefetch
     nix-prefetch-git
     # nodePackages.bash-language-server # A language server for Bash
@@ -54,35 +55,35 @@ in
     # nodePackages.svelte-language-server
     # nodePackages.vscode-langservers-extracted
     nss
-    nh                                # Yet another nix cli helper
-    nvd                               # Nix/NixOS package version diff tool
+    nh # Yet another nix cli helper
+    nvd # Nix/NixOS package version diff tool
     nssTools
-    oha                               # HTTP load generator inspired by rakyll/hey with tui animation
-    onefetch                          # git repo summary
-    openssl                           # A cryptographic library that implements the SSL and TLS protocols
+    oha # HTTP load generator inspired by rakyll/hey with tui animation
+    onefetch # git repo summary
+    openssl # A cryptographic library that implements the SSL and TLS protocols
     # pandoc                          # document convertions
     pipes-rs
-    procs                             # ps in rust
+    procs # ps in rust
     qemu
     # python310Packages.python-lsp-server
     # python39                        # programming languge
-    qrencode                          # C library for encoding data in a QR Code symbol
-    skopeo                            # A command line utility for various operations on container images and image repositories
-    s3cmd                             # s3 cli
+    qrencode # C library for encoding data in a QR Code symbol
+    skopeo # A command line utility for various operations on container images and image repositories
+    s3cmd # s3 cli
     slides
     sqlite
-    ssh-to-age                        # Convert ssh private keys in ed25519 format to age keys
+    ssh-to-age # Convert ssh private keys in ed25519 format to age keys
     sumneko-lua-language-server
-    tailspin                          # A log file highlighter
+    tailspin # A log file highlighter
     terminal-colors
-    t-rec                             # screenshot
-    ttyd                              # share terminal over web
-    uxplay                            # AirPlay Unix mirroring server
-    viu                               # image viewer
+    t-rec # screenshot
+    ttyd # share terminal over web
+    uxplay # AirPlay Unix mirroring server
+    viu # image viewer
     # vlan                              # User mode programs to enable VLANs on Ethernet devices
-    wiki-tui                          # A simple and easy to use Wikipedia Text User Interface
-    zellij                            # terminal multiplexer
-    zk                                # A zettelkasten plain text note-taking assistant
+    wiki-tui # A simple and easy to use Wikipedia Text User Interface
+    zellij # terminal multiplexer
+    zk # A zettelkasten plain text note-taking assistant
   ];
 
   imports = [

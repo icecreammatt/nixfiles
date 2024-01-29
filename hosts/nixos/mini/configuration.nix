@@ -1,33 +1,37 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./caddy.nix
-      ./kopia.nix
-      ./logging.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./caddy.nix
+    ./kopia.nix
+    ./logging.nix
+  ];
 
   nixpkgs.overlays = [
     (final: prev: {
       yazi = prev.yazi.overrideAttrs (oldAttrs: {
-        buildInputs = oldAttrs.buildInputs ++ [ pkgs.makeWrapper ];
-        # wrap the binary in a script where the appropriate env var is set 
-        postInstall = oldAttrs.postInstall or "" + ''
-          wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
-        '';
+        buildInputs = oldAttrs.buildInputs ++ [pkgs.makeWrapper];
+        # wrap the binary in a script where the appropriate env var is set
+        postInstall =
+          oldAttrs.postInstall
+          or ""
+          + ''
+            wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
+          '';
       });
     })
   ];
 
   virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = [ "matt" ];
-  users.users.matt.extraGroups = [ "docker" ];
+  users.extraGroups.docker.members = ["matt"];
+  users.users.matt.extraGroups = ["docker"];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -52,7 +56,7 @@
   ];
 
   systemd.timers."gauge-check" = {
-    wantedBy = [ "timers.target" ];
+    wantedBy = ["timers.target"];
     timerConfig = {
       OnBootSec = "1m";
       OnUnitActiveSec = "1m";
@@ -73,7 +77,7 @@
       User = "root";
     };
   };
-  
+
   virtualisation.vmVariant = {
     # nixos-rebuild build-vm --flake .#mini
     # following configuration is added only when building VM with build-vm
@@ -83,20 +87,28 @@
       graphics = false;
     };
     virtualisation.forwardPorts = [
-        { from = "host"; host.port = 8888; guest.port = 80; }
-        { from = "host"; host.port = 2121; guest.port = 22; }
+      {
+        from = "host";
+        host.port = 8888;
+        guest.port = 80;
+      }
+      {
+        from = "host";
+        host.port = 2121;
+        guest.port = 22;
+      }
     ];
   };
 
   services.navidrome = {
     enable = true;
     settings = {
-       MusicFolder = "/mnt/storage/music";
+      MusicFolder = "/mnt/storage/music";
     };
   };
 
   virtualisation.oci-containers = {
-  backend = "docker";
+    backend = "docker";
     containers = {
       silverbullet = {
         ports = ["127.0.0.1:3071:3000"];
@@ -119,15 +131,15 @@
       ExecStart = "${pkgs.nebula}/bin/nebula -config /etc/nebula/config.yaml";
       Type = "simple";
       Restart = "always";
-      RestartSec=1;
+      RestartSec = 1;
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 
   systemd.services.rewind-server = {
     enable = true;
     description = "rewind-server";
-    path = [ pkgs.nodejs ];
+    path = [pkgs.nodejs];
     serviceConfig = {
       WorkingDirectory = /mnt/storage/rewind-server;
       Type = "simple";
@@ -137,9 +149,9 @@
       ];
       ExecStart = "${pkgs.nodejs}/bin/node build";
       Restart = "always";
-      RestartSec=1;
+      RestartSec = 1;
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 
   systemd.services.rewind-db = {
@@ -149,9 +161,9 @@
       ExecStart = "/home/matt/pocketbase/pocketbase serve";
       Type = "simple";
       Restart = "always";
-      RestartSec=1;
+      RestartSec = 1;
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 
   services.vaultwarden.enable = true;
@@ -163,7 +175,7 @@
   services.k3s.enable = false;
   services.k3s.role = "server";
   # services.k3s.extraFlags = toString [
-    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+  # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   # ];
 
   services.hydra = {
@@ -176,7 +188,7 @@
   };
 
   nix.buildMachines = [
-    { 
+    {
       hostName = "localhost";
       system = "x86_64-linux";
       supportedFeatures = [];
@@ -191,21 +203,21 @@
       WOODPECKER_SERVER_ADDR = ":3007";
       WOODPECKER_OPEN = "true";
 
-      WOODPECKER_ADMINS="Matt";
-      WOODPECKER_ADMIN="Matt";
-      WOODPECKER_GITEA="true";
-      WOODPECKER_GITEA_URL="https://gitea.c4er.com";
+      WOODPECKER_ADMINS = "Matt";
+      WOODPECKER_ADMIN = "Matt";
+      WOODPECKER_GITEA = "true";
+      WOODPECKER_GITEA_URL = "https://gitea.c4er.com";
     };
     # You can pass a file with env vars to the system it could look like:
     # WOODPECKER_AGENT_SECRET=XXXXXXXXXXXXXXXXXXXXXX
     environmentFile = config.sops.secrets."woodpecker/WOODPECKER_AGENT_SECRET".path; # "/path/to/my/secrets/file";
   };
 
-    # This sets up a woodpecker agent
+  # This sets up a woodpecker agent
   services.woodpecker-agents.agents."docker" = {
     enable = true;
     # We need this to talk to the podman socket
-    extraGroups = [ "docker" ];
+    extraGroups = ["docker"];
     environment = {
       WOODPECKER_SERVER = "localhost:9000";
       WOODPECKER_MAX_WORKFLOWS = "4";
@@ -232,20 +244,20 @@
   sops.age.keyFile = "/home/matt/.config/sops/age/keys.txt";
 
   services.gitea = {
-    enable = true;                               # Enable Gitea
-    appName = "Gitea";                           # Give the site a name
+    enable = true; # Enable Gitea
+    appName = "Gitea"; # Give the site a name
     database = {
-      type = "postgres";                         # Database type
+      type = "postgres"; # Database type
       passwordFile = config.sops.secrets."postgres/gitea_dbpass".path;
     };
-    settings.server.DOMAIN = "gitea.c4er.com";                   # Domain name
-    settings.server.ROOT_URL = "https://gitea.c4er.com/";         # Root web URL
-    settings.server.HTTP_PORT = 3001;   
+    settings.server.DOMAIN = "gitea.c4er.com"; # Domain name
+    settings.server.ROOT_URL = "https://gitea.c4er.com/"; # Root web URL
+    settings.server.HTTP_PORT = 3001;
   };
 
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "matttest" config.services.gitea.user ];
+    ensureDatabases = ["matttest" config.services.gitea.user];
     ensureUsers = [
       {
         name = config.services.gitea.database.user;
@@ -268,7 +280,7 @@
   };
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.grub.device= "nodev";
+  boot.loader.grub.device = "nodev";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -277,8 +289,7 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   # nixpkgs.config.allowUnfree = true;
-  networking.extraHosts =
-  ''
+  networking.extraHosts = ''
     127.0.0.2 other-localhost
     127.0.0.1 c4er.com
     127.0.0.1 gitea.c4er.com
@@ -349,16 +360,16 @@
 
   # Firewall ports only for Nebula VPN users
   networking.firewall.interfaces."nebula1".allowedTCPPorts = [
-    80     # caddy http
-    443    # caddy https
-    2015   # quickweb
-    6443   # k3s
-    8090   # pocketbase
+    80 # caddy http
+    443 # caddy https
+    2015 # quickweb
+    6443 # k3s
+    8090 # pocketbase
   ];
 
   # Open ports on all interfaces in the firewall.
   networking.firewall.allowedTCPPorts = [
-    8384  # syncthing
+    8384 # syncthing
     22000 #syncthing
   ];
   networking.firewall.allowedUDPPorts = [
@@ -375,6 +386,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
-

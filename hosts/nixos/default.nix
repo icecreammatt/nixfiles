@@ -1,8 +1,15 @@
-{ lib, inputs, nixpkgs, nixos-hardware, home-manager, hyprland, sops-nix, xremap-flake, ... }:
-
-let
+{
+  lib,
+  inputs,
+  nixpkgs,
+  nixos-hardware,
+  home-manager,
+  hyprland,
+  sops-nix,
+  xremap-flake,
+  ...
+}: let
   user = "matt";
-
   # nixpkgs.overlays = [(self: super:
   #   helix = super.helix.overrideAttrs (old: {
   #     src = super.fetchFromGitHub {
@@ -12,22 +19,21 @@ let
   #     };
   #   });
   # )];
-
-in
-{
+in {
   nixos-vm = lib.nixosSystem {
     pkgs = import nixpkgs {
       system = "aarch64-linux";
       config.allowUnfree = true;
-      overlays = [ 
+      overlays = [
         (import ../../overlay/overlay.nix)
-      ]; 
+      ];
     };
     modules = [
       ./config-common.nix
       ./networking.nix
       ./vm/configuration.nix
-      home-manager.nixosModules.home-manager {
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
@@ -45,15 +51,16 @@ in
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
-      overlays = [ 
+      overlays = [
         (import ../../overlay/overlay.nix)
-      ]; 
+      ];
     };
     modules = [
       ./config-common.nix
       ./networking.nix
       ./vm2/configuration.nix
-      home-manager.nixosModules.home-manager {
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
@@ -68,23 +75,23 @@ in
     ];
   };
 
-   gaming = lib.nixosSystem {
-
+  gaming = lib.nixosSystem {
     # inherit hyprland;
 
     pkgs = import nixpkgs {
       config.allowUnfree = true;
       system = "x86_64-linux";
-      overlays = [ 
+      overlays = [
         (import ../../overlay/overlay.nix)
-      ]; 
+      ];
     };
     modules = [
       ./gaming/configuration.nix
       ./networking.nix
       sops-nix.nixosModules.sops
       inputs.xremap-flake.nixosModules.default
-      home-manager.nixosModules.home-manager {
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
@@ -102,7 +109,8 @@ in
         };
       }
 
-      hyprland.nixosModules.default {
+      hyprland.nixosModules.default
+      {
         programs.hyprland.enable = false;
       }
     ];
@@ -112,16 +120,17 @@ in
     pkgs = import nixpkgs {
       system = "aarch64-linux";
       config.allowUnfree = true;
-      overlays = [ 
+      overlays = [
         (import ../../overlay/overlay.nix)
-      ]; 
+      ];
     };
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
       ./config-common.nix
       ./networking.nix
       ./pi4/configuration.nix
-      home-manager.nixosModules.home-manager {
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
@@ -140,9 +149,9 @@ in
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
-      overlays = [ 
+      overlays = [
         (import ../../overlay/overlay.nix)
-      ]; 
+      ];
     };
     modules = [
       ./config-common.nix
@@ -151,7 +160,8 @@ in
 
       sops-nix.nixosModules.sops
 
-      home-manager.nixosModules.home-manager {
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matt = {
@@ -166,5 +176,4 @@ in
       }
     ];
   };
-
 }
