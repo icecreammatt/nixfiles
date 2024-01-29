@@ -328,6 +328,7 @@
     k3s
     k9s
     docker-compose
+    imagemagick
     kubernetes-helm-wrapped
     lego #certbot lets encrypt
     mkdocs
