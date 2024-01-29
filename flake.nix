@@ -1,9 +1,8 @@
 # This file is the entrypoint into all the system configurations
-
 {
   description = "System configuration for NixOS, Mac, Asahi, RaspberryPi, NixOS VMs";
 
-  inputs = { 
+  inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -35,35 +34,41 @@
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, darwin, hyprland, sops-nix, xremap-flake, ... }:
-    {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    nixos-hardware,
+    home-manager,
+    darwin,
+    hyprland,
+    sops-nix,
+    xremap-flake,
+    ...
+  }: {
+    # Gaming PC, VM, Raspberry Pi
+    nixosConfigurations = (
+      import ./hosts/nixos {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix xremap-flake;
+      }
+    );
 
-      # Gaming PC, VM, Raspberry Pi
-      nixosConfigurations = (
-        import ./hosts/nixos {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix xremap-flake;
-        }
-      );
+    # M1 Mac + Linux config
+    asahiConfiguration = (
+      import ./hosts/asahi {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs home-manager;
+      }
+    );
 
-      # M1 Mac + Linux config
-      asahiConfiguration = (
-        import ./hosts/asahi {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager;
-        }
-      );
-
-      # Mac x86_64/aarch64 configs
-      darwinConfigurations = (
-        import ./hosts/darwin {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager darwin;
-        }
-      );
-
+    # Mac x86_64/aarch64 configs
+    darwinConfigurations = (
+      import ./hosts/darwin {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs home-manager darwin;
+      }
+    );
   };
 }
