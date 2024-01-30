@@ -1,15 +1,18 @@
 {
   inputs,
   nixpkgs,
+  helix-flake,
   home-manager,
   ...
 }: let
   user = "matt";
   userName = "matt";
 
+  # Setup Asahi Architecture
+  system = "aarch64-linux";
+
   pkgs = import nixpkgs {
-    # Setup Asahi Architecture
-    system = "aarch64-linux";
+    inherit system;
 
     # Allow packages like Nvidia Drivers
     config.allowUnfree = true;
@@ -20,6 +23,7 @@
     ];
   };
 
+  # Wrap yazi so images work
   yazi = pkgs.symlinkJoin {
     name = "yazi-wrapped";
     paths = [pkgs.yazi];
@@ -33,7 +37,7 @@ in {
   asahi = home-manager.lib.homeManagerConfiguration {
     # This is duplicated here for home manager
     pkgs = import nixpkgs {
-      system = "aarch64-linux";
+      inherit system;
       config.allowUnfree = true;
       overlays = [
         (import ../../overlay/overlay.nix)
@@ -44,7 +48,8 @@ in {
     modules = [
       ../../modules/common.nix
       {
-        programs.helix.package = inputs.helix-flake.packages."${pkgs.system}".default;
+        # override home manager helix with my fork
+        programs.helix.package = helix-flake.packages."${pkgs.system}".default;
         programs.helix.enable = true;
       }
 
