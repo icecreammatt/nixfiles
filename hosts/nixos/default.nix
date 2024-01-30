@@ -37,7 +37,7 @@ in {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.matt = {
+        home-manager.users."${user}" = {
           home.stateVersion = "23.11";
           imports = [
             ../../modules/core.nix
@@ -64,7 +64,7 @@ in {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.matt = {
+        home-manager.users."${user}" = {
           home.stateVersion = "23.11";
           imports = [
             ../../modules/core.nix
@@ -95,7 +95,7 @@ in {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.matt = {
+        home-manager.users."${user}" = {
           home.stateVersion = "23.11";
           imports = [
             ./gaming/nixos-packages.nix
@@ -134,7 +134,7 @@ in {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.matt = {
+        home-manager.users."${user}" = {
           home.stateVersion = "23.11";
           imports = [
             ../../modules/core.nix
@@ -165,7 +165,7 @@ in {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.matt = {
+        home-manager.users."${user}" = {
           home.stateVersion = "23.11";
           imports = [
             ../../modules/shell/starship.nix
