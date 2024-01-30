@@ -1,7 +1,5 @@
 {
-  lib,
   inputs,
-  helix-flake,
   nixpkgs,
   home-manager,
   ...
@@ -46,9 +44,8 @@ in {
     modules = [
       ../../modules/common.nix
       {
-        programs.helix.package = helix-flake.packages."aarch64-linux".default;
+        programs.helix.package = inputs.helix-flake.packages."${pkgs.system}".default;
         programs.helix.enable = true;
-        home.packages = [helix-flake];
       }
 
       # ../../modules/common-linux-gui.nix
@@ -61,7 +58,6 @@ in {
           username = "${userName}";
           homeDirectory = "/home/${userName}";
           packages = [
-            helix-flake
             pkgs.cascadia-code # Fonts
             pkgs.docker
             pkgs.hex2color # CLI color display
