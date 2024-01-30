@@ -62,7 +62,7 @@ in {
     containers = {
       silverbullet = {
         ports = ["127.0.0.1:3000:3000"];
-        image = "gitea.c4er.com/matt/silverbullet:dev";
+        image = "gitea.c4er.com/matt/silverbullet:0.6.1";
         # command = [ "/bin/sh" ];
         # args = [ "-c" "echo 'Hello, world!'" ];
         volumes = [
