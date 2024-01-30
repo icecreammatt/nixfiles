@@ -4,22 +4,12 @@
   nixpkgs,
   nixos-hardware,
   home-manager,
-  helix-flake,
   hyprland,
+  helix-flake,
   sops-nix,
-  xremap-flake,
   ...
 }: let
   user = "matt";
-  # nixpkgs.overlays = [(self: super:
-  #   helix = super.helix.overrideAttrs (old: {
-  #     src = super.fetchFromGitHub {
-  #       owner = "icecreammatt";
-  #       repo = "helix";
-  #       rev = "6b7d292d29cb03739cdcb3bf82033d995aa4fad3";
-  #     };
-  #   });
-  # )];
 in {
   nixos-vm = lib.nixosSystem {
     pkgs = import nixpkgs {
@@ -158,9 +148,12 @@ in {
       ./config-common.nix
       ./networking.nix
       ./mini/configuration.nix
-
+      {
+        environment.systemPackages = [
+          helix-flake.packages."x86_64-linux".default
+        ];
+      }
       sops-nix.nixosModules.sops
-
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -172,9 +165,6 @@ in {
             ../../modules/common.nix
             ../../modules/rust.nix
             ../../modules/k8s.nix
-            {home.packages = [
-              helix-flake.packages."x86_64-linux".default
-            ];}
           ];
         };
       }
