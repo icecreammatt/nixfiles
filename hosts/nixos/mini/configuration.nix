@@ -70,6 +70,8 @@
       ${pkgs.openssh}/bin/ssh -i /home/matt/.ssh/webcam pi@192.168.50.19 fswebcam -r 1280x1024 --jpeg 90 -D 1 web-cam-shot.jpg
       ${pkgs.openssh}/bin/scp -i /home/matt/.ssh/webcam pi@192.168.50.19:web-cam-shot.jpg $TARGET_NAME
       ${pkgs.uutils-coreutils-noprefix}/bin/ln -f $TARGET_NAME /mnt/storage/webroot/pool/_latest.jpg
+      ${pkgs.imagemagick}/bin/convert /mnt/storage/webroot/pool/_latest.jpg -gravity center -crop 100x100+190+110 +repage /mnt/storage/webroot/pool/_cropped.jpg
+      ${pkgs.imagemagick}/bin/convert /mnt/storage/webroot/pool/_cropped.jpg -resize 900 -sigmoidal-contrast 30x50% -colorspace Gray /mnt/storage/webroot/pool/_zoomed.jpg
     '';
 
     serviceConfig = {
