@@ -1,8 +1,10 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: let
+  domain = "c4er.com";
+  tlsConfig = "tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key";
+
+  reverse_proxy_string = port_number:
+    "handle_path /* {\n        reverse_proxy localhost:" + (toString port_number) + "\n      }";
+in {
   environment.systemPackages = with pkgs; [
     caddy
   ];
@@ -12,7 +14,7 @@
 
     extraConfig = ''
       :443 {
-        tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+        ${tlsConfig}
 
         encode gzip
         file_server
@@ -24,8 +26,8 @@
       }
     '';
 
-    virtualHosts."901.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."901.${domain}".extraConfig = ''
+      ${tlsConfig}
 
       handle_path /* {
         root * "/mnt/storage/webroot/901"
@@ -33,8 +35,8 @@
       }
     '';
 
-    virtualHosts."pool.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."pool.${domain}".extraConfig = ''
+      ${tlsConfig}
 
       handle_path /* {
         root * "/mnt/storage/webroot/pool"
@@ -42,41 +44,33 @@
       }
     '';
 
-    virtualHosts."kopia.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."kopia.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:51515
-      }
+      ${reverse_proxy_string 51515}
     '';
 
-    virtualHosts."metube.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."metube.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:8081
-      }
+      ${reverse_proxy_string 8081}
     '';
 
     # Silverbullet
-    virtualHosts."notes.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."notes.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:3071
-      }
+      ${reverse_proxy_string 3071}
     '';
 
-    virtualHosts."excalidraw.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."excalidraw.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:8085
-      }
+      ${reverse_proxy_string 8085}
     '';
 
-    virtualHosts."wiki.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."wiki.${domain}".extraConfig = ''
+      ${tlsConfig}
 
       handle_path /* {
         root * "/mnt/storage/webroot/wiki/result/www/"
@@ -84,101 +78,81 @@
       }
     '';
 
-    virtualHosts."planka.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."planka.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:3059
-      }
+      ${reverse_proxy_string 3059}
     '';
 
-    virtualHosts."music.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."music.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:4533
-      }
+      ${reverse_proxy_string 4533}
     '';
 
-    virtualHosts."bw-vpn.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."bw-vpn.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:8110
-      }
+      ${reverse_proxy_string 8110}
     '';
 
-    virtualHosts."rewind.c4er.com".extraConfig = ''
+    virtualHosts."rewind.${domain}".extraConfig = ''
       encode gzip
       file_server
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+      ${tlsConfig}
 
       handle_path /media/* {
         root * "/mnt/storage/rewind"
         file_server browse
       }
 
-      handle_path /* {
-        reverse_proxy localhost:4173
-      }
+      ${reverse_proxy_string 4173}
     '';
 
-    virtualHosts."woodpecker.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."woodpecker.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:3007
-      }
+      ${reverse_proxy_string 3007}
     '';
 
-    virtualHosts."gitea.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."gitea.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:3001
-      }
+      ${reverse_proxy_string 3001}
     '';
 
-    virtualHosts."hydra.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."hydra.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:3050
-      }
+      ${reverse_proxy_string 3050}
     '';
 
-    virtualHosts."grafana.c4er.com".extraConfig = ''
-      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+    virtualHosts."grafana.${domain}".extraConfig = ''
+      ${tlsConfig}
 
-      handle_path /* {
-        reverse_proxy localhost:2342
-      }
+      ${reverse_proxy_string 2342}
     '';
 
-    virtualHosts."storybook-rewind.c4er.com".extraConfig = ''
+    virtualHosts."storybook-rewind.${domain}".extraConfig = ''
       encode gzip
       file_server
-      tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
+      ${tlsConfig}
 
       handle_path /media/* {
         root * "/mnt/storage/rewind"
         file_server browse
       }
 
-      handle_path /* {
-        reverse_proxy localhost:6006
-      }
+      ${reverse_proxy_string 6006}
     '';
 
-    virtualHosts."pocketbase-rewind.dev.c4er.com".extraConfig = ''
+    virtualHosts."pocketbase-rewind.dev.${domain}".extraConfig = ''
       tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
-      handle_path /* {
-        reverse_proxy localhost:8090
-      }
+      ${reverse_proxy_string 8090}
     '';
 
-    virtualHosts."rewind.dev.c4er.com".extraConfig = ''
+    virtualHosts."rewind.dev.${domain}".extraConfig = ''
       encode gzip
       file_server
       tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
@@ -188,12 +162,24 @@
         file_server browse
       }
 
-      handle_path /* {
-        reverse_proxy localhost:5174
-      }
+      ${reverse_proxy_string 5174}
     '';
 
-    virtualHosts."rewind-dev-mini.c4er.com".extraConfig = ''
+    virtualHosts."rewind-dev-mini.${domain}".extraConfig = ''
+      encode gzip
+      file_server
+      tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
+      ${tlsConfig}
+
+      handle_path /media/* {
+        root * "/mnt/storage/rewind"
+        file_server browse
+      }
+
+      ${reverse_proxy_string 5173}
+    '';
+
+    virtualHosts."gaming.dev.${domain}".extraConfig = ''
       encode gzip
       file_server
       tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
@@ -203,32 +189,13 @@
         file_server browse
       }
 
-      handle_path /* {
-        reverse_proxy localhost:5173
-      }
+      ${reverse_proxy_string 5173}
     '';
 
-    virtualHosts."gaming.dev.c4er.com".extraConfig = ''
-      encode gzip
-      file_server
+    virtualHosts."k3s.dev.${domain}".extraConfig = ''
       tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
-      handle_path /media/* {
-        root * "/mnt/storage/rewind"
-        file_server browse
-      }
-
-      handle_path /* {
-        reverse_proxy localhost:5173
-      }
-    '';
-
-    virtualHosts."k3s.dev.c4er.com".extraConfig = ''
-      tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
-
-      handle_path /* {
-        reverse_proxy localhost:8001
-      }
+      ${reverse_proxy_string 8001}
     '';
   };
 }
