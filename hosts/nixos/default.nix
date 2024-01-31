@@ -120,6 +120,11 @@ in {
       ./config-common.nix
       ./networking.nix
       ./pi4/configuration.nix
+      {
+        environment.systemPackages = [
+          helix-flake.packages."aarch64-linux".default
+        ];
+      }
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
