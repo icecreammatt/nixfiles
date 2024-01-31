@@ -1,5 +1,15 @@
 # hosts/mc-2A3MD6R-MBP/default.nix
-{pkgs, ...}: {
+{pkgs, ...}: let
+  # Wrap yazi so images work
+  yazi_wrapped = pkgs.symlinkJoin {
+    name = "yazi-wrapped";
+    paths = [pkgs.yazi];
+    nativeBuildInputs = [pkgs.makeBinaryWrapper];
+    postBuild = ''
+      wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
+    '';
+  };
+in {
   system.defaults.dock.autohide = false;
 
   users.users.mcarrier = {
@@ -29,6 +39,7 @@
       jenkins-job-builder
       groovy
       jira-cli-go
+      yazi_wrapped
       # nodePackages_latest.grunt-cli
       # nodePackages_latest.bower
     ];
