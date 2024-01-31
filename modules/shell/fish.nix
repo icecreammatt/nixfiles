@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
     plugins = [
@@ -113,7 +109,6 @@
       pd = "popd";
       br = "broot -c:open_preview";
       lt = "broot -c:open_preview";
-      y = "yazi";
 
       ealias = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
       ea = "$EDITOR ~/nixfiles/modules/shell/fish.nix";
@@ -385,6 +380,41 @@
           return $return_value
 
           [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+        '';
+      };
+      y = {
+        body = ''
+          # Rename this file to match the name of the function
+          # e.g. ~/.config/fish/functions/y.fish
+          # or, add the lines to the 'config.fish' file.
+
+          # Block nesting of yazi in subshells
+          if test -n "$yaziLVL" -a "$yaziLVL" -ge 1
+              echo "yazi is already running"
+              return
+          end
+
+          # The behaviour is set to cd on quit (yazi checks if YAZI_TMPFILE is set)
+          # If YAZI_TMPFILE is set to a custom path, it must be exported for yazi to
+          # see. To cd on quit only on ^G, remove the "-x" from both lines below,
+          # without changing the paths.
+          if test -n "$XDG_CONFIG_HOME"
+              set -x YAZI_TMPFILE "$XDG_CONFIG_HOME/yazi/.lastd"
+          else
+              set -x YAZI_TMPFILE "$HOME/.config/yazi/.lastd"
+          end
+
+          # The command function allows one to alias this function to `yazi` without
+          # making an infinitely recursive alias
+          command yazi --cwd-file=$YAZI_TMPFILE $argv
+
+          if test -e $YAZI_TMPFILE
+              set cwd (cat -- "$YAZI_TMPFILE")
+              if [ -n $cwd -a -n "$YAZI_TMPFILE" -a $cwd != $PWD ]
+                  cd $cwd
+                  rm $YAZI_TMPFILE
+              end
+          end
         '';
       };
       far = {
