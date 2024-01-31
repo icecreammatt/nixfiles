@@ -1,0 +1,7 @@
+[manager]
+layout = [1, 1, 3]
+show_hidden = true
+linemode = "size"
+[preview]
+max_height = 1600
+max_width = 1600

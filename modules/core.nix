@@ -69,6 +69,7 @@ in {
     ./shell/neofetch.nix
     ./shell/scripts.nix
     ./shell/xplr.nix
+    ./shell/yazi.nix
     helix_custom
   ];
 }
