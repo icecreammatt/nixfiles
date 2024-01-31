@@ -2,6 +2,7 @@
   inputs,
   nixpkgs,
   helix-flake,
+  sops-nix,
   home-manager,
   ...
 }: let
@@ -47,6 +48,11 @@ in {
     extraSpecialArgs = {inherit inputs user pkgs;};
     modules = [
       ../../modules/common.nix
+      sops-nix.homeManagerModule
+      {
+        sops.defaultSopsFormat = "yaml";
+        sops.age.keyFile = "/home/matt/.config/sops/age/keys.txt";
+      }
       {
         # override home manager helix with my fork
         programs.helix.package = helix-flake.packages."${pkgs.system}".default;
@@ -69,6 +75,7 @@ in {
             pkgs.home-manager # Used for managing files and programs in home directory
             pkgs.pocketbase
             # pkgs.lilypond-with-fonts # Sheet Music
+            pkgs.sops
             pkgs.nerdfonts # Fonts
             pkgs.nmap # Network Debugging tool
             pkgs.nodejs_20

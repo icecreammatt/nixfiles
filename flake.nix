@@ -65,7 +65,7 @@
     asahiConfiguration = (
       import ./hosts/asahi {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager helix-flake;
+        inherit inputs nixpkgs home-manager sops-nix helix-flake;
       }
     );
 
