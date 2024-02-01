@@ -68,6 +68,11 @@ in {
         home = {
           username = "${userName}";
           homeDirectory = "/home/${userName}";
+
+          # alias wl-copy to pbcopy and pbpaste
+          file."bin/pbcopy".source = "${pkgs.wl-clipboard}/bin/wl-copy";
+          file."bin/pbpaste".source = "${pkgs.wl-clipboard}/bin/wl-paste";
+
           packages = [
             pkgs.cascadia-code # Fonts
             pkgs.docker
