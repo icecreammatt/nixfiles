@@ -1,0 +1,21 @@
+# .sops.yaml
+
+keys:
+  - &primary age1m6p5fqprcepsuwdntzw2khdgstmd28y2us3xvdeqqflz7s5yf34sydejuz
+creation_rules:
+  - path_regex: .secrets/postgres.yaml$
+    key_groups:
+    - age:
+      - *primary
+  - path_regex: .secrets/drone.yaml$
+    key_groups:
+    - age:
+      - *primary
+  - path_regex: .secrets/kopia.ini$
+    key_groups:
+    - age:
+      - *primary
+  - path_regex: .secrets/woodpecker.ini$
+    key_groups:
+    - age:
+      - *primary
