@@ -42,6 +42,10 @@
 
     attic = {
       url = "github:zhaofengli/attic";
+    };
+
+    worm = {
+      url = "github:icecreammatt/ssu-cs315-worm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

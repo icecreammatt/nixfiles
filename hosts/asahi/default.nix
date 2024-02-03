@@ -90,6 +90,7 @@ in {
             pkgs.wl-clipboard # Command-line copy/paste utilities for Wayland
             pkgs.waypipe
             yazi
+            inputs.worm.packages."aarch64-linux".default
             pkgs.zk
           ];
           stateVersion = "23.05";
