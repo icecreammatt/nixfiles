@@ -56,6 +56,12 @@ in {
       ${reverse_proxy_string 8081}
     '';
 
+    virtualHosts."attic.${domain}".extraConfig = ''
+      ${tlsConfig}
+
+      ${reverse_proxy_string 8072}
+    '';
+
     # Silverbullet
     virtualHosts."notes.${domain}".extraConfig = ''
       ${tlsConfig}

@@ -39,6 +39,11 @@
       url = "github:icecreammatt/helix/refs/tags/2024-01-29";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    attic = {
+      url = "github:zhaofengli/attic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -51,13 +56,14 @@
     sops-nix,
     helix-flake,
     xremap-flake,
+    attic,
     ...
   }: {
     # Gaming PC, VM, Raspberry Pi
     nixosConfigurations = (
       import ./hosts/nixos {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix helix-flake;
+        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix helix-flake attic;
       }
     );
 

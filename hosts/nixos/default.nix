@@ -7,6 +7,7 @@
   hyprland,
   helix-flake,
   sops-nix,
+  attic,
   ...
 }: let
   user = "matt";
@@ -158,6 +159,7 @@ in {
           helix-flake.packages."x86_64-linux".default
         ];
       }
+      attic.nixosModules.atticd
       sops-nix.nixosModules.sops
       home-manager.nixosModules.home-manager
       {

@@ -15,6 +15,10 @@ creation_rules:
     key_groups:
     - age:
       - *primary
+  - path_regex: .secrets/attic.ini$
+    key_groups:
+    - age:
+      - *primary
   - path_regex: .secrets/woodpecker.ini$
     key_groups:
     - age:
