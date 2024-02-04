@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   domain = "c4er.com";
   tlsConfig = "tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key";
-  reverse_proxy_string = ./caddy-helpers.nix;
+  reverse_proxy_string = (import ./caddy-helpers.nix).reverse_proxy_string;
 in {
   environment.systemPackages = with pkgs; [
     caddy
