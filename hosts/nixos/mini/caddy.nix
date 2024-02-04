@@ -1,9 +1,7 @@
 {pkgs, ...}: let
   domain = "c4er.com";
   tlsConfig = "tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key";
-
-  reverse_proxy_string = port_number:
-    "handle_path /* {\n        reverse_proxy localhost:" + (toString port_number) + "\n      }";
+  reverse_proxy_string = ./caddy-helpers.nix;
 in {
   environment.systemPackages = with pkgs; [
     caddy
@@ -44,6 +42,21 @@ in {
       }
     '';
 
+    virtualHosts."wiki.${domain}".extraConfig = ''
+      ${tlsConfig}
+
+      handle_path /* {
+        root * "/mnt/storage/webroot/wiki/result/www/"
+        file_server browse
+      }
+    '';
+
+    virtualHosts."excalidraw.${domain}".extraConfig = ''
+      ${tlsConfig}
+
+      ${reverse_proxy_string 8085}
+    '';
+
     virtualHosts."kopia.${domain}".extraConfig = ''
       ${tlsConfig}
 
@@ -69,21 +82,6 @@ in {
       ${reverse_proxy_string 3071}
     '';
 
-    virtualHosts."excalidraw.${domain}".extraConfig = ''
-      ${tlsConfig}
-
-      ${reverse_proxy_string 8085}
-    '';
-
-    virtualHosts."wiki.${domain}".extraConfig = ''
-      ${tlsConfig}
-
-      handle_path /* {
-        root * "/mnt/storage/webroot/wiki/result/www/"
-        file_server browse
-      }
-    '';
-
     virtualHosts."planka.${domain}".extraConfig = ''
       ${tlsConfig}
 
@@ -100,19 +98,6 @@ in {
       ${tlsConfig}
 
       ${reverse_proxy_string 8110}
-    '';
-
-    virtualHosts."rewind.${domain}".extraConfig = ''
-      encode gzip
-      file_server
-      ${tlsConfig}
-
-      handle_path /media/* {
-        root * "/mnt/storage/rewind"
-        file_server browse
-      }
-
-      ${reverse_proxy_string 4173}
     '';
 
     virtualHosts."woodpecker.${domain}".extraConfig = ''
@@ -156,6 +141,19 @@ in {
       tls /mnt/certs/dev.c4er.com/fullchain2.pem  /mnt/certs/dev.c4er.com/privkey2.pem
 
       ${reverse_proxy_string 8090}
+    '';
+
+    virtualHosts."rewind.${domain}".extraConfig = ''
+      encode gzip
+      file_server
+      ${tlsConfig}
+
+      handle_path /media/* {
+        root * "/mnt/storage/rewind"
+        file_server browse
+      }
+
+      ${reverse_proxy_string 4173}
     '';
 
     virtualHosts."rewind.dev.${domain}".extraConfig = ''
