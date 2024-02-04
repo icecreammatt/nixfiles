@@ -73,6 +73,27 @@ in {
           file."bin/pbcopy".source = "${pkgs.wl-clipboard}/bin/wl-copy";
           file."bin/pbpaste".source = "${pkgs.wl-clipboard}/bin/wl-paste";
 
+          # CapabilityBoundingSet=CAP_NET_ADMIN
+          # AmbientCapabilities=CAP_NET_ADMIN
+          # Running this as root is not idea but I cannot get the Set Cap bits to work
+          file.".config/systemd/system/nebula.service".text = ''
+            [Unit]
+            Description=Nebula Service
+            After=network.target
+            StartLimitIntervalSec=0
+
+            [Service]
+            Restart=always
+            Type=simple
+            Restart=always
+            RestartSec=1
+            User=root
+            ExecStart=${pkgs.nebula}/bin/nebula -config /etc/nebula/config.yaml
+
+            [Install]
+            WantedBy = ["multi-user.target"];
+          '';
+
           packages = [
             pkgs.cascadia-code # Fonts
             pkgs.docker
