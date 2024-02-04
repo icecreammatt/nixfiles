@@ -13,6 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Secrets
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,20 +31,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Keyboard hotkey remapping
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Text editor branch
     helix-flake = {
       url = "github:icecreammatt/helix/refs/tags/2024-01-29";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Build caching
     attic = {
       url = "github:zhaofengli/attic";
     };
 
+    # Simple example on how to use flake input
     worm = {
       url = "github:icecreammatt/ssu-cs315-worm";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,7 +68,7 @@
     attic,
     ...
   }: {
-    # Gaming PC, VM, Raspberry Pi
+    # Gaming PC, Mini, VM, Raspberry Pi
     nixosConfigurations = (
       import ./hosts/nixos {
         inherit (nixpkgs) lib;
@@ -71,7 +76,7 @@
       }
     );
 
-    # M1 Mac + Linux config
+    # Asahi Linux (M1 Mac)
     asahiConfiguration = (
       import ./hosts/asahi {
         inherit (nixpkgs) lib;
