@@ -4,7 +4,7 @@
 #path is '/nix/store/2hlvr0mpwlfnlfa11z058dlyjdb1nxak-708dcbce926fdfb40a08ff625148fe11b6fe601d.tar.gz'
 #1xqrylqqgapiwn91cvgsml9c42ywa1hp3hvh5x0apb6jpjjkqk7z
 # after trying to install it wilL fail and say it got Y hash instead. Replace the sha256 with Y hash
-{pkgs, ...}: let
+{...}: let
   system = "x86_64-darwin"; # Todo see how to pass this through from parent
   # version = "18.15.0"; <-- this is for refence for the build sha below
   pkgs = import (builtins.fetchTarball {

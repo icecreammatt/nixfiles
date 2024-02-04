@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  vimUtils,
-  ...
-}:
+{pkgs, ...}:
 # https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/Ligatures/Thin/complete ttf
 # let
 #   # installs a vim plugin from git with a given tag / branch

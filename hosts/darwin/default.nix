@@ -1,7 +1,5 @@
 {
-  lib,
   inputs,
-  nixpkgs,
   home-manager,
   darwin,
   ...

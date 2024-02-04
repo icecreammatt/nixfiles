@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   programs.dircolors.enable = true;
   programs.dircolors.enableFishIntegration = true;
   programs.dircolors.settings = {

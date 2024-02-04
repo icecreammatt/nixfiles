@@ -1,5 +1,5 @@
 # nodejs version 16.13.1
-{pkgs, ...}: let
+{...}: let
   system = "x86_64-darwin"; # Todo see how to pass this through from parent
   # version = "16.13.1"; <-- this is for refence for the build sha below
   pkgs = import (builtins.fetchTarball {
