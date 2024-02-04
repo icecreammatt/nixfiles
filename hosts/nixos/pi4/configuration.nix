@@ -235,6 +235,8 @@ in {
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # Disable ipv6
+  networking.enableIPv6 = false;
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     443
