@@ -14,6 +14,8 @@
       wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
     '';
   };
+
+  reverse_proxy_string = (import ../mini/caddy-helpers.nix).reverse_proxy_string;
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -157,12 +159,18 @@ in {
   services.caddy = {
     enable = true;
 
+
+
+    virtualHosts."notez.c4er.com".extraConfig = ''
+      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+      ${reverse_proxy_string 3071}
+    '';
+
     virtualHosts."notey.c4er.com".extraConfig = ''
       tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
 
-      handle_path /* {
-        reverse_proxy localhost:3000
-      }
+      ${reverse_proxy_string 3000}
     '';
 
     virtualHosts."excalidraw.c4er.com".extraConfig = ''
