@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  # nixpkgs.config.allowUnfree = true;
+{pkgs, ...}: {
   time.timeZone = "America/Los_Angeles";
 
   users.users.matt = {
@@ -25,7 +20,6 @@
   environment.systemPackages = with pkgs; [
     fish
     git
-    # helix
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
   ];
