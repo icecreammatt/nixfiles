@@ -26,5 +26,12 @@
 
   environment.shells = with pkgs; [fish];
   programs.fish.enable = true;
-  services.openssh.enable = true;
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
+  };
 }
