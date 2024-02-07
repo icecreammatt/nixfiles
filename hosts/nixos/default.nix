@@ -151,6 +151,7 @@ in {
       ];
     };
     modules = [
+      ../../modules/dark-theme.nix
       ./config-common.nix
       ./networking.nix
       ./mini/configuration.nix
@@ -168,6 +169,7 @@ in {
         home-manager.users."${user}" = {
           home.stateVersion = "23.11";
           imports = [
+            ../../modules/dark-theme.nix
             ../../modules/shell/starship.nix
             ../../modules/common.nix
             ../../modules/rust.nix

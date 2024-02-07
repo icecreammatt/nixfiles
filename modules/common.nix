@@ -1,10 +1,11 @@
 {
+  config,
   pkgs,
   lib,
   ...
 }: let
   # Enable dark mode theme
-  isDark = true;
+  isDark = config.darkTheme;
 
   # Override to pass darkmode settings
   wezterm_custom = import ./shell/wezterm.nix {inherit isDark;};
