@@ -77,6 +77,28 @@ in {
         ];
         # restartPolicy = "always";
       };
+      pihole = {
+        ports = [
+          "192.168.10.10:53:53/tcp"
+          "192.168.10.10:53:53/udp"
+          "127.0.0.1:3080:80"
+          "127.0.0.1:30443:443"
+        ];
+        image = "pihole/pihole:latest";
+        volumes = [
+          "/var/lib/pihole/:/etc/pihole/"
+          "/var/lib/dnsmasq.d:/etc/dnsmasq.d/"
+        ];
+        environment = {
+          ServerIP = "192.168.10.10";
+        };
+        extraOptions = [
+          "--cap-add=NET_ADMIN"
+          "--dns=127.0.0.1"
+          "--dns=1.1.1.1"
+        ];
+        workdir = "/var/lib/pihole/";
+      };
     };
   };
 
@@ -165,6 +187,11 @@ in {
     enable = true;
 
 
+    virtualHosts."pihole.c4er.com".extraConfig = ''
+      tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
+
+      ${reverse_proxy_string 3080}
+    '';
 
     virtualHosts."notez.c4er.com".extraConfig = ''
       tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key
@@ -244,6 +271,7 @@ in {
   networking.enableIPv6 = false;
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
+    53 # DNS
     443
     8384 # syncthing
     22000 #syncthing
@@ -252,6 +280,7 @@ in {
   networking.firewall.allowedUDPPorts = [
     22000 #syncthing
     21027 #syncthing
+    53 # DNS Pihole
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
