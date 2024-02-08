@@ -47,6 +47,7 @@ in {
 
     extraSpecialArgs = {inherit inputs user pkgs;};
     modules = [
+      ../../modules/options.nix
       ../../modules/common.nix
       sops-nix.homeManagerModule
       {
