@@ -83,8 +83,8 @@
       gsp = "git stash pop";
       gsl = "git stash list";
       grh = "git reset --hard";
-      gclean = "git remote prune origin; git branch --merged | grep -v -E \"(\*|master|main|dev|release|hotfix|trunk|prod)\" | xargs -n 1 git branch -d";
-      gcleanall = "git remote prune origin; git branch | grep -v -E \"(\*|master|main|dev|release|hotfix|trunk|prod)\" | xargs -n 1 git branch -D";
+      gclean = "git remote prune origin; git branch --merged | grep -v -E '(master|main|dev|release|hotfix|trunk|prod)' | xargs -n 1 git branch -d";
+      gcleanall = "git remote prune origin; git branch | grep -v -E '(master|main|dev|release|hotfix|trunk|prod)' | xargs -n 1 git branch -D";
       gs = "git show";
       gf = "git fetch --all";
       gb = "git branch -a";
