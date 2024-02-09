@@ -19,6 +19,7 @@ in {
 
   home-manager.users.mcarrier = {pkgs, ...}: {
     imports = [
+      ../../../../modules/options.nix
       ../../../../modules/common.nix
       ../../../../modules/shell/starship.nix
       # ../../../../modules/keyboard-dev.nix

@@ -12,6 +12,7 @@ in {
     system = "x86_64-darwin";
     specialArgs = {user = userWork inputs;};
     modules = [
+      ../../modules/options.nix
       ./hosts/work/default.nix
       ./hosts/configuration.nix
       home-manager.darwinModules.home-manager
@@ -34,6 +35,7 @@ in {
     system = "aarch64-darwin";
     specialArgs = {user = userPersonal inputs;};
     modules = [
+      ../../modules/options.nix
       ./hosts/Bebop/default.nix
       ./hosts/configuration.nix
       home-manager.darwinModules.home-manager

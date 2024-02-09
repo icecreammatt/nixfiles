@@ -9,6 +9,7 @@
 
   home-manager.users.matt = {pkgs, ...}: {
     imports = [
+      ../../../../modules/options.nix
       ../../../../modules/common.nix
       ../../../../modules/rust.nix
       ../../../../modules/shell/gitui.nix
