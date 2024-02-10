@@ -264,7 +264,7 @@ in {
 
     [[language]]
     name = "yaml"
-    file-types = ["yaml"]
+    file-types = ["yaml", "yml"]
     indent = { tab-width = 2, unit = "  " }
 
     [[language]]
