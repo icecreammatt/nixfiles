@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ../../../modules/vpn/nebula.nix
     ../../../modules/apps/vaultwarden.nix
+    ../../../modules/apps/navidrone.nix
     ../../../modules/ci/hydra.nix
     ./caddy.nix
     ./kopia.nix
@@ -143,13 +144,6 @@
         guest.port = 22;
       }
     ];
-  };
-
-  services.navidrome = {
-    enable = true;
-    settings = {
-      MusicFolder = "/mnt/storage/music";
-    };
   };
 
   virtualisation.oci-containers = {
