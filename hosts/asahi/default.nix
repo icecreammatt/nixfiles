@@ -65,8 +65,8 @@ in {
       # ../../modules/keyboard-dev.nix
       {
         home = {
-          username = "${userName}";
-          homeDirectory = "/home/${userName}";
+          username = "${user}";
+          homeDirectory = "/home/${user}";
 
           # alias wl-copy to pbcopy and pbpaste
           file."bin/pbcopy".source = "${pkgs.wl-clipboard}/bin/wl-copy";
