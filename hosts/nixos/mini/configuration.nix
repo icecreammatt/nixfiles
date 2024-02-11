@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ../../../modules/vpn/nebula.nix
     ../../../modules/apps/vaultwarden.nix
+    ../../../modules/ci/hydra.nix
     ./caddy.nix
     ./kopia.nix
     ./logging.nix
@@ -203,24 +204,6 @@
   # services.k3s.extraFlags = toString [
   # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   # ];
-
-  services.hydra = {
-    enable = true;
-    port = 3050;
-    notificationSender = "hydra@localhost"; # e-mail of hydra service
-    hydraURL = "http://localhost:3050";
-    # buildMachinesFiles = [];
-    useSubstitutes = true;
-  };
-
-  nix.buildMachines = [
-    {
-      hostName = "localhost";
-      system = "x86_64-linux";
-      supportedFeatures = [];
-      maxJobs = 8;
-    }
-  ];
 
   services.woodpecker-server = {
     enable = true;
