@@ -10,6 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../../modules/vpn/nebula.nix
+    ../../../modules/DE/kde/plasma.nix
     ../../../modules/apps/vaultwarden.nix
     ../../../modules/apps/navidrone.nix
     ../../../modules/ci/hydra.nix
@@ -36,28 +37,6 @@
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = ["matt"];
   users.users.matt.extraGroups = ["docker"];
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  programs.xwayland.enable = true;
-
-  # Enable login manager
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
-
-  # KDE Plasma
-  services.xserver.displayManager.defaultSession = "plasmawayland";
-  services.xserver.desktopManager.plasma5.enable = true;
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-    elisa
-    gwenview
-    okular
-    oxygen
-    khelpcenter
-    konsole
-    plasma-browser-integration
-    print-manager
-  ];
 
   sops.secrets."attic/ATTIC_SERVER_TOKEN_HS256_SECRET_BASE64" = {
     sopsFile = ../../../.secrets/attic.ini;
@@ -315,9 +294,6 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
