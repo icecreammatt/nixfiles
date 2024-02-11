@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  user,
   ...
 }: {
   imports = [
@@ -35,8 +36,8 @@
   ];
 
   virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = ["matt"];
-  users.users.matt.extraGroups = ["docker"];
+  users.extraGroups.docker.members = [user];
+  users.users.${user}.extraGroups = ["docker"];
 
   sops.secrets."attic/ATTIC_SERVER_TOKEN_HS256_SECRET_BASE64" = {
     sopsFile = ../../../.secrets/attic.ini;
@@ -90,8 +91,8 @@
   # systemd.services."gauge-check" = {
   #   script = ''
   #     TARGET_NAME="/mnt/storage/webroot/pool/pressure-$(date +"%Y%m%d_%H%M%S.%N").jpg"
-  #     ${pkgs.openssh}/bin/ssh -i /home/matt/.ssh/webcam pi@192.168.50.19 fswebcam -r 1280x1024 --jpeg 90 -D 1 web-cam-shot.jpg
-  #     ${pkgs.openssh}/bin/scp -i /home/matt/.ssh/webcam pi@192.168.50.19:web-cam-shot.jpg $TARGET_NAME
+  #     ${pkgs.openssh}/bin/ssh -i /home/${user}/.ssh/webcam pi@192.168.50.19 fswebcam -r 1280x1024 --jpeg 90 -D 1 web-cam-shot.jpg
+  #     ${pkgs.openssh}/bin/scp -i /home/${user}/.ssh/webcam pi@192.168.50.19:web-cam-shot.jpg $TARGET_NAME
   #     ${pkgs.uutils-coreutils-noprefix}/bin/ln -f $TARGET_NAME /mnt/storage/webroot/pool/_latest.jpg
   #     ${pkgs.imagemagick}/bin/convert /mnt/storage/webroot/pool/_latest.jpg -gravity center -crop 100x100+190+110 +repage /mnt/storage/webroot/pool/_cropped.jpg
   #     ${pkgs.imagemagick}/bin/convert /mnt/storage/webroot/pool/_cropped.jpg -resize 900 -sigmoidal-contrast 30x50% -colorspace Gray /mnt/storage/webroot/pool/_zoomed.jpg
@@ -135,7 +136,7 @@
         # command = [ "/bin/sh" ];
         # args = [ "-c" "echo 'Hello, world!'" ];
         volumes = [
-          "/home/matt/SyncWork/Notes/Notes:/space"
+          "/home/${user}/SyncWork/Notes/Notes:/space"
         ];
         # restartPolicy = "always";
       };
@@ -164,7 +165,7 @@
     enable = true;
     description = "rewind-db";
     serviceConfig = {
-      ExecStart = "/home/matt/pocketbase/pocketbase serve";
+      ExecStart = "/home/${user}/pocketbase/pocketbase serve";
       Type = "simple";
       Restart = "always";
       RestartSec = 1;
@@ -223,7 +224,7 @@
   };
 
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/matt/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
 
   services.gitea = {
     enable = true; # Enable Gitea
@@ -255,7 +256,7 @@
   services = {
     syncthing = {
       enable = true;
-      user = "matt";
+      user = user;
       dataDir = "/mnt/storage/syncthing/personal";
       configDir = "/mnt/storage/syncthing/config";
     };

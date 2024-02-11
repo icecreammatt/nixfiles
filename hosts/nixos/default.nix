@@ -150,6 +150,9 @@ in {
         (import ../../overlay/overlay.nix)
       ];
     };
+    specialArgs = {
+      inherit user;
+    };
     modules = [
       ../../modules/options.nix
       ./config-common.nix
