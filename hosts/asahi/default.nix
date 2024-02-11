@@ -4,11 +4,9 @@
   helix-flake,
   sops-nix,
   home-manager,
+  user,
   ...
 }: let
-  user = "matt";
-  userName = "matt";
-
   # Setup Asahi Architecture
   system = "aarch64-linux";
 
