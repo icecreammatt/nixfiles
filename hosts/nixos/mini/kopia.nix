@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  user,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -23,7 +24,7 @@
     serviceConfig = {
       ExecStart = "${pkgs.kopia}/bin/kopia server start --insecure --server-username $USERNAME --server-password $PASSWORD";
       Type = "simple";
-      User = "matt";
+      User = user;
       Group = "users";
       EnvironmentFile = [
         config.sops.secrets."kopia/PASSWORD".path

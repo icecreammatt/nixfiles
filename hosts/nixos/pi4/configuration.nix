@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  user,
   ...
 }: let
   yazi = pkgs.symlinkJoin {
@@ -73,7 +74,7 @@ in {
         # command = [ "/bin/sh" ];
         # args = [ "-c" "echo 'Hello, world!'" ];
         volumes = [
-          "/home/matt/SyncWork/Notes/Notes:/space"
+          "/home/${user}/SyncWork/Notes/Notes:/space"
         ];
         # restartPolicy = "always";
       };
@@ -117,7 +118,7 @@ in {
   services = {
     syncthing = {
       enable = true;
-      user = "matt";
+      user = user;
       dataDir = "/mnt/syncthing/personal";
       configDir = "/mnt/syncthing/config";
     };
@@ -153,7 +154,7 @@ in {
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.matt = {
+  # users.users.${user} = {
   #   shell = pkgs.fish;
   #   isNormalUser = true;
   #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
@@ -185,7 +186,6 @@ in {
 
   services.caddy = {
     enable = true;
-
 
     virtualHosts."pihole.c4er.com".extraConfig = ''
       tls /mnt/certs/c4er.com/c4er.com.crt /mnt/certs/c4er.com/c4er.com.key

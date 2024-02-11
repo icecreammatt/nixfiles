@@ -67,12 +67,14 @@
     xremap-flake,
     attic,
     ...
-  }: {
+  }: let
+    user = "matt";
+  in {
     # Gaming PC, Mini, VM, Raspberry Pi
     nixosConfigurations = (
       import ./hosts/nixos {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix helix-flake attic;
+        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix helix-flake attic user;
       }
     );
 
@@ -80,7 +82,7 @@
     asahiConfiguration = (
       import ./hosts/asahi {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager sops-nix helix-flake;
+        inherit inputs nixpkgs home-manager sops-nix helix-flake user;
       }
     );
 

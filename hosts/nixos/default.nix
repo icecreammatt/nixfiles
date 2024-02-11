@@ -8,10 +8,9 @@
   helix-flake,
   sops-nix,
   attic,
+  user,
   ...
-}: let
-  user = "matt";
-in {
+}: {
   nixos-vm = lib.nixosSystem {
     pkgs = import nixpkgs {
       system = "aarch64-linux";
@@ -19,6 +18,9 @@ in {
       overlays = [
         (import ../../overlay/overlay.nix)
       ];
+    };
+    specialArgs = {
+      inherit user;
     };
     modules = [
       ./config-common.nix
@@ -46,6 +48,9 @@ in {
       overlays = [
         (import ../../overlay/overlay.nix)
       ];
+    };
+    specialArgs = {
+      inherit user;
     };
     modules = [
       ./config-common.nix
@@ -115,6 +120,9 @@ in {
       overlays = [
         (import ../../overlay/overlay.nix)
       ];
+    };
+    specialArgs = {
+      inherit user;
     };
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4

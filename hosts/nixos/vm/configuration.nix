@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  user,
   ...
 }: {
   imports = [
@@ -56,7 +57,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.matt = {
+  # users.users.${user} = {
   #   shell = pkgs.fish;
   # 	isNormalUser = true;
   # 	extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.

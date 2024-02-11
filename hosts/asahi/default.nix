@@ -52,7 +52,7 @@ in {
       sops-nix.homeManagerModule
       {
         sops.defaultSopsFormat = "yaml";
-        sops.age.keyFile = "/home/matt/.config/sops/age/keys.txt";
+        sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
       }
       {
         # override home manager helix with my fork

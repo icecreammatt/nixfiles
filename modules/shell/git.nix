@@ -1,5 +1,4 @@
 {user, ...}: let
-  inherit user;
   fullName = "${user.firstName} ${user.lastName}";
   #email = user.email;
 in {
@@ -23,7 +22,7 @@ in {
         defaultBranch = "main";
       };
       core = {
-        excludesfile = "/home/matt/.gitignore_global";
+        excludesfile = "/home/${user}/.gitignore_global";
         autocrlf = "input";
         trustctime = false;
         pager = "delta";
