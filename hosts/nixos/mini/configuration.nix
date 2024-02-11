@@ -186,8 +186,8 @@
       WOODPECKER_SERVER_ADDR = ":3007";
       WOODPECKER_OPEN = "true";
 
-      WOODPECKER_ADMINS = "Matt";
-      WOODPECKER_ADMIN = "Matt";
+      WOODPECKER_ADMINS = user;
+      WOODPECKER_ADMIN = user;
       WOODPECKER_GITEA = "true";
       WOODPECKER_GITEA_URL = "https://gitea.c4er.com";
     };
