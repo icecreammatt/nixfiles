@@ -2,10 +2,10 @@
   inputs,
   home-manager,
   darwin,
+  user,
   ...
 }: let
-  userWork = "mcarrier";
-  userPersonal = "matt";
+  userWork = "mcarrier"; # override default user
 in {
   # Work laptop config for x86 architecture
   MC-DSS-MBPR19 = darwin.lib.darwinSystem {
@@ -33,7 +33,7 @@ in {
   # Personal laptop config for M1 architecture
   Bebop = darwin.lib.darwinSystem {
     system = "aarch64-darwin";
-    specialArgs = {user = userPersonal inputs;};
+    specialArgs = {user = user inputs;};
     modules = [
       ../../modules/options.nix
       ./hosts/Bebop/default.nix
@@ -42,8 +42,8 @@ in {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {user = userPersonal;}; # Pass flake variable
-        home-manager.users.${userPersonal} = {
+        home-manager.extraSpecialArgs = {user = user;}; # Pass flake variable
+        home-manager.users.${user} = {
           home = {
             stateVersion = "22.11";
           };
