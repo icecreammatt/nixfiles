@@ -64,6 +64,7 @@ in {
     ./shell/bottom.nix
     ./shell/broot.nix
     ./shell/fish.nix
+    ./shell/bash.nix
     ./shell/lazygit.nix
     ./shell/mprocs.nix
     ./shell/neofetch.nix
