@@ -21,16 +21,6 @@
       (import ../../overlay/overlay.nix)
     ];
   };
-
-  # Wrap yazi so images work
-  yazi = pkgs.symlinkJoin {
-    name = "yazi-wrapped";
-    paths = [pkgs.yazi];
-    nativeBuildInputs = [pkgs.makeBinaryWrapper];
-    postBuild = ''
-      wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
-    '';
-  };
 in {
   # M1 Macbook Pro + Asahi Linux Configuration
   asahi = home-manager.lib.homeManagerConfiguration {
@@ -62,6 +52,7 @@ in {
       ../../modules/shell/gitui.nix
       ../../modules/shell/starship.nix
       ../../modules/rust.nix
+      ../../modules/shell/yazi.nix
       # ../../modules/keyboard-dev.nix
       {
         home = {
@@ -109,7 +100,6 @@ in {
             pkgs.which # Determine where processes are
             pkgs.wl-clipboard # Command-line copy/paste utilities for Wayland
             pkgs.waypipe
-            yazi
             inputs.worm.packages."aarch64-linux".default
             pkgs.zk
           ];
