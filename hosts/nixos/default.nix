@@ -9,6 +9,7 @@
   sops-nix,
   attic,
   user,
+  username,
   ...
 }: {
   nixos-vm = lib.nixosSystem {
@@ -159,7 +160,7 @@
       ];
     };
     specialArgs = {
-      inherit user;
+      inherit user username;
     };
     modules = [
       ../../modules/options.nix
@@ -177,11 +178,13 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {inherit user username;};
         home-manager.users."${user}" = {
           home.stateVersion = "23.11";
           imports = [
             ../../modules/options.nix
             ../../modules/shell/starship.nix
+            ../../modules/shell/git.nix
             ../../modules/common.nix
             ../../modules/rust.nix
             ../../modules/k8s.nix
