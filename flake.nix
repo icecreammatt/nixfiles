@@ -69,12 +69,13 @@
     ...
   }: let
     user = "matt";
+    username = "Matt Carrier";
   in {
     # Gaming PC, Mini, VM, Raspberry Pi
     nixosConfigurations = (
       import ./hosts/nixos {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix helix-flake attic user;
+        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix helix-flake attic user username;
       }
     );
 
@@ -82,7 +83,7 @@
     asahiConfiguration = (
       import ./hosts/asahi {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager sops-nix helix-flake user;
+        inherit inputs nixpkgs home-manager sops-nix helix-flake user username;
       }
     );
 
@@ -90,7 +91,7 @@
     darwinConfigurations = (
       import ./hosts/darwin {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager darwin user;
+        inherit inputs nixpkgs home-manager darwin user username;
       }
     );
   };

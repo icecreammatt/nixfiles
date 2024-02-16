@@ -5,6 +5,7 @@
   sops-nix,
   home-manager,
   user,
+  username,
   ...
 }: let
   # Setup Asahi Architecture
@@ -33,7 +34,7 @@ in {
       ];
     };
 
-    extraSpecialArgs = {inherit inputs user pkgs;};
+    extraSpecialArgs = {inherit inputs user username pkgs;};
     modules = [
       ../../modules/options.nix
       ../../modules/common.nix
@@ -50,6 +51,7 @@ in {
 
       # ../../modules/common-linux-gui.nix
       ../../modules/shell/gitui.nix
+      ../../modules/shell/git.nix
       ../../modules/shell/starship.nix
       ../../modules/rust.nix
       ../../modules/shell/yazi.nix
