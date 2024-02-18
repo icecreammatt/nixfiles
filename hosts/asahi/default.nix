@@ -92,6 +92,7 @@ in {
             pkgs.hex2color # CLI color display
             pkgs.home-manager # Used for managing files and programs in home directory
             pkgs.pocketbase
+            pkgs.spectacle
             # pkgs.lilypond-with-fonts # Sheet Music
             pkgs.sops
             pkgs.nerdfonts # Fonts
