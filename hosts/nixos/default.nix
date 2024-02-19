@@ -10,6 +10,7 @@
   attic,
   user,
   username,
+  darkmode,
   ...
 }: {
   nixos-vm = lib.nixosSystem {
@@ -21,7 +22,7 @@
       ];
     };
     specialArgs = {
-      inherit user;
+      inherit user darkmode;
     };
     modules = [
       ./config-common.nix
@@ -51,7 +52,7 @@
       ];
     };
     specialArgs = {
-      inherit user;
+      inherit user darkmode;
     };
     modules = [
       ./config-common.nix
@@ -123,7 +124,7 @@
       ];
     };
     specialArgs = {
-      inherit user;
+      inherit user darkmode;
     };
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
@@ -140,7 +141,7 @@
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
-          inherit user username;
+          inherit user username darkmode;
           isDark = true;
         };
         home-manager.users."${user}" = {
@@ -164,7 +165,7 @@
       ];
     };
     specialArgs = {
-      inherit user username;
+      inherit user username darkmode;
     };
     modules = [
       ../../modules/options.nix
@@ -182,7 +183,7 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {inherit user username;};
+        home-manager.extraSpecialArgs = {inherit user username darkmode;};
         home-manager.users."${user}" = {
           home.stateVersion = "23.11";
           imports = [
