@@ -6,6 +6,7 @@
   home-manager,
   user,
   username,
+  darkmode,
   ...
 }: let
   # Setup Asahi Architecture
@@ -34,7 +35,7 @@ in {
       ];
     };
 
-    extraSpecialArgs = {inherit inputs user username pkgs;};
+    extraSpecialArgs = {inherit inputs user username darkmode pkgs;};
     modules = [
       ../../modules/options.nix
       ../../modules/common.nix

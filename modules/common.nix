@@ -1,15 +1,12 @@
 {
-  config,
   pkgs,
   lib,
+  darkmode,
   ...
 }: let
-  # Enable dark mode theme
-  isDark = config.darkTheme;
-
   # Override to pass darkmode settings
-  wezterm_custom = import ./shell/wezterm.nix {inherit isDark;};
-  core_override = import ./core.nix {inherit pkgs lib isDark;};
+  wezterm_custom = import ./shell/wezterm.nix {inherit darkmode;};
+  core_override = import ./core.nix {inherit pkgs lib darkmode;};
 in {
   home.packages = with pkgs; [
     # audacity

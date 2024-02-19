@@ -1,7 +1,6 @@
-{isDark, ...}: let
-  config = {darkmode = isDark;};
+{darkmode, ...}: let
   theme =
-    if config.darkmode
+    if darkmode
     then "catppuccin_frappe"
     else "catppuccin_latte";
 in {

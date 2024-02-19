@@ -2,11 +2,11 @@
 # Modern Unix https://github.com/ibraheemdev/modern-unix
 {
   pkgs,
-  isDark,
+  darkmode,
   ...
 }: let
   # Override to inject light vs dark theme setting
-  helix_custom = import ./editors/helix.nix {inherit isDark;};
+  helix_custom = import ./editors/helix.nix {inherit darkmode;};
   hello = import ./bin/hello.nix {inherit pkgs;};
 in {
   home.packages = with pkgs; [

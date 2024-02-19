@@ -70,12 +70,13 @@
   }: let
     user = "matt";
     username = "Matt Carrier";
+    darkmode = true;
   in {
     # Gaming PC, Mini, VM, Raspberry Pi
     nixosConfigurations = (
       import ./hosts/nixos {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix helix-flake attic user username;
+        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix helix-flake attic user username darkmode;
       }
     );
 
@@ -83,7 +84,7 @@
     asahiConfiguration = (
       import ./hosts/asahi {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager sops-nix helix-flake user username;
+        inherit inputs nixpkgs home-manager sops-nix helix-flake user username darkmode;
       }
     );
 
@@ -91,7 +92,7 @@
     darwinConfigurations = (
       import ./hosts/darwin {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager darwin user username;
+        inherit inputs nixpkgs home-manager darwin user username darkmode;
       }
     );
   };
