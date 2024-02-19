@@ -86,6 +86,7 @@
       nmap_lan = "sudo nmap -p 192.168.88.0/24";
       enable_nvm = "load_nvm > /dev/stderr";
       quickweb = "caddy file-server --browse --listen :2015";
+      agent = "eval (ssh-agent -c)";
     };
     functions = {
       certdump = {
