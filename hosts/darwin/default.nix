@@ -3,6 +3,7 @@
   home-manager,
   darwin,
   user,
+  darkmode,
   ...
 }: let
   userWork = "mcarrier"; # override default user
@@ -10,7 +11,7 @@ in {
   # Work laptop config for x86 architecture
   MC-DSS-MBPR19 = darwin.lib.darwinSystem {
     system = "x86_64-darwin";
-    specialArgs = {user = userWork inputs;};
+    specialArgs = {user = userWork inputs darkmode;};
     modules = [
       ../../modules/options.nix
       ./hosts/work/default.nix
@@ -19,7 +20,10 @@ in {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {user = userWork;}; # Pass flake variable
+        home-manager.extraSpecialArgs = {
+          user = userWork;
+          darkmode = darkmode;
+        }; # Pass flake variable
         home-manager.users.${userWork} = {
           home = {
             stateVersion = "22.11";
@@ -42,7 +46,10 @@ in {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {user = user;}; # Pass flake variable
+        home-manager.extraSpecialArgs = {
+          user = user;
+          darkmode = darkmode;
+        }; # Pass flake variable
         home-manager.users.${user} = {
           home = {
             stateVersion = "22.11";
