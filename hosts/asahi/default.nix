@@ -94,6 +94,7 @@ in {
             pkgs.home-manager # Used for managing files and programs in home directory
             pkgs.pocketbase
             pkgs.spectacle
+            # pkgs.blender # add this back after openGL drivers are updated to 3.3 currently is 3.1
             # pkgs.lilypond-with-fonts # Sheet Music
             pkgs.sops
             pkgs.nerdfonts # Fonts
