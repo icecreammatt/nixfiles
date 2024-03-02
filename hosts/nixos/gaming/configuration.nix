@@ -13,7 +13,7 @@ in {
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./udev.nix
-    ../mini/caddy.nix
+    # ../mini/caddy.nix
     ../../../modules/airplay/uxplay.nix
     ../../../modules/DE/xremap.nix
   ];
