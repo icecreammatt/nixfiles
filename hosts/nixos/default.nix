@@ -76,7 +76,9 @@
 
   gaming = lib.nixosSystem {
     # inherit hyprland;
-
+    specialArgs = {
+      inherit user darkmode;
+    };
     pkgs = import nixpkgs {
       config.allowUnfree = true;
       system = "x86_64-linux";
@@ -93,6 +95,7 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {inherit user username darkmode;};
         home-manager.users."${user}" = {
           home.stateVersion = "23.11";
           imports = [
