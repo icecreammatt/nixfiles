@@ -88,6 +88,11 @@
     };
     modules = [
       ./gaming/configuration.nix
+      {
+        environment.systemPackages = [
+          helix-flake.packages."x86_64-linux".default
+        ];
+      }
       ./networking.nix
       sops-nix.nixosModules.sops
       inputs.xremap-flake.nixosModules.default
