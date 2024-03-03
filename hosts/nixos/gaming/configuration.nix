@@ -26,10 +26,11 @@ in {
   services.blueman.enable = true;
 
   # Nvidia
-  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.open = true;
+
   hardware.opengl.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
-  hardware.nvidia.nvidiaPersistenced = true;
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
   hardware.nvidia.modesetting.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
