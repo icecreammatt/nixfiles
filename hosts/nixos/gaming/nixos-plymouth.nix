@@ -2,7 +2,7 @@
   stdenv,
   fetchgit,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "nixos-blur";
   version = "unstable-2022-07-08";
 

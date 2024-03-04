@@ -108,7 +108,6 @@ in {
   #   })
   # ];
 
-  programs.fish.enable = true;
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   #  nixpkgs.config.packageOverrides = pkgs: {
@@ -258,21 +257,10 @@ in {
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.defaultUserShell = pkgs.fish;
+  # users.defaultUserShell = pkgs.fish;
   users.users.matt = {
     isNormalUser = true;
-    description = "matt";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      bitwarden
-      waybar
-      firefox
-      neovim
-      git
-      lm_sensors
-      nodejs
-      sublime-merge
-    ];
   };
 
   # Allow unfree packages
@@ -281,21 +269,27 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  environment.sessionVariables = rec {
+  environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   environment.systemPackages = with pkgs; [
-    glxinfo
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    killall
-    fish
-    waypipe
+    bitwarden
     blender
-    sops
-    gamescope
-    mangohud
     # cage
+    firefox
+    gamescope
+    glxinfo
+    killall
+    lm_sensors
+    mangohud
+    neovim
+    nodejs
+    sops
+    sublime-merge
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    waybar
+    waypipe
 
     # Wine for Ableton (Using Steam Proton instead)
     # wine64
@@ -303,7 +297,6 @@ in {
     # winetricks
 
     # sunshine
-    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -313,12 +306,6 @@ in {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = false;
 
   systemd.services.nebula = {
     enable = true;

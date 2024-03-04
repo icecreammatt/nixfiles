@@ -88,6 +88,7 @@
     };
     modules = [
       ./gaming/configuration.nix
+      ./config-common.nix
       {
         environment.systemPackages = [
           helix-flake.packages."x86_64-linux".default

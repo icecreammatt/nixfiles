@@ -5,6 +5,8 @@
 }: {
   time.timeZone = "America/Los_Angeles";
 
+  users.defaultUserShell = pkgs.fish;
+
   users.users.${user} = {
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmdl6XNEdT+EWf1IDRjHAygUIGpNCaBv9Qhm19cRCEm"
@@ -13,6 +15,7 @@
     ];
     shell = pkgs.fish;
     isNormalUser = true;
+    description = "${user}";
     extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       fish
