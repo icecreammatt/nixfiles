@@ -14,6 +14,7 @@
       gcm = "git checkout main || git checkout master";
       co = "checkout";
       cob = "checkout -b";
+      cp = "cherry-pick";
       ec = "config --global -e";
       wipe = "!git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard";
     };
