@@ -29,6 +29,9 @@
           ];
         };
       };
+      diff = {
+        algorithm = "histogram";
+      };
       core = {
         excludesfile = "/home/${user}/.gitignore_global";
         autocrlf = "input";
