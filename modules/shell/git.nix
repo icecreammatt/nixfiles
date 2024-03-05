@@ -22,6 +22,13 @@
       init = {
         defaultBranch = "main";
       };
+      url = {
+        "git@github.com:" = {
+          insteadOf = [
+            "https://github.com/"
+          ];
+        };
+      };
       core = {
         excludesfile = "/home/${user}/.gitignore_global";
         autocrlf = "input";
