@@ -109,6 +109,7 @@
             ../../modules/common.nix
             ../../modules/common-linux.nix
             ../../modules/common-linux-gui.nix
+            ../../modules/shell/git.nix
             ../../modules/rust.nix
             ../../modules/DE/rofi.nix
             # ../../modules/DE/hypr.nix
