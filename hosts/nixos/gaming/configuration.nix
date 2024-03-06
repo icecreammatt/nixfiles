@@ -260,7 +260,7 @@ in {
   # users.defaultUserShell = pkgs.fish;
   users.users.matt = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "dialout"];
   };
 
   # Allow unfree packages
