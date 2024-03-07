@@ -16,6 +16,7 @@ in {
     # ../mini/caddy.nix
     ../../../modules/airplay/uxplay.nix
     ../../../modules/DE/xremap.nix
+    ../../../modules/editors/arduino.nix
   ];
 
   system.autoUpgrade.enable = false;

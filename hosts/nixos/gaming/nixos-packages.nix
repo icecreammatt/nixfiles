@@ -1,11 +1,6 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     avrdude
-    arduino
     dolphin
     kitty
     kopia
