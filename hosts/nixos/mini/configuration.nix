@@ -20,20 +20,20 @@
     ./logging.nix
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      yazi = prev.yazi.overrideAttrs (oldAttrs: {
-        buildInputs = oldAttrs.buildInputs ++ [pkgs.makeWrapper];
-        # wrap the binary in a script where the appropriate env var is set
-        postInstall =
-          oldAttrs.postInstall
-          or ""
-          + ''
-            wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
-          '';
-      });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     yazi = prev.yazi.overrideAttrs (oldAttrs: {
+  #       buildInputs = oldAttrs.buildInputs ++ [pkgs.makeWrapper];
+  #       # wrap the binary in a script where the appropriate env var is set
+  #       postInstall =
+  #         oldAttrs.postInstall
+  #         or ""
+  #         + ''
+  #           wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
+  #         '';
+  #     });
+  #   })
+  # ];
 
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [user];
