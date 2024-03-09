@@ -87,6 +87,7 @@
       enable_nvm = "load_nvm > /dev/stderr";
       quickweb = "caddy file-server --browse --listen :2015";
       agent = "eval (ssh-agent -c)";
+      agentkey = "eval (ssh-agent -c) && ssh-add ~/.ssh/id_ed25519";
     };
     functions = {
       certdump = {
