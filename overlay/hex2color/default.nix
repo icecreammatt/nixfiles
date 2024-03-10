@@ -3,7 +3,7 @@
   fetchFromGitHub,
   rustPlatform,
 }:
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage {
   name = "hex2color";
   version = "0.1.0";
 
