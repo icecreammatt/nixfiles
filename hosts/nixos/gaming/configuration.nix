@@ -27,11 +27,10 @@ in {
   services.blueman.enable = true;
 
   # Nvidia
-  hardware.nvidia.open = true;
-
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
+  hardware.nvidia.nvidiaPersistenced = true;
   hardware.nvidia.modesetting.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -161,7 +160,7 @@ in {
   boot = {
     consoleLogLevel = 0;
     initrd.verbose = false;
-    kernelParams = ["quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" "nouveau.config=NvGspRm=1"];
+    kernelParams = ["quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail"];
 
     # Pretty boot
     plymouth = {
