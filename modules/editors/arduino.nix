@@ -3,12 +3,12 @@
   user,
   ...
 }: {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     arduino
   ];
 
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = ["dialout"]; # needed for USB flashing
+    extraGroups = ["dialout"];
   };
 }
