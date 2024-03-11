@@ -47,7 +47,7 @@
     shellAliases = import ./aliases.nix;
 
     shellAbbrs = {
-      steam3840 = "MANGOHUD_CONFIG=\"horizontal,background_alpha=0\" gamescope -w 3840 -h 2160 -W 3840 -H 2160 -F nis -r 120 -f -b -e -- mangohud steam -gamepadui"; # -b boarderless
+      test_gamescope = "steam-run gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 120 -- mangohud glxgears -geometry 1920x1080";
       steam3440 = "MANGOHUD_CONFIG=\"horizontal,background_alpha=0\" gamescope -w 3440 -h 1440 -W 3440 -H 1440 -F nis -r 120 -f -b -e -- mangohud steam -gamepadui"; # -b boarderless
       steamscope = "gamescope -w 3440 -h 1440 -W 3440 -H 1440 -r 120 -f -b -e -- mangohud steam -gamepadui"; # -b boarderless
       steamgame = "gamescope -w 3440 -h 1440 -W 3440 -H 1440 -r 120 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless
