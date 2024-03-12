@@ -40,6 +40,7 @@ in {
     lldb
     mdpls # markdown language server
     mediainfo # display media info from mpeg file
+    melt # Backup and restore Ed25519 SSH keys with seed words
     mkcert
     morph # A NixOS host manager written in Golang
     mtr # A network diagnostics tool
