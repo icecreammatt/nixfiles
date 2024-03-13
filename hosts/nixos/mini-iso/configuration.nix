@@ -11,7 +11,7 @@
   imports = [
     # Include the results of the hardware scan.
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
-    ../mini/hardware-configuration.nix
+    #../mini/hardware-configuration.nix
     ../../../modules/vpn/nebula.nix
     ../../../modules/DE/kde/plasma.nix
     ../../../modules/apps/vaultwarden.nix
