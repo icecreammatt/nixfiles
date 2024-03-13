@@ -47,6 +47,13 @@ darwin-rebuild switch --flake . #this will work after initial build
 ```bash
 sudo nixos-rebuild switch --flake .
 ```
+
+> Building iso image
+
+```bash
+nix build .#nixosConfigurations.isoInstaller.config.system.build.isoImage
+```
+
 </details>
 
 ### `nrs` (nix rebuild switch)

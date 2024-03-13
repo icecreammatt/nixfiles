@@ -1,6 +1,7 @@
 {
   pkgs,
   user,
+  lib,
   ...
 }: {
   time.timeZone = "America/Los_Angeles";
@@ -38,7 +39,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      PermitRootLogin = "no";
+      PermitRootLogin = lib.mkDefault "no";
       PasswordAuthentication = false;
     };
   };
