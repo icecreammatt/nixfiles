@@ -244,8 +244,8 @@
             ../../modules/shell/starship.nix
             ../../modules/shell/git.nix
             ../../modules/common.nix
-            ../../modules/rust.nix
-            ../../modules/k8s.nix
+            #../../modules/rust.nix
+            #../../modules/k8s.nix
           ];
         };
       }
