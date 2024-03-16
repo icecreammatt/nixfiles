@@ -13,6 +13,7 @@
     signal-desktop
     syncthing
     syncthingtray
+    textsnatcher # Copy Text from Images with ease, Perform OCR operations in seconds
     which
     wlogout
     wlr-randr
