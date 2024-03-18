@@ -14,6 +14,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEIXyeLJp8xzA2Kth9fsNk8L4U5gQbQsdS5jRAwShgVj matt@gaming"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGi7DLE/5v9yI2ZRPeKOftyngeNMvXOX/RDIyA0J3rtI matt@mini"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKRq7YNesYqVvBoM/ncl8G6cUglY64jCOv3Lr5JtSaMQ matt@asahi"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBboyvMOlaz8Z5swY9sWwNbu7LdHrYG7dhxXn31Fe4we matt@fedora"
     ];
     shell = pkgs.fish;
     isNormalUser = true;
