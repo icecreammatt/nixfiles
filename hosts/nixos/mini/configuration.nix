@@ -244,7 +244,7 @@
     ensureUsers = [
       {
         name = config.services.gitea.database.user;
-        ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
+        #ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
       }
     ];
     authentication = pkgs.lib.mkOverride 10 ''
