@@ -1,9 +1,11 @@
 {config, ...}: {
   services.grafana = {
     enable = true;
-    domain = "grafana.c4er.com";
-    port = 2342;
-    addr = "127.0.0.1";
+    settings.server = {
+      domain = "grafana.c4er.com";
+      http_port = 2342;
+      http_addr = "127.0.0.1";
+    };
   };
 
   services.prometheus = {
