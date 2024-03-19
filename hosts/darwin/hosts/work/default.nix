@@ -1,10 +1,16 @@
 # hosts/mc-2A3MD6R-MBP/default.nix
-{pkgs, ...}: {
+{pkgs, inputs, system, ...}: {
   system.defaults.dock.autohide = false;
 
   users.users.mcarrier = {
     shell = pkgs.fish;
     home = /Users/mcarrier;
+  };
+
+  environment = {
+    systemPackages = [
+      inputs.helix-flake.packages."${system}".helix
+    ];
   };
 
   home-manager.users.mcarrier = {pkgs, ...}: {

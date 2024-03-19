@@ -40,7 +40,9 @@
     # Text editor branch
     helix-flake = {
       url = "github:icecreammatt/helix/refs/tags/2024-01-29";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # changing this to follows will cause a build error herer
+      # put this back to follows after rebasing my fork
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Build caching

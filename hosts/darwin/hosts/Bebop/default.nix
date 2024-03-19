@@ -1,10 +1,16 @@
 # hosts/Bebop/default.nix
-{pkgs, ...}: {
+{pkgs, inputs, system, ...}: {
   system.defaults.dock.autohide = true;
 
   users.users.matt = {
     shell = pkgs.fish;
     home = /Users/matt;
+  };
+
+  environment = {
+    systemPackages = [
+      inputs.helix-flake.packages."${system}".helix
+    ];
   };
 
   home-manager.users.matt = {pkgs, ...}: {
