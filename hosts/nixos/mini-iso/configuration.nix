@@ -2,9 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  #config,
   pkgs,
-  # user,
   modulesPath,
   ...
 }: {
@@ -42,18 +40,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "mini-vm"; # Define your hostname.
+  networking.hostName = "mini-iso"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   # nixpkgs.config.allowUnfree = true;
   networking.extraHosts = ''
     127.0.0.2 other-localhost
-    127.0.0.1 c4er.com
-    127.0.0.1 gitea.c4er.com
-    127.0.0.1 grafana.c4er.com
-    127.0.0.1 hydra.c4er.com
-    127.0.0.1 woodpecker.c4er.com
   '';
 
   # Select internationalisation properties.
@@ -88,14 +81,8 @@
   ];
 
   # Open ports on all interfaces in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    8384 # syncthing
-    22000 #syncthing
-  ];
-  networking.firewall.allowedUDPPorts = [
-    22000 #syncthing
-    21027 #syncthing
-  ];
+  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedUDPPorts = [];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
