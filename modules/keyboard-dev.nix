@@ -4,10 +4,10 @@
   lib,
   ...
 }: let
-  keyboard-dev-config = config.services.keyboard-dev;
+  keyboard-dev-config = config.programs.keyboard-dev;
 in {
   options = {
-    services.keyboard-dev = {
+    programs.keyboard-dev = {
       enable = lib.mkOption {
         description = "enable tools for building and flashing qmk firmware";
         type = lib.types.bool;

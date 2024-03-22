@@ -45,7 +45,7 @@
     format = "ini";
   };
 
-  services.keyboard-dev = {
+  programs.keyboard-dev = {
     enable = true;
   };
 
