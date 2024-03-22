@@ -45,6 +45,10 @@
     format = "ini";
   };
 
+  services.keyboard-dev = {
+    enable = true;
+  };
+
   services.atticd = {
     enable = true;
 
@@ -149,7 +153,6 @@
           "/home/${user}/downloads/metube:/downloads"
         ];
       };
-
     };
   };
 
@@ -360,6 +363,7 @@
   # Open ports on all interfaces in the firewall.
   networking.firewall.allowedTCPPorts = [
     8384 # syncthing
+    8072 # attic
     22000 #syncthing
   ];
   networking.firewall.allowedUDPPorts = [
