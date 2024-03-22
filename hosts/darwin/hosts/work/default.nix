@@ -1,10 +1,14 @@
 # hosts/mc-2A3MD6R-MBP/default.nix
-{pkgs, inputs, system, ...}: {
-  system.defaults.dock.autohide = false;
-
-  users.users.mcarrier = {
+{
+  pkgs,
+  inputs,
+  system,
+  user,
+  ...
+}: {
+  users.users.${user} = {
     shell = pkgs.fish;
-    home = /Users/mcarrier;
+    home = /Users/${user};
   };
 
   environment = {
@@ -13,13 +17,12 @@
     ];
   };
 
-  home-manager.users.mcarrier = {pkgs, ...}: {
+  home-manager.users.${user} = {pkgs, ...}: {
     imports = [
       ../../../../modules/shell/yazi.nix
       ../../../../modules/options.nix
       ../../../../modules/common.nix
       ../../../../modules/shell/starship.nix
-      # ../../../../modules/keyboard-dev.nix
       ../../../../modules/x86.nix
       ../../../../modules/shell/gitui.nix
       ../../../../modules/shell/tmux.nix
@@ -29,8 +32,6 @@
     ];
 
     home.packages = with pkgs; [
-      nnn
-      worm
       reattach-to-user-namespace
       home-manager
       jira-cli-go

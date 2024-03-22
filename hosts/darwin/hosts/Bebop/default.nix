@@ -1,7 +1,10 @@
 # hosts/Bebop/default.nix
-{pkgs, inputs, system, ...}: {
-  system.defaults.dock.autohide = true;
-
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}: {
   users.users.matt = {
     shell = pkgs.fish;
     home = /Users/matt;
@@ -28,16 +31,12 @@
       automake
       avrdude
       hex2color
-      home-manager
       lilypond-with-fonts
-      nnn
       nodePackages.pnpm
       nodePackages.typescript-language-server
       nodejs-18_x
       pocketbase
-      reattach-to-user-namespace
       wezterm
-      worm
     ];
 
     home.stateVersion = "22.11";
