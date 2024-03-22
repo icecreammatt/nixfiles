@@ -13,9 +13,13 @@ in {
     system = "x86_64-darwin";
     specialArgs = {user = userWork; inputs = inputs; system = system; darkmode = darkmode; };
     modules = [
+      ../../modules/jenkins.nix
       ../../modules/options.nix
       ./hosts/work/default.nix
       ./hosts/configuration.nix
+      {
+        programs.jenkins-dev.enable = true;
+      }
       home-manager.darwinModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

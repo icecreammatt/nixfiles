@@ -33,10 +33,6 @@
       worm
       reattach-to-user-namespace
       home-manager
-      jdk8
-      jenkins
-      jenkins-job-builder
-      groovy
       jira-cli-go
       # nodePackages_latest.grunt-cli
       # nodePackages_latest.bower
