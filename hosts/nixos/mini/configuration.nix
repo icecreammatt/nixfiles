@@ -46,7 +46,7 @@
   };
 
   programs.keyboard-dev = {
-    enable = true;
+    enable = false;
   };
 
   services.atticd = {
