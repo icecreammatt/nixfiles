@@ -18,13 +18,12 @@
 
   home-manager.users.matt = {pkgs, ...}: {
     imports = [
-      ../../../../modules/options.nix
+      # ../../../modules/shell/git.nix
       ../../../../modules/common.nix
+      ../../../../modules/editors/nvim.nix
       ../../../../modules/rust.nix
       ../../../../modules/shell/gitui.nix
       ../../../../modules/shell/tmux.nix
-      ../../../../modules/editors/nvim.nix
-      # ../../../modules/shell/git.nix
     ];
 
     home.packages = with pkgs; [

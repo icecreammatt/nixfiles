@@ -8,6 +8,10 @@
 {
   system.defaults.dock.autohide = true;
 
+  imports = [
+    ../../../modules/options.nix
+  ];
+
   nixpkgs.config.allowUnfree = true;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
