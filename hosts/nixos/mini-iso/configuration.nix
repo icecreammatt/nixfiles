@@ -7,7 +7,7 @@
   system,
   user,
   modulesPath,
-  useColemak,
+  # useColemak,
   ...
 }: let
   hostName = "mini-iso";
