@@ -3,10 +3,19 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
-  pkgs,
   user,
+  nixpkgs,
+  system,
   ...
-}: {
+}: let
+  pkgs = import nixpkgs {
+    config.allowUnfree = true;
+    system = "${system}";
+    overlays = [
+      (import ../../../overlay/overlay.nix)
+    ];
+  };
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -19,6 +28,20 @@
     ./kopia.nix
     ./logging.nix
   ];
+
+  home-manager = {
+    extraSpecialArgs = {inherit pkgs;};
+    users."${user}" = {
+      imports = [
+        ../../../modules/options.nix
+        ../../../modules/shell/starship.nix
+        ../../../modules/shell/git.nix
+        ../../../modules/common.nix
+        ../../../modules/rust.nix
+        ../../../modules/k8s.nix
+      ];
+    };
+  };
 
   # nixpkgs.overlays = [
   #   (final: prev: {
