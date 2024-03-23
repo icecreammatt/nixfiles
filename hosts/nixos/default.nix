@@ -95,6 +95,20 @@
     ];
   };
 
+  mini = lib.nixosSystem rec {
+    system = "x86_64-linux";
+    specialArgs = {
+      inherit inputs user darkmode username system nixpkgs;
+    };
+    modules = [
+      ./config-common.nix
+      ./mini/configuration.nix
+      attic.nixosModules.atticd
+      sops-nix.nixosModules.sops
+      home-manager.nixosModules.home-manager
+    ];
+  };
+
   dockingbay94 = lib.nixosSystem {
     pkgs = import nixpkgs {
       system = "aarch64-linux";
@@ -132,20 +146,6 @@
           ];
         };
       }
-    ];
-  };
-
-  mini = lib.nixosSystem rec {
-    system = "x86_64-linux";
-    specialArgs = {
-      inherit inputs user darkmode username system nixpkgs;
-    };
-    modules = [
-      ./config-common.nix
-      ./mini/configuration.nix
-      attic.nixosModules.atticd
-      sops-nix.nixosModules.sops
-      home-manager.nixosModules.home-manager
     ];
   };
 
