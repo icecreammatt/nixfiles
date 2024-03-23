@@ -48,43 +48,16 @@
     ];
   };
 
-  dockingbay94 = lib.nixosSystem {
-    pkgs = import nixpkgs {
-      system = "aarch64-linux";
-      config.allowUnfree = true;
-      overlays = [
-        (import ../../overlay/overlay.nix)
-      ];
-    };
+  dockingbay94 = lib.nixosSystem rec {
+    system = "aarch64-linux";
     specialArgs = {
-      inherit user darkmode;
+      inherit inputs user darkmode username system nixpkgs;
     };
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
       ./config-common.nix
       ./pi4/configuration.nix
-      {
-        environment.systemPackages = [
-          helix-flake.packages."aarch64-linux".default
-        ];
-      }
       home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {
-          inherit user username darkmode;
-          isDark = true;
-        };
-        home-manager.users."${user}" = {
-          home.stateVersion = "23.11";
-          imports = [
-            ../../modules/core.nix
-            # ../../modules/rust.nix
-            # ../../modules/k8s.nix
-          ];
-        };
-      }
     ];
   };
 

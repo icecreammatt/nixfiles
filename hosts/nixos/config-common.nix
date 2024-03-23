@@ -72,6 +72,7 @@ in {
     users."${user}" = {
       home.stateVersion = "23.11";
       imports = [
+        ../../modules/core.nix
         ../../modules/shell/git.nix
       ];
     };

@@ -2,8 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
-  pkgs,
+  nixpkgs,
+  system,
   user,
   ...
 }: let
@@ -14,6 +14,14 @@
     postBuild = ''
       wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
     '';
+  };
+
+  pkgs = import nixpkgs {
+    config.allowUnfree = true;
+    system = "${system}";
+    overlays = [
+      (import ../../../overlay/overlay.nix)
+    ];
   };
 
   reverse_proxy_string = (import ../mini/caddy-helpers.nix).reverse_proxy_string;
