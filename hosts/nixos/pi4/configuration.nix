@@ -52,21 +52,6 @@ in {
     "console=tty1"
   ];
 
-  networking.hostName = "dockingbay94"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
-  # Set your time zone.
-  # time.timeZone = "America/Los_Angeles";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  networking.extraHosts = ''
-    127.0.0.2 other-localhost
-  '';
-
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
     enable = true;
@@ -275,24 +260,41 @@ in {
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Disable ipv6
-  networking.enableIPv6 = false;
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    53 # DNS
-    443
-    8384 # syncthing
-    22000 #syncthing
-  ];
+  networking = {
+    hostName = "dockingbay94"; # Define your hostname.
+    # Pick only one of the below networking options.
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-  networking.firewall.allowedUDPPorts = [
-    22000 #syncthing
-    21027 #syncthing
-    53 # DNS Pihole
-  ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+    # Set your time zone.
+    # time.timeZone = "America/Los_Angeles";
+
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    extraHosts = ''
+      127.0.0.2 other-localhost
+    '';
+
+    # Disable ipv6
+    enableIPv6 = false;
+    # Open ports in the firewall.
+    firewall.allowedTCPPorts = [
+      53 # DNS
+      443
+      8384 # syncthing
+      22000 #syncthing
+    ];
+
+    firewall.allowedUDPPorts = [
+      22000 #syncthing
+      21027 #syncthing
+      53 # DNS Pihole
+    ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+    # Or disable the firewall altogether.
+    # networking.firewall.enable = false;
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
