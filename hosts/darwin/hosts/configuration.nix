@@ -40,8 +40,17 @@
     fish.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [fish];
+  environment.systemPackages = with pkgs; [
+    fish
+    inputs.helix-flake.packages."${system}".helix
+  ];
+
   environment.shells = [pkgs.fish];
+
+  users.users.${user} = {
+    shell = pkgs.fish;
+    home = /Users/${user};
+  };
 
   home-manager = {
     extraSpecialArgs = {

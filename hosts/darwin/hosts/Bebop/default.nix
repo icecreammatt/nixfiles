@@ -1,22 +1,6 @@
 # hosts/Bebop/default.nix
-{
-  pkgs,
-  inputs,
-  system,
-  ...
-}: {
-  users.users.matt = {
-    shell = pkgs.fish;
-    home = /Users/matt;
-  };
-
-  environment = {
-    systemPackages = [
-      inputs.helix-flake.packages."${system}".helix
-    ];
-  };
-
-  home-manager.users.matt = {pkgs, ...}: {
+{user, ...}: {
+  home-manager.users.${user} = {pkgs, ...}: {
     imports = [
       # ../../../modules/shell/git.nix
       ../../../../modules/common.nix

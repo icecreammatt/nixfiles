@@ -1,22 +1,5 @@
 # hosts/mc-2A3MD6R-MBP/default.nix
-{
-  pkgs,
-  inputs,
-  system,
-  user,
-  ...
-}: {
-  users.users.${user} = {
-    shell = pkgs.fish;
-    home = /Users/${user};
-  };
-
-  environment = {
-    systemPackages = [
-      inputs.helix-flake.packages."${system}".helix
-    ];
-  };
-
+{user, ...}: {
   home-manager.users.${user} = {pkgs, ...}: {
     imports = [
       # ../../../modules/shell/git.nix
