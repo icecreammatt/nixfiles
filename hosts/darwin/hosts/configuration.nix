@@ -61,6 +61,9 @@
     useUserPackages = true;
     users.${user} = {pkgs, ...}: {
       programs.home-manager.enable = true;
+      imports = [
+        ../../../modules/core.nix
+      ];
       home = {
         stateVersion = "22.11";
         packages = with pkgs; [
