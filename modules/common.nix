@@ -1,12 +1,10 @@
 {
   pkgs,
-  lib,
   darkmode,
   ...
 }: let
   # Override to pass darkmode settings
   wezterm_custom = import ./shell/wezterm.nix {inherit darkmode;};
-  core_override = import ./core.nix {inherit pkgs lib darkmode;};
 in {
   home.packages = with pkgs; [
     # audacity
@@ -87,8 +85,7 @@ in {
   ];
 
   imports = [
-    core_override
-    # ./core.nix
+    #core_override
     wezterm_custom
     # ./shell/wezterm.nix
     ./k8s.nix
