@@ -2,10 +2,22 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  pkgs,
+  nixpkgs,
+  lib,
+  system,
+  user,
   modulesPath,
   ...
-}: {
+}: let
+  hostName = "mini-iso";
+  pkgs = import nixpkgs {
+    config.allowUnfree = true;
+    system = "${system}";
+    overlays = [
+      (import ../../../overlay/overlay.nix)
+    ];
+  };
+in {
   imports = [
     # Include the results of the hardware scan.
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
@@ -19,6 +31,19 @@
     #../mini/kopia.nix
     #../mini/logging.nix
   ];
+
+  nixpkgs.hostPlatform = lib.mkDefault system;
+
+  home-manager = {
+    extraSpecialArgs = {inherit pkgs;};
+    users."${user}" = {
+      imports = [
+        ../../../modules/options.nix
+        ../../../modules/shell/starship.nix
+        ../../../modules/common.nix
+      ];
+    };
+  };
 
   # nixpkgs.overlays = [
   #   (final: prev: {
@@ -40,15 +65,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "mini-iso"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  # nixpkgs.config.allowUnfree = true;
-  networking.extraHosts = ''
-    127.0.0.2 other-localhost
-  '';
-
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   # console = {
@@ -68,23 +84,29 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     morph
-    nebula
     nil
     tmux
     wezterm
     yazi
   ];
 
-  # Firewall ports only for Nebula VPN users
-  networking.firewall.interfaces."nebula1".allowedTCPPorts = [
-    2015 # quickweb
-  ];
+  networking = {
+    hostName = hostName; # Define your hostname.
 
-  # Open ports on all interfaces in the firewall.
-  networking.firewall.allowedTCPPorts = [];
-  networking.firewall.allowedUDPPorts = [];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+    # Pick only one of the below networking options.
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    # networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+    extraHosts = ''
+      127.0.0.2 other-localhost
+    '';
+
+    # Open ports on all interfaces in the firewall.
+    firewall.allowedTCPPorts = [];
+    firewall.allowedUDPPorts = [];
+    # Or disable the firewall altogether.
+    firewall.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

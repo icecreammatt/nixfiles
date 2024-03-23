@@ -5,7 +5,6 @@
   nixos-hardware,
   home-manager,
   hyprland,
-  helix-flake,
   sops-nix,
   attic,
   user,
@@ -122,46 +121,8 @@
     ];
   };
 
-  isoInstaller = lib.nixosSystem rec {
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
-      overlays = [
-        (import ../../overlay/overlay.nix)
-      ];
-    };
-    specialArgs = {
-      inherit user username darkmode pkgs;
-    };
-    modules = [
-      ../../modules/options.nix
-      ./config-common.nix
-      ./networking.nix
-      ./mini-iso/configuration.nix
-      {
-        environment.systemPackages = [
-          helix-flake.packages."x86_64-linux".default
-        ];
-      }
-      attic.nixosModules.atticd
-      sops-nix.nixosModules.sops
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {inherit user username darkmode;};
-        home-manager.users."${user}" = {
-          home.stateVersion = "23.11";
-          imports = [
-            ../../modules/options.nix
-            ../../modules/shell/starship.nix
-            ../../modules/shell/git.nix
-            ../../modules/common.nix
-            #../../modules/rust.nix
-            #../../modules/k8s.nix
-          ];
-        };
-      }
-    ];
+  isoInstaller = import ./mini-iso/default.nix {
+    inherit nixpkgs user lib darkmode inputs username;
+    system = "x86_64-linux";
   };
 }
