@@ -74,53 +74,23 @@
     ];
   };
 
-  gaming = lib.nixosSystem {
-    # inherit hyprland;
+  gaming = lib.nixosSystem rec {
+    system = "x86_64-linux";
     specialArgs = {
-      inherit user darkmode;
-    };
-    pkgs = import nixpkgs {
-      config.allowUnfree = true;
-      system = "x86_64-linux";
-      overlays = [
-        (import ../../overlay/overlay.nix)
-      ];
+      inherit inputs user darkmode username system nixpkgs;
     };
     modules = [
-      ./gaming/configuration.nix
       ./config-common.nix
-      {
-        environment.systemPackages = [
-          helix-flake.packages."x86_64-linux".default
-        ];
-      }
-      ./networking.nix
+      ./gaming/configuration.nix
       sops-nix.nixosModules.sops
       inputs.xremap-flake.nixosModules.default
       home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {inherit user username darkmode;};
-        home-manager.users."${user}" = {
-          home.stateVersion = "23.11";
-          imports = [
-            ./gaming/nixos-packages.nix
-            ../../modules/common.nix
-            ../../modules/common-linux.nix
-            ../../modules/common-linux-gui.nix
-            ../../modules/shell/git.nix
-            ../../modules/rust.nix
-            ../../modules/DE/rofi.nix
-            # ../../modules/DE/hypr.nix
-            # ../../modules/DE/waybar.nix
-          ];
-        };
-      }
-
       hyprland.nixosModules.default
       {
-        programs.hyprland.enable = false;
+        programs = {
+          hyprland.enable = false;
+          keyboard-dev.enable = true;
+        };
       }
     ];
   };
@@ -139,7 +109,6 @@
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
       ./config-common.nix
-      ./networking.nix
       ./pi4/configuration.nix
       {
         environment.systemPackages = [

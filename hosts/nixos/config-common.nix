@@ -1,9 +1,28 @@
 {
-  pkgs,
   user,
   lib,
+  username,
+  darkmode,
+  system,
+  inputs,
+  nixpkgs,
   ...
-}: {
+}: let
+  pkgs = import nixpkgs {
+    config.allowUnfree = true;
+    system = "${system}";
+    overlays = [
+      (import ../../overlay/overlay.nix)
+    ];
+  };
+in {
+  imports = [
+    ./networking.nix
+    ../../modules/keyboard-dev.nix
+  ];
+
+  nixpkgs.config.allowUnfree = true;
+
   time.timeZone = "America/Los_Angeles";
 
   users.defaultUserShell = pkgs.fish;
@@ -28,6 +47,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   environment.systemPackages = with pkgs; [
+    inputs.helix-flake.packages."${system}".default
     fish
     git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -42,6 +62,18 @@
     settings = {
       PermitRootLogin = lib.mkDefault "no";
       PasswordAuthentication = false;
+    };
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {inherit user username darkmode;};
+    users."${user}" = {
+      home.stateVersion = "23.11";
+      imports = [
+        ../../modules/shell/git.nix
+      ];
     };
   };
 }

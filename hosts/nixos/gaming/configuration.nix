@@ -4,12 +4,23 @@
 {
   config,
   lib,
-  pkgs,
   user,
+  username,
+  darkmode,
+  system,
+  nixpkgs,
   ...
 }: let
   hostname = "gaming";
   nixos_plymouth = pkgs.callPackage ./nixos-plymouth.nix {};
+
+  pkgs = import nixpkgs {
+    config.allowUnfree = true;
+    system = "${system}";
+    overlays = [
+      (import ../../../overlay/overlay.nix)
+    ];
+  };
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -20,6 +31,23 @@ in {
     ../../../modules/DE/xremap.nix
     ../../../modules/editors/arduino.nix
   ];
+
+  home-manager = {
+    extraSpecialArgs = {inherit pkgs;};
+    users."${user}" = {
+      imports = [
+        ../gaming/nixos-packages.nix
+        ../../../modules/common.nix
+        ../../../modules/common-linux.nix
+        ../../../modules/common-linux-gui.nix
+        ../../../modules/shell/git.nix
+        ../../../modules/rust.nix
+        ../../../modules/DE/rofi.nix
+        # ../../modules/DE/hypr.nix
+        # ../../modules/DE/waybar.nix
+      ];
+    };
+  };
 
   system.autoUpgrade.enable = false;
   services.blueman.enable = true;
@@ -290,12 +318,6 @@ in {
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel"];
   };
-
-  # Allow unfree packages
-  # nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
