@@ -13,67 +13,6 @@
   darkmode,
   ...
 }: {
-  nixos-vm = lib.nixosSystem {
-    pkgs = import nixpkgs {
-      system = "aarch64-linux";
-      config.allowUnfree = true;
-      overlays = [
-        (import ../../overlay/overlay.nix)
-      ];
-    };
-    specialArgs = {
-      inherit user darkmode;
-    };
-    modules = [
-      ./config-common.nix
-      ./networking.nix
-      ./vm/configuration.nix
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users."${user}" = {
-          home.stateVersion = "23.11";
-          imports = [
-            ../../modules/core.nix
-            ../../modules/rust.nix
-          ];
-        };
-      }
-    ];
-  };
-
-  vm2 = lib.nixosSystem {
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
-      overlays = [
-        (import ../../overlay/overlay.nix)
-      ];
-    };
-    specialArgs = {
-      inherit user darkmode;
-    };
-    modules = [
-      ./config-common.nix
-      ./networking.nix
-      ./vm2/configuration.nix
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users."${user}" = {
-          home.stateVersion = "23.11";
-          imports = [
-            ../../modules/core.nix
-            ../../modules/common.nix
-            ../../modules/rust.nix
-          ];
-        };
-      }
-    ];
-  };
-
   gaming = lib.nixosSystem rec {
     system = "x86_64-linux";
     specialArgs = {
@@ -143,6 +82,67 @@
             ../../modules/core.nix
             # ../../modules/rust.nix
             # ../../modules/k8s.nix
+          ];
+        };
+      }
+    ];
+  };
+
+  nixos-vm = lib.nixosSystem {
+    pkgs = import nixpkgs {
+      system = "aarch64-linux";
+      config.allowUnfree = true;
+      overlays = [
+        (import ../../overlay/overlay.nix)
+      ];
+    };
+    specialArgs = {
+      inherit user darkmode;
+    };
+    modules = [
+      ./config-common.nix
+      ./networking.nix
+      ./vm/configuration.nix
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users."${user}" = {
+          home.stateVersion = "23.11";
+          imports = [
+            ../../modules/core.nix
+            ../../modules/rust.nix
+          ];
+        };
+      }
+    ];
+  };
+
+  vm2 = lib.nixosSystem {
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+      overlays = [
+        (import ../../overlay/overlay.nix)
+      ];
+    };
+    specialArgs = {
+      inherit user darkmode;
+    };
+    modules = [
+      ./config-common.nix
+      ./networking.nix
+      ./vm2/configuration.nix
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users."${user}" = {
+          home.stateVersion = "23.11";
+          imports = [
+            ../../modules/core.nix
+            ../../modules/common.nix
+            ../../modules/rust.nix
           ];
         };
       }
