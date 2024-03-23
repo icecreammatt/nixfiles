@@ -15,7 +15,6 @@
     ../../../modules/apps/vaultwarden.nix
     ../../../modules/apps/navidrone.nix
     ../../../modules/ci/hydra.nix
-    ../../../modules/keyboard-dev.nix
     ./caddy.nix
     ./kopia.nix
     ./logging.nix

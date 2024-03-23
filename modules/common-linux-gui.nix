@@ -3,7 +3,6 @@
     ardour
     hydrogen # drum machine
     reaper # Digital audio workstation
-    # blender # build errors with latest flake.lock
     bmon
     cava
     font-awesome
