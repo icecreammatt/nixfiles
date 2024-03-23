@@ -5,8 +5,6 @@
   config,
   lib,
   user,
-  username,
-  darkmode,
   system,
   nixpkgs,
   ...
