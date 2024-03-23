@@ -18,7 +18,7 @@
       inherit inputs user darkmode username system nixpkgs;
     };
     modules = [
-      ./config-common.nix
+      ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./gaming/configuration.nix
       sops-nix.nixosModules.sops
       inputs.xremap-flake.nixosModules.default
@@ -39,7 +39,7 @@
       inherit inputs user darkmode username system nixpkgs;
     };
     modules = [
-      ./config-common.nix
+      ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./mini/configuration.nix
       attic.nixosModules.atticd
       sops-nix.nixosModules.sops
@@ -54,7 +54,7 @@
     };
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
-      ./config-common.nix
+      ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./pi4/configuration.nix
       home-manager.nixosModules.home-manager
     ];
@@ -72,7 +72,7 @@
       inherit user darkmode;
     };
     modules = [
-      ./config-common.nix
+      ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./networking.nix
       ./vm/configuration.nix
       home-manager.nixosModules.home-manager
@@ -102,7 +102,7 @@
       inherit user darkmode;
     };
     modules = [
-      ./config-common.nix
+      ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./networking.nix
       ./vm2/configuration.nix
       home-manager.nixosModules.home-manager
