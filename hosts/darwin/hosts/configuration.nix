@@ -1,6 +1,7 @@
 {
   pkgs,
   user,
+  darkmode,
   ...
 }:
 # https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050
@@ -39,6 +40,10 @@
   environment.shells = [pkgs.fish];
 
   home-manager = {
+    extraSpecialArgs = {
+      user = user;
+      darkmode = darkmode;
+    }; # Pass flake variable
     useGlobalPkgs = true;
     useUserPackages = true;
     users.${user} = {pkgs, ...}: {

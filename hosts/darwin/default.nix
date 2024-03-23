@@ -26,20 +26,6 @@ in {
         programs.jenkins-dev.enable = true;
       }
       home-manager.darwinModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {
-          user = userWork;
-          darkmode = darkmode;
-        }; # Pass flake variable
-        home-manager.users.${userWork} = {
-          home = {
-            stateVersion = "22.11";
-          };
-          programs.home-manager.enable = true;
-        };
-      }
     ];
   };
 
@@ -50,26 +36,13 @@ in {
       user = user;
       inputs = inputs;
       system = system;
+      darkmode = darkmode;
     };
     modules = [
       ../../modules/options.nix
       ./hosts/Bebop/default.nix
       ./hosts/configuration.nix
       home-manager.darwinModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {
-          user = user;
-          darkmode = darkmode;
-        }; # Pass flake variable
-        home-manager.users.${user} = {
-          home = {
-            stateVersion = "22.11";
-          };
-          programs.home-manager.enable = true;
-        };
-      }
     ];
   };
 }
