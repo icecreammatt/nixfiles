@@ -5,6 +5,7 @@
   config,
   lib,
   pkgs,
+  user,
   ...
 }: let
   hostname = "gaming";
@@ -21,19 +22,53 @@ in {
   ];
 
   system.autoUpgrade.enable = false;
-
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
   services.blueman.enable = true;
-
-  # Nvidia
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.opengl.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
-  hardware.nvidia.nvidiaPersistenced = true;
-  hardware.nvidia.modesetting.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  hardware = {
+    bluetooth.enable = true; # enables support for Bluetooth
+    bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
+    opengl.enable = true;
+
+    # Nvidia
+    nvidia = {
+      nvidiaPersistenced = true;
+      modesetting.enable = true;
+      open = false; # use nvidia driver switch this to true to use nouveau open source driver
+
+      # nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
+      # https://github.com/NixOS/nixpkgs/commit/7c810fab6d18f9ee3be8113222b95cc2aa5e643d
+
+      # Special config to load the latest (535 or 550) driver for the support of the 4070 SUPER
+      package =
+        # Example how to patch driver
+        # let
+        # rcu_patch = pkgs.fetchpatch {
+        #   url = "https://github.com/gentoo/gentoo/raw/c64caf53/x11-drivers/nvidia-drivers/files/nvidia-drivers-470.223.02-gpl-pfn_valid.patch";
+        #   hash = "sha256-eZiQQp2S/asE7MfGvfe6dA/kdCvek9SYa/FFGp24dVg=";
+        # };
+        # in
+        # Pin to specific working driver until gamescope works well with 550 series
+        config.boot.kernelPackages.nvidiaPackages.mkDriver {
+          version = "535.154.05";
+          sha256_64bit = "sha256-fpUGXKprgt6SYRDxSCemGXLrEsIA6GOinp+0eGbqqJg=";
+          sha256_aarch64 = "sha256-G0/GiObf/BZMkzzET8HQjdIcvCSqB1uhsinro2HLK9k=";
+          openSha256 = "sha256-wvRdHguGLxS0mR06P5Qi++pDJBCF8pJ8hr4T8O6TJIo=";
+          settingsSha256 = "sha256-9wqoDEWY4I7weWW05F4igj1Gj9wjHsREFMztfEmqm10=";
+          persistencedSha256 = "sha256-d0Q3Lk80JqkS1B54Mahu2yY/WocOqFFbZVBh+ToGhaE=";
+
+          #version = "550.40.07";
+          #sha256_64bit = "sha256-KYk2xye37v7ZW7h+uNJM/u8fNf7KyGTZjiaU03dJpK0=";
+          #sha256_aarch64 = "sha256-AV7KgRXYaQGBFl7zuRcfnTGr8rS5n13nGUIe3mJTXb4=";
+          #openSha256 = "sha256-mRUTEWVsbjq+psVe+kAT6MjyZuLkG2yRDxCMvDJRL1I=";
+          #settingsSha256 = "sha256-c30AQa4g4a1EHmaEu1yc05oqY01y+IusbBuq+P6rMCs=";
+          #persistencedSha256 = "sha256-11tLSY8uUIl4X/roNnxf5yS2PQvHvoNjnd2CB67e870=";
+
+          # patches = [rcu_patch];
+        };
+    };
+  };
 
   #nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix = {
@@ -47,7 +82,7 @@ in {
   };
 
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/matt/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
 
   services.gitea = {
     enable = true; # Enable Gitea
@@ -135,13 +170,6 @@ in {
   #    environment.systemPackages = [ pkgs.gamescope pkgs.mangohud ];
   #  };
 
-  # Bootloader.
-  boot.loader.timeout = 0;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.consoleMode = "max";
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
   console = {
     #font = "ter-132n";
     #packages = with pkgs; [ terminus_font ];
@@ -159,9 +187,17 @@ in {
   };
 
   boot = {
+    # Bootloader.
+    loader.timeout = 0;
+    loader.systemd-boot.enable = true;
+    loader.systemd-boot.consoleMode = "max";
+    loader.efi.canTouchEfiVariables = true;
+    loader.efi.efiSysMountPoint = "/boot/efi";
+
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = ["quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail"];
+    kernelPackages = pkgs.linuxPackages_latest;
 
     # Pretty boot
     plymouth = {
@@ -170,15 +206,6 @@ in {
       themePackages = [nixos_plymouth];
     };
   };
-
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -209,7 +236,7 @@ in {
 
   # users = {
   #   mutableUsers = false;
-  #   users.matt.password = "test";
+  #   users.${user}.password = "test";
   # };
 
   virtualisation.vmVariant = {
@@ -259,7 +286,7 @@ in {
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   # users.defaultUserShell = pkgs.fish;
-  users.users.matt = {
+  users.users.${user} = {
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel"];
   };
@@ -320,27 +347,38 @@ in {
     wantedBy = ["multi-user.target"];
   };
 
-  networking.hostName = hostname; # Define your hostname.
-  networking.extraHosts = ''
-    127.0.0.1 gaming.dev.c4er.com
-    127.0.0.1 rewind.dev.c4er.com
-  '';
+  networking = {
+    hostName = hostname; # Define your hostname.
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    # sunshine
-    # 47984
-    # 47989
-    # 48010
-  ];
-  networking.firewall.allowedUDPPorts = [
-    # sunshine
-    # 47998
-    # 47999
-    # 48000
-  ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+    # Enable networking
+    networkmanager.enable = true;
+
+    extraHosts = ''
+      127.0.0.1 gaming.dev.c4er.com
+      127.0.0.1 rewind.dev.c4er.com
+    '';
+
+    # Open ports in the firewall.
+    firewall.allowedTCPPorts = [
+      # sunshine
+      # 47984
+      # 47989
+      # 48010
+    ];
+    firewall.allowedUDPPorts = [
+      # sunshine
+      # 47998
+      # 47999
+      # 48000
+    ];
+    # Or disable the firewall altogether.
+    # networking.firewall.enable = false;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
