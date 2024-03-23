@@ -7,6 +7,7 @@
   pkgs,
   ...
 }: let
+  hostname = "gaming";
   nixos_plymouth = pkgs.callPackage ./nixos-plymouth.nix {};
 in {
   imports = [
@@ -170,7 +171,6 @@ in {
     };
   };
 
-  networking.hostName = "gaming"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -320,6 +320,7 @@ in {
     wantedBy = ["multi-user.target"];
   };
 
+  networking.hostName = hostname; # Define your hostname.
   networking.extraHosts = ''
     127.0.0.1 gaming.dev.c4er.com
     127.0.0.1 rewind.dev.c4er.com
