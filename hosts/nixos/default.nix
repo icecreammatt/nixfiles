@@ -124,5 +124,6 @@
   isoInstaller = import ./mini-iso/default.nix {
     inherit nixpkgs user lib darkmode inputs username;
     system = "x86_64-linux";
+    useColemak = false;
   };
 }

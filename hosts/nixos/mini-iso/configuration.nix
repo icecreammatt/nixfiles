@@ -7,6 +7,7 @@
   system,
   user,
   modulesPath,
+  useColemak,
   ...
 }: let
   hostName = "mini-iso";
@@ -19,17 +20,7 @@
   };
 in {
   imports = [
-    # Include the results of the hardware scan.
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
-    #../mini/hardware-configuration.nix
-    #../../../modules/vpn/nebula.nix
-    #../../../modules/DE/kde/plasma.nix
-    #../../../modules/apps/vaultwarden.nix
-    #../../../modules/apps/navidrone.nix
-    #../../../modules/ci/hydra.nix
-    #../mini/caddy.nix
-    #../mini/kopia.nix
-    #../mini/logging.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault system;
@@ -44,21 +35,6 @@ in {
       ];
     };
   };
-
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     yazi = prev.yazi.overrideAttrs (oldAttrs: {
-  #       buildInputs = oldAttrs.buildInputs ++ [pkgs.makeWrapper];
-  #       # wrap the binary in a script where the appropriate env var is set
-  #       postInstall =
-  #         oldAttrs.postInstall
-  #         or ""
-  #         + ''
-  #           wrapProgram "$out/bin/yazi" --set TERM_PROGRAM "WezTerm"
-  #         '';
-  #     });
-  #   })
-  # ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device = "nodev";
@@ -79,6 +55,11 @@ in {
   #   "eurosign:e";
   #   "caps:escape" # map caps to escape.
   # };
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+    # xkbVariant = lib.mkIf useColemak "colemak_dh";
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

@@ -6,11 +6,12 @@
   username,
   darkmode,
   system,
+  useColemak,
   ...
 }:
 lib.nixosSystem {
   specialArgs = {
-    inherit inputs user darkmode username system nixpkgs;
+    inherit inputs user darkmode username system nixpkgs useColemak;
   };
   modules = [
     ../config-common.nix
