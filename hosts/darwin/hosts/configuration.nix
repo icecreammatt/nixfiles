@@ -44,6 +44,7 @@
   environment.systemPackages = with pkgs; [
     fish
     inputs.helix-flake.packages."${system}".helix
+    inputs.toolong.packages."${system}".toolong
   ];
 
   environment.shells = [pkgs.fish];

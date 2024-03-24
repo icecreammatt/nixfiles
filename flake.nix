@@ -38,6 +38,12 @@
     };
 
     # Text editor branch
+    toolong = {
+      url = "github:icecreammatt/toolong";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Text editor branch
     helix-flake = {
       url = "github:icecreammatt/helix/refs/tags/2024-01-29";
       # changing this to follows will cause a build error herer
