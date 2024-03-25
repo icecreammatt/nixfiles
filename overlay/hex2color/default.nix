@@ -10,8 +10,8 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "icecreammatt";
     repo = "hex2color";
-    rev = "main";
-    sha256 = "sha256-6zz2hmtxIQapue/wPexCwQ8dB7vdDD6xacn/OMrJERQ=";
+    rev = "a6686bca45835ab9c089bb61996e38ba24fd4c3e";
+    sha256 = "sha256-rwGxvxVUVcVklAAm02UqWkUvc/ZF84jX7Rf/hUFfqzU=";
   };
 
   cargoHash = "sha256-XRuAOny7A9RhIm7VzlK81MWF9lSmiw8AWcTIPFursVo=";

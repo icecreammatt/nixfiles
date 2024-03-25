@@ -26,7 +26,7 @@ in {
     go # programming languge
     graph-easy # Render/convert graphs in/from various formats
     gron # json search tool
-    #hex2color # Hex code color preview
+    hex2color # Hex code color preview
     hexyl # Hex Viewer
     hugo # static site generator
     hurl # Command line tool that performs HTTP requests defined in a simple plain text format.
