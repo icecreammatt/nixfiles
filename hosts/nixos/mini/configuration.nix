@@ -33,9 +33,6 @@ in {
     extraSpecialArgs = {inherit pkgs;};
     users."${user}" = {
       imports = [
-        ../../../modules/options.nix
-        ../../../modules/shell/starship.nix
-        ../../../modules/shell/git.nix
         ../../../modules/common.nix
         ../../../modules/rust.nix
         ../../../modules/k8s.nix

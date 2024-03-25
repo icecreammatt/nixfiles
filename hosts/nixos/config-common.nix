@@ -73,8 +73,10 @@ in {
     users."${user}" = {
       home.stateVersion = "23.11";
       imports = [
+        ../../modules/options.nix
         ../../modules/core.nix
         ../../modules/shell/git.nix
+        ../../modules/shell/starship.nix
       ];
     };
   };

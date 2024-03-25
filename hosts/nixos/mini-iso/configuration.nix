@@ -29,8 +29,6 @@ in {
     extraSpecialArgs = {inherit pkgs;};
     users."${user}" = {
       imports = [
-        ../../../modules/options.nix
-        ../../../modules/shell/starship.nix
         ../../../modules/common.nix
       ];
     };
