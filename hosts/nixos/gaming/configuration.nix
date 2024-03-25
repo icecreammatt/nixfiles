@@ -236,6 +236,8 @@ in {
   };
 
   boot = {
+    binfmt.emulatedSystems = ["aarch64-linux"];
+
     # Bootloader.
     loader.timeout = 0;
     loader.systemd-boot.enable = true;
