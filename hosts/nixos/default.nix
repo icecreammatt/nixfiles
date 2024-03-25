@@ -124,6 +124,14 @@
   isoInstaller = import ./mini-iso/default.nix {
     inherit nixpkgs user lib darkmode inputs username;
     system = "x86_64-linux";
-    useColemak = false;
+    useColemak = true;
+  };
+
+  # nix build .#nixosConfigurations.rpiInstaller.config.system.build.sdImage
+  rpiInstaller = import ./pi-image/default.nix {
+    inherit nixpkgs user lib darkmode inputs username;
+    # system = "x86_64-linux";
+    system = "aarch64-linux";
+    useColemak = true;
   };
 }
