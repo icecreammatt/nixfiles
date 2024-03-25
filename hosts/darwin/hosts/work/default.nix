@@ -2,15 +2,7 @@
 {user, ...}: {
   home-manager.users.${user} = {pkgs, ...}: {
     imports = [
-      # ../../../modules/shell/git.nix
-      ../../../../modules/common.nix
-      ../../../../modules/editors/nvim.nix
-      ../../../../modules/node18.nix
-      ../../../../modules/shell/gitui.nix
-      ../../../../modules/shell/starship.nix
-      ../../../../modules/shell/tmux.nix
-      ../../../../modules/shell/yazi.nix
-      ../../../../modules/x86.nix
+      ../../../../modules/node18.nix # 18.15.0
     ];
 
     home.packages = with pkgs; [

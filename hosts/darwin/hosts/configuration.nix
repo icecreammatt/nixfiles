@@ -64,7 +64,12 @@
     users.${user} = {pkgs, ...}: {
       programs.home-manager.enable = true;
       imports = [
+        ../../../modules/common.nix
         ../../../modules/core.nix
+        ../../../modules/editors/nvim.nix
+        ../../../modules/shell/starship.nix
+        ../../../modules/shell/tmux.nix
+        ../../../modules/shell/yazi.nix
       ];
       home = {
         stateVersion = "22.11";
