@@ -182,6 +182,20 @@ in {
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
+
+  # Gamescope overrides (fails to build but leaving as example for later versions)
+  # nixpkgs.config.packageOverrides = pkgs.gamescope.overrideAttrs (_: oldAttrs: {
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "ValveSoftware";
+  #     repo = "gamescope";
+  #     rev = "ee0143a8792b03cd64e3f29b074b299c498d14af";
+  #     fetchSubmodules = true;
+  #     hash = "sha256-ZTlJeFf0EZfeHGoEGQSewxdhU2x5gP6MureY24kZuJk=";
+  #   };
+
+  #   buildInputs = oldAttrs.buildInputs ++ [pkgs.libdecor];
+  # });
+
   #  nixpkgs.config.packageOverrides = pkgs: {
   #    steam = pkgs.steam.override {
   #      extraPkgs = pkgs: with pkgs; [
