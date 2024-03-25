@@ -127,10 +127,20 @@
     useColemak = true;
   };
 
+  # Building notes
   # nix build .#nixosConfigurations.rpiInstaller.config.system.build.sdImage
+  # if build fails make sure this is enabled to allow emulation if building from non aarch64-linux.
+  # This is very slow 55mins on Ryzen 3900X
+  # boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  # flash to SD card
+  # ensure of= the correct device
+  # lsblk
+  # plugin sdcard reader
+  # lsblk
+  # note the new device which is the sd card reader in this case its /dev/sdcX
+  # sudo dd if=./result/sd-image/nixos-sd-image-24.05.20240316.c75037b-aarch64-linux.img of=/dev/sdc2 bs=4M status=progres
   rpiInstaller = import ./pi-image/default.nix {
     inherit nixpkgs user lib darkmode inputs username;
-    # system = "x86_64-linux";
     system = "aarch64-linux";
     useColemak = true;
   };
