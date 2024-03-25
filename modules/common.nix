@@ -9,6 +9,7 @@ in {
   home.packages = with pkgs; [
     # audacity
     # awscli2
+    bmon # Network bandwidth monitor
     bashInteractive
     caddy # web server
     # clang-tools
