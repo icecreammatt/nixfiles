@@ -16,7 +16,6 @@ lib.nixosSystem {
   modules = [
     ../config-common.nix
     ./configuration.nix
-    ../networking.nix
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
   ];
