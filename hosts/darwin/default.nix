@@ -12,10 +12,8 @@ in {
   MC-DSS-MBPR19 = darwin.lib.darwinSystem rec {
     system = "x86_64-darwin";
     specialArgs = {
+      inherit inputs system darkmode;
       user = userWork;
-      inputs = inputs;
-      system = system;
-      darkmode = darkmode;
     };
     modules = [
       ../../modules/jenkins.nix
@@ -32,12 +30,7 @@ in {
   # Personal laptop config for M1 architecture
   Bebop = darwin.lib.darwinSystem rec {
     system = "aarch64-darwin";
-    specialArgs = {
-      user = user;
-      inputs = inputs;
-      system = system;
-      darkmode = darkmode;
-    };
+    specialArgs = {inherit inputs system darkmode user;};
     modules = [
       ../../modules/options.nix
       ./hosts/Bebop/default.nix

@@ -14,9 +14,7 @@
 }: {
   gaming = lib.nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = {
-      inherit inputs user darkmode username system nixpkgs;
-    };
+    specialArgs = {inherit inputs user darkmode username system nixpkgs;};
     modules = [
       ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./gaming/configuration.nix
@@ -35,9 +33,7 @@
 
   mini = lib.nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = {
-      inherit inputs user darkmode username system nixpkgs;
-    };
+    specialArgs = {inherit inputs user darkmode username system nixpkgs;};
     modules = [
       ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./mini/configuration.nix
@@ -49,9 +45,7 @@
 
   dockingbay94 = lib.nixosSystem rec {
     system = "aarch64-linux";
-    specialArgs = {
-      inherit inputs user darkmode username system nixpkgs;
-    };
+    specialArgs = {inherit inputs user darkmode username system nixpkgs;};
     modules = [
       nixos-hardware.nixosModules.raspberry-pi-4
       ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
@@ -68,9 +62,7 @@
         (import ../../overlay/overlay.nix)
       ];
     };
-    specialArgs = {
-      inherit user darkmode;
-    };
+    specialArgs = {inherit user darkmode;};
     modules = [
       ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./networking.nix
@@ -98,9 +90,7 @@
         (import ../../overlay/overlay.nix)
       ];
     };
-    specialArgs = {
-      inherit user darkmode;
-    };
+    specialArgs = {inherit user darkmode;};
     modules = [
       ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./networking.nix

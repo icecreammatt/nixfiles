@@ -10,9 +10,7 @@
   ...
 }:
 lib.nixosSystem {
-  specialArgs = {
-    inherit inputs user darkmode username system nixpkgs useColemak;
-  };
+  specialArgs = {inherit inputs user darkmode username system nixpkgs useColemak;};
   modules = [
     ../config-common.nix
     ./configuration.nix

@@ -55,10 +55,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = {
-      user = user;
-      darkmode = darkmode;
-    }; # Pass flake variable
+    extraSpecialArgs = {inherit user darkmode;};
     useGlobalPkgs = true;
     useUserPackages = true;
     users.${user} = {pkgs, ...}: {
