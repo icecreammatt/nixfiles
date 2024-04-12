@@ -75,6 +75,12 @@ in {
       ${reverse_proxy_string 8072}
     '';
 
+    virtualHosts."immich.${domain}".extraConfig = ''
+      ${tlsConfig}
+
+      ${reverse_proxy_string 2283}
+    '';
+
     # Silverbullet
     virtualHosts."notes.${domain}".extraConfig = ''
       ${tlsConfig}
