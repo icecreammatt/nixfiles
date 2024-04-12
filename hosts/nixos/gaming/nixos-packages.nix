@@ -6,7 +6,7 @@
     kopia
     filelight # Disk usage statistics
     nmap
-    nvtop-nvidia
+    nvtopPackages.nvidia
     # add this back once wayland works normcap # OCR powered screen-capture tool to capture information instead of images
     # obsidian
     plymouth

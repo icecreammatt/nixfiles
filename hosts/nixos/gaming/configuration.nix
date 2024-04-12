@@ -274,9 +274,9 @@ in {
   # services.xserver.displayManager.gdm.wayland = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
-  services.xserver.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  services.xserver.displayManager.defaultSession = "plasma";
+  services.displayManager.defaultSession = "plasma";
 
   # Configure keymap in X11
   services.xserver.xkb = {
