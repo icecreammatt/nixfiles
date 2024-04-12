@@ -70,6 +70,7 @@ in {
 
   services.atticd = {
     enable = true;
+    # package = pkgs.attic;
 
     # Replace with absolute path to your credentials file
     # credentialsFile = "/etc/atticd.env";
@@ -77,6 +78,11 @@ in {
 
     settings = {
       listen = "127.0.0.1:8072";
+
+      storage = {
+        type = "local";
+        path = "/tmp/attic";
+      };
 
       # Data chunking
       #
@@ -102,6 +108,7 @@ in {
       };
     };
   };
+  systemd.services.atticd.serviceConfig.ReadWritePaths = "/tmp/attic";
 
   # systemd.timers."gauge-check" = {
   #   wantedBy = ["timers.target"];
