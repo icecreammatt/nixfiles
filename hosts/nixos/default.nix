@@ -5,7 +5,6 @@
   nixos-hardware,
   home-manager,
   sops-nix,
-  attic,
   user,
   username,
   darkmode,
@@ -34,7 +33,6 @@
     modules = [
       ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./mini/configuration.nix
-      attic.nixosModules.atticd
       sops-nix.nixosModules.sops
       home-manager.nixosModules.home-manager
     ];

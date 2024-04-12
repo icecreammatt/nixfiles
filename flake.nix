@@ -45,11 +45,6 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Build caching
-    attic = {
-      url = "github:zhaofengli/attic";
-    };
-
     # Simple example on how to use flake input
     worm = {
       url = "github:icecreammatt/ssu-cs315-worm";
@@ -67,7 +62,6 @@
     sops-nix,
     helix-flake,
     xremap-flake,
-    attic,
     ...
   }: let
     user = "matt";
@@ -78,7 +72,7 @@
     nixosConfigurations = (
       import ./hosts/nixos {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nixos-hardware home-manager sops-nix helix-flake attic user username darkmode;
+        inherit inputs nixpkgs nixos-hardware home-manager sops-nix helix-flake user username darkmode;
       }
     );
 
