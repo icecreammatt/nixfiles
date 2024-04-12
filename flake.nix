@@ -25,12 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Linux Desktop Window Manager
-    hyprland = {
-      url = "github:vaxerski/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Keyboard hotkey remapping
     xremap-flake = {
       url = "github:xremap/nix-flake";
@@ -69,7 +63,7 @@
     nixos-hardware,
     home-manager,
     darwin,
-    hyprland,
+    # hyprland,
     sops-nix,
     helix-flake,
     xremap-flake,
@@ -84,7 +78,7 @@
     nixosConfigurations = (
       import ./hosts/nixos {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nixos-hardware home-manager hyprland sops-nix helix-flake attic user username darkmode;
+        inherit inputs nixpkgs nixos-hardware home-manager sops-nix helix-flake attic user username darkmode;
       }
     );
 

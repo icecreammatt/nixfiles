@@ -4,7 +4,6 @@
   nixpkgs,
   nixos-hardware,
   home-manager,
-  hyprland,
   sops-nix,
   attic,
   user,
@@ -21,10 +20,8 @@
       sops-nix.nixosModules.sops
       inputs.xremap-flake.nixosModules.default
       home-manager.nixosModules.home-manager
-      hyprland.nixosModules.default
       {
         programs = {
-          hyprland.enable = false;
           keyboard-dev.enable = true;
         };
       }
