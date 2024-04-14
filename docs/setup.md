@@ -31,7 +31,7 @@ cp /etc/nixos/hardware-configuration.nix ~/nixfiles/hosts/nixos/MACHINE_NAME/
       config.allowUnfree = true;
     };
     modules = [
-      ./config-common.nix
+      ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./MACHINE_NAME/configuration.nix
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
