@@ -58,7 +58,6 @@
     nixos-hardware,
     home-manager,
     darwin,
-    # hyprland,
     sops-nix,
     helix-flake,
     xremap-flake,
