@@ -20,6 +20,7 @@ in {
     gettext
     gh # github cli
     # gifsicle                          # cli gif tool
+    glow # Render markdown on the CLI, with pizzazz
     gist # github gist uploader
     git-standup # list work done in repo over last day
     git-cliff # A highly customizable Changelog Generator that follows Conventional Commit specifications
