@@ -44,6 +44,7 @@ in {
     mkcert
     morph # A NixOS host manager written in Golang
     mtr # A network diagnostics tool
+    nix-inspect # A Rust package for inspecting Nix expressions
     nebula # vpn client/server
     nix-prefetch
     nix-prefetch-git
