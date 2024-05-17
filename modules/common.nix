@@ -28,7 +28,7 @@ in {
     go # programming languge
     graph-easy # Render/convert graphs in/from various formats
     gron # json search tool
-    hex2color # Hex code color preview
+    # hex2color # Hex code color preview
     hexyl # Hex Viewer
     hugo # static site generator
     hurl # Command line tool that performs HTTP requests defined in a simple plain text format.
@@ -58,7 +58,7 @@ in {
     nh # Yet another nix cli helper
     nvd # Nix/NixOS package version diff tool
     nssTools
-    oha # HTTP load generator inspired by rakyll/hey with tui animation
+    # oha # HTTP load generator inspired by rakyll/hey with tui animation
     onefetch # git repo summary
     openssl # A cryptographic library that implements the SSL and TLS protocols
     # pandoc                          # document convertions
@@ -73,7 +73,7 @@ in {
     slides
     sqlite
     ssh-to-age # Convert ssh private keys in ed25519 format to age keys
-    sumneko-lua-language-server
+    # sumneko-lua-language-server
     tailspin # A log file highlighter
     terminal-colors
     t-rec # screenshot
