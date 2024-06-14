@@ -95,7 +95,6 @@ Once all systems have been built once the `nrs` alias can be used to `"nix rebui
 │     ├── cava
 │     ├── kitty
 │     ├── lazygit
-│     ├── neofetch
 │     ├── scripts
 │     ├── wezterm
 │     └── xplr

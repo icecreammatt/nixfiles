@@ -35,7 +35,6 @@ in {
     lsof # list open fils and connections
     mdcat # cat for markdown files
     mprocs # task runner
-    neofetch # os summary
     nil # Yet another language server for Nix
     nix-tree # tree view of nix flake dependencies
     nmap # network scanner utility
@@ -67,7 +66,7 @@ in {
     ./shell/bash.nix
     ./shell/lazygit.nix
     ./shell/mprocs.nix
-    ./shell/neofetch.nix
+    # ./shell/neofetch.nix
     ./shell/scripts.nix
     ./shell/xplr.nix
     ./shell/yazi.nix
