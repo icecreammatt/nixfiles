@@ -34,6 +34,7 @@ in {
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGi7DLE/5v9yI2ZRPeKOftyngeNMvXOX/RDIyA0J3rtI matt@mini"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKRq7YNesYqVvBoM/ncl8G6cUglY64jCOv3Lr5JtSaMQ matt@asahi"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBboyvMOlaz8Z5swY9sWwNbu7LdHrYG7dhxXn31Fe4we matt@fedora"
+      "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBADxjxZQA2ZXFd0QTU/dIwsCRt0i1NrSQsTqPcRcnp0KIPBc+ol8ts2JoYWKJf2CsGij1tPt+8UWt9NXPgi54vo= matt@ipad"
     ];
     shell = pkgs.fish;
     isNormalUser = true;
