@@ -69,6 +69,12 @@ in {
       ${reverse_proxy_string 8081}
     '';
 
+    virtualHosts."quickweb.${domain}".extraConfig = ''
+      ${tlsConfig}
+
+      ${reverse_proxy_string 2015}
+    '';
+
     virtualHosts."attic.${domain}".extraConfig = ''
       ${tlsConfig}
 
