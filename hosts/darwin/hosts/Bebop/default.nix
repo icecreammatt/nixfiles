@@ -8,6 +8,7 @@
 
     home.packages = with pkgs; [
       automake
+      awscli2
       avrdude
       doctl
       hex2color
@@ -15,6 +16,7 @@
       nodePackages.pnpm
       nodePackages.typescript-language-server
       nodejs-18_x
+      opentofu
       pocketbase
       wezterm
     ];
