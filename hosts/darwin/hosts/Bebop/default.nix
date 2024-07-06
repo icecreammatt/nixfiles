@@ -9,6 +9,7 @@
     home.packages = with pkgs; [
       automake
       avrdude
+      doctl
       hex2color
       lilypond-with-fonts
       nodePackages.pnpm
