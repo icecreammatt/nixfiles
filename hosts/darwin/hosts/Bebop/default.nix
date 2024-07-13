@@ -7,6 +7,7 @@
     ];
 
     home.packages = with pkgs; [
+      audacity
       automake
       awscli2
       avrdude
