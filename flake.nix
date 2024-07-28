@@ -3,7 +3,7 @@
   description = "System configuration for NixOS, Mac, Asahi, RaspberryPi, NixOS VMs";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/eec8ab29d940ca666c73629a8dab0cc536a90d99";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
