@@ -20,7 +20,7 @@ in {
     environment.systemPackages = with pkgs; [
       jdk8
       jenkins
-      jenkins-job-builder
+      # jenkins-job-builder
       groovy
     ];
   };
