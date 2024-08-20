@@ -61,6 +61,7 @@
       gbl = "git blame";
       jv = "pbpaste | jq";
       ghprv = "gh pr view --web";
+      genkey = "openssl rand -base64 16 | sed 's/..$//'";
       o = "open . &";
       ag = "rg";
       he = "hx";
