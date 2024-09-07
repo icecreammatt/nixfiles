@@ -25,7 +25,7 @@
 
   # hardware.raspberry-pi."4".fkms-3d.enable = true;
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     setLdLibraryPath = true;
     package = pkgs.mesa_drivers;

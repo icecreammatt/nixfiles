@@ -55,7 +55,7 @@ in {
     bluetooth.enable = true; # enables support for Bluetooth
     bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
-    opengl.enable = true;
+    graphics.enable = true;
 
     # Nvidia
     nvidia = {
@@ -316,7 +316,7 @@ in {
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
