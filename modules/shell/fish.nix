@@ -47,12 +47,13 @@
     shellAliases = import ./aliases.nix;
 
     shellAbbrs = {
+      steamgamescopefix = "sudo chown -R matt /tmp/.X11-unix/";
       test_gamescope = "steam-run gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 120 -- mangohud glxgears -geometry 1920x1080";
       steam3440 = "MANGOHUD_CONFIG=\"horizontal,background_alpha=0\" gamescope -w 3440 -h 1440 -W 3440 -H 1440 -F nis -r 120 -f -b -e -- mangohud steam -gamepadui"; # -b boarderless
       steamscope = "gamescope -w 3440 -h 1440 -W 3440 -H 1440 -r 120 -f -b -e -- mangohud steam -gamepadui"; # -b boarderless
-      steamgame = "gamescope -w 3440 -h 1440 -W 3440 -H 1440 -r 120 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless
-      steamstreamdeck = "gamescope -w 1920 -h 1080 -W 1920 -H 1080 -r 60 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless
-      steamstreamtv = "gamescope -w 2560 -h 1440 -W 2560 -H 1440 -r 60 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless
+      steamgame = "gamescope -w 3440 -h 1440 -W 3440 -H 1440 -r 120 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless -e steam integration
+      steamstreamdeck = "gamescope -w 1920 -h 1080 -W 1920 -H 1080 -r 60 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless -e steam integration
+      steamstreamtv = "gamescope -w 2560 -h 1440 -W 2560 -H 1440 -r 60 -Y -b -e -- steam -gamepadui"; # -Y nvidia scaling, -b boarderless -e steam integration
       rustfix = "export PATH=\"/usr/bin/:$PATH\"";
       wlcopy = "wl-copy -n";
       wlpaste = "wl-paste";
