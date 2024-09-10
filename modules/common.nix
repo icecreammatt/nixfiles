@@ -78,7 +78,7 @@ in {
     terminal-colors
     t-rec # screenshot
     ttyd # share terminal over web
-    uxplay # AirPlay Unix mirroring server
+    # uxplay # AirPlay Unix mirroring server
     viu # image viewer
     # vlan                              # User mode programs to enable VLANs on Ethernet devices
     watchman # Watches files and takes action when they change
