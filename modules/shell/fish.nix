@@ -70,6 +70,7 @@
       df = "duf";
       du = "dust";
       g = "git status";
+      gdummy = "git commit --alow-empty -m \"Empty-Commit\"";
       gf = "git fetch --all";
       gp = "git pull --rebase";
       gpu = "git push";
