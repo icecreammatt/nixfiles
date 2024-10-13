@@ -9,6 +9,8 @@
 {
   system.defaults.dock.autohide = true;
 
+  system.stateVersion = 5;
+
   imports = [
     ../../../modules/options.nix
   ];
