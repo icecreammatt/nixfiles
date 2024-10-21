@@ -70,7 +70,6 @@ in {
     qrencode # C library for encoding data in a QR Code symbol
     skopeo # A command line utility for various operations on container images and image repositories
     s3cmd # s3 cli
-    serpl # search and replace
     slides
     sqlite
     ssh-to-age # Convert ssh private keys in ed25519 format to age keys

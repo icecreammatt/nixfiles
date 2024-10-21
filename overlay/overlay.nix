@@ -9,4 +9,6 @@ final: prev: {
   hex2color = final.callPackage ./hex2color {};
   # Markdown LSP for helix
   mdpls = final.callPackage ./mdpls {};
+  # serpl search and replace
+  serpl = final.callPackage ./serpl {};
 }

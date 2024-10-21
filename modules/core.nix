@@ -44,6 +44,7 @@ in {
     rsync
     sad # find and replace for terminal
     sd # like sed but nicer shorthand syntax
+    serpl # search and replace
     skim # fzf in rust
     time
     tldr
