@@ -41,16 +41,24 @@
         }
 
         {
+            invocation: edit
+            key: enter
+            execution: "hx-open.sh {file}"
+            leave_broot: false
+            apply_to: file
+        }
+
+        {
             invocation: "my panel right"
             key: ctrl-v
             internal: panel_right
         }
 
-        {
-            invocation: "my panel left"
-            key: ctrl-n
-            internal: panel_left
-        }
+        # {
+        #     invocation: "my panel left"
+        #     key: ctrl-n
+        #     internal: panel_left
+        # }
 
         {
             name: open-code
@@ -125,6 +133,14 @@
         }
         {
             key: ctrl-e
+            execution: ":line_down"
+        }
+        {
+            key: ctrl-p
+            execution: ":line_up"
+        }
+        {
+            key: ctrl-n
             execution: ":line_down"
         }
         {
