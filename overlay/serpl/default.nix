@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage {
     owner = "icecreammatt";
     repo = "serpl";
     rev = "nix-flakes";
-    sha256 = "sha256-zkxTD3quE2fcDyWGBLktln7MMkBRJQ66kvqf26FOj2A=";
+    sha256 = "sha256-2MmGi1pCYFf1QgIEtITC4/gghCxN1t/F3/YcD/s9w9E=";
   };
 
   cargoHash = "sha256-ZjpFwbuH1ywUDrYrjmX+alsEDBYjuQaMO2v9+mUQbZ0=";
