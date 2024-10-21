@@ -136,7 +136,6 @@ keybinding:
         scrollDownMain-alt1: 'E' # main panel scroll down
         scrollUpMain-alt2: '<c-u>' # main panel scroll up
         scrollDownMain-alt2: '<c-d>' # main panel scroll down
-        executeCustomCommand: ':'
         createRebaseOptionsMenu: 'm'
         pushFiles: 'P'
         pullFiles: 'p'
