@@ -49,7 +49,8 @@ in {
 
   environment.systemPackages = with pkgs; [
     inputs.helix-flake.packages."${system}".default
-    inputs.toolong.packages."${system}".toolong
+    # inputs.toolong.packages."${system}".toolong
+    toolong
     fish
     git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
