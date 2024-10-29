@@ -50,6 +50,7 @@ in {
   system.autoUpgrade.enable = false;
   services.blueman.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
+  services.flatpak.enable = true;
 
   hardware = {
     bluetooth.enable = true; # enables support for Bluetooth
