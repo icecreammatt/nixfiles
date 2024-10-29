@@ -351,6 +351,7 @@ in {
   environment.systemPackages = with pkgs; [
     bitwarden
     blender
+    devbox
     # cage
     firefox
     gamescope
