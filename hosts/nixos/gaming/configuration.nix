@@ -107,7 +107,7 @@ in {
 
   #nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.latest;
     extraOptions = "experimental-features = nix-command flakes";
   };
 

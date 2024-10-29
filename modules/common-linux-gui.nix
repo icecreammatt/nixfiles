@@ -15,7 +15,6 @@
     nerdfonts
     oculante
     peek
-    psensor
     vscode
     vscode-extensions.vadimcn.vscode-lldb
     xclip # xwindow clipboard
