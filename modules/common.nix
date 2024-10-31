@@ -81,7 +81,7 @@ in {
     # uxplay # AirPlay Unix mirroring server
     viu # image viewer
     # vlan                              # User mode programs to enable VLANs on Ethernet devices
-    watchman # Watches files and takes action when they change
+    # watchman # Watches files and takes action when they change
     wiki-tui # A simple and easy to use Wikipedia Text User Interface
     zellij # terminal multiplexer
     zk # A zettelkasten plain text note-taking assistant
