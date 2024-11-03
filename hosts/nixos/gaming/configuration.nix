@@ -64,6 +64,18 @@ in {
       modesetting.enable = true;
       open = true; # use nvidia driver switch this to true to use nouveau open source driver
 
+      # persistencedSha256 = lib.fakeSha256;
+
+      # Doesn't boot with kde plasma6 on 6.11.5 kernel version
+      # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      #   version = "555.58.02";
+      #   sha256_64bit = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
+      #   sha256_aarch64 = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
+      #   openSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+      #   settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+      #   persistencedSha256 = "sha256-a1D7ZZmcKFWfPjjH1REqPM5j/YLWKnbkP9qfRyIyxAw=";
+      # };
+
       # nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
       # https://github.com/NixOS/nixpkgs/commit/7c810fab6d18f9ee3be8113222b95cc2aa5e643d
 
