@@ -62,7 +62,7 @@ in {
     nvidia = {
       nvidiaPersistenced = true;
       modesetting.enable = true;
-      open = false; # use nvidia driver switch this to true to use nouveau open source driver
+      open = true; # use nvidia driver switch this to true to use nouveau open source driver
 
       # nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
       # https://github.com/NixOS/nixpkgs/commit/7c810fab6d18f9ee3be8113222b95cc2aa5e643d
