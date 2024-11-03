@@ -49,14 +49,32 @@ in {
 
   system.autoUpgrade.enable = false;
   services.blueman.enable = true;
+
+  # Closed source driver
   services.xserver.videoDrivers = ["nvidia"];
+
+  # Use open source driver
+  # services.xserver.videoDrivers = ["nouveau"];
+  # boot.blacklistedKernelModules = ["nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset"];
+
   services.flatpak.enable = true;
+
+  # environment.etc."modprobe.d/nouveau.conf".text = ''
+  # options nouveau modeset=1
+  # '';
 
   hardware = {
     bluetooth.enable = true; # enables support for Bluetooth
     bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
     graphics.enable = true;
+
+    # graphics.extraPackages = with pkgs; [
+    # Add packages needed for Nouveau acceleration here
+    # For example, Mesa for OpenGL:
+    # mesa
+    # mesa.drivers
+    # ];
 
     # Nvidia
     nvidia = {
