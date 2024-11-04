@@ -31,6 +31,7 @@ in {
   ];
 
   home-manager = {
+    backupFileExtension = "hm-backup";
     extraSpecialArgs = {inherit pkgs;};
     users."${user}" = {
       imports = [
