@@ -81,39 +81,7 @@ in {
     nvidia = {
       nvidiaPersistenced = true;
       modesetting.enable = true;
-      open = true; # use nvidia open driver (not same as nouveau)
-
-      # Custom driver version
-      # Set all values to "" and set desired version
-      # Keep building and replace "" each time build fails as got is specified swapping empty string for latest sha going down list
-
-      # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      #   version = "565.57.01";
-      #   sha256_64bit = "sha256-hdszsACWNqkCh8G4VBNitDT85gk9gJe1BlQ8LdrYIkg=";
-      #   sha256_aarch64 = "sha256-hdszsACWNqkCh8G4VBNitDT85gk9gJe1BlQ8LdrYIkg=";
-      #   openSha256 = "sha256-hdszsACWNqkCh8G4VBNitDT85gk9gJe1BlQ8LdrYIkg=";
-      #   settingsSha256 = "";
-      #   persistencedSha256 = "";
-      # };
-
-      # This version is tested with factorio but not gamescope or anything demanding
-      package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-        version = "560.35.03";
-        sha256_64bit = "sha256-8pMskvrdQ8WyNBvkU/xPc/CtcYXCa7ekP73oGuKfH+M=";
-        sha256_aarch64 = "sha256-/32Zf0dKrofTmPZ3Ratw4vDM7B+OgpC4p7s+RHUjCrg=";
-        openSha256 = "sha256-/32Zf0dKrofTmPZ3Ratw4vDM7B+OgpC4p7s+RHUjCrg=";
-        settingsSha256 = "sha256-kQsvDgnxis9ANFmwIwB7HX5MkIAcpEEAHc8IBOLdXvk=";
-        persistencedSha256 = "sha256-E2J2wYYyRu7Kc3MMZz/8ZIemcZg68rkzvqEwFAL3fFs=";
-      };
-
-      # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      #   version = "565.57.01";
-      #   sha256_64bit = "sha256-buvpTlheOF6IBPWnQVLfQUiHv4GcwhvZW3Ks0PsYLHo=";
-      #   sha256_aarch64 = lib.fakeSha256;
-      #   openSha256 = lib.fakeSha256;
-      #   settingsSha256 = "sha256-H7uEe34LdmUFcMcS6bz7sbpYhg9zPCb/5AmZZFTx1QA=";
-      #   persistencedSha256 = lib.fakeSha256;
-      # };
+      open = true; # use nvidia driver switch this to true to use nouveau open source driver
 
       # persistencedSha256 = lib.fakeSha256;
 
