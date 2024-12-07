@@ -12,7 +12,7 @@
     krita
     lm_sensors
     mission-center # task manager
-    nerdfonts
+    # nerdfonts
     oculante
     peek
     vscode
