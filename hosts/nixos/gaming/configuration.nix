@@ -442,6 +442,16 @@ in {
       127.0.0.1 rewind.dev.c4er.com
     '';
 
+    # Firewall ports only for Nebula VPN users
+    firewall.interfaces."nebula1".allowedTCPPorts = [
+      34197 # Factorio
+    ];
+
+    # Firewall ports only for Nebula VPN users
+    firewall.interfaces."nebula1".allowedUDPPorts = [
+      34197 # Factorio
+    ];
+
     # Open ports in the firewall.
     firewall.allowedTCPPorts = [
       # sunshine
