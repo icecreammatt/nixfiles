@@ -39,7 +39,7 @@
 
     # Text editor branch
     helix-flake = {
-      url = "github:icecreammatt/helix/refs/tags/2024-01-29";
+      url = "github:icecreammatt/helix/refs/tags/add-file-browser";
       # changing this to follows will cause a build error herer
       # put this back to follows after rebasing my fork
       # inputs.nixpkgs.follows = "nixpkgs";

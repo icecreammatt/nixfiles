@@ -64,13 +64,27 @@ in {
     # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
     esc = ["collapse_selection", "normal_mode"]
 
+    [keys.normal.space.i]
+    c = ":toggle inline-diagnostics.cursor-line hint disable"
+    e = ":toggle end-of-line-diagnostics warning disable"
+    o = ":toggle inline-diagnostics.other-lines error disable"
+
     [keys.normal.space]
-    F = "file_picker"
-    f = "file_picker_in_current_directory"
-    E = "reveal_current_file"
-    e = "open_or_focus_explorer"
-    u = "open_or_focus_explorer"
-    n = "open_or_focus_explorer"
+    f = "file_picker"
+    # F = "file_picker_in_current_directory"
+    F = "file_picker_in_current_buffer_directory"
+
+    # New file browser
+    e = "file_browser"
+    # E = "file_browser_in_current_directory"
+    E = "file_browser_in_current_buffer_directory"
+
+    # F = "file_picker"
+    # f = "file_picker_in_current_directory"
+    # E = "reveal_current_file"
+    # e = "open_or_focus_explorer"
+    # u = "open_or_focus_explorer"
+    # n = "open_or_focus_explorer"
     g = ":pipe-to wezterm cli split-pane -- helix-live-grep"
     B = ":pipe-to wezterm cli split-pane -- helix-git-blame"
 
