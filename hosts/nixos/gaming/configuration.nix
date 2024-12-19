@@ -390,7 +390,7 @@ in {
     killall
     lm_sensors
     mangohud
-    neovim
+    #neovim
     nodejs
     sops
     sublime-merge

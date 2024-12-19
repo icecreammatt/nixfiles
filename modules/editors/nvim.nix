@@ -26,10 +26,10 @@
       indentLine
       lualine-nvim
       neoterm
-      nvim-compe
-      nvim-lspconfig
-      nvim-tree-lua
-      nvim-web-devicons
+      #nvim-compe
+      #nvim-lspconfig
+      #nvim-tree-lua
+      #nvim-web-devicons
       surround
       vim-devicons
       vim-easymotion
