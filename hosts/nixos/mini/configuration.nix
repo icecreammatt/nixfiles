@@ -179,6 +179,11 @@ in {
           "/home/${user}/downloads/metube:/downloads"
         ];
       };
+
+      excalidraw = {
+        ports = ["127.0.0.1:8085:80"];
+        image = "excalidraw:latest";
+      };
     };
   };
 
