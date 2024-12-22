@@ -1,6 +1,6 @@
 {
   networking.extraHosts = ''
-    192.168.100.1 lighthouse
+    192.168.100.2 lighthouse
     192.168.100.10 mini
     192.168.100.11 asahi
     192.168.100.12 gaming
