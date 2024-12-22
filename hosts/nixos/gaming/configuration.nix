@@ -83,6 +83,9 @@ in {
       modesetting.enable = true;
       open = true; # use nvidia driver switch this to true to use nouveau open source driver
 
+      # https://github.com/NixOS/nixpkgs/blob/d0797a04b81caeae77bcff10a9dde78bc17f5661/pkgs/os-specific/linux/nvidia-x11/default.nix#L48-L77
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+
       # persistencedSha256 = lib.fakeSha256;
 
       # Doesn't boot with kde plasma6 on 6.11.5 kernel version
@@ -441,6 +444,16 @@ in {
       127.0.0.1 gaming.dev.c4er.com
       127.0.0.1 rewind.dev.c4er.com
     '';
+
+    # Firewall ports only for Nebula VPN users
+    firewall.interfaces."nebula1".allowedTCPPorts = [
+      34197 # Factorio
+    ];
+
+    # Firewall ports only for Nebula VPN users
+    firewall.interfaces."nebula1".allowedUDPPorts = [
+      34197 # Factorio
+    ];
 
     # Open ports in the firewall.
     firewall.allowedTCPPorts = [
