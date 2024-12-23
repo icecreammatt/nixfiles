@@ -388,6 +388,7 @@ in {
     devbox
     # cage
     firefox
+    liquidctl # control kraken
     gamescope
     glxinfo
     killall
