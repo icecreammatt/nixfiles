@@ -430,6 +430,16 @@ in {
     wantedBy = ["multi-user.target"];
   };
 
+  systemd.services.kraken = {
+    enable = true;
+    description = "liquidctl (kraken aio control)";
+    script = ''
+      ${pkgs.liquidctl}/bin/liquidctl initialize all
+      ${pkgs.liquidctl}/bin/liquidctl --bus hid --address /dev/hidraw1 set ring color fading FF0000 FF0000 # set color to red
+    '';
+    wantedBy = ["multi-user.target"];
+  };
+
   networking = {
     hostName = hostname; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
