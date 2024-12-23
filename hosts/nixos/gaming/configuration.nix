@@ -81,7 +81,7 @@ in {
     nvidia = {
       nvidiaPersistenced = true;
       modesetting.enable = true;
-      open = true; # use nvidia driver switch this to true to use nouveau open source driver
+      open = false; # use nvidia driver switch this to true to use nouveau open source driver
 
       # https://github.com/NixOS/nixpkgs/blob/d0797a04b81caeae77bcff10a9dde78bc17f5661/pkgs/os-specific/linux/nvidia-x11/default.nix#L48-L77
       package = config.boot.kernelPackages.nvidiaPackages.beta;
