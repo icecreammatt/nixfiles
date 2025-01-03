@@ -51,6 +51,15 @@ in {
   system.autoUpgrade.enable = false;
   services.blueman.enable = true;
 
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   # Closed source driver
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -384,6 +393,9 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    dive
+    podman-tui
+    docker-compose
     bitwarden
     blender
     devbox
