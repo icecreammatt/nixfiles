@@ -215,6 +215,7 @@ in {
   #   })
   # ];
 
+  programs.kdeconnect.enable = true;
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
 
@@ -466,13 +467,45 @@ in {
       34197 # Factorio
     ];
 
+    firewall.interfaces."nebula1".allowedTCPPortRanges = [
+      # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    firewall.interfaces."nebula1".allowedUDPPortRanges = [
+      # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+
     # Open ports in the firewall.
+    firewall.allowedTCPPortRanges = [
+      # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+
     firewall.allowedTCPPorts = [
       # sunshine
       # 47984
       # 47989
       # 48010
     ];
+
+    firewall.allowedUDPPortRanges = [
+      # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+
     firewall.allowedUDPPorts = [
       # sunshine
       # 47998
