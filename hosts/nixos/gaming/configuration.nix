@@ -60,6 +60,12 @@ in {
     };
   };
 
+  services.owncast = {
+    enable = true;
+    port = 8080;
+    # openFirewall = true;
+  };
+
   # Closed source driver
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -415,6 +421,7 @@ in {
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     waybar
     waypipe
+    obs-studio
 
     # Wine for Ableton (Using Steam Proton instead)
     # wine64
