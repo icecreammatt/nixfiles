@@ -22,7 +22,7 @@ local config = {
   --   name="NVIDIA GeForce RTX 3080",
   --   vendor=4318,
   -- },
-  -- front_end = 'WebGpu',
+  front_end = 'WebGpu',
   alternate_buffer_wheel_scroll_speed = 1;
   adjust_window_size_when_changing_font_size = false,
   font_size = 18.0,
@@ -34,11 +34,11 @@ local config = {
   enable_kitty_keyboard = true,
   check_for_updates_interval_seconds = 1209600,
   use_fancy_tab_bar = false,
-  font = wezterm.font_with_fallback {
-  { family = 'CaskaydiaCove Nerd Font Mono', weight = 'Regular' },
-  { family = 'JetBrains Mono', harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }, },
-  'Noto Color Emoji',
-  },
+  -- font = wezterm.font_with_fallback {
+  -- { family = 'CaskaydiaCove Nerd Font Mono', weight = 'Regular' },
+  -- { family = 'JetBrains Mono', harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }, },
+  -- 'Noto Color Emoji',
+  -- },
 
   -- Allow swapping bwteeen panes in whatever editor is open
   -- This will currently trap nav to that editor till a way
