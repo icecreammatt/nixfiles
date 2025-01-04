@@ -480,6 +480,7 @@ in {
 
     # Firewall ports only for Nebula VPN users
     firewall.interfaces."nebula1".allowedTCPPorts = [
+      80
       34197 # Factorio
       27100 # Perfect Dark
     ];
