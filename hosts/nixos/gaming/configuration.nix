@@ -403,6 +403,7 @@ in {
   environment.systemPackages = with pkgs; [
     efibootmgr
     dive
+    s-tui
     podman-tui
     docker-compose
     bitwarden
