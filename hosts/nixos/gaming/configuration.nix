@@ -233,6 +233,7 @@ in {
   programs.kdeconnect.enable = true;
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   # Gamescope overrides (fails to build but leaving as example for later versions)
   # nixpkgs.config.packageOverrides = pkgs.gamescope.overrideAttrs (_: oldAttrs: {
