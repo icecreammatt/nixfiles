@@ -317,6 +317,8 @@ in {
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
 
+  programs.partition-manager.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   programs.xwayland.enable = true;
