@@ -401,6 +401,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    efibootmgr
     dive
     podman-tui
     docker-compose
