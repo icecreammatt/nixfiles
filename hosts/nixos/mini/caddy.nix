@@ -124,6 +124,12 @@ in {
       ${reverse_proxy_string 3001}
     '';
 
+    virtualHosts."mirotalk.${domain}".extraConfig = ''
+      ${tlsConfig}
+
+      ${reverse_proxy_string 3002}
+    '';
+
     virtualHosts."hydra.${domain}".extraConfig = ''
       ${tlsConfig}
 
