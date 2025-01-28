@@ -258,6 +258,14 @@ in {
     command = "zk"
     args = ["lsp"]
 
+    [language-server.godot]
+    command = "nc"
+    args = [ "127.0.0.1", "6005" ]
+
+    [[language]]
+    name = "gdscript"
+    language-servers = ["godot"]
+
     [language-server.mdpls]
     command = "mdpls"
 
