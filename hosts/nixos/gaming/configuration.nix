@@ -410,6 +410,7 @@ in {
     bitwarden
     blender
     devbox
+    distrobox
     # cage
     firefox
     liquidctl # control kraken
