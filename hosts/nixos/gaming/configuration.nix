@@ -50,6 +50,13 @@ in {
 
   system.autoUpgrade.enable = false;
   services.blueman.enable = true;
+  services.ollama = {
+    enable = true;
+    # loadModules = [];
+    package = pkgs.ollama-cuda;
+    acceleration = "cuda";
+  };
+  services.open-webui.enable = true;
 
   virtualisation.containers.enable = true;
   virtualisation = {
