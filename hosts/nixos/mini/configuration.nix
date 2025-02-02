@@ -280,6 +280,11 @@ in {
     settings.server.DOMAIN = "gitea.c4er.com"; # Domain name
     settings.server.ROOT_URL = "https://gitea.c4er.com/"; # Root web URL
     settings.server.HTTP_PORT = 3001;
+    # This needs to be far left indented or it will not parse properly in gitea
+    extraConfig = "
+[webhook]
+ALLOWED_HOST_LIST=woodpecker.c4er.com
+    ";
   };
 
   services.postgresql = {
