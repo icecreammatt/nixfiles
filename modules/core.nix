@@ -15,6 +15,7 @@ in {
     bat # cat alternative
     bind # DNS utils
     bottom # btm top alternative
+    btop # Monitor of resources
     choose # awk like tool
     coreutils
     curl
@@ -30,6 +31,7 @@ in {
     # helix
     hello
     htop
+    iftop # Display bandwidth usage on a network interface
     jq
     lazygit
     lsof # list open fils and connections
