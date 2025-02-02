@@ -42,6 +42,15 @@ in {
       }
     '';
 
+    virtualHosts."zombies.${domain}".extraConfig = ''
+      ${tlsConfig}
+
+      handle_path /* {
+        root * "/mnt/storage/godot/zombies"
+        file_server browse
+      }
+    '';
+
     virtualHosts."wiki.${domain}".extraConfig = ''
       ${tlsConfig}
 
