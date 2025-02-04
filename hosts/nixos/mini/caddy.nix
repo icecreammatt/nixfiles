@@ -66,6 +66,12 @@ in {
       ${reverse_proxy_string 8085}
     '';
 
+    virtualHosts."llm.${domain}".extraConfig = ''
+      ${tlsConfig}
+
+      ${reverse_proxy_string 8086}
+    '';
+
     virtualHosts."kopia.${domain}".extraConfig = ''
       ${tlsConfig}
 
