@@ -7,6 +7,7 @@
     192.168.100.13 dockingbay94
     192.168.100.14 octoprint
     192.168.100.15 wololo
+    192.168.100.19 bazzite
 
     192.168.100.10 c4er.com
     192.168.100.10 gitea.c4er.com
