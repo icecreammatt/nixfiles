@@ -72,6 +72,12 @@ in {
       ${reverse_proxy_string 8086}
     '';
 
+    virtualHosts."uptime.${domain}".extraConfig = ''
+      ${tlsConfig}
+
+      ${reverse_proxy_string 8087}
+    '';
+
     virtualHosts."kopia.${domain}".extraConfig = ''
       ${tlsConfig}
 

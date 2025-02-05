@@ -187,6 +187,13 @@ in {
     };
   };
 
+  services.uptime-kuma = {
+    enable = true;
+    settings = {
+      PORT = "8087";
+    };
+  };
+
   systemd.services.rewind-server = {
     enable = true;
     description = "rewind-server";
