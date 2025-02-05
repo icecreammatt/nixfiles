@@ -5,6 +5,7 @@
     kitty
     kopia
     filelight # Disk usage statistics
+    tea
     godot_4
     godot_4-export-templates
     gdtoolkit_4
