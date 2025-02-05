@@ -7,6 +7,9 @@
     filelight # Disk usage statistics
     godot_4
     godot_4-export-templates
+    gdtoolkit_4
+    scons
+    cmake
     nmap
     nvtopPackages.nvidia
     # add this back once wayland works normcap # OCR powered screen-capture tool to capture information instead of images
