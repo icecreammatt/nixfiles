@@ -445,8 +445,8 @@ in {
     vlc
 
     obs-studio
-    shipwright
-    _2ship2harkinian
+    # shipwright
+    # _2ship2harkinian
 
     # Wine for Ableton (Using Steam Proton instead)
     # wine64
