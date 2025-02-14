@@ -16,7 +16,7 @@
     oculante
     peek
     vscode
-    vscode-extensions.vadimcn.vscode-lldb
+    # vscode-extensions.vadimcn.vscode-lldb
     xclip # xwindow clipboard
   ];
 
