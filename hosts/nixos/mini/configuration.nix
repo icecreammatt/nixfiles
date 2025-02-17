@@ -385,6 +385,7 @@ ALLOWED_HOST_LIST=woodpecker.c4er.com
     nil
     nodejs
     pocketbase
+    uptime-kuma
     sops
     syncthing
     tmux
