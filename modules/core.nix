@@ -15,7 +15,7 @@ in {
     bat # cat alternative
     bind # DNS utils
     bottom # btm top alternative
-    btop # Monitor of resources
+    # btop # Monitor of resources
     choose # awk like tool
     coreutils
     curl
@@ -46,7 +46,7 @@ in {
     rsync
     sad # find and replace for terminal
     sd # like sed but nicer shorthand syntax
-    serpl # search and replace
+    # serpl # search and replace
     skim # fzf in rust
     time
     tldr
