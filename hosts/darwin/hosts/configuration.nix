@@ -37,7 +37,8 @@
   security.pam.services.sudo_local.touchIdAuth = true;
 
   # Make sure the nix daemon always runs
-  services.nix-daemon.enable = true;
+  # services.nix-daemon.enable = true;
+  # nix.enable = true
 
   programs = {
     zsh.enable = true;
