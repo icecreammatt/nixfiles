@@ -25,8 +25,8 @@ in {
   '';
 
   # Copy files into stow directory for use in non nix systems
-  home.file."nixfiles/.dotfiles/.config/wezterm/wezterm.lua".source = ./wezterm/wezterm.lua;
-  home.file."nixfiles/.dotfiles/.config/wezterm/theme.lua".text = ''
+  home.file."nixfiles/.dotfiles_temp/.config/wezterm/wezterm.lua".source = ./wezterm/wezterm.lua;
+  home.file."nixfiles/.dotfiles_temp/.config/wezterm/theme.lua".text = ''
     local theme_config = {
       background_color = "${background_color}",
       foreground_color = "${foreground_color}",

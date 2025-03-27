@@ -339,8 +339,8 @@ in {
   home.file.".config/helix/themes/catppuccin_latte-clear.toml".text = theme_catppuccin_latte;
   home.file.".config/helix/languages.toml".text = languages;
 
-  home.file."nixfiles/.dotfiles/.config/helix/config.toml".text = hxConfig;
-  home.file."nixfiles/.dotfiles/.config/helix/themes/nord-clear.toml".text = theme_nord;
-  home.file."nixfiles/.dotfiles/.config/helix/themes/catppuccin_latte-clear.toml".text = theme_catppuccin_latte;
-  home.file."nixfiles/.dotfiles/.config/helix/languages.toml".text = languages;
+  home.file."nixfiles/.dotfiles_temp/.config/helix/config.toml".text = hxConfig;
+  home.file."nixfiles/.dotfiles_temp/.config/helix/themes/nord-clear.toml".text = theme_nord;
+  home.file."nixfiles/.dotfiles_temp/.config/helix/themes/catppuccin_latte-clear.toml".text = theme_catppuccin_latte;
+  home.file."nixfiles/.dotfiles_temp/.config/helix/languages.toml".text = languages;
 }
