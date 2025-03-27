@@ -3,13 +3,11 @@
     if darkmode
     then "catppuccin_frappe"
     else "catppuccin_latte";
-in {
-  # programs.helix = {enable = true;};
+  # theme = "nord"
+  # icons = "nerdfonts"
 
-  home.file.".config/helix/config.toml".text = ''
-    # theme = "nord"
+  hxConfig = ''
     theme = "${theme}"
-    # icons = "nerdfonts"
 
     [editor]
     scrolloff = 10
@@ -234,18 +232,17 @@ in {
     # E = "keep_selections"
 
   '';
-
-  home.file.".config/helix/themes/nord-clear.toml".text = ''
+  theme_nord = ''
     inherits = "nord"
     "ui.background" = {}
   '';
 
-  home.file.".config/helix/themes/catppuccin_latte-clear.toml".text = ''
+  theme_catppuccin_latte = ''
     inherits = "catppuccin_latte"
     "ui.background" = {}
   '';
 
-  home.file.".config/helix/languages.toml".text = ''
+  languages = ''
     [[language]]
     name = "markdown"
     scope = "source.md"
@@ -334,4 +331,16 @@ in {
     name = "java"
     source = { git = "https://github.com/tree-sitter/tree-sitter-java", rev = "09d650def6cdf7f479f4b78f595e9ef5b58ce31e" }
   '';
+in {
+  # programs.helix = {enable = true;};
+
+  home.file.".config/helix/config.toml".text = hxConfig;
+  home.file.".config/helix/themes/nord-clear.toml".text = theme_nord;
+  home.file.".config/helix/themes/catppuccin_latte-clear.toml".text = theme_catppuccin_latte;
+  home.file.".config/helix/languages.toml".text = languages;
+
+  home.file."nixfiles/.dotfiles/.config/helix/config.toml".text = hxConfig;
+  home.file."nixfiles/.dotfiles/.config/helix/themes/nord-clear.toml".text = theme_nord;
+  home.file."nixfiles/.dotfiles/.config/helix/themes/catppuccin_latte-clear.toml".text = theme_catppuccin_latte;
+  home.file."nixfiles/.dotfiles/.config/helix/languages.toml".text = languages;
 }

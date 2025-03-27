@@ -1,5 +1,5 @@
-{
-  home.file.".config/mprocs/mprocs.yaml".text = ''
+let
+  config = ''
     keymap_procs: # keymap when process list is focused
       <e>: {c: next-proc }
       <u>: {c: prev-proc }
@@ -11,4 +11,7 @@
           # - { c: next-proc }
       # reset: true
   '';
+in {
+  home.file.".config/mprocs/mprocs.yaml".text = config;
+  home.file."nixfiles/.dotfiles/.config/mprocs/mprocs.yaml".text = config;
 }

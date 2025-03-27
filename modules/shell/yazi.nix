@@ -11,6 +11,8 @@
 in {
   home.file.".config/yazi/yazi.toml".source = ./yazi/yazi.toml;
   home.file.".config/yazi/keymap.toml".source = ./yazi/keymap.toml;
+  home.file."nixfiles/.dotfiles/.config/yazi/yazi.toml".source = ./yazi/yazi.toml;
+  home.file."nixfiles/.dotfiles/.config/yazi/keymap.toml".source = ./yazi/keymap.toml;
 
   home.packages = [yazi];
 }
