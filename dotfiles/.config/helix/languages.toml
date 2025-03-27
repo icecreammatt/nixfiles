@@ -1,0 +1,87 @@
+[[language]]
+name = "markdown"
+scope = "source.md"
+injection-regex = "md|markdown"
+file-types = ["md", "markdown" ]
+roots = [".zk"]
+language-servers = ["zk", "mdpls"]
+
+[language-server.zk]
+command = "zk"
+args = ["lsp"]
+
+[language-server.godot]
+command = "nc"
+args = [ "127.0.0.1", "6005" ]
+
+[[language]]
+name = "gdscript"
+language-servers = ["godot"]
+
+[language-server.mdpls]
+command = "mdpls"
+
+[[language]]
+name = "nix"
+scope = "source.nix"
+injection-regex = "nix"
+comment-token = "#"
+file-types = [ "nix" ]
+shebangs = []
+language-servers = ["nil"]
+formatter = { command = "alejandra" }
+auto-format = true
+
+[language-server.nil]
+command = "nil"
+
+[[language]]
+name = "yaml"
+file-types = ["yaml", "yml"]
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "css"
+file-types = ["css"]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "java"
+scope = "source.java"
+injection-regex = "java"
+file-types = ["java", "groovy", "wse"]
+roots = ["pom.xml", "build.gradle"]
+indent = { tab-width = 2, unit = "  " }
+
+[language-server.jdt-language-server]
+command = "jdt-language-server"
+
+[[language]]
+name = "javascript"
+file-types = ["js"]
+
+[[language]]
+name = "ini"
+file-types = [
+  "conf",
+
+  # from https://github.com/helix-editor/helix/blob/master/languages.toml
+  "ini", "service", "automount", "device", "mount", "path", "service", "slice", "socket", "swap", "target", "timer", "container", "volume", "kube", "network",
+]
+
+[[language]]
+name = "bash"
+file-types = [
+  "nginx.conf",
+
+  # from https://github.com/helix-editor/helix/blob/master/languages.toml
+  "sh", "bash", "zsh", ".bash_login", ".bash_logout", ".bash_profile", ".bashrc", ".profile", ".zshenv", "zshenv", ".zlogin", "zlogin", ".zlogout", "zlogout", ".zprofile", "zprofile", ".zshrc", "zshrc", ".zimrc", "APKBUILD", "PKGBUILD", "eclass", "ebuild", "bazelrc", ".bash_aliases", "Renviron", ".Renviron", "template", "inc",
+]
+
+[[language]]
+name = "json"
+file-types = ["json", "lock", ".releaserc", "pp"]
+
+[[grammar]]
+name = "java"
+source = { git = "https://github.com/tree-sitter/tree-sitter-java", rev = "09d650def6cdf7f479f4b78f595e9ef5b58ce31e" }
