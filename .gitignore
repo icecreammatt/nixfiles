@@ -6,3 +6,4 @@ reference/
 *.swp
 .reference
 *.qcow2
+.dotfiles_temp/

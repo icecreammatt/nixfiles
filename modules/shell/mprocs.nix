@@ -13,5 +13,5 @@ let
   '';
 in {
   home.file.".config/mprocs/mprocs.yaml".text = config;
-  home.file."nixfiles/.dotfiles/.config/mprocs/mprocs.yaml".text = config;
+  home.file."nixfiles/.dotfiles_temp/.config/mprocs/mprocs.yaml".text = config;
 }
