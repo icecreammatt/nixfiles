@@ -10,6 +10,7 @@
   system.defaults.dock.autohide = false;
 
   system.stateVersion = 5;
+  ids.gids.nixbld = 30000;
 
   imports = [
     ../../../modules/options.nix
