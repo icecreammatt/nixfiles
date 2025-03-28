@@ -117,6 +117,14 @@
     C-j = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
     "*" = ["move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
     "C-/" = "toggle_comments"
+    C-y = [
+      ':sh rm -f /tmp/unique-file',
+      ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+      ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+      ':open %sh{cat /tmp/unique-file}',
+      ':redraw',
+    ]
+
     # -------------------------
     # QWERTY to Colemak remaps
     # [JY] [LU] [UI] [..]
