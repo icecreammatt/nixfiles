@@ -38,6 +38,7 @@
       export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,coverage/*,.next/*}"'
       export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=0 --padding=0"
       zoxide init fish | source
+      atuin init fish | source
       export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
       export NNN_TMPFILE="~/.config/nnn/.lastd"
       export COLORTERM=truecolor
