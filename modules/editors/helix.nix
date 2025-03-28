@@ -9,6 +9,9 @@
   hxConfig = ''
     theme = "${theme}"
 
+    [editor.inline-blame]
+    enable = true
+
     [editor]
     scrolloff = 10
     cursorline = true
