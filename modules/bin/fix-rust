@@ -13,3 +13,5 @@ ln -s /usr/bin/llvm-g++* .
 ln -s /usr/bin/llvm-gcc* .
 
 popd
+
+# export PATH="/usr/bin/:$PATH"
