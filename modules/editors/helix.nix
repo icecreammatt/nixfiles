@@ -72,20 +72,8 @@
 
     [keys.normal.space]
     f = "file_picker"
-    # F = "file_picker_in_current_directory"
     F = "file_picker_in_current_buffer_directory"
 
-    # New file browser
-    e = "file_browser"
-    # E = "file_browser_in_current_directory"
-    E = "file_browser_in_current_buffer_directory"
-
-    # F = "file_picker"
-    # f = "file_picker_in_current_directory"
-    # E = "reveal_current_file"
-    # e = "open_or_focus_explorer"
-    # u = "open_or_focus_explorer"
-    # n = "open_or_focus_explorer"
     g = ":pipe-to wezterm cli split-pane -- helix-live-grep"
     B = ":pipe-to wezterm cli split-pane -- helix-git-blame"
 
