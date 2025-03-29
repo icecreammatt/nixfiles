@@ -7,6 +7,7 @@
   wezterm_custom = import ./shell/wezterm.nix {inherit darkmode;};
 in {
   home.packages = with pkgs; [
+    atuin
     # audacity
     # awscli2
     bmon # Network bandwidth monitor
