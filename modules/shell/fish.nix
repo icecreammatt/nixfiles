@@ -201,7 +201,7 @@
           popd
         '';
       };
-      n = {
+      nnn = {
         body = ''
           # Rename this file to match the name of the function
           # e.g. ~/.config/fish/functions/n.fish
