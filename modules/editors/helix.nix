@@ -122,7 +122,7 @@
     #  [..] [NJ] [EK] [IL]
     #   [KN] [..] [..] [..]
     # -------------------------
-    "," = { s = ":sh /Users/matt/Library/Application\\ Support/Blender/3.5/scripts/send.py", d = ['select_mode', 'move_prev_word_start', 'move_next_word_end', 'search_selection', 'extend_search_next', 'exit_select_mode'], D = ['select_mode', 'move_prev_word_start', 'move_next_word_end', 'search_selection', 'extend_search_prev', 'exit_select_mode'],  Q = "wclose", q = ":buffer-close", w = ":w", W = ":write-quit", g = ":run-shell-command lazygit", r = ":theme ${theme}", R = ":theme nord", m = ":lsp-workspace-command", p = "file_picker_in_current_directory", c = ":set gutters.line-numbers.min-width 30", C = ":set gutters.line-numbers.min-width 0", "," = ["collapse_selection", "keep_primary_selection"]  }
+    "," = { s = ":sh /Users/matt/Library/Application\\ Support/Blender/3.5/scripts/send.py", d = ['select_mode', 'move_prev_word_start', 'move_next_word_end', 'search_selection', 'extend_search_next', 'exit_select_mode'], D = ['select_mode', 'move_prev_word_start', 'move_next_word_end', 'search_selection', 'extend_search_prev', 'exit_select_mode'],  Q = "wclose", q = ":buffer-close", w = ":w", W = ":write-quit", g = ":sh wezterm cli split-pane -- lazygit", r = ":theme ${theme}", R = ":theme nord", m = ":lsp-workspace-command", p = "file_picker_in_current_directory", c = ":set gutters.line-numbers.min-width 30", C = ":set gutters.line-numbers.min-width 0", "," = ["collapse_selection", "keep_primary_selection"]  }
 
     "C-p" = "file_picker_in_current_directory"
     "C-r" = "file_picker_in_current_directory"
