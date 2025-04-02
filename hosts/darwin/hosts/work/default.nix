@@ -2,7 +2,7 @@
 {user, ...}: {
   home-manager.users.${user} = {pkgs, ...}: {
     imports = [
-      ../../../../modules/node18.nix # 18.15.0
+      # ../../../../modules/node18.nix # 18.15.0
     ];
 
     home.packages = with pkgs; [
