@@ -211,6 +211,7 @@ local config = {
     { key = 'd', mods = 'SUPER', action = act.DetachDomain 'CurrentPaneDomain', },
     { key = 'n', mods = 'LEADER', action = act.PaneSelect {  alphabet = 'arstneio' } },
     { key = 'B', mods = 'ALT', action = wezterm.action.EmitEvent 'toggle-opacity', },
+    { key = 'Delete', mods = 'NONE', action = wezterm.action.SendKey({key = 'Delete', mods = 'NONE'}), },
     { key = 'l', mods = 'SUPER', action = wezterm.action.EmitEvent 'toggle-opacity', },
     { key = 's', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
     { key = 'v', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
