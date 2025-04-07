@@ -106,7 +106,7 @@
     [keys.normal]
     C-k = ["extend_to_line_bounds", "delete_selection", "paste_after"]
     C-j = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-    "*" = ["move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
+    "*" = ["move_char_right", "move_prev_word_start", "move_next_word_start", "trim_selections", "search_selection"]
     "C-/" = "toggle_comments"
     C-y = [
       ':sh rm -f /tmp/unique-file',
