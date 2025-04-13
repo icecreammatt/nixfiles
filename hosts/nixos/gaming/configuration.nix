@@ -61,6 +61,12 @@ in {
   # };
   # services.open-webui.enable = true;
 
+  # virtualisation.docker.enable = false;
+  # virtualisation.docker.rootless = {
+  #   enable = true;
+  #   setSocketVariable = true;
+  # };
+
   virtualisation.containers.enable = true;
   virtualisation = {
     podman = {
