@@ -39,7 +39,7 @@ in {
     lazydocker
     libiconvReal
     # lldb
-    mdpls # markdown language server
+    # mdpls # markdown language server
     mediainfo # display media info from mpeg file
     melt # Backup and restore Ed25519 SSH keys with seed words
     mkcert
