@@ -50,6 +50,9 @@ in {
 
   system.autoUpgrade.enable = false;
   services.blueman.enable = true;
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
+
   # services.ollama = {
   #   enable = true;
   #   # loadModules = [];
@@ -344,9 +347,9 @@ in {
   # services.xserver.displayManager.gdm.wayland = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.defaultSession = "plasma";
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+  # services.displayManager.defaultSession = "plasma";
 
   # Configure keymap in X11
   services.xserver.xkb = {
