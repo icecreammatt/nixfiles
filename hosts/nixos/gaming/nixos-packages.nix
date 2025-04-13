@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     avrdude
-    dolphin
+    kdePackages.dolphin
     kitty
     kopia
-    filelight # Disk usage statistics
+    kdePackages.filelight # Disk usage statistics
     kiwix # offline wiki
     tea
     godot_4
