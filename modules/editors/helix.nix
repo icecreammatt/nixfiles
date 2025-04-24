@@ -19,6 +19,13 @@
     mouse = false
     color-modes = true
 
+    [editor.auto-pairs]
+    '(' = ')'
+    '{' = '}'
+    '[' = ']'
+    '"' = '"'
+    '<' = '>'
+
     [editor.lsp]
     display-inlay-hints = true
 
