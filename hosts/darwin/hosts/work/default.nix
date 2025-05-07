@@ -7,6 +7,7 @@
 
     home.packages = with pkgs; [
       drill
+      valkey
       jira-cli-go
       awscli2
       # nodePackages_latest.grunt-cli
