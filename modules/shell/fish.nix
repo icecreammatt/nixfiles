@@ -48,6 +48,14 @@
     shellAliases = import ./aliases.nix;
 
     shellAbbrs = {
+      nn = "jj";
+      nns = "jj st";
+      nne = "jj edit";
+      nnn = "jj new";
+      nnd = {
+        expansion = "jj describe -m \"%\"";
+        setCursor = "%";
+      };
       steamgamescopefix = "sudo chown -R matt /tmp/.X11-unix/";
       test_gamescope = "steam-run gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 120 -- mangohud glxgears -geometry 1920x1080";
       steam3440 = "MANGOHUD_CONFIG=\"horizontal,background_alpha=0\" gamescope -w 3440 -h 1440 -W 3440 -H 1440 -F nis -r 120 -f -b -e -- mangohud steam -gamepadui"; # -b boarderless
@@ -201,7 +209,7 @@
           popd
         '';
       };
-      nnn = {
+      nnnn = {
         body = ''
           # Rename this file to match the name of the function
           # e.g. ~/.config/fish/functions/n.fish
