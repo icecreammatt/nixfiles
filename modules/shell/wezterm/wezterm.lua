@@ -58,11 +58,14 @@ local config = {
     end
   end);
   wezterm.on('triggerWindowNavI', function(window, pane)
-    if _G.ENABLE_EDITOR_CTRL_NAV then
-        window:perform_action( act.SendKey({key = 'i', mods = 'CTRL'}), pane )
-      else
-        window:perform_action( act.ActivatePaneDirection 'Right', pane )
-    end
+    -- if _G.ENABLE_EDITOR_CTRL_NAV then
+      window:perform_action( act.SendKey({key = 'i', mods = 'CTRL'}), pane )
+    --   else
+      -- window:perform_action( act.ActivatePaneDirection 'Right', pane )
+    -- end
+  end);
+  wezterm.on('triggerAltI', function(window, pane)
+      window:perform_action( act.SendKey({key = 'i', mods = 'ALT'}), pane )
   end);
   wezterm.on('triggerWindowNavU', function(window, pane)
     if _G.ENABLE_EDITOR_CTRL_NAV then
@@ -392,13 +395,14 @@ local config = {
     { key = 'u', mods = 'SHIFT|ALT', action = act.AdjustPaneSize{ 'Up', 1 } },
     { key = 'e', mods = 'SHIFT|ALT', action = act.AdjustPaneSize{ 'Down', 1 } },
 
-    { key = 'n', mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
-    { key = 'i', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
-    { key = 'u', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
-    { key = 'e', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
+    { key = 'n', mods = 'SUPER|ALT', action = act.ActivatePaneDirection 'Left' },
+    { key = 'i', mods = 'SUPER|ALT', action = act.ActivatePaneDirection 'Right' },
+    { key = 'u', mods = 'SUPER|ALT', action = act.ActivatePaneDirection 'Up' },
+    { key = 'e', mods = 'SUPER|ALT', action = act.ActivatePaneDirection 'Down' },
 
     -- { key = 'n', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavN' },
-    -- { key = 'i', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavI' },
+    { key = 'i', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavI' },
+    { key = 'i', mods = 'ALT', action = act.EmitEvent 'triggerAltI' },
     -- { key = 'u', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavU' },
     -- { key = 'e', mods = 'CTRL', action = act.EmitEvent 'triggerWindowNavE' },
 
