@@ -87,10 +87,11 @@
       gpuf = "git push -f";
       gpuo = "git push -u origin (git branch --show-current)";
       grc = "git rebase --continue";
-      gt = "./gradlew test";
-      gti = "./gradlew test --info";
       gco = "git checkout";
       gcob = "git checkout -b";
+
+      gt = "./gradlew test";
+      gti = "./gradlew test --info";
       dbt = "docker build -t temp .";
       drt = "docker run -it -p 3000:3000 temp";
       drti = "docker run -it -p 3000:3000 temp /bin/bash";
