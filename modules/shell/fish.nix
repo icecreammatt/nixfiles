@@ -52,6 +52,8 @@
       nns = "jj st";
       nne = "jj edit";
       nnn = "jj new";
+      nnf = "jj git fetch";
+      nnr = "jj rebase -d";
       nnd = {
         expansion = "jj describe -m \"%\"";
         setCursor = "%";
