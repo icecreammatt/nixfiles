@@ -22,7 +22,7 @@
   amend = "git commit --amend --no-edit";
   less = "bat";
   diff = "diff -u";
-  g = "git status -s";
+  g = "jj st || git status -s";
   gcp = "git cherry-pick";
   gui = "gitui";
   gau = "git add -u";

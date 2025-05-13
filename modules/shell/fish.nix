@@ -78,7 +78,8 @@
       kk = "kubectl";
       df = "duf";
       du = "dust";
-      g = "git status";
+      g = "jj st || git status";
+
       gdummy = "git commit --alow-empty -m \"Empty-Commit\"";
       gf = "git fetch --all";
       gp = "git pull --rebase";
