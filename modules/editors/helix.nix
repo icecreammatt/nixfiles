@@ -18,6 +18,7 @@
     bufferline = "multiple"
     mouse = false
     color-modes = true
+    rainbow-brackets = true
 
     [editor.auto-pairs]
     '(' = ')'
