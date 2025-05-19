@@ -7,8 +7,6 @@
 }:
 # https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050
 {
-  system.defaults.dock.autohide = false;
-
   system.stateVersion = 5;
   ids.gids.nixbld = 30000;
 
@@ -73,6 +71,7 @@
         ../../../modules/shell/yazi.nix
       ];
       home = {
+        enableNixpkgsReleaseCheck = false;
         stateVersion = "22.11";
         packages = with pkgs; [
           home-manager
