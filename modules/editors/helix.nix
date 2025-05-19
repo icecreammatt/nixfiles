@@ -10,7 +10,9 @@
     theme = "${theme}"
 
     [editor.inline-blame]
-    enable = true
+    behaviour = "cursor-line"
+    compute = "background"
+
 
     [editor]
     scrolloff = 10
