@@ -13,6 +13,18 @@
     behaviour = "cursor-line"
     compute = "background"
 
+    [icons.vcs]
+    enabled = true
+    icon = "⌬"
+
+    [icons.mime]
+    enabled = true
+    directory = "🖿"
+    rust = "🦀"
+    python = "🐍"
+
+    [icons.diagnostic]
+    warn = "▲"
 
     [editor]
     scrolloff = 10
