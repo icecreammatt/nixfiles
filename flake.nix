@@ -46,6 +46,12 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # prusa-flake = {
+    # url = "https://github.com/prusa3d/PrusaSlicer.git";
+    # rev = "version_2.9.2";
+    # sha256 = "05zwwhqv3fjg9rx6a4ga55f4ic1136f6lwms0kb4kaq50w9dvxwg";
+    # };
+
     # Simple example on how to use flake input
     worm = {
       url = "github:icecreammatt/ssu-cs315-worm";

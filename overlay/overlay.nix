@@ -11,4 +11,6 @@ final: prev: {
   mdpls = final.callPackage ./mdpls {};
   # serpl search and replace
   serpl = final.callPackage ./serpl {};
+  # prusa 2.9.2
+  # prusa-slicer = final.callPackage ./prusa-slicer {};
 }
