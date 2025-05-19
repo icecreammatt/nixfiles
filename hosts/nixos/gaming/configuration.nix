@@ -10,7 +10,7 @@
   ...
 }: let
   hostname = "gaming";
-  nixos_plymouth = pkgs.callPackage ./nixos-plymouth.nix {};
+  # nixos_plymouth = pkgs.callPackage ./nixos-plymouth.nix {};
 
   pkgs = import nixpkgs {
     config.allowUnfree = true;
@@ -25,8 +25,8 @@ in {
     ./hardware-configuration.nix
     ./udev.nix
     # ../mini/caddy.nix
-    ../../../modules/airplay/uxplay.nix
-    ../../../modules/DE/xremap.nix
+    # ../../../modules/airplay/uxplay.nix
+    # ../../../modules/DE/xremap.nix
     ../../../modules/editors/arduino.nix
   ];
 
@@ -41,7 +41,7 @@ in {
         ../../../modules/common-linux-gui.nix
         ../../../modules/shell/git.nix
         ../../../modules/rust.nix
-        ../../../modules/DE/rofi.nix
+        # ../../../modules/DE/rofi.nix
         # ../../modules/DE/hypr.nix
         # ../../modules/DE/waybar.nix
       ];
@@ -49,9 +49,14 @@ in {
   };
 
   system.autoUpgrade.enable = false;
-  services.blueman.enable = true;
+  # services.blueman.enable = true;
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
+  services.geoclue2.enable = false;
+
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
 
   # services.ollama = {
   #   enable = true;
@@ -76,11 +81,11 @@ in {
     };
   };
 
-  services.owncast = {
-    enable = true;
-    port = 8081;
-    # openFirewall = true;
-  };
+  # services.owncast = {
+  #   enable = true;
+  #   port = 8081;
+  #   openFirewall = true;
+  # };
 
   # Closed source driver
   services.xserver.videoDrivers = ["nvidia"];
@@ -100,6 +105,7 @@ in {
     bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
     graphics.enable = true;
+    graphics.enable32Bit = true;
 
     # graphics.extraPackages = with pkgs; [
     # Add packages needed for Nouveau acceleration here
@@ -110,16 +116,18 @@ in {
 
     # Nvidia
     nvidia = {
+      # https://wiki.nixos.org/wiki/NVIDIA
+      open = true; # use nvidia driver switch this to true to use nouveau open source driver
+      nvidiaSettings = true;
       nvidiaPersistenced = true;
       modesetting.enable = true;
-      open = false; # use nvidia driver switch this to true to use nouveau open source driver
 
       # https://github.com/NixOS/nixpkgs/commits/master/pkgs/os-specific/linux/nvidia-x11
 
       # https://github.com/NixOS/nixpkgs/blob/d0797a04b81caeae77bcff10a9dde78bc17f5661/pkgs/os-specific/linux/nvidia-x11/default.nix#L48-L77
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
-      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-      # package = config.boot.kernelPackages.nvidiaPackages.production;
+      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
 
       # persistencedSha256 = lib.fakeSha256;
       #
@@ -189,52 +197,53 @@ in {
     extraOptions = "experimental-features = nix-command flakes";
   };
 
-  sops.secrets."postgres/gitea_dbpass" = {
-    sopsFile = ../../../.secrets/postgres.yaml;
-    owner = config.services.gitea.user;
-  };
+  # sops.secrets."postgres/gitea_dbpass" = {
+  #   sopsFile = ../../../.secrets/postgres.yaml;
+  #   owner = config.services.gitea.user;
+  # };
 
   sops.defaultSopsFormat = "yaml";
   sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
 
-  services.gitea = {
-    enable = true; # Enable Gitea
-    appName = "Gitea"; # Give the site a name
-    database = {
-      type = "postgres"; # Database type
-      passwordFile = config.sops.secrets."postgres/gitea_dbpass".path;
-    };
-    settings.server.DOMAIN = "gitea.c4er.com"; # Domain name
-    settings.server.ROOT_URL = "https://gitea.c4er.com/"; # Root web URL
-    settings.server.HTTP_PORT = 3001;
-  };
+  # services.gitea = {
+  #   enable = false; # Enable Gitea
+  #   appName = "Gitea"; # Give the site a name
+  #   database = {
+  #     type = "postgres"; # Database type
+  #     passwordFile = config.sops.secrets."postgres/gitea_dbpass".path;
+  #   };
+  #   settings.server.DOMAIN = "gitea.c4er.com"; # Domain name
+  #   settings.server.ROOT_URL = "https://gitea.c4er.com/"; # Root web URL
+  #   settings.server.HTTP_PORT = 3001;
+  # };
 
-  services.postgresql = {
-    enable = true;
-    ensureDatabases = [config.services.gitea.user];
-    ensureUsers = [
-      {
-        name = config.services.gitea.database.user;
+  # services.postgresql = {
+  #   enable = true;
+  #   ensureDatabases = [config.services.gitea.user];
+  #   ensureUsers = [
+  #     {
+  #       name = config.services.gitea.database.user;
 
-        # trace: warning:
-        #       `services.postgresql.ensureUsers.*.ensurePermissions` is used in your expressions,
-        #       this option is known to be broken with newer PostgreSQL versions,
-        #       consider migrating to `services.postgresql.ensureUsers.*.ensureDBOwnership` or
-        #       consult the release notes or manual for more migration guidelines.
+  #       # trace: warning:
+  #       #       `services.postgresql.ensureUsers.*.ensurePermissions` is used in your expressions,
+  #       #       this option is known to be broken with newer PostgreSQL versions,
+  #       #       consider migrating to `services.postgresql.ensureUsers.*.ensureDBOwnership` or
+  #       #       consult the release notes or manual for more migration guidelines.
 
-        #       This option will be removed in NixOS 24.05 unless it sees significant
-        #       maintenance improvements.
+  #       #       This option will be removed in NixOS 24.05 unless it sees significant
+  #       #       maintenance improvements.
 
-        # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
-        # using ensureDBOwnership instead of older command above
-        ensureDBOwnership = true;
-      }
-    ];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
-    '';
-  };
+  #       # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
+  #       # using ensureDBOwnership instead of older command above
+  #       ensureDBOwnership = true;
+  #     }
+  #   ];
+  #   authentication = pkgs.lib.mkOverride 10 ''
+  #     #type database  DBuser  auth-method
+  #     local all       all     trust
+  #   '';
+  # };
+
   # Add Kernel patch for Line6 TonePort UX1
   # To us 24-bit audio 48000hz audio as confirmed by Line6 support
   # Source: https://www.reddit.com/r/linuxaudio/comments/blun53/anyone_know_good_settings_for_jack_with_line_6/
@@ -258,7 +267,7 @@ in {
   #   })
   # ];
 
-  programs.kdeconnect.enable = true;
+  # programs.kdeconnect.enable = true;
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
@@ -309,7 +318,7 @@ in {
   fonts.packages = with pkgs; [meslo-lgs-nf];
   services.kmscon = {
     enable = true;
-    hwRender = true;
+    hwRender = false;
     extraConfig = ''
       font-name=MesloLGS NF
       font-size=14
@@ -317,7 +326,7 @@ in {
   };
 
   boot = {
-    binfmt.emulatedSystems = ["aarch64-linux"];
+    # binfmt.emulatedSystems = ["aarch64-linux"];
 
     # Bootloader.
     loader.timeout = 0;
@@ -332,11 +341,11 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
 
     # Pretty boot
-    plymouth = {
-      enable = true;
-      theme = "nixos-blur";
-      themePackages = [nixos_plymouth];
-    };
+    # plymouth = {
+    #   enable = true;
+    #   theme = "nixos-blur";
+    #   themePackages = [nixos_plymouth];
+    # };
   };
 
   # Set your time zone.
@@ -373,27 +382,27 @@ in {
   #   users.${user}.password = "test";
   # };
 
-  virtualisation.vmVariant = {
-    # nixos-rebuild build-vm --flake .#gaming
-    # following configuration is added only when building VM with build-vm
-    virtualisation = {
-      memorySize = 8192; # Use 2048MiB memory.
-      cores = 12;
-      graphics = true;
-    };
-    virtualisation.forwardPorts = [
-      {
-        from = "host";
-        host.port = 8888;
-        guest.port = 80;
-      }
-      {
-        from = "host";
-        host.port = 2121;
-        guest.port = 22;
-      }
-    ];
-  };
+  # virtualisation.vmVariant = {
+  #   # nixos-rebuild build-vm --flake .#gaming
+  #   # following configuration is added only when building VM with build-vm
+  #   virtualisation = {
+  #     memorySize = 8192; # Use 2048MiB memory.
+  #     cores = 12;
+  #     graphics = true;
+  #   };
+  #   virtualisation.forwardPorts = [
+  #     {
+  #       from = "host";
+  #       host.port = 8888;
+  #       guest.port = 80;
+  #     }
+  #     {
+  #       from = "host";
+  #       host.port = 2121;
+  #       guest.port = 22;
+  #     }
+  #   ];
+  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = false;
@@ -461,7 +470,7 @@ in {
     prusa-slicer
     sublime-merge
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    waybar
+    # waybar
     waypipe
     vlc
 
@@ -525,42 +534,43 @@ in {
 
     # Firewall ports only for Nebula VPN users
     firewall.interfaces."nebula1".allowedTCPPorts = [
-      80
-      34197 # Factorio
-      27100 # Perfect Dark
+      2015
+      # 34197 # Factorio
+      # 27100 # Perfect Dark
     ];
 
     # Firewall ports only for Nebula VPN users
     firewall.interfaces."nebula1".allowedUDPPorts = [
-      34197 # Factorio
-      27100 # Perfect Dark
+      # 34197 # Factorio
+      # 27100 # Perfect Dark
     ];
 
     firewall.interfaces."nebula1".allowedTCPPortRanges = [
       # KDE Connect
-      {
-        from = 1714;
-        to = 1764;
-      }
+      # {
+      #   from = 1714;
+      #   to = 1764;
+      # }
     ];
     firewall.interfaces."nebula1".allowedUDPPortRanges = [
       # KDE Connect
-      {
-        from = 1714;
-        to = 1764;
-      }
+      # {
+      #   from = 1714;
+      #   to = 1764;
+      # }
     ];
 
     # Open ports in the firewall.
     firewall.allowedTCPPortRanges = [
       # KDE Connect
-      {
-        from = 1714;
-        to = 1764;
-      }
+      # {
+      #   from = 1714;
+      #   to = 1764;
+      # }
     ];
 
     firewall.allowedTCPPorts = [
+      2015
       # sunshine
       # 47984
       # 47989
@@ -569,10 +579,10 @@ in {
 
     firewall.allowedUDPPortRanges = [
       # KDE Connect
-      {
-        from = 1714;
-        to = 1764;
-      }
+      # {
+      #   from = 1714;
+      #   to = 1764;
+      # }
     ];
 
     firewall.allowedUDPPorts = [

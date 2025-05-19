@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  home.enableNixpkgsReleaseCheck = false;
   home.packages = with pkgs; [
     avrdude
     kdePackages.dolphin
@@ -8,7 +9,7 @@
     kiwix # offline wiki
     tea
     godot_4
-    godot_4-export-templates
+    godot_4-export-templates-bin
     gdtoolkit_4
     scons
     cmake

@@ -17,7 +17,7 @@
       ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./gaming/configuration.nix
       sops-nix.nixosModules.sops
-      inputs.xremap-flake.nixosModules.default
+      # inputs.xremap-flake.nixosModules.default
       home-manager.nixosModules.home-manager
       {
         programs = {
