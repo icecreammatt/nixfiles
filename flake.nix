@@ -40,8 +40,9 @@
     # Text editor branch
     helix-flake = {
       # url = "github:icecreammatt/helix/refs/tags/blame";
-      # url = "git+https://github.com/icecreammatt/helix?rev=6d1726bd7de1c42d7dc4f01a883df3ce0eeddea0";
-      url = "git+file:///Users/mcarrier/Source/icecreammatt/helix";
+      url = "git+https://github.com/icecreammatt/helix?rev=e477182701b92b3a69b41af4cc2b2d63518e9c91";
+      # url = "git+file:///Users/mcarrier/Source/icecreammatt/helix";
+      #
       # changing this to follows will cause a build error herer
       # put this back to follows after rebasing my fork
       # inputs.nixpkgs.follows = "nixpkgs";

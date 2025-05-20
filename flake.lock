@@ -190,16 +190,18 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1747429439,
+        "lastModified": 1747760267,
         "narHash": "sha256-wXYQMr/62J7kBGJDfYiVbn086xA5xMb+RCVI5BDQE5I=",
-        "rev": "03107189b2ab48896cadb2ee33fd7fed3989516e",
-        "revCount": 6608,
+        "ref": "refs/heads/master",
+        "rev": "e477182701b92b3a69b41af4cc2b2d63518e9c91",
+        "revCount": 6605,
         "type": "git",
-        "url": "file:///Users/mcarrier/Source/icecreammatt/helix"
+        "url": "https://github.com/icecreammatt/helix"
       },
       "original": {
+        "rev": "e477182701b92b3a69b41af4cc2b2d63518e9c91",
         "type": "git",
-        "url": "file:///Users/mcarrier/Source/icecreammatt/helix"
+        "url": "https://github.com/icecreammatt/helix"
       }
     },
     "home-manager": {
