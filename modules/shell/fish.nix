@@ -201,7 +201,7 @@
           uname -a | grep Darwin
 
           if [ $status = 0 ];
-            darwin-rebuild switch --flake .
+            sudo darwin-rebuild switch --flake .
           else
             uname -a | grep NixOS
             if [ $status = 0 ];
