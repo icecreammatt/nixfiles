@@ -49,15 +49,27 @@
 
     shellAbbrs = {
       nn = "jj";
+      jjs = "jj st";
+      jjb = "jj bookmark";
+      jje = "jj edit";
+      jjn = "jj new";
+      jjf = "jj git fetch";
+      jjr = "jj rebase -d";
       nns = "jj st";
+      nnb = "jj bookmark";
       nne = "jj edit";
       nnn = "jj new";
       nnf = "jj git fetch";
       nnr = "jj rebase -d";
+      jjd = {
+        expansion = "jj describe -m \"%\"";
+        setCursor = "%";
+      };
       nnd = {
         expansion = "jj describe -m \"%\"";
         setCursor = "%";
       };
+
       tnn = "tn ~/notes-2025/";
 
       steamgamescopefix = "sudo chown -R matt /tmp/.X11-unix/";
