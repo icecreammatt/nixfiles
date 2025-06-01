@@ -52,7 +52,7 @@ in {
   # services.blueman.enable = true;
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
-  services.geoclue2.enable = false;
+  # services.geoclue2.enable = false;
 
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
