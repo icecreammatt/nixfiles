@@ -45,6 +45,7 @@
 
   environment.systemPackages = with pkgs; [
     fish
+    curl3
     inputs.helix-flake.packages."${system}".helix
     # inputs.toolong.packages."${system}".toolong
   ];

@@ -1,0 +1,40 @@
+From 4ddf84bb94c218b5086aab0b2dfc0c56506e366f Mon Sep 17 00:00:00 2001
+From: Matt Carrier <matt.carrier@disneystreaming.com>
+Date: Thu, 5 Jun 2025 14:55:14 -0700
+Subject: [PATCH 1/1] fix: double cookie limit
+
+fix: double 8200
+---
+ lib/cookie.h         | 2 +-
+ src/config2setopts.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/lib/cookie.h b/lib/cookie.h
+index 7af65073c..6c8f87997 100644
+--- a/lib/cookie.h
++++ b/lib/cookie.h
+@@ -97,7 +97,7 @@ struct CookieInfo {
+ /* Maximum size for an outgoing cookie line libcurl will use in an http
+    request. This is the default maximum length used in some versions of Apache
+    httpd. */
+-#define MAX_COOKIE_HEADER_LEN 8190
++#define MAX_COOKIE_HEADER_LEN 16380
+ 
+ /* Maximum number of cookies libcurl will send in a single request, even if
+    there might be more cookies that match. One reason to cap the number is to
+diff --git a/src/config2setopts.c b/src/config2setopts.c
+index 0a9eb72d7..ecd19a2ba 100644
+--- a/src/config2setopts.c
++++ b/src/config2setopts.c
+@@ -534,7 +534,7 @@ static CURLcode cookie_setopts(struct GlobalConfig *global,
+     struct curl_slist *cl;
+ 
+     /* The maximum size needs to match MAX_NAME in cookie.h */
+-#define MAX_COOKIE_LINE 8200
++#define MAX_COOKIE_LINE 16400
+     curlx_dyn_init(&cookies, MAX_COOKIE_LINE);
+     for(cl = config->cookies; cl; cl = cl->next) {
+       if(cl == config->cookies)
+-- 
+2.49.0
+

@@ -13,4 +13,5 @@ final: prev: {
   serpl = final.callPackage ./serpl {};
   # prusa 2.9.2
   # prusa-slicer = final.callPackage ./prusa-slicer {};
+  curl3 = final.callPackage ./curl {};
 }
