@@ -2,8 +2,10 @@
   home.enableNixpkgsReleaseCheck = false;
   home.packages = with pkgs; [
     avrdude
+    freecad # CAD software
     kdePackages.dolphin
     kitty # terminal
+    kicad # pcb designer
     kopia # backup
     kdePackages.filelight # Disk usage statistics
     kiwix # offline wiki
