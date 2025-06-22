@@ -18,7 +18,7 @@
     # add this back once wayland works normcap # OCR powered screen-capture tool to capture information instead of images
     # obsidian
     plymouth
-    rofi-wayland
+    # rofi-wayland
     signal-desktop
     syncthing
     syncthingtray
