@@ -2,6 +2,7 @@
   home.enableNixpkgsReleaseCheck = false;
   home.packages = with pkgs; [
     avrdude
+    fend # calculator
     freecad # CAD software
     kdePackages.dolphin
     kitty # terminal
