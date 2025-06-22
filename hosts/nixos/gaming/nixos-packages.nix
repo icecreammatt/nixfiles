@@ -3,15 +3,15 @@
   home.packages = with pkgs; [
     avrdude
     kdePackages.dolphin
-    kitty
-    kopia
+    kitty # terminal
+    kopia # backup
     kdePackages.filelight # Disk usage statistics
     kiwix # offline wiki
-    tea
+    tea # gitea cli
     godot_4
     godot_4-export-templates-bin
     gdtoolkit_4
-    scons
+    scons # build system for godot
     cmake
     nmap
     nvtopPackages.nvidia
