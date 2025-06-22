@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     avrdude
     emulsion # image viewer
+    espflash # esp32 flashing tool
     fend # calculator
     freecad # CAD software
     kdePackages.dolphin
