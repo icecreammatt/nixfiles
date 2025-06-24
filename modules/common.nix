@@ -32,7 +32,7 @@ in {
     # hex2color # Hex code color preview
     hexyl # Hex Viewer
     hugo # static site generator
-    hurl # Command line tool that performs HTTP requests defined in a simple plain text format.
+    # hurl # Command line tool that performs HTTP requests defined in a simple plain text format.
     imagemagickBig
     imgcat # display images in terminal
     jujutsu # vcs
