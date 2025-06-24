@@ -127,7 +127,7 @@ in {
       # https://github.com/NixOS/nixpkgs/blob/d0797a04b81caeae77bcff10a9dde78bc17f5661/pkgs/os-specific/linux/nvidia-x11/default.nix#L48-L77
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
       # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
 
       # persistencedSha256 = lib.fakeSha256;
       #
