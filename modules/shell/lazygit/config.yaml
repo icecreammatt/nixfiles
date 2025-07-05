@@ -42,6 +42,8 @@ gui:
     splitDiff: 'auto' # one of 'auto' | 'always'
     skipRewordInEditorWarning: false # for skipping the confirmation before launching the reword editor
 git:
+    allBranchesLogCmds:
+        - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
     paging:
         colorArg: always
         useConfig: false
@@ -68,7 +70,6 @@ git:
     autoFetch: true
     autoRefresh: true
     branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
-    allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
     overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
     disableForcePushing: false
     parseEmoji: false
