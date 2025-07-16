@@ -20,7 +20,7 @@ in {
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../../modules/vpn/nebula.nix
-    ../../../modules/DE/kde/plasma.nix
+    # ../../../modules/DE/kde/plasma.nix
     ../../../modules/apps/vaultwarden.nix
     ../../../modules/apps/navidrone.nix
     ../../../modules/ci/hydra.nix
