@@ -22,7 +22,8 @@ local config = {
   --   name="NVIDIA GeForce RTX 3080",
   --   vendor=4318,
   -- },
-  front_end = 'WebGpu',
+  -- front_end = 'WebGpu',
+  front_end = 'OpenGL',
   alternate_buffer_wheel_scroll_speed = 1;
   adjust_window_size_when_changing_font_size = false,
   font_size = 18.0,
