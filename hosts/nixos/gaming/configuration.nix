@@ -268,6 +268,7 @@ in {
   # ];
 
   # programs.kdeconnect.enable = true;
+  programs.niri.enable = true;
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
@@ -442,6 +443,7 @@ in {
     efibootmgr
     dive
     s-tui
+    fuzzel
     podman-tui
     (pkgs.btop.overrideAttrs (oldAttrs: {
       cmakeFlags =
@@ -472,6 +474,9 @@ in {
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # waybar
     waypipe
+    swaybg
+    mako
+    xwayland-satellite
     vlc
 
     obs-studio
