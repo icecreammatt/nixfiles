@@ -54,9 +54,9 @@ in {
   services.displayManager.cosmic-greeter.enable = true;
   # services.geoclue2.enable = false;
 
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
+  # systemd.extraConfig = ''
+  #   DefaultTimeoutStopSec=10s
+  # '';
 
   # services.ollama = {
   #   enable = true;
