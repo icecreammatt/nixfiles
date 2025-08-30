@@ -119,7 +119,7 @@ in {
       # https://wiki.nixos.org/wiki/NVIDIA
       open = true; # use nvidia driver switch this to true to use nouveau open source driver
       nvidiaSettings = true;
-      nvidiaPersistenced = true;
+      nvidiaPersistenced = false;
       modesetting.enable = true;
 
       # https://github.com/NixOS/nixpkgs/commits/master/pkgs/os-specific/linux/nvidia-x11
