@@ -11,7 +11,7 @@
     kicad # pcb designer
     kopia # backup
     kdePackages.filelight # Disk usage statistics
-    kiwix # offline wiki
+    # kiwix # offline wiki
     tea # gitea cli
     godot_4
     godot_4-export-templates-bin
