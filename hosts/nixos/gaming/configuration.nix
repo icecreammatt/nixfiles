@@ -42,7 +42,6 @@ in {
         ../../../modules/shell/git.nix
         ../../../modules/rust.nix
         # ../../../modules/DE/rofi.nix
-        # ../../modules/DE/hypr.nix
         # ../../modules/DE/waybar.nix
       ];
     };
