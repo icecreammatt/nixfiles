@@ -50,7 +50,7 @@ in {
   system.autoUpgrade.enable = false;
   # services.blueman.enable = true;
   services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  # services.displayManager.cosmic-greeter.enable = true;
   # services.geoclue2.enable = false;
 
   # systemd.extraConfig = ''
@@ -366,7 +366,16 @@ in {
   # services.xserver.displayManager.gdm.wayland = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
-  # services.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.wayland.enable = true;
+
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "catppuccin-mocha";
+    package = pkgs.kdePackages.sddm;
+  };
+
   # services.desktopManager.plasma6.enable = true;
   # services.displayManager.defaultSession = "plasma";
 
@@ -444,6 +453,14 @@ in {
     s-tui
     fuzzel
     podman-tui
+    (pkgs.catppuccin-sddm.override
+      {
+        flavor = "mocha";
+        font = "Noto Sans";
+        fontSize = "12";
+        # background = "${./wallpaper.png}";
+        loginBackground = true;
+      })
     (pkgs.btop.overrideAttrs (oldAttrs: {
       cmakeFlags =
         (oldAttrs.cmakeFlags or [])
