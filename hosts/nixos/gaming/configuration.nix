@@ -378,6 +378,7 @@ in {
 
   # services.desktopManager.plasma6.enable = true;
   # services.displayManager.defaultSession = "plasma";
+  services.desktopManager.pantheon.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -419,6 +420,7 @@ in {
   # Enable sound with pipewire.
   # sound.enable = true;
   services.pulseaudio.enable = false;
+  security.polkit.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -448,6 +450,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    pantheon.pantheon-agent-polkit
     efibootmgr
     dive
     s-tui
