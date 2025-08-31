@@ -30,6 +30,7 @@
     syncthingtray
     textsnatcher # Copy Text from Images with ease, Perform OCR operations in seconds
     which
+    warpd
     wlogout
     wlr-randr
   ];
