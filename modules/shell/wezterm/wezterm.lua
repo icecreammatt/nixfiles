@@ -23,7 +23,9 @@ local config = {
   --   vendor=4318,
   -- },
   -- front_end = 'WebGpu',
+  enable_wayland = false,
   front_end = 'OpenGL',
+  max_fps = 120,
   alternate_buffer_wheel_scroll_speed = 1;
   adjust_window_size_when_changing_font_size = false,
   font_size = 18.0,
