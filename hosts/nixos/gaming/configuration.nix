@@ -378,7 +378,7 @@ in {
 
   # services.desktopManager.plasma6.enable = true;
   # services.displayManager.defaultSession = "plasma";
-  services.desktopManager.pantheon.enable = true;
+  # services.desktopManager.pantheon.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
