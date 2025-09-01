@@ -329,9 +329,10 @@ in {
     # binfmt.emulatedSystems = ["aarch64-linux"];
 
     # Bootloader.
-    loader.timeout = 0;
+    loader.timeout = 5;
     loader.systemd-boot.enable = true;
     loader.systemd-boot.consoleMode = "max";
+    loader.systemd-boot.configurationLimit = 10;
     loader.efi.canTouchEfiVariables = true;
     loader.efi.efiSysMountPoint = "/boot/efi";
 
