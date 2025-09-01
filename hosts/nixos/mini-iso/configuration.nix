@@ -48,6 +48,14 @@ in {
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
 
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = lib.mkForce "yes";
+      PasswordAuthentication = false;
+    };
+  };
+
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
@@ -96,5 +104,5 @@ in {
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   # system.stateVersion = "22.11"; # Did you read the comment?
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }
