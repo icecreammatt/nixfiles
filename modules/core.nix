@@ -19,6 +19,7 @@ in {
     choose # awk like tool
     coreutils
     curl
+    caligula # cli image iso etcher
     delta # diff dool
     direnv # auto switch to using nix flake on directory nav
     du-dust # space visualizer
