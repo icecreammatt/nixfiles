@@ -169,6 +169,28 @@ in {
     ];
   };
 
+  virtualisation.vmVariant = {
+    # nixos-rebuild build-vm --flake .#ncase
+    # following configuration is added only when building VM with build-vm
+    virtualisation = {
+      memorySize = 8192; # Use 2048MiB memory.
+      cores = 12;
+      graphics = true;
+    };
+    virtualisation.forwardPorts = [
+      {
+        from = "host";
+        host.port = 8888;
+        guest.port = 80;
+      }
+      {
+        from = "host";
+        host.port = 2121;
+        guest.port = 22;
+      }
+    ];
+  };
+
   system.autoUpgrade.enable = false;
   # services.blueman.enable = true;
   services.desktopManager.cosmic.enable = true;
