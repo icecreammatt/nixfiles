@@ -139,6 +139,7 @@ in {
       "/var/lib/systemd/coredump"
       "/var/lib/systemd/timers"
       "/etc/NetworkManager/system-connections"
+      "/etc/ssh"
     ];
     files = [
       "/etc/machine-id"
