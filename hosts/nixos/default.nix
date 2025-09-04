@@ -2,6 +2,7 @@
   lib,
   inputs,
   nixpkgs,
+  impermanence,
   nixos-hardware,
   home-manager,
   sops-nix,
@@ -16,6 +17,24 @@
     modules = [
       ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
       ./gaming/configuration.nix
+      sops-nix.nixosModules.sops
+      # inputs.xremap-flake.nixosModules.default
+      home-manager.nixosModules.home-manager
+      {
+        programs = {
+          keyboard-dev.enable = true;
+        };
+      }
+    ];
+  };
+
+  nixos = lib.nixosSystem rec {
+    system = "x86_64-linux";
+    specialArgs = {inherit inputs user darkmode username system nixpkgs impermanence;};
+    modules = [
+      ./config-common.nix # Do not remove this without adding user directly to machine config or you will be locked out
+      ./ncase/configuration.nix
+      impermanence.nixosModules.impermanence
       sops-nix.nixosModules.sops
       # inputs.xremap-flake.nixosModules.default
       home-manager.nixosModules.home-manager

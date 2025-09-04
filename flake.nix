@@ -37,6 +37,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Text editor branch
     helix-flake = {
       # url = "github:icecreammatt/helix/refs/tags/blame";
@@ -70,6 +75,7 @@
     sops-nix,
     helix-flake,
     xremap-flake,
+    impermanence,
     ...
   }: let
     user = "matt";
@@ -80,7 +86,7 @@
     nixosConfigurations = (
       import ./hosts/nixos {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nixos-hardware home-manager sops-nix helix-flake user username darkmode;
+        inherit inputs nixpkgs nixos-hardware home-manager sops-nix helix-flake user username darkmode impermanence;
       }
     );
 
