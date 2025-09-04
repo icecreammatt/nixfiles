@@ -54,10 +54,115 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # igp is the kernel module for the network card
+  # Find this using pciutils
+  # This is needed here for the network interface to work before luks prompt
+  # $ nix-shell -p pciutils
+  # lspci -k | rg -A 3 -i ethernet
+  # Kernel driver in use: igb
+  # Kernel modules: igb
+  boot.initrd.kernelModules = ["igb"];
+
+  boot.initrd = {
+    systemd = {
+      enable = true;
+      packages = [
+        pkgs.cryptsetup
+        pkgs.iproute2
+        # pkgs.busybox
+      ];
+      initrdBin = [
+        pkgs.cryptsetup
+        pkgs.iproute2
+        # pkgs.busybox
+      ];
+      network = {
+        networks = {
+          "enp5s0" = {
+            matchConfig = {
+              Name = "enp5s0";
+            };
+            networkConfig = {
+              DHCP = "yes";
+            };
+          };
+        };
+      };
+    };
+  };
+
+  boot.initrd.systemd.services.unlock-luks = {
+    description = "Unlock LUKS encrypted root device";
+    wantedBy = ["initrd.target"];
+    after = ["network.target"];
+    wants = ["systemd-networkd-wait-online.service"];
+    before = ["sysroot.mount"];
+
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      SuccessExitStatus = [0 1]; # Both 0 and 1 are considered success
+    };
+
+    # The actual commands to unlock the drive
+    script = ''
+      echo "Waiting for LUKS unlock..."
+      # ls /sys/class/net/ || true
+
+      echo "ip link show"
+      ip link show || true
+
+      echo "ip a"
+      ip a || true
+
+      # Try to unlock the encrypted drive
+      # The || true ensures the script doesn't fail if first attempt fails
+      # sudo blkid to list IDs and use the one that is TYPE="crypto_LUKS"
+      cryptsetup open /dev/disk/by-uuid/1ac4b11e-e1c6-4c08-abb7-ddf5b9fe5342 root --type luks || true
+    '';
+  };
+
+  boot.initrd.network = {
+    enable = true;
+
+    # interfaces = ["enp5s0"];
+    ssh = {
+      enable = true;
+      port = 2222;
+
+      # Used for verifying the host when using SSH
+      # sudo mkdir -p /boot/efi/ssh-initrd
+      # sudo ssh-keygen -t ed25519 -f /boot/efi/ssh-initrd/ssh_host_ed25519_key
+      # sudo chmod 600 /boot/efi/ssh-initrd/ssh_host_ed25519_key
+      # sudo chown root:root /boot/efi/ssh-initrd/ssh_host_ed25519_key
+      hostKeys = [
+        "/boot/efi/ssh-initrd/ssh_host_ed25519_key"
+      ];
+
+      # Use a static key
+      # authorizedKeys = [
+      #   ''command="systemctl start unlock-luks.service" ssh-ed25519 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA user@host''
+      # ];
+
+      authorizedKeys = with lib;
+        concatLists (
+          mapAttrsToList (
+            name: user: let
+              keys = user.openssh.authorizedKeys.keys or [];
+            in
+              if elem "wheel" user.extraGroups
+              then map (key: ''command="systemctl start unlock-luks.service" ${key}'') keys
+              else []
+          )
+          config.users.users
+        );
+    };
+  };
+
   # Unlock LUKS device
   boot.initrd.luks.devices.cryptroot = {
     device = "/dev/nvme0n1p2";
-    preLVM = false; # no LVM
+    # preLVM = false; # no LVM (default value is true, when this is false it will prompt right away for password)
   };
 
   # File systems and Btrfs subvolumes
