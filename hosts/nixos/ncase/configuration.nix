@@ -184,12 +184,6 @@ in {
     };
   };
 
-  # services.owncast = {
-  #   enable = true;
-  #   port = 8081;
-  #   openFirewall = true;
-  # };
-
   # Closed source driver
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -254,43 +248,6 @@ in {
 
       # nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
       # https://github.com/NixOS/nixpkgs/commit/7c810fab6d18f9ee3be8113222b95cc2aa5e643d
-
-      # Special config to load the latest (535 or 550) driver for the support of the 4070 SUPER
-      # package =
-      # Example how to patch driver
-      # let
-      # rcu_patch = pkgs.fetchpatch {
-      #   url = "https://github.com/gentoo/gentoo/raw/c64caf53/x11-drivers/nvidia-drivers/files/nvidia-drivers-470.223.02-gpl-pfn_valid.patch";
-      #   hash = "sha256-eZiQQp2S/asE7MfGvfe6dA/kdCvek9SYa/FFGp24dVg=";
-      # };
-      # in
-      # Pin to specific working driver until gamescope works well with 550 series
-      # config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      #   version = "550.67";
-      #   sha256_64bit = "sha256-mSAaCccc/w/QJh6w8Mva0oLrqB+cOSO1YMz1Se/32uI=";
-      #   sha256_aarch64 = "sha256-+UuK0UniAsndN15VDb/xopjkdlc6ZGk5LIm/GNs5ivA=";
-      #   openSha256 = "sha256-M/1qAQxTm61bznAtCoNQXICfThh3hLqfd0s1n1BFj2A=";
-      #   settingsSha256 = "sha256-FUEwXpeUMH1DYH77/t76wF1UslkcW721x9BHasaRUaM=";
-      #   persistencedSha256 = "sha256-ojHbmSAOYl3lOi2X6HOBlokTXhTCK6VNsH6+xfGQsyo=";
-
-      # Stable with games
-      # version = "535.154.05";
-      # sha256_64bit = "sha256-fpUGXKprgt6SYRDxSCemGXLrEsIA6GOinp+0eGbqqJg=";
-      # sha256_aarch64 = "sha256-G0/GiObf/BZMkzzET8HQjdIcvCSqB1uhsinro2HLK9k=";
-      # openSha256 = "sha256-wvRdHguGLxS0mR06P5Qi++pDJBCF8pJ8hr4T8O6TJIo=";
-      # settingsSha256 = "sha256-9wqoDEWY4I7weWW05F4igj1Gj9wjHsREFMztfEmqm10=";
-      # persistencedSha256 = "sha256-d0Q3Lk80JqkS1B54Mahu2yY/WocOqFFbZVBh+ToGhaE=";
-
-      # Unstable with gamescope
-      #version = "550.40.07";
-      #sha256_64bit = "sha256-KYk2xye37v7ZW7h+uNJM/u8fNf7KyGTZjiaU03dJpK0=";
-      #sha256_aarch64 = "sha256-AV7KgRXYaQGBFl7zuRcfnTGr8rS5n13nGUIe3mJTXb4=";
-      #openSha256 = "sha256-mRUTEWVsbjq+psVe+kAT6MjyZuLkG2yRDxCMvDJRL1I=";
-      #settingsSha256 = "sha256-c30AQa4g4a1EHmaEu1yc05oqY01y+IusbBuq+P6rMCs=";
-      #persistencedSha256 = "sha256-11tLSY8uUIl4X/roNnxf5yS2PQvHvoNjnd2CB67e870=";
-
-      # patches = [rcu_patch];
-      # };
     };
   };
 
@@ -300,94 +257,13 @@ in {
     extraOptions = "experimental-features = nix-command flakes";
   };
 
-  # sops.secrets."postgres/gitea_dbpass" = {
-  #   sopsFile = ../../../.secrets/postgres.yaml;
-  #   owner = config.services.gitea.user;
-  # };
-
   sops.defaultSopsFormat = "yaml";
   sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
 
-  # services.gitea = {
-  #   enable = false; # Enable Gitea
-  #   appName = "Gitea"; # Give the site a name
-  #   database = {
-  #     type = "postgres"; # Database type
-  #     passwordFile = config.sops.secrets."postgres/gitea_dbpass".path;
-  #   };
-  #   settings.server.DOMAIN = "gitea.c4er.com"; # Domain name
-  #   settings.server.ROOT_URL = "https://gitea.c4er.com/"; # Root web URL
-  #   settings.server.HTTP_PORT = 3001;
-  # };
-
-  # services.postgresql = {
-  #   enable = true;
-  #   ensureDatabases = [config.services.gitea.user];
-  #   ensureUsers = [
-  #     {
-  #       name = config.services.gitea.database.user;
-
-  #       # trace: warning:
-  #       #       `services.postgresql.ensureUsers.*.ensurePermissions` is used in your expressions,
-  #       #       this option is known to be broken with newer PostgreSQL versions,
-  #       #       consider migrating to `services.postgresql.ensureUsers.*.ensureDBOwnership` or
-  #       #       consult the release notes or manual for more migration guidelines.
-
-  #       #       This option will be removed in NixOS 24.05 unless it sees significant
-  #       #       maintenance improvements.
-
-  #       # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
-  #       # using ensureDBOwnership instead of older command above
-  #       ensureDBOwnership = true;
-  #     }
-  #   ];
-  #   authentication = pkgs.lib.mkOverride 10 ''
-  #     #type database  DBuser  auth-method
-  #     local all       all     trust
-  #   '';
-  # };
-
-  # Add Kernel patch for Line6 TonePort UX1
-  # To us 24-bit audio 48000hz audio as confirmed by Line6 support
-  # Source: https://www.reddit.com/r/linuxaudio/comments/blun53/anyone_know_good_settings_for_jack_with_line_6/
-  # Credit: goes to /u/wolfgothmog and myself to update their work
-  # to be compatible with latest Kernel which at this time is 6.1.28
-  # as toneport.c had some changes since that post.
-  # I'm using ProSonus now but keeping this around if I need to ever switch back and for reference
-  # boot.kernelPatches = [
-  #   {
-  #     name = "toneport-patch";
-  #     patch = ../../../modules/kernel/toneport.patch;
-  #   }
-  # ];
-
-  # Disable waybar for now since not using to speed up build times
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
-  #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-  #     });
-  #   })
-  # ];
-
-  # programs.kdeconnect.enable = true;
   programs.niri.enable = true;
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
-
-  # Gamescope overrides (fails to build but leaving as example for later versions)
-  # nixpkgs.config.packageOverrides = pkgs.gamescope.overrideAttrs (_: oldAttrs: {
-  #   src = pkgs.fetchFromGitHub {
-  #     owner = "ValveSoftware";
-  #     repo = "gamescope";
-  #     rev = "ee0143a8792b03cd64e3f29b074b299c498d14af";
-  #     fetchSubmodules = true;
-  #     hash = "sha256-ZTlJeFf0EZfeHGoEGQSewxdhU2x5gP6MureY24kZuJk=";
-  #   };
-
-  #   buildInputs = oldAttrs.buildInputs ++ [pkgs.libdecor];
-  # });
 
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
@@ -430,8 +306,6 @@ in {
   };
 
   boot = {
-    # binfmt.emulatedSystems = ["aarch64-linux"];
-
     # Bootloader.
     loader.timeout = 5;
     # loader.systemd-boot.enable = true;
@@ -459,11 +333,6 @@ in {
   services.xserver.enable = true;
   programs.xwayland.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.displayManager.gdm.wayland = true;
-  #services.xserver.desktopManager.gnome.enable = true;
-
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -477,10 +346,6 @@ in {
     };
   };
   services.displayManager.defaultSession = "niri";
-
-  # services.desktopManager.plasma6.enable = true;
-  # services.displayManager.defaultSession = "plasma";
-  # services.desktopManager.pantheon.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
