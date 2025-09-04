@@ -1,0 +1,705 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+{
+  config,
+  lib,
+  user,
+  system,
+  nixpkgs,
+  ...
+}: let
+  hostname = "nixos";
+
+  pkgs = import nixpkgs {
+    config.allowUnfree = true;
+    system = "${system}";
+    overlays = [
+      (import ../../../overlay/overlay.nix)
+    ];
+  };
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    # ./hardware-configuration.nix
+    # ./udev.nix
+    # ../../../modules/airplay/uxplay.nix
+    # ../../../modules/DE/xremap.nix
+    ../../../modules/editors/arduino.nix
+  ];
+
+  home-manager = {
+    backupFileExtension = "hm-backup";
+    extraSpecialArgs = {inherit pkgs;};
+    users."${user}" = {
+      imports = [
+        ../gaming/nixos-packages.nix
+        ../../../modules/common.nix
+        ../../../modules/common-linux.nix
+        ../../../modules/common-linux-gui.nix
+        ../../../modules/shell/git.nix
+        ../../../modules/rust.nix
+        # ../../../modules/DE/rofi.nix
+        # ../../modules/DE/waybar.nix
+      ];
+    };
+  };
+  security.sudo.enable = true;
+  security.sudo.wheelNeedsPassword = false;
+  programs.fish.enable = true;
+  programs.neovim.enable = true;
+  #
+  # Enable systemd-boot for EFI
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  # Unlock LUKS device
+  boot.initrd.luks.devices.cryptroot = {
+    device = "/dev/nvme0n1p2";
+    preLVM = false; # no LVM
+  };
+
+  # File systems and Btrfs subvolumes
+  fileSystems."/" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [
+      "subvol=@"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+  fileSystems."/home" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [
+      "subvol=@home"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+  fileSystems."/persist" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [
+      "subvol=@persist"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+  fileSystems."/nix" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [
+      "subvol=@nix"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+  fileSystems."/var/log" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [
+      "subvol=@varlog"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+  fileSystems."/boot/efi" = {
+    # device = "/dev/nvme0n1p1";
+    device = "/dev/disk/by-uuid/45F4-CD57";
+    fsType = "vfat";
+  };
+
+  # Setup swapfile inside swap subvolume
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      # Must be inside mounted /swap subvolume
+      size = 8192; # size in MB
+    }
+  ];
+
+  # Impermanence settings
+  # Mount /tmp and /var as tmpfs to reset on reboot
+  fileSystems."/tmp".device = "tmpfs";
+  fileSystems."/tmp".fsType = "tmpfs";
+
+  fileSystems."/var".device = "tmpfs";
+  fileSystems."/var".fsType = "tmpfs";
+
+  # Persist directory is mounted separately to save user data
+  # This aligns with the impermanence model
+  environment.persistence."/nix/persist/system" = {
+    hideMounts = false;
+    directories = [
+      "/var/lib/bluetooth"
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+      "/var/lib/systemd/timers"
+      "/etc/NetworkManager/system-connections"
+    ];
+    files = [
+      "/etc/machine-id"
+      {file = "/etc/nix/id_rsa";}
+    ];
+  };
+
+  environment.persistence."/nix/persist/home" = {
+    hideMounts = true;
+    directories = [
+      "/matt"
+    ];
+    files = [];
+  };
+
+  # Enable zstd compression by default
+  boot.kernelParams = ["zstd.enabled=1"];
+
+  # Networking, users, etc., adjust as needed
+  users.users.matt = {
+    isNormalUser = true;
+    description = "matt";
+    extraGroups = ["wheel"];
+    packages = [
+      pkgs.neovim
+      # pkgs.helix
+      pkgs.git
+    ];
+  };
+
+  system.autoUpgrade.enable = false;
+  # services.blueman.enable = true;
+  services.desktopManager.cosmic.enable = true;
+  # services.displayManager.cosmic-greeter.enable = true;
+  # services.geoclue2.enable = false;
+
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
+  # services.owncast = {
+  #   enable = true;
+  #   port = 8081;
+  #   openFirewall = true;
+  # };
+
+  # Closed source driver
+  services.xserver.videoDrivers = ["nvidia"];
+
+  # Use open source driver
+  # services.xserver.videoDrivers = ["nouveau"];
+  # boot.blacklistedKernelModules = ["nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset"];
+
+  services.flatpak.enable = true;
+
+  # environment.etc."modprobe.d/nouveau.conf".text = ''
+  # options nouveau modeset=1
+  # '';
+
+  hardware = {
+    bluetooth.enable = true; # enables support for Bluetooth
+    bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
+    graphics.enable = true;
+    graphics.enable32Bit = true;
+
+    # graphics.extraPackages = with pkgs; [
+    # Add packages needed for Nouveau acceleration here
+    # For example, Mesa for OpenGL:
+    # mesa
+    # mesa.drivers
+    # ];
+
+    # Nvidia
+    nvidia = {
+      # https://wiki.nixos.org/wiki/NVIDIA
+      open = true; # use nvidia driver switch this to true to use nouveau open source driver
+      nvidiaSettings = true;
+      nvidiaPersistenced = false;
+      modesetting.enable = true;
+
+      # https://github.com/NixOS/nixpkgs/commits/master/pkgs/os-specific/linux/nvidia-x11
+
+      # https://github.com/NixOS/nixpkgs/blob/d0797a04b81caeae77bcff10a9dde78bc17f5661/pkgs/os-specific/linux/nvidia-x11/default.nix#L48-L77
+      # package = config.boot.kernelPackages.nvidiaPackages.beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
+
+      # persistencedSha256 = lib.fakeSha256;
+      #
+      # nvidia.package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      #     version = "570.86.16";
+      #     sha256_64bit = "sha256-RWPqS7ZUJH9JEAWlfHLGdqrNlavhaR1xMyzs8lJhy9U=";
+      #     openSha256 = "sha256-DuVNA63+pJ8IB7Tw2gM4HbwlOh1bcDg2AN2mbEU9VPE=";
+      #     settingsSha256 = "sha256-9rtqh64TyhDF5fFAYiWl3oDHzKJqyOW3abpcf2iNRT8=";
+      #     persistencedSha256 = "sha256-3mp9X/oV8o2TH9720NnoXROxQ4g98nNee+DucXpQy3w=";
+      # };
+
+      # Doesn't boot with kde plasma6 on 6.11.5 kernel version
+      # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      #   version = "555.58.02";
+      #   sha256_64bit = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
+      #   sha256_aarch64 = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
+      #   openSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+      #   settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+      #   persistencedSha256 = "sha256-a1D7ZZmcKFWfPjjH1REqPM5j/YLWKnbkP9qfRyIyxAw=";
+      # };
+
+      # nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
+      # https://github.com/NixOS/nixpkgs/commit/7c810fab6d18f9ee3be8113222b95cc2aa5e643d
+
+      # Special config to load the latest (535 or 550) driver for the support of the 4070 SUPER
+      # package =
+      # Example how to patch driver
+      # let
+      # rcu_patch = pkgs.fetchpatch {
+      #   url = "https://github.com/gentoo/gentoo/raw/c64caf53/x11-drivers/nvidia-drivers/files/nvidia-drivers-470.223.02-gpl-pfn_valid.patch";
+      #   hash = "sha256-eZiQQp2S/asE7MfGvfe6dA/kdCvek9SYa/FFGp24dVg=";
+      # };
+      # in
+      # Pin to specific working driver until gamescope works well with 550 series
+      # config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      #   version = "550.67";
+      #   sha256_64bit = "sha256-mSAaCccc/w/QJh6w8Mva0oLrqB+cOSO1YMz1Se/32uI=";
+      #   sha256_aarch64 = "sha256-+UuK0UniAsndN15VDb/xopjkdlc6ZGk5LIm/GNs5ivA=";
+      #   openSha256 = "sha256-M/1qAQxTm61bznAtCoNQXICfThh3hLqfd0s1n1BFj2A=";
+      #   settingsSha256 = "sha256-FUEwXpeUMH1DYH77/t76wF1UslkcW721x9BHasaRUaM=";
+      #   persistencedSha256 = "sha256-ojHbmSAOYl3lOi2X6HOBlokTXhTCK6VNsH6+xfGQsyo=";
+
+      # Stable with games
+      # version = "535.154.05";
+      # sha256_64bit = "sha256-fpUGXKprgt6SYRDxSCemGXLrEsIA6GOinp+0eGbqqJg=";
+      # sha256_aarch64 = "sha256-G0/GiObf/BZMkzzET8HQjdIcvCSqB1uhsinro2HLK9k=";
+      # openSha256 = "sha256-wvRdHguGLxS0mR06P5Qi++pDJBCF8pJ8hr4T8O6TJIo=";
+      # settingsSha256 = "sha256-9wqoDEWY4I7weWW05F4igj1Gj9wjHsREFMztfEmqm10=";
+      # persistencedSha256 = "sha256-d0Q3Lk80JqkS1B54Mahu2yY/WocOqFFbZVBh+ToGhaE=";
+
+      # Unstable with gamescope
+      #version = "550.40.07";
+      #sha256_64bit = "sha256-KYk2xye37v7ZW7h+uNJM/u8fNf7KyGTZjiaU03dJpK0=";
+      #sha256_aarch64 = "sha256-AV7KgRXYaQGBFl7zuRcfnTGr8rS5n13nGUIe3mJTXb4=";
+      #openSha256 = "sha256-mRUTEWVsbjq+psVe+kAT6MjyZuLkG2yRDxCMvDJRL1I=";
+      #settingsSha256 = "sha256-c30AQa4g4a1EHmaEu1yc05oqY01y+IusbBuq+P6rMCs=";
+      #persistencedSha256 = "sha256-11tLSY8uUIl4X/roNnxf5yS2PQvHvoNjnd2CB67e870=";
+
+      # patches = [rcu_patch];
+      # };
+    };
+  };
+
+  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    package = pkgs.nixVersions.latest;
+    extraOptions = "experimental-features = nix-command flakes";
+  };
+
+  # sops.secrets."postgres/gitea_dbpass" = {
+  #   sopsFile = ../../../.secrets/postgres.yaml;
+  #   owner = config.services.gitea.user;
+  # };
+
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
+
+  # services.gitea = {
+  #   enable = false; # Enable Gitea
+  #   appName = "Gitea"; # Give the site a name
+  #   database = {
+  #     type = "postgres"; # Database type
+  #     passwordFile = config.sops.secrets."postgres/gitea_dbpass".path;
+  #   };
+  #   settings.server.DOMAIN = "gitea.c4er.com"; # Domain name
+  #   settings.server.ROOT_URL = "https://gitea.c4er.com/"; # Root web URL
+  #   settings.server.HTTP_PORT = 3001;
+  # };
+
+  # services.postgresql = {
+  #   enable = true;
+  #   ensureDatabases = [config.services.gitea.user];
+  #   ensureUsers = [
+  #     {
+  #       name = config.services.gitea.database.user;
+
+  #       # trace: warning:
+  #       #       `services.postgresql.ensureUsers.*.ensurePermissions` is used in your expressions,
+  #       #       this option is known to be broken with newer PostgreSQL versions,
+  #       #       consider migrating to `services.postgresql.ensureUsers.*.ensureDBOwnership` or
+  #       #       consult the release notes or manual for more migration guidelines.
+
+  #       #       This option will be removed in NixOS 24.05 unless it sees significant
+  #       #       maintenance improvements.
+
+  #       # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
+  #       # using ensureDBOwnership instead of older command above
+  #       ensureDBOwnership = true;
+  #     }
+  #   ];
+  #   authentication = pkgs.lib.mkOverride 10 ''
+  #     #type database  DBuser  auth-method
+  #     local all       all     trust
+  #   '';
+  # };
+
+  # Add Kernel patch for Line6 TonePort UX1
+  # To us 24-bit audio 48000hz audio as confirmed by Line6 support
+  # Source: https://www.reddit.com/r/linuxaudio/comments/blun53/anyone_know_good_settings_for_jack_with_line_6/
+  # Credit: goes to /u/wolfgothmog and myself to update their work
+  # to be compatible with latest Kernel which at this time is 6.1.28
+  # as toneport.c had some changes since that post.
+  # I'm using ProSonus now but keeping this around if I need to ever switch back and for reference
+  # boot.kernelPatches = [
+  #   {
+  #     name = "toneport-patch";
+  #     patch = ../../../modules/kernel/toneport.patch;
+  #   }
+  # ];
+
+  # Disable waybar for now since not using to speed up build times
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
+  #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  #     });
+  #   })
+  # ];
+
+  # programs.kdeconnect.enable = true;
+  programs.niri.enable = true;
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
+
+  # Gamescope overrides (fails to build but leaving as example for later versions)
+  # nixpkgs.config.packageOverrides = pkgs.gamescope.overrideAttrs (_: oldAttrs: {
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "ValveSoftware";
+  #     repo = "gamescope";
+  #     rev = "ee0143a8792b03cd64e3f29b074b299c498d14af";
+  #     fetchSubmodules = true;
+  #     hash = "sha256-ZTlJeFf0EZfeHGoEGQSewxdhU2x5gP6MureY24kZuJk=";
+  #   };
+
+  #   buildInputs = oldAttrs.buildInputs ++ [pkgs.libdecor];
+  # });
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    steam = pkgs.steam.override {
+      extraPkgs = pkgs:
+        with pkgs; [
+          xorg.libXcursor
+          xorg.libXi
+          xorg.libXinerama
+          xorg.libXScrnSaver
+          libpng
+          libpulseaudio
+          libvorbis
+          stdenv.cc.cc.lib
+          libkrb5
+          keyutils
+          #cmake
+          #pkg-config
+          #libevdev
+          # pkgs.xorg.libX11
+          # gcc
+        ];
+    };
+    #    environment.systemPackages = [ pkgs.gamescope pkgs.mangohud ];
+  };
+
+  console = {
+    #font = "ter-132n";
+    #packages = with pkgs; [ terminus_font ];
+    keyMap = "us";
+  };
+
+  fonts.packages = with pkgs; [meslo-lgs-nf];
+  services.kmscon = {
+    enable = true;
+    hwRender = false;
+    extraConfig = ''
+      font-name=MesloLGS NF
+      font-size=14
+    '';
+  };
+
+  boot = {
+    # binfmt.emulatedSystems = ["aarch64-linux"];
+
+    # Bootloader.
+    loader.timeout = 5;
+    # loader.systemd-boot.enable = true;
+    loader.systemd-boot.consoleMode = "max";
+    loader.systemd-boot.configurationLimit = 10;
+    # loader.efi.canTouchEfiVariables = true;
+    # loader.efi.efiSysMountPoint = "/boot/efi";
+
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    # kernelParams = ["quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail"];
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
+
+  # Set your time zone.
+  time.timeZone = "America/Los_Angeles";
+  time.hardwareClockInLocalTime = false;
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  programs.partition-manager.enable = true;
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  programs.xwayland.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.gdm.wayland = true;
+  #services.xserver.desktopManager.gnome.enable = true;
+
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "catppuccin-mocha";
+    package = pkgs.kdePackages.sddm;
+    settings = {
+      Users = {
+        RememberLastUser = false;
+        LastUser = "matt";
+      };
+    };
+  };
+  services.displayManager.defaultSession = "niri";
+
+  # services.desktopManager.plasma6.enable = true;
+  # services.displayManager.defaultSession = "plasma";
+  # services.desktopManager.pantheon.enable = true;
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+    # xkbVariant = "colemak_dh,";
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = false;
+
+  # Enable sound with pipewire.
+  # sound.enable = true;
+  services.pulseaudio.enable = false;
+  security.polkit.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # users.defaultUserShell = pkgs.fish;
+  # users.users.${user} = {
+  #   isNormalUser = true;
+  #   extraGroups = ["networkmanager" "wheel"];
+  # };
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
+  environment.systemPackages = with pkgs; [
+    pantheon.pantheon-agent-polkit
+    efibootmgr
+    dive
+    s-tui
+    fuzzel
+    podman-tui
+    (pkgs.catppuccin-sddm.override
+      {
+        flavor = "mocha";
+        font = "Noto Sans";
+        fontSize = "12";
+        # background = "${./wallpaper.png}";
+        loginBackground = true;
+      })
+    (pkgs.btop.overrideAttrs (oldAttrs: {
+      cmakeFlags =
+        (oldAttrs.cmakeFlags or [])
+        ++ [
+          # "-DBTOP_RSMI_STATIC=ON"
+          "-DBTOP_GPU=ON"
+        ];
+    }))
+    docker-compose
+    bitwarden
+    blender
+    devbox
+    distrobox
+    # cage
+    firefox
+    liquidctl # control kraken
+    gamescope
+    glxinfo
+    killall
+    lm_sensors
+    mangohud
+    #neovim
+    nodejs
+    sops
+    # prusa-slicer
+    sublime-merge
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # waybar
+    waypipe
+    swaybg
+    mako
+    xwayland-satellite
+    vlc
+
+    obs-studio
+    # shipwright
+    # _2ship2harkinian
+
+    # Wine for Ableton (Using Steam Proton instead)
+    # wine64
+    # wine
+    # winetricks
+
+    # sunshine
+  ];
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  systemd.services.nebula = {
+    enable = false;
+    description = "nebula";
+    serviceConfig = {
+      ExecStart = "${pkgs.nebula}/bin/nebula -config /etc/nebula/config.yaml";
+      Type = "simple";
+      Restart = "always";
+      RestartSec = 1;
+    };
+    wantedBy = ["multi-user.target"];
+  };
+
+  systemd.services.kraken = {
+    enable = true;
+    description = "liquidctl (kraken aio control)";
+    script = ''
+      ${pkgs.liquidctl}/bin/liquidctl initialize all
+      ${pkgs.liquidctl}/bin/liquidctl --bus hid --address /dev/hidraw1 set ring color fading FF0000 FF0000 # set color to red
+    '';
+    wantedBy = ["multi-user.target"];
+  };
+
+  networking = {
+    hostName = hostname; # Define your hostname.
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+    # Enable networking
+    networkmanager.enable = true;
+
+    extraHosts = ''
+      127.0.0.1 gaming.dev.c4er.com
+      127.0.0.1 rewind.dev.c4er.com
+    '';
+
+    # Firewall ports only for Nebula VPN users
+    firewall.interfaces."nebula1".allowedTCPPorts = [
+      2015
+      # 34197 # Factorio
+      # 27100 # Perfect Dark
+    ];
+
+    # Firewall ports only for Nebula VPN users
+    firewall.interfaces."nebula1".allowedUDPPorts = [
+      # 34197 # Factorio
+      # 27100 # Perfect Dark
+    ];
+
+    firewall.interfaces."nebula1".allowedTCPPortRanges = [
+      # KDE Connect
+      # {
+      #   from = 1714;
+      #   to = 1764;
+      # }
+    ];
+    firewall.interfaces."nebula1".allowedUDPPortRanges = [
+      # KDE Connect
+      # {
+      #   from = 1714;
+      #   to = 1764;
+      # }
+    ];
+
+    # Open ports in the firewall.
+    firewall.allowedTCPPortRanges = [
+      # KDE Connect
+      # {
+      #   from = 1714;
+      #   to = 1764;
+      # }
+    ];
+
+    firewall.allowedTCPPorts = [
+      2015
+      # sunshine
+      # 47984
+      # 47989
+      # 48010
+    ];
+
+    firewall.allowedUDPPortRanges = [
+      # KDE Connect
+      # {
+      #   from = 1714;
+      #   to = 1764;
+      # }
+    ];
+
+    firewall.allowedUDPPorts = [
+      # sunshine
+      # 47998
+      # 47999
+      # 48000
+    ];
+    # Or disable the firewall altogether.
+    # networking.firewall.enable = false;
+  };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "25.11"; # Did you read the comment?
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+}
