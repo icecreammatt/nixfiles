@@ -147,7 +147,7 @@ in {
   };
 
   environment.persistence."/nix/persist/home" = {
-    hideMounts = true;
+    hideMounts = false;
     directories = [
       "/matt"
     ];
