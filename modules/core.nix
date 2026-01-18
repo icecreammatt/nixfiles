@@ -21,7 +21,7 @@ in {
     curl
     delta # diff dool
     direnv # auto switch to using nix flake on directory nav
-    du-dust # space visualizer
+    dust # space visualizer
     duf # du alternative
     eza # ls alternative
     fd # find alternative

@@ -15,7 +15,7 @@ in {
     caddy # web server
     # clang-tools
     dive # A tool for exploring each layer in a docker image
-    dogdns # Command-line DNS client
+    # dogdns # Command-line DNS client (unmaintained)
     # ffmpeg_6-full
     gcc
     gettext

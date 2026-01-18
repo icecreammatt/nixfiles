@@ -23,7 +23,7 @@ in {
     # ../../../modules/DE/kde/plasma.nix
     ../../../modules/apps/vaultwarden.nix
     ../../../modules/apps/navidrone.nix
-    ../../../modules/ci/hydra.nix
+    # ../../../modules/ci/hydra.nix
     ./caddy.nix
     ./kopia.nix
     ./logging.nix
@@ -391,7 +391,7 @@ ALLOWED_HOST_LIST=woodpecker.c4er.com
     nebula
     nil
     nodejs
-    pocketbase
+    # pocketbase
     restic
     uptime-kuma
     sops
