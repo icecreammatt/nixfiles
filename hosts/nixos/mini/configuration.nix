@@ -172,13 +172,13 @@ in {
         # restartPolicy = "always";
       };
 
-      metube = {
-        ports = ["127.0.0.1:8081:8081"];
-        image = "ghcr.io/alexta69/metube:latest";
-        volumes = [
-          "/home/${user}/downloads/metube:/downloads"
-        ];
-      };
+      # metube = {
+      #   ports = ["127.0.0.1:8081:8081"];
+      #   image = "ghcr.io/alexta69/metube:latest";
+      #   volumes = [
+      #     "/home/${user}/downloads/metube:/downloads"
+      #   ];
+      # };
 
       excalidraw = {
         ports = ["127.0.0.1:8085:80"];
