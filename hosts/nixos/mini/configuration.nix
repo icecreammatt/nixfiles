@@ -224,6 +224,13 @@ in {
     wantedBy = ["multi-user.target"];
   };
 
+  services.influxdb2 = {
+    enable = true;
+    settings = {
+      http-bind-address = ":8089";
+    };
+  };
+
   services.k3s.enable = false;
   services.k3s.role = "server";
   # services.k3s.extraFlags = toString [
